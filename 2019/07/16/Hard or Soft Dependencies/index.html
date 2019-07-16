@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    Hello World |
+    Hard &amp; Soft Dependencies |
     
     Solito</title>
   
@@ -25,7 +25,7 @@
 <body>
 <main class="content">
   <section class="outer">
-  <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  <article id="post-Hard or Soft Dependencies" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -33,7 +33,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Hard &amp; Soft Dependencies
     </h1>
   
 
@@ -43,8 +43,8 @@
 
     
       <div class="article-meta">
-        <a href="/2019/07/14/hello-world/" class="article-date">
-  <time datetime="2019-07-14T06:56:14.680Z" itemprop="datePublished">2019-07-14</time>
+        <a href="/2019/07/16/Hard or Soft Dependencies/" class="article-date">
+  <time datetime="2019-07-16T08:37:06.508Z" itemprop="datePublished">2019-07-16</time>
 </a>
         
       </div>
@@ -56,24 +56,25 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>ref: <a href="https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency" target="_blank" rel="noopener">https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency</a></p>
+<h2 id="Hard-Dependency"><a href="#Hard-Dependency" class="headerlink" title="Hard Dependency"></a>Hard Dependency</h2><p>a module <strong>cannot</strong> function without the other modules on which it depends</p>
+<ul>
+<li>The module contains code that directly uses logic from another module (<strong>instances, class constants, static methods, public class properties, interfaces and traits</strong>).</li>
+<li>The module contains strings that include <strong>class names, methods names, class constants, class properties, interfaces, and traits</strong> from another module.</li>
+<li>The module de-serializes an <strong>object declared in another module</strong>.</li>
+<li>The module uses or modifies the <strong>database tables used by another module</strong>.</li>
+</ul>
+<h2 id="Soft-Dependency"><a href="#Soft-Dependency" class="headerlink" title="Soft Dependency"></a>Soft Dependency</h2><p>a module <strong>can</strong> function without the other modules on which it depends</p>
+<ul>
+<li>The module directly <strong>checks</strong> another module’s availability.</li>
+<li>The module <strong>extends</strong> another module’s configuration.</li>
+<li>The module extends another module’s layout.</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/14/hello-world/" data-id="cjy5unmar0002vghr58e5t98x"
+      <a data-url="https://visionary-s.github.io/2019/07/16/Hard or Soft Dependencies/" data-id="cjy5v0oqv0000hkhrqrlzbdfb"
          class="article-share-link">Share</a>
       
     </footer>
@@ -84,15 +85,20 @@
     
   <nav class="article-nav">
     
-      <a href="/2019/07/14/test/" class="article-nav-link">
+      <a href="/2019/07/16/require js - define模块定义/" class="article-nav-link">
         <strong class="article-nav-caption">Newer posts</strong>
         <div class="article-nav-title">
           
-            A test for generating new post
+            Require JS - define模块定义
           
         </div>
       </a>
     
+    
+      <a href="/2019/07/16/CDT/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">CDT Learning</div>
+      </a>
     
   </nav>
 
