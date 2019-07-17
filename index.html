@@ -43,7 +43,7 @@
     <div class="video-inner text-center text-white">
       <h1><a href="/">Solito</a></h1>
       <p>Buring Silence in SHA.</p>
-      <div><img src="/images/hexo-inverted.svg" class="brand" alt="Solito"></div>
+      <div><img src="/images/ming-inverted.svg" class="brand" alt="Solito"></div>
     </div>
     <div class="video-learn-more">
       <a class="anchor" href="#landingpage"><i class="fe fe-mouse"></i></a>
@@ -58,6 +58,219 @@
     <h1 class="page-type-title"></h1>
 
     
+      
+        <article id="post-cdt-app-lifecycle" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/07/17/cdt-app-lifecycle/">CDT App Lifecycle</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/07/17/cdt-app-lifecycle/" class="article-date">
+  <time datetime="2019-07-17T09:26:04.020Z" itemprop="datePublished">2019-07-17</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>Apps that run in the container have their lifecycle managed.<br>The container checks for various functions implemented by the app. If those functions are implemented, the container will execute them accordingly. The following functions are supported by the container:</p>
+<h4 id="1-void-onStart"><a href="#1-void-onStart" class="headerlink" title="1. void onStart()"></a>1. void onStart()</h4><p>This method is called when the app is first instantiated in the current tab for the first time.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onStart: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-void-onPause"><a href="#2-void-onPause" class="headerlink" title="2. void onPause()"></a>2. void onPause()</h4><p>This method is called when the user has left your app to view a different app.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onPause: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-void-onResume"><a href="#3-void-onResume" class="headerlink" title="3. void onResume()"></a>3. void onResume()</h4><p>This method is called when the user has navigated away from the app to a different app, and has navigated back.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onResume: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2019/07/17/cdt-app-lifecycle/" data-id="cjy744zuh0009z8hrunkoa0dc"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDT/">CDT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev-env/">dev-env</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-JS对象引用" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/07/17/JS对象引用/">JS对象引用</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/07/17/JS对象引用/" class="article-date">
+  <time datetime="2019-07-17T08:01:41.830Z" itemprop="datePublished">2019-07-17</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/basic/">basic</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>如果不同的变量名指向同一个对象，那么它们都是这个对象的引用，也就是说指向同一个内存地址。修改其中一个变量，会影响到其他所有变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> o2 = o1;</span><br><span class="line"></span><br><span class="line">o1.a = <span class="number">1</span>;</span><br><span class="line">o2.a <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line">o2.b = <span class="number">2</span>;</span><br><span class="line">o1.b <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，o1和o2指向同一个对象，因此为其中任何一个变量添加属性，另一个变量都可以读写该属性。</p>
+<p>如果取消某一个变量对于原对象的引用，不会改变已经引用过的另一个变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> o2 = o1;</span><br><span class="line"></span><br><span class="line">o1 = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(o2);    <span class="comment">// &#123;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(o1);    <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> o1); <span class="comment">// number</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，o1和o2指向同一个对象，然后o1的值变为1，这时不会对o2产生影响，o2还是指向原来的那个对象。</p>
+<p><strong><font color="red">注意：这种引用只局限于object</font></strong>,如果两个变量指向同一个原始类型的值，则变量这时都是值的拷贝。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> y = x;</span><br><span class="line"></span><br><span class="line">x = <span class="number">2</span>;</span><br><span class="line">y <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，当x的值变化后，y值不变，这就表示y和x并不是指向同一个内存地址。</p>
+<p>ref: <a href="https://wangdoc.com/javascript/types/object.html" target="_blank" rel="noopener">阮一峰</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2019/07/17/JS对象引用/" data-id="cjy744zup000fz8hrusnbcac2"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-JS-Label" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/07/17/JS-Label/">JS-Label</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/07/17/JS-Label/" class="article-date">
+  <time datetime="2019-07-17T07:20:05.786Z" itemprop="datePublished">2019-07-17</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/basic/">basic</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>标签（label），相当于定位符，用于跳转到程序的任意位置。</p>
+<ol>
+<li>配合break<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">top:  <span class="comment">// Label</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++)&#123;</span><br><span class="line">      <span class="keyword">if</span> (i === <span class="number">1</span> &amp;&amp; j === <span class="number">1</span>) <span class="keyword">break</span> top; <span class="comment">// 注意，不加引号</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'i='</span> + i + <span class="string">', j='</span> + j);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// i=0, j=0</span></span><br><span class="line"><span class="comment">// i=0, j=1</span></span><br><span class="line"><span class="comment">// i=0, j=2</span></span><br><span class="line"><span class="comment">// i=1, j=0</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>如果满足if，直接跳出双重循环。</p>
+<ol start="2">
+<li>配合continue<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">top:</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++)&#123;</span><br><span class="line">      <span class="keyword">if</span> (i === <span class="number">1</span> &amp;&amp; j === <span class="number">1</span>) <span class="keyword">continue</span> top;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'i='</span> + i + <span class="string">', j='</span> + j);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// i=0, j=0</span></span><br><span class="line"><span class="comment">// i=0, j=1</span></span><br><span class="line"><span class="comment">// i=0, j=2</span></span><br><span class="line"><span class="comment">// i=1, j=0</span></span><br><span class="line"><span class="comment">// i=2, j=0</span></span><br><span class="line"><span class="comment">// i=2, j=1</span></span><br><span class="line"><span class="comment">// i=2, j=2</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>当i=1，j=1时，跳过打印（当前内层循环）直接进行下一个外层循环（不会跳出top）</p>
+<ol start="3">
+<li>label用于跳出代码块<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">foo: &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">break</span> foo;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'本行不会输出'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>ref: <a href="https://wangdoc.com/javascript/basic/grammar.html#%E8%AF%AD%E5%8F%A5" target="_blank" rel="noopener">阮一峰</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2019/07/17/JS-Label/" data-id="cjy744zue0006z8hr4phzw9jc"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
       
         <article id="post-require js - define模块定义" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
@@ -112,6 +325,12 @@
 <h3 id="3-require-Function"><a href="#3-require-Function" class="headerlink" title="3. require Function"></a>3. require Function</h3><p>require接受module-name(id)作为唯一参数，用来获取其他模块提供的接口</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 获取模块 a 的接口</span></span><br><span class="line">  <span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'./a'</span>);</span><br><span class="line">  <span class="comment">// 调用模块 a 的方法</span></span><br><span class="line">  a.doSomething();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
+<h3 id="4-exports-Object"><a href="#4-exports-Object" class="headerlink" title="4. exports Object"></a>4. exports Object</h3><p>exports 是一个对象，用来向外提供模块接口。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 对外提供 foo 属性</span></span><br><span class="line">  exports.foo = <span class="string">'bar'</span>;</span><br><span class="line">  <span class="comment">// 对外提供 doSomething 方法</span></span><br><span class="line">  exports.doSomething = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>除了给<code>exports</code>对象增加成员，还可以使用<code>return</code>直接向外提供接口。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 通过 return 直接提供接口</span></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    foo: <span class="string">'bar'</span>,</span><br><span class="line">    doSomething: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 <h2 id="TBC"><a href="#TBC" class="headerlink" title="TBC"></a>TBC</h2><hr>
 <p>ref:  <a href="https://blog.csdn.net/cpf506497746/article/details/8832317" target="_blank" rel="noopener">https://blog.csdn.net/cpf506497746/article/details/8832317</a></p>
 <!-- - - -
@@ -149,7 +368,7 @@ define("module-name", [array-of-dependencies], module-factory-or-object);**
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/16/require js - define模块定义/" data-id="cjy6mfz7u0005fshrnf7uwrfh"
+      <a data-url="https://visionary-s.github.io/2019/07/16/require js - define模块定义/" data-id="cjy744zuj000az8hr99tjky4q"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -220,7 +439,7 @@ define("module-name", [array-of-dependencies], module-factory-or-object);**
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/16/Hard or Soft Dependencies/" data-id="cjy6mfz8n000lfshru5mgf0id"
+      <a data-url="https://visionary-s.github.io/2019/07/16/Hard or Soft Dependencies/" data-id="cjy744zub0005z8hrd1q2l8z0"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -275,13 +494,13 @@ define("module-name", [array-of-dependencies], module-factory-or-object);**
       
         <h2 id="Skeleton"><a href="#Skeleton" class="headerlink" title="Skeleton"></a>Skeleton</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">my-app/</span><br><span class="line">    .cdt                  <span class="comment"># installed lib and conf，do not modify</span></span><br><span class="line">    <span class="built_in">help</span>/                 <span class="comment"># help docs</span></span><br><span class="line">    locales/              <span class="comment"># translation files</span></span><br><span class="line">    resources/            <span class="comment"># imgs &amp; other resources that are not js files</span></span><br><span class="line">    src/                  <span class="comment"># src code. Contains only one folder (my-app)</span></span><br><span class="line">        my-app/           <span class="comment"># name = app name, fully lowercase</span></span><br><span class="line">    <span class="built_in">test</span>/                 </span><br><span class="line">        bit/              <span class="comment"># FT, API concerned only</span></span><br><span class="line">        unit/             <span class="comment"># UT</span></span><br><span class="line">    .editorconfig         <span class="comment"># coding styles，已删</span></span><br><span class="line">    .gitignore  </span><br><span class="line">    app.config.js         <span class="comment"># metadata for app</span></span><br><span class="line">    build.json            <span class="comment"># used by the build module</span></span><br><span class="line">    container.config.js   <span class="comment"># only for dev, never used in production, contains dev version of container</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="app-config-js"><a href="#app-config-js" class="headerlink" title="app.config.js"></a>app.config.js</h4><p>  app configuration file, example:<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">  define(&#123;</span><br><span class="line">    script: <span class="string">'active-alerts/ActiveAlerts'</span>, <span class="comment">// path to app, src下的脚本执行</span></span><br><span class="line">    title:  <span class="string">'Active Alerts'</span>,    <span class="comment">// app title, used in breadcrumb widget</span></span><br><span class="line">    <span class="comment">// opt</span></span><br><span class="line">    parent: <span class="string">'alert-management'</span>,</span><br><span class="line">    <span class="comment">// opt, when exe parent script will start the children</span></span><br><span class="line">    children: [              </span><br><span class="line">        &#123;<span class="attr">app</span>: <span class="string">'alerts-log'</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">app</span>: <span class="string">'alerts-settings'</span>&#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">// opt, expose app modules that can be loaded by other apps dynamically</span></span><br><span class="line">    exports: &#123;     </span><br><span class="line">        <span class="string">'active-alerts/Module1'</span>: <span class="string">'active-alerts/modules/Module1'</span>,</span><br><span class="line">        <span class="string">'active-alerts/Module2'</span>: <span class="string">'active-alerts/modules/Module2'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// i18n.locales: list of supported language</span></span><br><span class="line">    <span class="string">"i18n"</span>: &#123;   <span class="comment">// 这里可以不加引号，也可以加，上面的参数同理</span></span><br><span class="line">        <span class="string">"locales"</span>: [<span class="string">"en-us"</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>other link: <a href="https://cloud.tencent.com/developer/section/1489898" target="_blank" rel="noopener">breadcrumb widget</a></p>
+<h4 id="app-config-js"><a href="#app-config-js" class="headerlink" title="app.config.js"></a>app.config.js</h4><p>  app configuration file, example:<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">  define(&#123;</span><br><span class="line">    script: <span class="string">'active-alerts/ActiveAlerts'</span>, <span class="comment">// path to app, src下的脚本执行</span></span><br><span class="line">    title:  <span class="string">'Active Alerts'</span>,    <span class="comment">// app title, used in breadcrumb widget</span></span><br><span class="line">    <span class="comment">// opt</span></span><br><span class="line">    parent: <span class="string">'alert-management'</span>,</span><br><span class="line">    <span class="comment">// opt, when exe parent script will start the children</span></span><br><span class="line">    children: [              </span><br><span class="line">        &#123;<span class="attr">app</span>: <span class="string">'alerts-log'</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">app</span>: <span class="string">'alerts-settings'</span>&#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">// opt, expose app modules that can be loaded by other apps dynamically</span></span><br><span class="line">    exports: &#123;     </span><br><span class="line">        <span class="string">'active-alerts/Module1'</span>: <span class="string">'active-alerts/modules/Module1'</span>,</span><br><span class="line">        <span class="string">'active-alerts/Module2'</span>: <span class="string">'active-alerts/modules/Module2'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// i18n.locales: list of supported language</span></span><br><span class="line">    <span class="string">"i18n"</span>: &#123;   <span class="comment">// 这里可以不加引号，也可以加，上面的参数同理</span></span><br><span class="line">                <span class="comment">// ES6可以不加，ES5要加</span></span><br><span class="line">        <span class="string">"locales"</span>: [<span class="string">"en-us"</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>detailed folder structure: <a href="https://arm101-eiffel004.lmera.ericsson.se:8443/nexus/content/sites/tor/cdt/latest/proj_struct.html" target="_blank" rel="noopener">internal link</a><br>other link: <a href="https://cloud.tencent.com/developer/section/1489898" target="_blank" rel="noopener">breadcrumb widget</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/16/CDT/" data-id="cjy6mfz7g0000fshrr9o990t0"
+      <a data-url="https://visionary-s.github.io/2019/07/16/CDT/" data-id="cjy744zto0000z8hrmbgukiaz"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDT/">CDT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev-env/">dev-env</a></li></ul>
@@ -341,7 +560,7 @@ define("module-name", [array-of-dependencies], module-factory-or-object);**
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/15/Hexo Theme Modification/" data-id="cjy6mfz8b000ifshrstxdj6sy"
+      <a data-url="https://visionary-s.github.io/2019/07/15/Hexo Theme Modification/" data-id="cjy744zu80004z8hrqwpife0g"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -418,7 +637,7 @@ define("module-name", [array-of-dependencies], module-factory-or-object);**
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/15/Hexo cmd/" data-id="cjy6mfz7n0001fshra1394nes"
+      <a data-url="https://visionary-s.github.io/2019/07/15/Hexo cmd/" data-id="cjy744ztz0001z8hrxx5zk0x1"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -472,7 +691,7 @@ define("module-name", [array-of-dependencies], module-factory-or-object);**
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/14/test/" data-id="cjy6mfz7s0004fshrmvi76ei1"
+      <a data-url="https://visionary-s.github.io/2019/07/14/test/" data-id="cjy744zus000hz8hrbk811ilf"
          class="article-share-link">Share</a>
       
     </footer>

@@ -78,6 +78,12 @@
 <h3 id="3-require-Function"><a href="#3-require-Function" class="headerlink" title="3. require Function"></a>3. require Function</h3><p>require接受module-name(id)作为唯一参数，用来获取其他模块提供的接口</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 获取模块 a 的接口</span></span><br><span class="line">  <span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'./a'</span>);</span><br><span class="line">  <span class="comment">// 调用模块 a 的方法</span></span><br><span class="line">  a.doSomething();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
+<h3 id="4-exports-Object"><a href="#4-exports-Object" class="headerlink" title="4. exports Object"></a>4. exports Object</h3><p>exports 是一个对象，用来向外提供模块接口。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 对外提供 foo 属性</span></span><br><span class="line">  exports.foo = <span class="string">'bar'</span>;</span><br><span class="line">  <span class="comment">// 对外提供 doSomething 方法</span></span><br><span class="line">  exports.doSomething = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>除了给<code>exports</code>对象增加成员，还可以使用<code>return</code>直接向外提供接口。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 通过 return 直接提供接口</span></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    foo: <span class="string">'bar'</span>,</span><br><span class="line">    doSomething: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 <h2 id="TBC"><a href="#TBC" class="headerlink" title="TBC"></a>TBC</h2><hr>
 <p>ref:  <a href="https://blog.csdn.net/cpf506497746/article/details/8832317" target="_blank" rel="noopener">https://blog.csdn.net/cpf506497746/article/details/8832317</a></p>
 <!-- - - -
@@ -115,7 +121,7 @@ define("module-name", [array-of-dependencies], module-factory-or-object);**
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/16/require js - define模块定义/" data-id="cjy6mfz7u0005fshrnf7uwrfh"
+      <a data-url="https://visionary-s.github.io/2019/07/16/require js - define模块定义/" data-id="cjy744zuj000az8hr99tjky4q"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -127,6 +133,15 @@ define("module-name", [array-of-dependencies], module-factory-or-object);**
   
     
   <nav class="article-nav">
+    
+      <a href="/2019/07/17/JS-Label/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            JS-Label
+          
+        </div>
+      </a>
     
     
       <a href="/2019/07/16/Hard or Soft Dependencies/" class="article-nav-link">
