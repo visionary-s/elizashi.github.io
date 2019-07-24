@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    Hexo Theme Modification |
+    Post photos to Gallery |
     
     Solito</title>
   
@@ -23,7 +23,7 @@
 <body>
 <main class="content">
   <section class="outer">
-  <article id="post-Hexo Theme Modification" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  <article id="post-Post photos to Gallery" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -31,7 +31,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo Theme Modification
+      Post photos to Gallery
     </h1>
   
 
@@ -41,8 +41,8 @@
 
     
       <div class="article-meta">
-        <a href="/2019/07/15/Hexo Theme Modification/" class="article-date">
-  <time datetime="2019-07-15T11:49:19.488Z" itemprop="datePublished">2019-07-15</time>
+        <a href="/2019/07/24/Post photos to Gallery/" class="article-date">
+  <time datetime="2019-07-24T10:02:23.422Z" itemprop="datePublished">2019-07-24</time>
 </a>
         
   <div class="article-category">
@@ -58,14 +58,17 @@
       
 
       
-        <p>Modify the Theme in the following branch:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Source/themes/&lt;Theme folder name&gt;/layout/_partial/*.ejs</span><br></pre></td></tr></table></figure>
+        <h3 id="How-to-post-a-photo-to-blog-gallery"><a href="#How-to-post-a-photo-to-blog-gallery" class="headerlink" title="How to post a photo to blog gallery"></a>How to post a photo to blog gallery</h3><h4 id="1-Setup-the-gallery-page"><a href="#1-Setup-the-gallery-page" class="headerlink" title="1. Setup the gallery page:"></a>1. Setup the gallery page:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page gallery      // create <span class="string">'gallery'</span> page</span><br><span class="line"></span><br><span class="line">$ hexo new page about        // create <span class="string">'about'</span> page</span><br><span class="line">$ hexo new page tags         // <span class="string">'tags'</span> page</span><br><span class="line">$ hexo new page categories   // <span class="string">'categories'</span> page</span><br></pre></td></tr></table></figure>
 
+<h4 id="2-Find-the-index-md-and-modify-it"><a href="#2-Find-the-index-md-and-modify-it" class="headerlink" title="2. Find the index.md and modify it."></a>2. Find the index.md and modify it.</h4><p>After step 1, there will be folders named “gallery”, “about”…<br>under /source/. <br>And you can find a file named “index.md” generated automatically under these folders.<br>Open and modify the front-matter part as :</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Gallery</span><br><span class="line">albums: [</span><br><span class="line">        [<span class="string">"img_url"</span>,<span class="string">"img_caption"</span>],</span><br><span class="line">        [<span class="string">"img_url"</span>,<span class="string">"img_caption"</span>]</span><br><span class="line">        ]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 
+<p>use outer links can be a better way as internal insert of images will decrease loading speed.<br>(I haven’t find a good-way to insert as internal files, so I turned to use weibo-albums-link as alt… ).</p>
+<h4 id="same-way-to-edit-the-“about”-page"><a href="#same-way-to-edit-the-“about”-page" class="headerlink" title="same way to edit the “about” page"></a>same way to edit the “about” page</h4>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/15/Hexo Theme Modification/" data-id="cjyh3q4jg0000r0hrhy9s8amv"
+      <a data-url="https://visionary-s.github.io/2019/07/24/Post photos to Gallery/" data-id="cjyh3q4l20013r0hrztmqp9t4"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -78,19 +81,10 @@
     
   <nav class="article-nav">
     
-      <a href="/2019/07/16/CDT/" class="article-nav-link">
-        <strong class="article-nav-caption">Newer posts</strong>
-        <div class="article-nav-title">
-          
-            CDT Learning
-          
-        </div>
-      </a>
     
-    
-      <a href="/2019/07/15/Hexo cmd/" class="article-nav-link">
+      <a href="/2019/07/17/cdt-app-lifecycle/" class="article-nav-link">
         <strong class="article-nav-caption">Olde posts</strong>
-        <div class="article-nav-title">Hexo - Tools &amp; cmd used during deployment</div>
+        <div class="article-nav-title">CDT App Lifecycle</div>
       </a>
     
   </nav>
