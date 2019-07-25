@@ -94,16 +94,14 @@
       
         <h3 id="How-to-post-a-photo-to-blog-gallery"><a href="#How-to-post-a-photo-to-blog-gallery" class="headerlink" title="How to post a photo to blog gallery"></a>How to post a photo to blog gallery</h3><h4 id="1-Setup-the-gallery-page"><a href="#1-Setup-the-gallery-page" class="headerlink" title="1. Setup the gallery page:"></a>1. Setup the gallery page:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page gallery      // create <span class="string">'gallery'</span> page</span><br><span class="line"></span><br><span class="line">$ hexo new page about        // create <span class="string">'about'</span> page</span><br><span class="line">$ hexo new page tags         // <span class="string">'tags'</span> page</span><br><span class="line">$ hexo new page categories   // <span class="string">'categories'</span> page</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-Find-the-index-md-and-modify-it"><a href="#2-Find-the-index-md-and-modify-it" class="headerlink" title="2. Find the index.md and modify it."></a>2. Find the index.md and modify it.</h4><p>After step 1, there will be folders named “gallery”, “about”…<br>under /source/.<br>&lt;!−− more −−&gt;<br>And you can find a file named “index.md” generated automatically under these folders.<br>Open and modify the front-matter part as :</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Gallery</span><br><span class="line">albums: [</span><br><span class="line">        [<span class="string">"img_url"</span>,<span class="string">"img_caption"</span>],</span><br><span class="line">        [<span class="string">"img_url"</span>,<span class="string">"img_caption"</span>]</span><br><span class="line">        ]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<p>use outer links can be a better way as internal insert of images will decrease loading speed.<br>(I haven’t find a good-way to insert as internal files, so I turned to use weibo-albums-link as alt… ).</p>
-<p>There was something wrong that photos didn’t display successfully in mobile mode, this problem is to be fixed.<br>Guess it is due to the links format.</p>
-<h4 id="same-way-to-edit-the-“about”-page"><a href="#same-way-to-edit-the-“about”-page" class="headerlink" title="same way to edit the “about” page"></a>same way to edit the “about” page</h4>
+<h4 id="2-Find-the-index-md-and-modify-it"><a href="#2-Find-the-index-md-and-modify-it" class="headerlink" title="2. Find the index.md and modify it."></a>2. Find the index.md and modify it.</h4><p>After step 1, there will be folders named “gallery”, “about”… under /source/.</p>
+        
+          <a class="article-more-link" href="/2019/07/24/Post photos to Gallery/">Read More...</a>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/24/Post photos to Gallery/" data-id="cjyi1no0z0001uchromdj3q01"
+      <a data-url="https://visionary-s.github.io/2019/07/24/Post photos to Gallery/" data-id="cjyi3buty000edshrg43k5awf"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -161,16 +159,13 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onStart: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-void-onPause"><a href="#2-void-onPause" class="headerlink" title="2. void onPause()"></a>2. void onPause()</h4><p>This method is called when the user has left your app to view a different app.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onPause: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-void-onResume"><a href="#3-void-onResume" class="headerlink" title="3. void onResume()"></a>3. void onResume()</h4><p>This method is called when the user has navigated away from the app to a different app, and has navigated back.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onResume: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+        
+          <a class="article-more-link" href="/2019/07/17/cdt-app-lifecycle/">Read More...</a>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/17/cdt-app-lifecycle/" data-id="cjyi1no1l000kuchrwtb4k8nb"
+      <a data-url="https://visionary-s.github.io/2019/07/17/cdt-app-lifecycle/" data-id="cjyi3buu4000kdshr3x6wkijq"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDT/">CDT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev-env/">dev-env</a></li></ul>
@@ -225,22 +220,13 @@
       
         <p>如果不同的变量名指向同一个对象，那么它们都是这个对象的引用，也就是说指向同一个内存地址。修改其中一个变量，会影响到其他所有变量。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> o2 = o1;</span><br><span class="line"></span><br><span class="line">o1.a = <span class="number">1</span>;</span><br><span class="line">o2.a <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line">o2.b = <span class="number">2</span>;</span><br><span class="line">o1.b <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，o1和o2指向同一个对象，因此为其中任何一个变量添加属性，另一个变量都可以读写该属性。</p>
-<p>如果取消某一个变量对于原对象的引用，不会改变已经引用过的另一个变量。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> o2 = o1;</span><br><span class="line"></span><br><span class="line">o1 = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(o2);    <span class="comment">// &#123;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(o1);    <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> o1); <span class="comment">// number</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，o1和o2指向同一个对象，然后o1的值变为1，这时不会对o2产生影响，o2还是指向原来的那个对象。</p>
-<p><strong><font color="red">注意：这种引用只局限于object</font></strong>,如果两个变量指向同一个原始类型的值，则变量这时都是值的拷贝。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> y = x;</span><br><span class="line"></span><br><span class="line">x = <span class="number">2</span>;</span><br><span class="line">y <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，当x的值变化后，y值不变，这就表示y和x并不是指向同一个内存地址。</p>
-<p>ref: <a href="https://wangdoc.com/javascript/types/object.html" target="_blank" rel="noopener">阮一峰</a></p>
-
+        
+          <a class="article-more-link" href="/2019/07/17/JS对象引用/">Read More...</a>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/17/JS对象引用/" data-id="cjyi1no1b0009uchrzd3dndo3"
+      <a data-url="https://visionary-s.github.io/2019/07/17/JS对象引用/" data-id="cjyi3butq0008dshrr1g3lux1"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
@@ -299,24 +285,13 @@
 
 </li>
 </ol>
-<p>如果满足if，直接跳出双重循环。</p>
-<ol start="2">
-<li>配合continue<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">top:</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++)&#123;</span><br><span class="line">      <span class="keyword">if</span> (i === <span class="number">1</span> &amp;&amp; j === <span class="number">1</span>) <span class="keyword">continue</span> top;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'i='</span> + i + <span class="string">', j='</span> + j);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// i=0, j=0</span></span><br><span class="line"><span class="comment">// i=0, j=1</span></span><br><span class="line"><span class="comment">// i=0, j=2</span></span><br><span class="line"><span class="comment">// i=1, j=0</span></span><br><span class="line"><span class="comment">// i=2, j=0</span></span><br><span class="line"><span class="comment">// i=2, j=1</span></span><br><span class="line"><span class="comment">// i=2, j=2</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>当i=1，j=1时，跳过打印（当前内层循环）直接进行下一个外层循环（不会跳出top）</p>
-<ol start="3">
-<li>label用于跳出代码块<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">foo: &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">break</span> foo;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'本行不会输出'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>ref: <a href="https://wangdoc.com/javascript/basic/grammar.html#%E8%AF%AD%E5%8F%A5" target="_blank" rel="noopener">阮一峰</a></p>
-
+        
+          <a class="article-more-link" href="/2019/07/17/JS-Label/">Read More...</a>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/17/JS-Label/" data-id="cjyi1no1h000fuchr6yaamqpu"
+      <a data-url="https://visionary-s.github.io/2019/07/17/JS-Label/" data-id="cjyi3butj0002dshrglpugz2y"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
@@ -373,64 +348,13 @@
 <h3 id="1-factory为函数时，表示模块的构造方法："><a href="#1-factory为函数时，表示模块的构造方法：" class="headerlink" title="1. factory为函数时，表示模块的构造方法："></a>1. factory为函数时，表示模块的构造方法：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 模块代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>执行该构造方法，可以得到模块向外提供的接口。<br>factory 为对象、字符串时，表示模块的接口就是该对象、字符串</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define(&#123; <span class="string">"foo"</span>: <span class="string">"bar"</span> &#125;);</span><br></pre></td></tr></table></figure>
-
-<p>也可以通过字符串定义模板模块:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="string">'I am a template. My name is &#123;&#123;name&#125;&#125;.'</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-define-id-deps-factory"><a href="#2-define-id-deps-factory" class="headerlink" title="2. define(id, deps, factory?)"></a>2. define(id, deps, factory?)</h3><p>字符串 id 表示模块标识，数组 deps 是模块依赖</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="string">'hello'</span>, [<span class="string">'jquery'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 模块代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>factory参数可以省略。省略时，表示声明依赖关系。<br>在开发阶段，推荐不要手写 id 和 deps 参数，因为这两个参数可以在构建阶段通过工具自动生成。</p>
-<!-- （？？？还没遇到可以自动生成的，接下来看看） -->
-<p><em>注意：带 id 和 deps 参数的 define 用法不属于 CMD 规范，而属于 Modules/Transport 规范。</em></p>
-<h3 id="3-require-Function"><a href="#3-require-Function" class="headerlink" title="3. require Function"></a>3. require Function</h3><p>require接受module-name(id)作为唯一参数，用来获取其他模块提供的接口</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 获取模块 a 的接口</span></span><br><span class="line">  <span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'./a'</span>);</span><br><span class="line">  <span class="comment">// 调用模块 a 的方法</span></span><br><span class="line">  a.doSomething();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-exports-Object"><a href="#4-exports-Object" class="headerlink" title="4. exports Object"></a>4. exports Object</h3><p>exports 是一个对象，用来向外提供模块接口。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 对外提供 foo 属性</span></span><br><span class="line">  exports.foo = <span class="string">'bar'</span>;</span><br><span class="line">  <span class="comment">// 对外提供 doSomething 方法</span></span><br><span class="line">  exports.doSomething = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>除了给<code>exports</code>对象增加成员，还可以使用<code>return</code>直接向外提供接口。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 通过 return 直接提供接口</span></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    foo: <span class="string">'bar'</span>,</span><br><span class="line">    doSomething: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h2 id="TBC"><a href="#TBC" class="headerlink" title="TBC"></a>TBC</h2><hr>
-<p>ref:  <a href="https://blog.csdn.net/cpf506497746/article/details/8832317" target="_blank" rel="noopener">https://blog.csdn.net/cpf506497746/article/details/8832317</a></p>
-<!-- - - -
-**AMD (Asynchronous Module Definition, 异步模块加载机制) 规范:\
-define("module-name", [array-of-dependencies], module-factory-or-object);**
-
-### 1. 定义一个模块
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="string">"alpha"</span>, [<span class="string">"require"</span>, <span class="string">"exports"</span>, <span class="string">"beta"</span>], <span class="function"><span class="keyword">function</span> (<span class="params">require, exports, beta</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">exports.verb = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> beta.verb();</span><br><span class="line"></span><br><span class="line"><span class="comment">// or:</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="built_in">require</span>(<span class="string">"beta"</span>).verb();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>上述代码定义了一个alpha模块，并且依赖于内置的require，exports模块，以及外部的beta模块。第三个参数为callback回调函数，可直接使用依赖模块，这里按依赖声明顺序作为参数提供给回调函数。</p>
-<ul>
-<li>这里的require函数让你能够随时去依赖一个模块，即取得模块的引用，从而即使模块没有作为参数定义，也能够被使用</li>
-<li>exports是定义的alpha 模块的实体，在其上定义的任何属性和方法也就是alpha模块的属性和方法。通过exports.verb = … 为alpha模块定义了一个verb方法。例子中是简单调用了模块beta的verb方法。</li>
-<li>module-name可以包含路径</li>
-</ul>
-<h3 id="2-匿名模块"><a href="#2-匿名模块" class="headerlink" title="2. 匿名模块"></a>2. 匿名模块</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">"alpha"</span>], <span class="function"><span class="keyword">function</span> (<span class="params">alpha</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    verb: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> alpha.verb() + <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>无name即定义了一个匿名模块，此时模块文件的文件名作为id标识，例如若此模块文件放在a.js中，则a为module name，可在dependence中用”a”来调用，此条意义在于可调用不同文件中的module，避免功能反复实现</p>
-<h3 id="3-仅有一个参数的define"><a href="#3-仅有一个参数的define" class="headerlink" title="3. 仅有一个参数的define"></a>3. 仅有一个参数的define</h3><ol>
-<li>仅提供数据（相当于包含了一个完整JSON-P实现）<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">define(&#123;</span><br><span class="line">  provinces:[</span><br><span class="line">    &#123;</span><br><span class="line">      name: <span class="string">'上海'</span>,</span><br><span class="line">      areas: [<span class="string">'浦东'</span>, <span class="string">'徐汇'</span>]</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">      name: <span class="string">'江苏'</span>,</span><br><span class="line">      cities: [<span class="string">'南京'</span>, <span class="string">'南通'</span>]</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//…</span></span><br><span class="line">  ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>把模块变成一个简单的数据对象，达到高度复用效果。<br>假设这个文件名为china.js，那么如果某个模块需要这个数据，只需要：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">'china'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">china</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//在这里使用省市数据</span></span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>包含方法具有功能的一个对象<br>如果参数是一个函数，则在函数中，可以随时require自己需要的模块<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">define( <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> p = <span class="built_in">require</span>(<span class="string">'china'</span>);</span><br><span class="line">  <span class="comment">// start to use china module</span></span><br><span class="line">  ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<hr>
-<p>ref: <br><a href="https://blog.csdn.net/qq_16633405/article/details/77961539">https://blog.csdn.net/qq_16633405/article/details/77961539</a> –&gt;</p>
--->
+        
+          <a class="article-more-link" href="/2019/07/16/require js - define模块定义/">Read More...</a>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/16/require js - define模块定义/" data-id="cjyi1no2a0017uchr3njvybmg"
+      <a data-url="https://visionary-s.github.io/2019/07/16/require js - define模块定义/" data-id="cjyi3buu2000idshrvxq6nhmz"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -491,17 +415,13 @@ define("module-name", [array-of-dependencies], module-factory-or-object);**
 <li>The module de-serializes an <strong>object declared in another module</strong>.</li>
 <li>The module uses or modifies the <strong>database tables used by another module</strong>.</li>
 </ul>
-<h2 id="Soft-Dependency"><a href="#Soft-Dependency" class="headerlink" title="Soft Dependency"></a>Soft Dependency</h2><p>a module <strong>can</strong> function without the other modules on which it depends</p>
-<ul>
-<li>The module directly <strong>checks</strong> another module’s availability.</li>
-<li>The module <strong>extends</strong> another module’s configuration.</li>
-<li>The module extends another module’s layout.</li>
-</ul>
-
+        
+          <a class="article-more-link" href="/2019/07/16/Hard or Soft Dependencies/">Read More...</a>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/16/Hard or Soft Dependencies/" data-id="cjyi1no1c000auchrn94s932t"
+      <a data-url="https://visionary-s.github.io/2019/07/16/Hard or Soft Dependencies/" data-id="cjyi3buto0006dshrkazba6nw"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -555,14 +475,13 @@ define("module-name", [array-of-dependencies], module-factory-or-object);**
 
       
         <h2 id="Skeleton"><a href="#Skeleton" class="headerlink" title="Skeleton"></a>Skeleton</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">my-app/</span><br><span class="line">    .cdt                  <span class="comment"># installed lib and conf，do not modify</span></span><br><span class="line">    <span class="built_in">help</span>/                 <span class="comment"># help docs</span></span><br><span class="line">    locales/              <span class="comment"># translation files</span></span><br><span class="line">    resources/            <span class="comment"># imgs &amp; other resources that are not js files</span></span><br><span class="line">    src/                  <span class="comment"># src code. Contains only one folder (my-app)</span></span><br><span class="line">        my-app/           <span class="comment"># name = app name, fully lowercase</span></span><br><span class="line">    <span class="built_in">test</span>/                 </span><br><span class="line">        bit/              <span class="comment"># FT, API concerned only</span></span><br><span class="line">        unit/             <span class="comment"># UT</span></span><br><span class="line">    .editorconfig         <span class="comment"># coding styles，已删</span></span><br><span class="line">    .gitignore  </span><br><span class="line">    app.config.js         <span class="comment"># metadata for app</span></span><br><span class="line">    build.json            <span class="comment"># used by the build module</span></span><br><span class="line">    container.config.js   <span class="comment"># only for dev, never used in production, contains dev version of container</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="app-config-js"><a href="#app-config-js" class="headerlink" title="app.config.js"></a>app.config.js</h4><p>  app configuration file, example:<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">  define(&#123;</span><br><span class="line">    script: <span class="string">'active-alerts/ActiveAlerts'</span>, <span class="comment">// path to app, src下的脚本执行</span></span><br><span class="line">    title:  <span class="string">'Active Alerts'</span>,    <span class="comment">// app title, used in breadcrumb widget</span></span><br><span class="line">    <span class="comment">// opt</span></span><br><span class="line">    parent: <span class="string">'alert-management'</span>,</span><br><span class="line">    <span class="comment">// opt, when exe parent script will start the children</span></span><br><span class="line">    children: [              </span><br><span class="line">        &#123;<span class="attr">app</span>: <span class="string">'alerts-log'</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">app</span>: <span class="string">'alerts-settings'</span>&#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">// opt, expose app modules that can be loaded by other apps dynamically</span></span><br><span class="line">    exports: &#123;     </span><br><span class="line">        <span class="string">'active-alerts/Module1'</span>: <span class="string">'active-alerts/modules/Module1'</span>,</span><br><span class="line">        <span class="string">'active-alerts/Module2'</span>: <span class="string">'active-alerts/modules/Module2'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// i18n.locales: list of supported language</span></span><br><span class="line">    <span class="string">"i18n"</span>: &#123;   <span class="comment">// 这里可以不加引号，也可以加，上面的参数同理</span></span><br><span class="line">                <span class="comment">// ES6可以不加，ES5要加</span></span><br><span class="line">        <span class="string">"locales"</span>: [<span class="string">"en-us"</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>detailed folder structure: <a href="https://arm101-eiffel004.lmera.ericsson.se:8443/nexus/content/sites/tor/cdt/latest/proj_struct.html" target="_blank" rel="noopener">internal link</a><br>other link: <a href="https://cloud.tencent.com/developer/section/1489898" target="_blank" rel="noopener">breadcrumb widget</a></p>
-
+        
+          <a class="article-more-link" href="/2019/07/16/CDT/">Read More...</a>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/16/CDT/" data-id="cjyi1no140003uchrfnh4vaxn"
+      <a data-url="https://visionary-s.github.io/2019/07/16/CDT/" data-id="cjyi3bute0000dshrpkmiqes8"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDT/">CDT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev-env/">dev-env</a></li></ul>
@@ -622,7 +541,7 @@ define("module-name", [array-of-dependencies], module-factory-or-object);**
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/15/Hexo Theme Modification/" data-id="cjyi1no180007uchr68dzw6vl"
+      <a data-url="https://visionary-s.github.io/2019/07/15/Hexo Theme Modification/" data-id="cjyi3butt000adshr7oim1cpc"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -682,24 +601,13 @@ define("module-name", [array-of-dependencies], module-factory-or-object);**
 
 <p>check if successfully installed</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">hexo: 3.9.0</span><br><span class="line">hexo-cli: 2.0.0</span><br><span class="line">os: Windows_NT 10.0.16299 win32 x64</span><br><span class="line">http_parser: 2.8.0</span><br><span class="line">node: 10.16.0</span><br><span class="line">v8: 6.8.275.32-node.52</span><br><span class="line">uv: 1.28.0</span><br><span class="line">zlib: 1.2.11</span><br><span class="line">brotli: 1.0.7</span><br><span class="line">ares: 1.15.0</span><br><span class="line">modules: 64</span><br><span class="line">nghttp2: 1.34.0</span><br><span class="line">napi: 4</span><br><span class="line">openssl: 1.1.1b</span><br><span class="line">icu: 64.2</span><br><span class="line">unicode: 12.1</span><br><span class="line">cldr: 35.1</span><br><span class="line">tz: 2019a</span><br></pre></td></tr></table></figure>
-
-<h3 id="Local-init-for-first-time-setup"><a href="#Local-init-for-first-time-setup" class="headerlink" title="Local init for first time setup"></a>Local init for first time setup</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
-
-<h3 id="Start-server-and-Run-in-browser"><a href="#Start-server-and-Run-in-browser" class="headerlink" title="Start server and Run in browser"></a>Start server and Run in browser</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-
-<p>Visit <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p>
-<h3 id="Add-ssh-key"><a href="#Add-ssh-key" class="headerlink" title="Add ssh-key"></a>Add ssh-key</h3><p>Pass</p>
-<h3 id="When-error-generated-local-compile"><a href="#When-error-generated-local-compile" class="headerlink" title="When error generated (local compile)"></a>When error generated (local compile)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g    <span class="comment"># gengerate post to public folder</span></span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-
-<h3 id="Deploy-to-github"><a href="#Deploy-to-github" class="headerlink" title="Deploy to github"></a>Deploy to github</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-
-
+        
+          <a class="article-more-link" href="/2019/07/15/Hexo cmd/">Read More...</a>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/15/Hexo cmd/" data-id="cjyi1no1g000euchrsjyvhw19"
+      <a data-url="https://visionary-s.github.io/2019/07/15/Hexo cmd/" data-id="cjyi3butw000ddshr5d7cdiav"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>

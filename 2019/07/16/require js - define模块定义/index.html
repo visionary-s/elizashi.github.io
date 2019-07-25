@@ -62,6 +62,7 @@
 <h3 id="1-factory为函数时，表示模块的构造方法："><a href="#1-factory为函数时，表示模块的构造方法：" class="headerlink" title="1. factory为函数时，表示模块的构造方法："></a>1. factory为函数时，表示模块的构造方法：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 模块代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>执行该构造方法，可以得到模块向外提供的接口。<br>factory 为对象、字符串时，表示模块的接口就是该对象、字符串</p>
+<a id="more"></a>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define(&#123; <span class="string">"foo"</span>: <span class="string">"bar"</span> &#125;);</span><br></pre></td></tr></table></figure>
 
 <p>也可以通过字符串定义模板模块:</p>
@@ -119,7 +120,7 @@ define("module-name", [array-of-dependencies], module-factory-or-object);**
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/16/require js - define模块定义/" data-id="cjyi1no2a0017uchr3njvybmg"
+      <a data-url="https://visionary-s.github.io/2019/07/16/require js - define模块定义/" data-id="cjyi3buu2000idshrvxq6nhmz"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
