@@ -61,13 +61,19 @@
         <p>ref: <a href="https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency" target="_blank" rel="noopener">https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency</a></p>
 <h2 id="Hard-Dependency"><a href="#Hard-Dependency" class="headerlink" title="Hard Dependency"></a>Hard Dependency</h2><p>a module <strong>cannot</strong> function without the other modules on which it depends</p>
 <ul>
-<li>The module contains code that directly uses logic from another module (<strong>instances, class constants, static methods, public class properties, interfaces and traits</strong>).</li>
-<li>The module contains strings that include <strong>class names, methods names, class constants, class properties, interfaces, and traits</strong> from another module.</li>
-<li>The module de-serializes an <strong>object declared in another module</strong>.</li>
-<li>The module uses or modifies the <strong>database tables used by another module</strong>.</li>
+<li><p>The module contains code that directly uses logic from another module (<strong>instances, class constants, static methods, public class properties, interfaces and traits</strong>).</p>
+</li>
+<li><p>The module contains strings that include <strong>class names, methods names, class constants, class properties, interfaces, and traits</strong> from another module.</p>
+</li>
+<li><p>The module de-serializes an <strong>object declared in another module</strong>.</p>
+</li>
+<li><p>The module uses or modifies the <strong>database tables used by another module</strong>.</p>
+<center><a id="more"></a></center>
+Soft Dependency
+</li>
 </ul>
-<a id="more"></a>
-<h2 id="Soft-Dependency"><a href="#Soft-Dependency" class="headerlink" title="Soft Dependency"></a>Soft Dependency</h2><p>a module <strong>can</strong> function without the other modules on which it depends</p>
+<hr>
+<p>a module <strong>can</strong> function without the other modules on which it depends</p>
 <ul>
 <li>The module directly <strong>checks</strong> another module’s availability.</li>
 <li>The module <strong>extends</strong> another module’s configuration.</li>
@@ -77,7 +83,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/16/Hard or Soft Dependencies/" data-id="cjyib8c4o0003lchrjui8w4tf"
+      <a data-url="https://visionary-s.github.io/2019/07/16/Hard or Soft Dependencies/" data-id="cjyig00q700008ohrqsw47zhy"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
