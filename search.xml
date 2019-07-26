@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Migrate local video header to cloud storage]]></title>
+    <url>%2F2019%2F07%2F25%2FMigrate%20local%20video%20header%20to%20cloud%20storage%2F</url>
+    <content type="text"><![CDATA[Since the Ocean theme includes and initiates the videos and images about header via local folder themes/ocean/source/images/ocean/, the page loads slowly at mobile device. So I decided to transfer these large files to cloud side to promote loading speed. Find the local image folder as referred above. upload these files to cloudinary, it provides plugin as a module to js file: 1cloudinary.videoTag('gitblog/ocean/ocean_j5rpnt').toHtml(); the src ref-way can be find at “edit” page by right clicking on cloudinary/file.Here I did not use this short path cuz I am not in need of a large quantity of inserted files. Modify themes/ocean/_config.yml: 1234567# Ocean Video# Because I put videos in multiple formats on the same path, I just labeled the path here.ocean: overlay: true path: https://res.cloudinary.com/elizashi/ # path: /images/ocean/ brand: /images/ming-inverted.svg Find the ocean.ejs file in themes/ocean/layout/_partial/, and modify as follows: 12345&lt;% if (theme.ocean.overlay) &#123; %&gt; &lt;div class="video-frame"&gt; &lt;img src="&lt;%- theme.ocean.path %&gt;image/upload/v1564042232/gitblog/ocean/overlay-hero_hfo1px.png" alt="Decorative image frame"&gt; &lt;/div&gt;&lt;% &#125; %&gt; 12345678910&lt;div class="video-media"&gt; &lt;video playsinline="" autoplay="" loop="" muted="" data-autoplay="" poster="&lt;%- theme.ocean.path %&gt;image/upload/v1564042234/gitblog/ocean/ocean_dvmafj.png" x5-video-player-type="h5"&gt; &lt;source src="&lt;%- theme.ocean.path %&gt;video/upload/v1564042238/gitblog/ocean/ocean_j5rpnt.mp4" type="video/mp4"&gt; &lt;source src="&lt;%- theme.ocean.path %&gt;video/upload/v1564042232/gitblog/ocean/ocean_p4kg5c.ogv" type="video/ogg"&gt; &lt;source src="&lt;%- theme.ocean.path %&gt;video/upload/v1564042238/gitblog/ocean/ocean_qgwvjh.webm" type="video/webm"&gt; &lt;p&gt;Your user agent does not support the HTML5 Video element.&lt;/p&gt; &lt;/video&gt; &lt;div class="video-overlay"&gt;&lt;/div&gt;&lt;/div&gt; As I mentioned that I am not using many external src so I modify each file address one by one.If files come to more, shall turn to use the cloudinary.videoTag func to insert files or the code will get lengthy and jumbled.]]></content>
+      <categories>
+        <category>interest</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Post photos to Gallery]]></title>
+    <url>%2F2019%2F07%2F24%2FPost%20photos%20to%20Gallery%2F</url>
+    <content type="text"><![CDATA[How to post a photo to blog gallery1. Setup the gallery page:12345$ hexo new page gallery // create 'gallery' page$ hexo new page about // create 'about' page$ hexo new page tags // 'tags' page$ hexo new page categories // 'categories' page 2. Find the index.md and modify it.After step 1, there will be folders named “gallery”, “about”… under /source/. And you can find a file named “index.md” generated automatically under these folders.Open and modify the front-matter part as : 1234567---title: Galleryalbums: [ ["img_url","img_caption"], ["img_url","img_caption"] ]--- use outer links can be a better way as internal insert of images will decrease loading speed.(I haven’t find a good-way to insert as internal files, so I turned to use weibo-albums-link as alt… ). There was something wrong that photos didn’t display successfully in mobile mode. 190725 Update: Problem fixed with changing photo cloud storage from weibo to cloudinary. (weibo albums no longer support free external ref links) same way to edit the “about” page]]></content>
+      <categories>
+        <category>interest</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CDT App Lifecycle]]></title>
+    <url>%2F2019%2F07%2F17%2Fcdt-app-lifecycle%2F</url>
+    <content type="text"><![CDATA[Apps that run in the container have their lifecycle managed.The container checks for various functions implemented by the app. If those functions are implemented, the container will execute them accordingly. The following functions are supported by the container: 1. void onStart()This method is called when the app is first instantiated in the current tab for the first time. 123onStart: function() &#123; // Code here&#125; 2. void onPause()This method is called when the user has left your app to view a different app. 123onPause: function() &#123; // Code here&#125; 3. void onResume()This method is called when the user has navigated away from the app to a different app, and has navigated back. 123onResume: function() &#123; // Code here&#125;]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
+      <tags>
+        <tag>CDT</tag>
+        <tag>dev-env</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JS对象引用]]></title>
+    <url>%2F2019%2F07%2F17%2FJS%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[如果不同的变量名指向同一个对象，那么它们都是这个对象的引用，也就是说指向同一个内存地址。修改其中一个变量，会影响到其他所有变量。 12345678var o1 = &#123;&#125;;var o2 = o1;o1.a = 1;o2.a // 1o2.b = 2;o1.b // 2 上面代码中，o1和o2指向同一个对象，因此为其中任何一个变量添加属性，另一个变量都可以读写该属性。 如果取消某一个变量对于原对象的引用，不会改变已经引用过的另一个变量。 1234567var o1 = &#123;&#125;;var o2 = o1;o1 = 1;console.log(o2); // &#123;&#125;console.log(o1); // 1console.log(typeof o1); // number 上面代码中，o1和o2指向同一个对象，然后o1的值变为1，这时不会对o2产生影响，o2还是指向原来的那个对象。 注意：这种引用只局限于object,如果两个变量指向同一个原始类型的值，则变量这时都是值的拷贝。 12345var x = 1;var y = x;x = 2;y // 1 上面代码中，当x的值变化后，y值不变，这就表示y和x并不是指向同一个内存地址。 ref: 阮一峰]]></content>
+      <categories>
+        <category>basic</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JS-Label]]></title>
+    <url>%2F2019%2F07%2F17%2FJS-Label%2F</url>
+    <content type="text"><![CDATA[标签（label），相当于定位符，用于跳转到程序的任意位置。 配合break 1234567891011top: // Label for (var i = 0; i &lt; 3; i++)&#123; for (var j = 0; j &lt; 3; j++)&#123; if (i === 1 &amp;&amp; j === 1) break top; // 注意，不加引号 console.log('i=' + i + ', j=' + j); &#125; &#125;// i=0, j=0// i=0, j=1// i=0, j=2// i=1, j=0 如果满足if，直接跳出双重循环。 配合continue 1234567891011121314top: for (var i = 0; i &lt; 3; i++)&#123; for (var j = 0; j &lt; 3; j++)&#123; if (i === 1 &amp;&amp; j === 1) continue top; console.log('i=' + i + ', j=' + j); &#125; &#125;// i=0, j=0// i=0, j=1// i=0, j=2// i=1, j=0// i=2, j=0// i=2, j=1// i=2, j=2 当i=1，j=1时，跳过打印（当前内层循环）直接进行下一个外层循环（不会跳出top） label用于跳出代码块12345678foo: &#123; console.log(1); break foo; console.log('本行不会输出');&#125;console.log(2);// 1// 2 ref: 阮一峰]]></content>
+      <categories>
+        <category>basic</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Require JS - define模块定义]]></title>
+    <url>%2F2019%2F07%2F16%2Frequire%20js%20-%20define%E6%A8%A1%E5%9D%97%E5%AE%9A%E4%B9%89%2F</url>
+    <content type="text"><![CDATA[CMD (Common Module Definition)在 CMD 规范中，一个模块就是一个文件。代码的书写格式如下： define(factory);define 是一个全局函数，用来定义模块。 1. factory为函数时，表示模块的构造方法：123define(function(require, exports, module) &#123; // 模块代码&#125;); 执行该构造方法，可以得到模块向外提供的接口。factory 为对象、字符串时，表示模块的接口就是该对象、字符串 1define(&#123; "foo": "bar" &#125;); 也可以通过字符串定义模板模块: 1define('I am a template. My name is &#123;&#123;name&#125;&#125;.'); 2. define(id, deps, factory?)字符串 id 表示模块标识，数组 deps 是模块依赖 123define('hello', ['jquery'], function(require, exports, module) &#123; // 模块代码&#125;); factory参数可以省略。省略时，表示声明依赖关系。在开发阶段，推荐不要手写 id 和 deps 参数，因为这两个参数可以在构建阶段通过工具自动生成。 注意：带 id 和 deps 参数的 define 用法不属于 CMD 规范，而属于 Modules/Transport 规范。 3. require Functionrequire接受module-name(id)作为唯一参数，用来获取其他模块提供的接口 123456define(function(require, exports) &#123; // 获取模块 a 的接口 var a = require('./a'); // 调用模块 a 的方法 a.doSomething();&#125;); 4. exports Objectexports 是一个对象，用来向外提供模块接口。 1234567define(function(require, exports) &#123; // 对外提供 foo 属性 exports.foo = 'bar'; // 对外提供 doSomething 方法 exports.doSomething = function() &#123;&#125;;&#125;); 除了给exports对象增加成员，还可以使用return直接向外提供接口。 1234567define(function(require) &#123; // 通过 return 直接提供接口 return &#123; foo: 'bar', doSomething: function() &#123;&#125;; &#125;;&#125;); TBC ref: https://blog.csdn.net/cpf506497746/article/details/8832317]]></content>
+      <categories>
+        <category>basic</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hard & Soft Dependencies]]></title>
+    <url>%2F2019%2F07%2F16%2FHard%20or%20Soft%20Dependencies%2F</url>
+    <content type="text"><![CDATA[ref: https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency Hard Dependencya module cannot function without the other modules on which it depends The module contains code that directly uses logic from another module (instances, class constants, static methods, public class properties, interfaces and traits). The module contains strings that include class names, methods names, class constants, class properties, interfaces, and traits from another module. The module de-serializes an object declared in another module. The module uses or modifies the database tables used by another module. Soft Dependencya module can function without the other modules on which it depends The module directly checks another module’s availability. The module extends another module’s configuration. The module extends another module’s layout.]]></content>
+      <categories>
+        <category>basic</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CDT Learning]]></title>
+    <url>%2F2019%2F07%2F16%2FCDT%2F</url>
+    <content type="text"><![CDATA[Skeleton123456789101112131415my-app/ .cdt # installed lib and conf，do not modify help/ # help docs locales/ # translation files resources/ # imgs &amp; other resources that are not js files src/ # src code. Contains only one folder (my-app) my-app/ # name = app name, fully lowercase test/ bit/ # FT, API concerned only unit/ # UT .editorconfig # coding styles，已删 .gitignore app.config.js # metadata for app build.json # used by the build module container.config.js # only for dev, never used in production, contains dev version of container app.config.js app configuration file, example: 123456789101112131415161718192021 define(&#123; script: 'active-alerts/ActiveAlerts', // path to app, src下的脚本执行 title: 'Active Alerts', // app title, used in breadcrumb widget // opt parent: 'alert-management', // opt, when exe parent script will start the children children: [ &#123;app: 'alerts-log'&#125;, &#123;app: 'alerts-settings'&#125; ], // opt, expose app modules that can be loaded by other apps dynamically exports: &#123; 'active-alerts/Module1': 'active-alerts/modules/Module1', 'active-alerts/Module2': 'active-alerts/modules/Module2' &#125; // i18n.locales: list of supported language "i18n": &#123; // 这里可以不加引号，也可以加，上面的参数同理 // ES6可以不加，ES5要加 "locales": ["en-us"] &#125;&#125;); detailed folder structure: internal linkother link: breadcrumb widget]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
+      <tags>
+        <tag>CDT</tag>
+        <tag>dev-env</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo Theme Modification]]></title>
+    <url>%2F2019%2F07%2F15%2FHexo%20Theme%20Modification%2F</url>
+    <content type="text"><![CDATA[Modify the Theme in the following branch: 1Source/themes/&lt;Theme folder name&gt;/layout/_partial/*.ejs]]></content>
+      <categories>
+        <category>interest</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo - Tools & cmd used during deployment]]></title>
+    <url>%2F2019%2F07%2F15%2FHexo%20cmd%2F</url>
+    <content type="text"><![CDATA[Ref: https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/ npm CN image（taobao）1$ npm install -g cnpm --registry=https://registry.npm.taobao.org Hexo installation1$ cnpm install -g hexo-cli check if successfully installed 1$ hexo -v 123456789101112131415161718hexo: 3.9.0hexo-cli: 2.0.0os: Windows_NT 10.0.16299 win32 x64http_parser: 2.8.0node: 10.16.0v8: 6.8.275.32-node.52uv: 1.28.0zlib: 1.2.11brotli: 1.0.7ares: 1.15.0modules: 64nghttp2: 1.34.0napi: 4openssl: 1.1.1bicu: 64.2unicode: 12.1cldr: 35.1tz: 2019a Local init for first time setup1$ hexo init Start server and Run in browser1$ hexo s Visit http://localhost:4000/ Add ssh-keyPass When error generated (local compile)123$ hexo clean$ hexo g # gengerate post to public folder$ hexo s Deploy to github1$ hexo d]]></content>
+      <categories>
+        <category>interest</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+</search>
