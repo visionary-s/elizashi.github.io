@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ES6 - Template strings]]></title>
+    <url>%2F2019%2F08%2F05%2FES6-Template%20String%2F</url>
+    <content type="text"><![CDATA[刷题的时候遇到了这个新语法 - 模板字符串，记录一下用法。 是增强版的字符串，用反引号（`）标识。主要用法： 作为普通字符串使用 1`string text` 定义多行字符串 1234console.log(`string text line 1string text line 2`);// "string text line 1// string text line 2" 在字符串中嵌入变量 12let expression = "xxxx";`string text $&#123;expression&#125; string text` 标签模板 (tagged template)相当于一个模板函数，tag表示函数，整个表达式的返回值，就是tag函数处理模板字符串后的返回值。 123456let a = 5;let b = 10;tag`Hello $&#123; a + b &#125; world $&#123; a * b &#125;`;// 等同于tag(['Hello ', ' world ', ''], 15, 50); For more specific explanation:MDN阮一峰 (start from section 5)]]></content>
+      <categories>
+        <category>basic</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Git cmd for daily use]]></title>
     <url>%2F2019%2F07%2F31%2Fgit-for-daily-use%2F</url>
     <content type="text"><![CDATA[Codes commit procedure for daily work:1$ git status // check current modifications can skip these steps: 123$ git stash // save work (current modifications)$ git stash list // check to see saved work$ git stash apply 0 // apply work-id to restore the work to tmp branch 1$ git add . // do not miss "." or 1$ git add -u add -u 和 add . 的区别 Check status and see that modifications displayed in green. 1$ git commit -m "[Task/Bug] Jira-id : Jira Task content." Notice: better to build locally first and see if it will get failed. (Close local server before building, no need to close db server on docker) how to build:1$ ./startindesignenv.sh -c sometimes it failed due to late version of project, checkout and pull the latest version. 12$ git checkout master // switch to master branch and see how many commits my branch are behind..$ git pull // pull the update to local branch 1$ git rebase -i master // rebase multi local submits and get sync with new branch on master and local, conflicts may occur if late-version conflicts accur, reset to last commit version 12$ git log // check commit history$ git reset &lt;commit id&gt; // reset to certain commit version If build failed, you should redo “add” and “commit” step after resetting. Final Step： 1$ git push origin HEAD:refs/for/master Remember check Gerrit and add reviewers when work pushed. After the work is successfully built on cloud and get merged, add resolved mark and commit on JIRA task system.]]></content>
@@ -41,8 +52,8 @@
         <category>work</category>
       </categories>
       <tags>
-        <tag>CDT</tag>
         <tag>dev-env</tag>
+        <tag>CDT</tag>
       </tags>
   </entry>
   <entry>
@@ -97,8 +108,8 @@
         <category>work</category>
       </categories>
       <tags>
-        <tag>CDT</tag>
         <tag>dev-env</tag>
+        <tag>CDT</tag>
       </tags>
   </entry>
   <entry>

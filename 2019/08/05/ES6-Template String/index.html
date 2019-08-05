@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    Hard &amp; Soft Dependencies |
+    ES6 - Template strings |
     
     Solito</title>
   
@@ -23,7 +23,7 @@
 <body>
 <main class="content">
   <section class="outer">
-  <article id="post-Hard or Soft Dependencies" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  <article id="post-ES6-Template String" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -31,7 +31,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hard &amp; Soft Dependencies
+      ES6 - Template strings
     </h1>
   
 
@@ -41,8 +41,8 @@
 
     
       <div class="article-meta">
-        <a href="/2019/07/16/Hard or Soft Dependencies/" class="article-date">
-  <time datetime="2019-07-16T08:37:06.508Z" itemprop="datePublished">2019-07-16</time>
+        <a href="/2019/08/05/ES6-Template String/" class="article-date">
+  <time datetime="2019-08-05T08:06:27.956Z" itemprop="datePublished">2019-08-05</time>
 </a>
         
   <div class="article-category">
@@ -58,31 +58,31 @@
       
 
       
-        <p>ref: <a href="https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency" target="_blank" rel="noopener">https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency</a></p>
-<h2 id="Hard-Dependency"><a href="#Hard-Dependency" class="headerlink" title="Hard Dependency"></a>Hard Dependency</h2><p>a module <strong>cannot</strong> function without the other modules on which it depends</p>
-<ul>
-<li><p>The module contains code that directly uses logic from another module (<strong>instances, class constants, static methods, public class properties, interfaces and traits</strong>).</p>
+        <p>刷题的时候遇到了这个新语法 - <strong>模板字符串</strong>，记录一下用法。</p>
+<p>是增强版的字符串，用反引号（`）标识。主要用法：</p>
+<ol>
+<li><p>作为普通字符串使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`string text`</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>The module contains strings that include <strong>class names, methods names, class constants, class properties, interfaces, and traits</strong> from another module.</p>
+<li><p>定义多行字符串</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">`string text line 1</span></span><br><span class="line"><span class="string">string text line 2`</span>);</span><br><span class="line"><span class="comment">// "string text line 1</span></span><br><span class="line"><span class="comment">// string text line 2"</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>The module de-serializes an <strong>object declared in another module</strong>.</p>
-</li>
-<li><p>The module uses or modifies the <strong>database tables used by another module</strong>.</p>
+<li><p>在字符串中嵌入变量</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> expression = <span class="string">"xxxx"</span>;</span><br><span class="line"><span class="string">`string text <span class="subst">$&#123;expression&#125;</span> string text`</span></span><br></pre></td></tr></table></figure>
+
 <center><a id="more"></a></center>
+</li>
+<li><p>标签模板 (tagged template)<br>相当于一个模板函数，tag表示函数，整个表达式的返回值，就是tag函数处理模板字符串后的返回值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">tag<span class="string">`Hello <span class="subst">$&#123; a + b &#125;</span> world <span class="subst">$&#123; a * b &#125;</span>`</span>;</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">tag([<span class="string">'Hello '</span>, <span class="string">' world '</span>, <span class="string">''</span>], <span class="number">15</span>, <span class="number">50</span>);</span><br></pre></td></tr></table></figure>
 
 </li>
-</ul>
-<h2 id="Soft-Dependency"><a href="#Soft-Dependency" class="headerlink" title="Soft Dependency"></a>Soft Dependency</h2><p>a module <strong>can</strong> function without the other modules on which it depends</p>
-<ul>
-<li>The module directly <strong>checks</strong> another module’s availability.</li>
-<li>The module <strong>extends</strong> another module’s configuration.</li>
-<li>The module extends another module’s layout.</li>
-</ul>
+</ol>
+<p><em>For more specific explanation:</em><br><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" target="_blank" rel="noopener">MDN</a><br><a href="http://es6.ruanyifeng.com/#docs/string" target="_blank" rel="noopener">阮一峰</a> (start from section 5)</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/16/Hard or Soft Dependencies/" data-id="cjyy4z0ur000960hry5xvl9de"
+      <a data-url="https://visionary-s.github.io/2019/08/05/ES6-Template String/" data-id="cjyy4z0ua000060hrdbirthna"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -95,19 +95,10 @@
     
   <nav class="article-nav">
     
-      <a href="/2019/07/16/require js - define模块定义/" class="article-nav-link">
-        <strong class="article-nav-caption">Newer posts</strong>
-        <div class="article-nav-title">
-          
-            Require JS - define模块定义
-          
-        </div>
-      </a>
     
-    
-      <a href="/2019/07/16/CDT/" class="article-nav-link">
+      <a href="/2019/07/31/git-for-daily-use/" class="article-nav-link">
         <strong class="article-nav-caption">Olde posts</strong>
-        <div class="article-nav-title">CDT Learning</div>
+        <div class="article-nav-title">Git cmd for daily use</div>
       </a>
     
   </nav>
