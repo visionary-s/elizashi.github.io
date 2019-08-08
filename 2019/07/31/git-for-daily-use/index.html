@@ -94,11 +94,19 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin HEAD:refs/<span class="keyword">for</span>/master</span><br></pre></td></tr></table></figure>
 
 <p><em>Remember check Gerrit and add reviewers when work pushed. After the work is successfully built on cloud and get merged, add resolved mark and commit on JIRA task system.</em></p>
+<h4 id="19-08-08-update"><a href="#19-08-08-update" class="headerlink" title="19/08/08 update:"></a>19/08/08 update:</h4><p>if something wrong with codes was found in code review and have to add modifications, you should try to use <code>amend</code> to change the Last Commit</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit --amend</span><br></pre></td></tr></table></figure>
+
+<p>For more info about using amend : <a href="https://www.atlassian.com/git/tutorials/rewriting-history" target="_blank" rel="noopener">click</a></p>
+<p>Unfortunately I failed to amend the commit, so just do</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard &lt;commit-id&gt;</span><br></pre></td></tr></table></figure>
+
+<p>back to last commit version and pull down the latest one then resubmit the new changes.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/31/git-for-daily-use/" data-id="cjyy4z0v7000x60hr3likaztc"
+      <a data-url="https://visionary-s.github.io/2019/07/31/git-for-daily-use/" data-id="cjz2cr4dc000hgohrx7m6z9cv"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>

@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Some hints about OpenLayer]]></title>
+    <url>%2F2019%2F08%2F06%2Fopenlayer-knowledge%2F</url>
+    <content type="text"><![CDATA[Using openlayer in work currently and need to write down some notes about it. EPSG 4326 VS EPSG 3857地理Coordiante系统由EPSG编号标识。最常用于网络地图应用的两个坐标系统是EPSG：4326和EPSG：3857。 EPSG：4326（又名WGS84，未投影）是一个地理的非项目坐标系。它是lat，longs GPS显示器，单位是十进制度。EPSG：4326无法在平面地图上以有意义的方式显示。 EPSG：3857（又名Pseudo-Mercator，球形墨卡托或Web墨卡托）是投影坐标系。这是Google Maps和几乎所有其他Web制图应用程序使用的坐标系。 通常，数据存储在EPSG：4326中并显示在EPSG：3857中，自行转换。 ref link Function to draw a sector accuratelyCuz the untransformed sector displayed with great error in angle = 45° (start angle) so I have to turn to this Function as following, which convert longitude and latitude into Mercator projection first before the calculation. 12345678910111213function GetMarcoXyArcArray(origin,radius,sides,r,angel) &#123; var x = []; x[0] = [origin[0],origin[1]]; for (var j = 1; j &lt; sides; j++) &#123; var tx = origin[0] + radius * Math.cos(Math.PI / 180 * (90 - angel + (sides/2 - j) * r / (sides-2))); var ty = origin[1] + radius * Math.sin(Math.PI / 180 * (90 - angel + (sides/2 - j) * r / (sides-2))); x[j]=[tx,ty]; &#125; //alert(x); return new ol.geom.Polygon([x]); &#125; Thanks to tianshibufan521’s post After modification: calculate longitude &amp; latitude via coordinateformer dev using func getJWD to calculate the coordinates, but this func cause the display error with start degree of 45°, so I discarded it.For more info about this func : link Draw a circleSimply used ol.geom.Circle instead of ol..geom.Polygon, which will cause a start/end radius as follows: Before After 12345var circle = new ol.geom.Circle( ol.proj.transform([longitude, latitude], 'EPSG:4326', 'EPSG:3857'), radius);var circleFeature = new ol.Feature(circle); OpenLayer Samples link || Circle]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+        <tag>openlayer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ES6 - Template strings]]></title>
     <url>%2F2019%2F08%2F05%2FES6-Template%20String%2F</url>
     <content type="text"><![CDATA[刷题的时候遇到了这个新语法 - 模板字符串，记录一下用法。 是增强版的字符串，用反引号（`）标识。主要用法： 作为普通字符串使用 1`string text` 定义多行字符串 1234console.log(`string text line 1string text line 2`);// "string text line 1// string text line 2" 在字符串中嵌入变量 12let expression = "xxxx";`string text $&#123;expression&#125; string text` 标签模板 (tagged template)相当于一个模板函数，tag表示函数，整个表达式的返回值，就是tag函数处理模板字符串后的返回值。 123456let a = 5;let b = 10;tag`Hello $&#123; a + b &#125; world $&#123; a * b &#125;`;// 等同于tag(['Hello ', ' world ', ''], 15, 50); For more specific explanation:MDN阮一峰 (start from section 5)]]></content>
@@ -14,7 +26,7 @@
   <entry>
     <title><![CDATA[Git cmd for daily use]]></title>
     <url>%2F2019%2F07%2F31%2Fgit-for-daily-use%2F</url>
-    <content type="text"><![CDATA[Codes commit procedure for daily work:1$ git status // check current modifications can skip these steps: 123$ git stash // save work (current modifications)$ git stash list // check to see saved work$ git stash apply 0 // apply work-id to restore the work to tmp branch 1$ git add . // do not miss "." or 1$ git add -u add -u 和 add . 的区别 Check status and see that modifications displayed in green. 1$ git commit -m "[Task/Bug] Jira-id : Jira Task content." Notice: better to build locally first and see if it will get failed. (Close local server before building, no need to close db server on docker) how to build:1$ ./startindesignenv.sh -c sometimes it failed due to late version of project, checkout and pull the latest version. 12$ git checkout master // switch to master branch and see how many commits my branch are behind..$ git pull // pull the update to local branch 1$ git rebase -i master // rebase multi local submits and get sync with new branch on master and local, conflicts may occur if late-version conflicts accur, reset to last commit version 12$ git log // check commit history$ git reset &lt;commit id&gt; // reset to certain commit version If build failed, you should redo “add” and “commit” step after resetting. Final Step： 1$ git push origin HEAD:refs/for/master Remember check Gerrit and add reviewers when work pushed. After the work is successfully built on cloud and get merged, add resolved mark and commit on JIRA task system.]]></content>
+    <content type="text"><![CDATA[Codes commit procedure for daily work:1$ git status // check current modifications can skip these steps: 123$ git stash // save work (current modifications)$ git stash list // check to see saved work$ git stash apply 0 // apply work-id to restore the work to tmp branch 1$ git add . // do not miss "." or 1$ git add -u add -u 和 add . 的区别 Check status and see that modifications displayed in green. 1$ git commit -m "[Task/Bug] Jira-id : Jira Task content." Notice: better to build locally first and see if it will get failed. (Close local server before building, no need to close db server on docker) how to build:1$ ./startindesignenv.sh -c sometimes it failed due to late version of project, checkout and pull the latest version. 12$ git checkout master // switch to master branch and see how many commits my branch are behind..$ git pull // pull the update to local branch 1$ git rebase -i master // rebase multi local submits and get sync with new branch on master and local, conflicts may occur if late-version conflicts accur, reset to last commit version 12$ git log // check commit history$ git reset &lt;commit id&gt; // reset to certain commit version If build failed, you should redo “add” and “commit” step after resetting. Final Step： 1$ git push origin HEAD:refs/for/master Remember check Gerrit and add reviewers when work pushed. After the work is successfully built on cloud and get merged, add resolved mark and commit on JIRA task system. 19/08/08 update:if something wrong with codes was found in code review and have to add modifications, you should try to use amend to change the Last Commit 1$ git commit --amend For more info about using amend : click Unfortunately I failed to amend the commit, so just do 1$ git reset --hard &lt;commit-id&gt; back to last commit version and pull down the latest one then resubmit the new changes.]]></content>
       <categories>
         <category>work</category>
       </categories>
@@ -52,8 +64,8 @@
         <category>work</category>
       </categories>
       <tags>
-        <tag>dev-env</tag>
         <tag>CDT</tag>
+        <tag>dev-env</tag>
       </tags>
   </entry>
   <entry>
@@ -108,8 +120,8 @@
         <category>work</category>
       </categories>
       <tags>
-        <tag>dev-env</tag>
         <tag>CDT</tag>
+        <tag>dev-env</tag>
       </tags>
   </entry>
   <entry>
