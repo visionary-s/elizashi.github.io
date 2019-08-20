@@ -57,6 +57,201 @@
 
     
       
+        <article id="post-git-for-daily-use" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/07/31/git-for-daily-use/">Git cmd for daily use</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/07/31/git-for-daily-use/" class="article-date">
+  <time datetime="2019-07-31T02:01:09.634Z" itemprop="datePublished">2019-07-31</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h4 id="Codes-commit-procedure-for-daily-work"><a href="#Codes-commit-procedure-for-daily-work" class="headerlink" title="Codes commit procedure for daily work:"></a>Codes commit procedure for daily work:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status  // check current modifications</span><br></pre></td></tr></table></figure>
+
+<p>can skip these steps:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git stash           // save work (current modifications)</span><br><span class="line">$ git stash list      // check to see saved work</span><br><span class="line">$ git stash apply 0   // apply work-id to restore the work to tmp branch</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add .   // <span class="keyword">do</span> not miss <span class="string">"."</span></span><br></pre></td></tr></table></figure>
+
+<p>or</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add -u</span><br></pre></td></tr></table></figure>
+
+ <center>
+        
+          <a class="article-more-link" href="/2019/07/31/git-for-daily-use/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2019/07/31/git-for-daily-use/" data-id="cjzj6cj7x000xpkhr5ef3r1u4"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-FileUploadAndDisplay" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/08/19/FileUploadAndDisplay/">File Upload and Display</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/08/19/FileUploadAndDisplay/" class="article-date">
+  <time datetime="2019-08-19T05:56:45.309Z" itemprop="datePublished">2019-08-19</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p><a href="https://blog.csdn.net/WuLex/article/details/84296934" target="_blank" rel="noopener">input [type=file] 获取上传文件的内容</a></p>
+<p>Modify:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">_addFileContent: <span class="function"><span class="keyword">function</span> (<span class="params">fileTag</span>) </span>&#123;</span><br><span class="line">    fileTag.addEventHandler(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="string">"#fileUpload"</span>).change(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> file = <span class="built_in">document</span>.getElementById(<span class="string">"fileUpload"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (file.files.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">var</span> trueFile = file.files[<span class="number">0</span>];</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="built_in">document</span>.getElementById(<span class="string">"fileContent"</span>).value);</span><br><span class="line">                <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();</span><br><span class="line"></span><br><span class="line">                reader.readAsText(trueFile, <span class="string">'UTF-8'</span>);</span><br><span class="line"></span><br><span class="line">                reader.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">if</span> (reader.error) &#123;</span><br><span class="line">                        <span class="built_in">console</span>.log(reader.error);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">var</span> urlData = <span class="keyword">this</span>.result;</span><br><span class="line">                        <span class="built_in">document</span>.getElementById(<span class="string">"fileContent"</span>).value = urlData;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">"Failed to upload file!"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);          </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Other ref:<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/change" target="_blank" rel="noopener">Change event | MDN</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2019/08/19/FileUploadAndDisplay/" data-id="cjzj6cj770006pkhrlangzvfb"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-webUploader" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/08/13/webUploader/">WebUploader</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/08/13/webUploader/" class="article-date">
+  <time datetime="2019-08-13T07:10:17.284Z" itemprop="datePublished">2019-08-13</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>Using <a href="https://fex.baidu.com/webuploader/doc/index.html" target="_blank" rel="noopener">WebUploader</a> as 3pp to upload files to system.</p>
+<h3 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 仅包含了常用参数</span></span><br><span class="line"><span class="keyword">var</span> uploader = <span class="keyword">new</span> WebUploader.Uploader(&#123;</span><br><span class="line">    duplicate: <span class="literal">true</span>, <span class="comment">// 是否允许重复文件 default undefined</span></span><br><span class="line">    auto: <span class="literal">false</span>,  <span class="comment">// 选完文件后，是否自动上传</span></span><br><span class="line">    swf: <span class="string">'path_of_swf/Uploader.swf'</span>,  <span class="comment">// swf文件路径</span></span><br><span class="line">    server: <span class="string">"/upload.html"</span>, <span class="comment">// 文件接收服务端</span></span><br><span class="line">    pick: &#123; <span class="attr">id</span>: <span class="string">"#uploadFile"</span>, <span class="attr">innerHTML</span>: <span class="string">"localImg"</span> &#125;, <span class="comment">// 选择文件的按钮。可选</span></span><br><span class="line">    accept: &#123; <span class="comment">// sample, 只允许选择图片文件</span></span><br><span class="line">            title: <span class="string">'Images'</span>,</span><br><span class="line">            extensions: <span class="string">'gif,jpg,jpeg,bmp,png'</span>,</span><br><span class="line">            mimeTypes: <span class="string">'image/*'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    threads: <span class="number">1</span>, <span class="comment">// 线程数</span></span><br><span class="line">    fileSingleSizeLimit: <span class="number">2000</span>,  <span class="comment">// 单文件大小限制</span></span><br><span class="line">    fileNumLimit: <span class="number">10</span>,  <span class="comment">// 单次上传文件数量限制</span></span><br><span class="line">    fileSingleSizeLimit:  <span class="comment">// 验证单个文件大小是否超出限制, 超出则不允许加入队列</span></span><br><span class="line">    compress:<span class="literal">false</span>, <span class="comment">// 是否压缩上传</span></span><br><span class="line">    chunked: <span class="literal">true</span>, <span class="comment">// 是否要分片处理大文件上传, default false</span></span><br><span class="line">    chunkSize: <span class="number">5242880</span>, <span class="comment">// 如果要分片，分多大一片？ default 5242880 (5M)</span></span><br><span class="line">    chunkRetry: <span class="number">1</span>,  <span class="comment">// 如果某个分片由于网络问题出错，允许自动重传多少次？ default 2</span></span><br><span class="line">    threads: <span class="number">1</span>, <span class="comment">// 上传并发数。允许同时最大上传进程数 default 3</span></span><br><span class="line">    formData:&#123;&#125;, <span class="comment">// 文件上传请求的参数表，每次发送都会发送此对象中的参数</span></span><br><span class="line">    method: <span class="string">'GET'</span>,  <span class="comment">// POST or GET, default POST</span></span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+ <center>
+        
+          <a class="article-more-link" href="/2019/08/13/webUploader/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2019/08/13/webUploader/" data-id="cjzj6cj810014pkhrdr61vl8l"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebUploader/">WebUploader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
         <article id="post-openlayer-knowledge" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -65,7 +260,7 @@
         
   
     <h2 itemprop="name">
-      <a class="article-title" href="/2019/08/06/openlayer-knowledge/">Some hints about OpenLayer</a>
+      <a class="article-title" href="/2019/08/06/openlayer-knowledge/">Some tips about OpenLayer</a>
     </h2>
   
 
@@ -107,7 +302,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/06/openlayer-knowledge/" data-id="cjz2k2b42000k70hrviu8d4v6"
+      <a data-url="https://visionary-s.github.io/2019/08/06/openlayer-knowledge/" data-id="cjzj6cj7y0010pkhrj2s4mfkw"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openlayer/">openlayer</a></li></ul>
@@ -179,80 +374,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/05/ES6-Template String/" data-id="cjz2k2b3p000870hrejfkaadi"
+      <a data-url="https://visionary-s.github.io/2019/08/05/ES6-Template String/" data-id="cjzj6cj710002pkhrcc6kfyiv"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-git-for-daily-use" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/07/31/git-for-daily-use/">Git cmd for daily use</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/07/31/git-for-daily-use/" class="article-date">
-  <time datetime="2019-07-31T02:01:09.634Z" itemprop="datePublished">2019-07-31</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h4 id="Codes-commit-procedure-for-daily-work"><a href="#Codes-commit-procedure-for-daily-work" class="headerlink" title="Codes commit procedure for daily work:"></a>Codes commit procedure for daily work:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status  // check current modifications</span><br></pre></td></tr></table></figure>
-
-<p>can skip these steps:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git stash           // save work (current modifications)</span><br><span class="line">$ git stash list      // check to see saved work</span><br><span class="line">$ git stash apply 0   // apply work-id to restore the work to tmp branch</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add .   // <span class="keyword">do</span> not miss <span class="string">"."</span></span><br></pre></td></tr></table></figure>
-
-<p>or</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add -u</span><br></pre></td></tr></table></figure>
-
- <center>
-        
-          <a class="article-more-link" href="/2019/07/31/git-for-daily-use/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/31/git-for-daily-use/" data-id="cjz2k2b4b001070hrjqrx3cpa"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
 
     </footer>
 
@@ -317,7 +442,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/Migrate local video header to cloud storage/" data-id="cjz2k2b41000i70hrdj0w882d"
+      <a data-url="https://visionary-s.github.io/2019/07/25/Migrate local video header to cloud storage/" data-id="cjzj6cj7u000spkhrrfab5qgh"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -379,7 +504,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/24/Post photos to Gallery/" data-id="cjz2k2b46000s70hr3xp1wrpn"
+      <a data-url="https://visionary-s.github.io/2019/07/24/Post photos to Gallery/" data-id="cjzj6cj7s000ppkhr1bqfs13f"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -443,7 +568,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/17/cdt-app-lifecycle/" data-id="cjz2k2b45000p70hrfr5w2ik5"
+      <a data-url="https://visionary-s.github.io/2019/07/17/cdt-app-lifecycle/" data-id="cjzj6cj7p000kpkhrdsvaq2dn"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDT/">CDT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev-env/">dev-env</a></li></ul>
@@ -506,7 +631,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/17/JS对象引用/" data-id="cjz2k2b3w000e70hrh5woqq05"
+      <a data-url="https://visionary-s.github.io/2019/07/17/JS对象引用/" data-id="cjzj6cj7m000ipkhr6rcwv3mv"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
@@ -571,143 +696,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/17/JS-Label/" data-id="cjz2k2b3q000970hrcc10cwds"
+      <a data-url="https://visionary-s.github.io/2019/07/17/JS-Label/" data-id="cjzj6cj7i000epkhr3yawxsin"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-require js - define模块定义" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/07/16/require js - define模块定义/">Require JS - define模块定义</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/07/16/require js - define模块定义/" class="article-date">
-  <time datetime="2019-07-16T08:59:08.495Z" itemprop="datePublished">2019-07-16</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p><strong>CMD (Common Module Definition)</strong><br>在 CMD 规范中，一个模块就是一个文件。代码的书写格式如下：<br>              <center><em>define(factory);</em></center><br>define 是一个全局函数，用来定义模块。</p>
-<h3 id="1-factory为函数时，表示模块的构造方法："><a href="#1-factory为函数时，表示模块的构造方法：" class="headerlink" title="1. factory为函数时，表示模块的构造方法："></a>1. factory为函数时，表示模块的构造方法：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 模块代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>执行该构造方法，可以得到模块向外提供的接口。<br>factory 为对象、字符串时，表示模块的接口就是该对象、字符串<br> <center>
-        
-          <a class="article-more-link" href="/2019/07/16/require js - define模块定义/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/16/require js - define模块定义/" data-id="cjz2k2b49000x70hro9chbs6l"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-Hard or Soft Dependencies" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/07/16/Hard or Soft Dependencies/">Hard &amp; Soft Dependencies</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/07/16/Hard or Soft Dependencies/" class="article-date">
-  <time datetime="2019-07-16T08:37:06.508Z" itemprop="datePublished">2019-07-16</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>ref: <a href="https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency" target="_blank" rel="noopener">https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency</a></p>
-<h2 id="Hard-Dependency"><a href="#Hard-Dependency" class="headerlink" title="Hard Dependency"></a>Hard Dependency</h2><p>a module <strong>cannot</strong> function without the other modules on which it depends</p>
-<ul>
-<li><p>The module contains code that directly uses logic from another module (<strong>instances, class constants, static methods, public class properties, interfaces and traits</strong>).</p>
-</li>
-<li><p>The module contains strings that include <strong>class names, methods names, class constants, class properties, interfaces, and traits</strong> from another module.</p>
-</li>
-<li><p>The module de-serializes an <strong>object declared in another module</strong>.</p>
-</li>
-<li><p>The module uses or modifies the <strong>database tables used by another module</strong>.</p>
-<center>
-        
-          <a class="article-more-link" href="/2019/07/16/Hard or Soft Dependencies/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/16/Hard or Soft Dependencies/" data-id="cjz2k2b3k000570hr6oldu3af"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
 
     </footer>
 

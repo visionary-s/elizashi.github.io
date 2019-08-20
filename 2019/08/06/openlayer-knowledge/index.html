@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    Some hints about OpenLayer |
+    Some tips about OpenLayer |
     
     Solito</title>
   
@@ -31,7 +31,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Some hints about OpenLayer
+      Some tips about OpenLayer
     </h1>
   
 
@@ -78,6 +78,9 @@
 
 
 
+<h4 id="190813-update"><a href="#190813-update" class="headerlink" title="190813 update"></a>190813 update</h4><p>this method will lead to wrong presentation size at about 4/5 of expected radius due to the Mercator projection. I couldn’t figure out why for the second time I tried the origin calculation method as following, it turned out to appear normally with start angle of 45°.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; sides; ++i) &#123;</span><br><span class="line">  rotatedAngle = (i * radian / <span class="number">360</span> * <span class="number">2</span> * <span class="built_in">Math</span>.PI / sides) + (<span class="number">90</span> - angle - radian / <span class="number">2</span> )* <span class="built_in">Math</span>.PI / <span class="number">180</span> ; <span class="comment">// start from y = 0 (sector1 based on symmetry y axis, clockwise rotation)</span></span><br><span class="line">  coordinate = <span class="keyword">this</span>.getJWD(origin.Longitude, origin.Latitude, radius, rotatedAngle);  <span class="comment">// method getJWD() can be found ↓ link</span></span><br><span class="line">  points.push(coordinate);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// if not circle, add center point.</span></span><br><span class="line"><span class="comment">// this allows drawing circle via polygon api</span></span><br><span class="line"><span class="keyword">if</span> (radian !== <span class="string">"360"</span>) &#123;</span><br><span class="line">  points.push([origin.Longitude, origin.Latitude]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ring = <span class="keyword">new</span> ol.geom.LinearRing(points);</span><br><span class="line"><span class="keyword">var</span> pointsCoords = ring.getCoordinates();</span><br><span class="line">feature = <span class="keyword">new</span> ol.Feature(<span class="keyword">new</span> ol.geom.Polygon([pointsCoords]));</span><br></pre></td></tr></table></figure>
+
 <hr>
 <h3 id="calculate-longitude-amp-latitude-via-coordinate"><a href="#calculate-longitude-amp-latitude-via-coordinate" class="headerlink" title="calculate longitude &amp; latitude via coordinate"></a>calculate longitude &amp; latitude via coordinate</h3><p>former dev using func getJWD to calculate the coordinates, but this func cause the display error with start degree of 45°, so I discarded it.<br>For more info about this func : <a href="https://www.cnblogs.com/zhoug2020/p/7634187.html" target="_blank" rel="noopener">link</a></p>
 <hr>
@@ -97,14 +100,14 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> circle = <span class="keyword">new</span> ol.geom.Circle(</span><br><span class="line">    ol.proj.transform([longitude, latitude], <span class="string">'EPSG:4326'</span>, <span class="string">'EPSG:3857'</span>),</span><br><span class="line">    radius</span><br><span class="line">);</span><br><span class="line"><span class="keyword">var</span> circleFeature = <span class="keyword">new</span> ol.Feature(circle);</span><br></pre></td></tr></table></figure>
 
 <p><a href="http://www.acuriousanimal.com/thebookofopenlayers3/index.html" target="_blank" rel="noopener">OpenLayer Samples link</a>  ||  <a href="http://www.acuriousanimal.com/thebookofopenlayers3/chapter07_04_featureoverlay.html" target="_blank" rel="noopener">Circle</a></p>
-<h4 id="update"><a href="#update" class="headerlink" title="update:"></a>update:</h4><p>The pattern turned out to be simple circle pattern，which does not include geometry params，but our project need geometry params in GeoJSON format to decide which area is coved.<br>So I finally turn to <a href="https://openlayers.org/en/latest/apidoc/module-ol_geom_Polygon.html#.fromCircle" target="_blank" rel="noopener">ol/geom/Polygon.fromCircle</a> which transform plain circle into Polygon format. It returns Polygon geometry so that can be used in further calculation of coverage.</p>
+<h4 id="update"><a href="#update" class="headerlink" title="update:"></a>update:</h4><p>The pattern turned out to be simple circle pattern，which does not include geometry params，but our project need geometry params in GeoJSON format to decide which area is covered.<br>So I finally turn to <a href="https://openlayers.org/en/latest/apidoc/module-ol_geom_Polygon.html#.fromCircle" target="_blank" rel="noopener">ol/geom/Polygon.fromCircle</a> which transform plain circle into Polygon format. It returns Polygon geometry so that can be used in further calculation of coverage.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> circle = <span class="keyword">new</span> OpenLayers.geom.Circle(circleParams.center, circleParams.radius);</span><br><span class="line">feature = <span class="keyword">new</span> OpenLayers.Feature(<span class="keyword">new</span> OpenLayers.geom.Polygon.fromCircle(circle, <span class="number">500</span>));</span><br></pre></td></tr></table></figure>
 
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/06/openlayer-knowledge/" data-id="cjz2k2b42000k70hrviu8d4v6"
+      <a data-url="https://visionary-s.github.io/2019/08/06/openlayer-knowledge/" data-id="cjzj6cj7y0010pkhrj2s4mfkw"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openlayer/">openlayer</a></li></ul>
@@ -116,6 +119,15 @@
   
     
   <nav class="article-nav">
+    
+      <a href="/2019/08/13/webUploader/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            WebUploader
+          
+        </div>
+      </a>
     
     
       <a href="/2019/08/05/ES6-Template String/" class="article-nav-link">
