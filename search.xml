@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[K8s - kubectl]]></title>
+    <url>%2F2019%2F08%2F27%2FKubernetes%2F</url>
+    <content type="text"><![CDATA[Every time before start kubectl, remember export admin.config file first which contains server info for connection. The pwd should under path where the config file lies. 1$ export KUBECONFIG=./admin.conf then start nodes 1$ kubectl get node or 1$ kubectl get node -n testing]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
+      <tags>
+        <tag>Kubernetes</tag>
+        <tag>K8s</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Send batches of data creation requests to http server via Shell]]></title>
+    <url>%2F2019%2F08%2F26%2Fsend%20quantity%20of%20http%20requests%20via%20shell%2F</url>
+    <content type="text"><![CDATA[In order to test the data pool volume, send over 60000 creation data to server.Shell Script: 1234567891011#!/bin/basha=1while [ $a -le 60000 ]; do # start from 1, end by 60000 json="&#123;\"areas\":[&#123;\"new\":[58,60,57],\"id\":\"$a\", \"center\":[-39,49],\"name\":\"$1$a\",\"Version\":\"1.0\"&#125;"; a=$((a+1)) curl -v -X POST -H "Content-Type: application/json; charset=UTF-8" -H "Cookie: sessionId=_____" http://url -d "$json";done Mind the syntax especially the space, &quot;&quot; and &#39;&#39;, using \ for escaping “” inside json to avoid syntax error.]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
+      <tags>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[File Upload and Display]]></title>
     <url>%2F2019%2F08%2F19%2FFileUploadAndDisplay%2F</url>
     <content type="text"><![CDATA[input [type=file] 获取上传文件的内容 Modify: 1234567891011121314151617181920212223242526_addFileContent: function (fileTag) &#123; fileTag.addEventHandler("click", function () &#123; $("#fileUpload").change(function () &#123; var file = document.getElementById("fileUpload"); if (file.files.length &gt; 0) &#123; var trueFile = file.files[0]; console.log(document.getElementById("fileContent").value); var reader = new FileReader(); reader.readAsText(trueFile, 'UTF-8'); reader.onload = function () &#123; if (reader.error) &#123; console.log(reader.error); &#125; else &#123; var urlData = this.result; document.getElementById("fileContent").value = urlData; &#125; &#125;; &#125; else &#123; console.log("Failed to upload file!"); &#125; &#125;); &#125;); &#125; Other ref:Change event | MDN]]></content>
