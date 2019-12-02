@@ -58,13 +58,13 @@
       
 
       
-        <h4 id="Codes-commit-procedure-for-daily-work"><a href="#Codes-commit-procedure-for-daily-work" class="headerlink" title="Codes commit procedure for daily work:"></a>Codes commit procedure for daily work:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status  // check current modifications</span><br></pre></td></tr></table></figure>
+        <h4 id="Codes-commit-procedure-for-daily-work"><a href="#Codes-commit-procedure-for-daily-work" class="headerlink" title="Codes commit procedure for daily work:"></a>Codes commit procedure for daily work:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status          <span class="comment"># check current modifications</span></span><br></pre></td></tr></table></figure>
 
 <p>can skip these steps:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git stash           // save work (current modifications)</span><br><span class="line">$ git stash list      // check to see saved work</span><br><span class="line">$ git stash apply 0   // apply work-id to restore the work to tmp branch</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git stash           <span class="comment"># save work (current modifications)</span></span><br><span class="line">$ git stash list      <span class="comment"># check to see saved work</span></span><br><span class="line">$ git stash apply 0   <span class="comment"># apply work-id to restore the work to tmp branch</span></span><br></pre></td></tr></table></figure>
 
 <p><a href="https://www.cnblogs.com/zndxall/archive/2018/09/04/9586088.html" target="_blank" rel="noopener">git stash 用法总结和注意点</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add .   // <span class="keyword">do</span> not miss <span class="string">"."</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add .           <span class="comment"># do not miss "."</span></span><br></pre></td></tr></table></figure>
 
 <p>or</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add -u</span><br></pre></td></tr></table></figure>
@@ -83,32 +83,45 @@
 </li>
 </ul>
 <p>sometimes it failed due to late version of project, checkout and pull the latest version.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master // switch to master branch and see how many commits my branch are behind..</span><br><span class="line">$ git pull  // pull the update to <span class="built_in">local</span> branch</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull          <span class="comment"># pull the update to local branch</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git rebase -i master  // rebase multi <span class="built_in">local</span> submits and get sync with new branch on master and <span class="built_in">local</span>, conflicts may occur</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git rebase -i master  </span><br><span class="line"><span class="comment"># rebase multi local submits and get sync with new branch on master and local, conflicts may occur</span></span><br></pre></td></tr></table></figure>
 
-<p>if late-version conflicts accur, reset to last commit version\</p>
-<p>use <code>git rebase</code> to modify commit which is not pushed: <a href="https://cloud.tencent.com/developer/article/1335804" target="_blank" rel="noopener">link</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span>     // check commit <span class="built_in">history</span></span><br><span class="line">$ git reset &lt;commit id&gt;   // reset to certain commit version</span><br></pre></td></tr></table></figure>
+<p>if late-version conflicts occur, reset to last commit version, use <code>git rebase</code> to modify commit which is not pushed: <a href="https://cloud.tencent.com/developer/article/1335804" target="_blank" rel="noopener">link</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span>                   <span class="comment"># check commit history</span></span><br><span class="line">$ git reset &lt;commit id&gt;     <span class="comment"># reset to certain commit version</span></span><br></pre></td></tr></table></figure>
 
 <p>If build failed, you should redo “add” and “commit” step after resetting.</p>
 <p>Final Step：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin HEAD:refs/<span class="keyword">for</span>/master</span><br></pre></td></tr></table></figure>
 
 <p><em>Remember check Gerrit and add reviewers when work pushed. After the work is successfully built on cloud and get merged, add resolved mark and commit on JIRA task system.</em></p>
-<h4 id="19-08-08-update"><a href="#19-08-08-update" class="headerlink" title="19/08/08 update:"></a>19/08/08 update:</h4><p>if something wrong with codes was found in code review and have to add modifications, you should try to use <code>amend</code> to change the Last Commit</p>
+<hr>
+<h1 id><a href="#" class="headerlink" title="."></a>.</h1><h4 id="amend-amp-reset"><a href="#amend-amp-reset" class="headerlink" title="amend &amp; reset:"></a>amend &amp; reset:</h4><p>if something wrong with codes was found in code review and have to add modifications, you should try to use <code>amend</code> to change the Last Commit</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit --amend</span><br></pre></td></tr></table></figure>
 
 <p>For more info about using amend : <a href="https://www.atlassian.com/git/tutorials/rewriting-history" target="_blank" rel="noopener">click</a></p>
-<p>Unfortunately I failed to amend the commit, so just do</p>
+<p>If unfortunately failed to amend the commit, go back to last commited submit:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard &lt;commit-id&gt;</span><br></pre></td></tr></table></figure>
 
-<p>back to last commit version and pull down the latest one then resubmit the new changes.</p>
+<p>remember to pull down the latest version in this step, then resubmit the new changes.</p>
+<hr>
+<h1 id="-1"><a href="#-1" class="headerlink" title="."></a>.</h1><h4 id="branch-amp-merge"><a href="#branch-amp-merge" class="headerlink" title="branch &amp; merge:"></a>branch &amp; merge:</h4><p>Create a personal branch (excluded from master) locally:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git branch &lt;<span class="built_in">declare</span> a new branch name here&gt;   <span class="comment"># create</span></span><br><span class="line"><span class="comment"># e.g. git branch test-branch</span></span><br><span class="line">$ git branch                                    <span class="comment"># view all existing branches</span></span><br></pre></td></tr></table></figure>
+
+<p>Switch to certain branch:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout &lt;branch name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>push local commit to remote repository:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># when push current branch to remote</span></span><br><span class="line">$ git push origin <span class="built_in">test</span>-branch</span><br><span class="line"><span class="comment"># when push another branch to remote repository</span></span><br><span class="line">$ git push origin &lt;local_branch_name&gt;:&lt;remote_branch_name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>pull master branch to current branch:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge master</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/31/git-for-daily-use/" data-id="ck260ou1v000dd8hrd9c5jsvh"
+      <a data-url="https://visionary-s.github.io/2019/07/31/git-for-daily-use/" data-id="ck3o8fgbp000el8hrjembyi8w"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
