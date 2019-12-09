@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Gson LinkedTreeMap]]></title>
+    <url>%2F2019%2F12%2F09%2FAbout%20Gson%20LinkedTreeMap%2F</url>
+    <content type="text"><![CDATA[ProblemGiven a Gson object with format LinkedTreeMap&lt;String, String&gt;, e.g.: 123456LinkedTreeMap&lt;String, String&gt; misc = &#123; misc1: misc_site, misc2: misc_sector, misc3: null, misc4: null&#125; I got the HashMap with 12345&#123; misc: null&#125;and&#123;&#125; And pass case assertThat(misc).isNull(); is what I expected. Unfortunately both were deleted not Null.I try to transform the type into HashTable but got: 1ERROR: com.google.gson.internal.LinkedTreeMap cannot be cast to java.util.Hashtable SolutionConstruct an Iterator to get each value in map in sequence (LinkedTreeMap has already did it). 1234567Iterator it = misc.keySet().iterator();Integer cnt = 0;while (it.hasNext()) &#123; String key = (String) it.next(); if (misc.get(key) != null) cnt++;&#125;assertThat(cnt).isEqualTo(0); 不怎么好看不过能用。。 Ref: Gson解析时对于不确定泛型的处理]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>data structure</tag>
+        <tag>FT</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[K8s - kubectl]]></title>
     <url>%2F2019%2F08%2F27%2FKubernetes%2F</url>
     <content type="text"><![CDATA[Every time before start kubectl, remember export admin.config file first which contains server info for connection. The pwd should under path where the config file lies. 1$ export KUBECONFIG=./admin.conf then start nodes 1$ kubectl get node or 1$ kubectl get node -n testing]]></content>
