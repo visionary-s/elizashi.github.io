@@ -28,12 +28,13 @@
   <entry>
     <title><![CDATA[Send batches of data creation requests to http server via Shell]]></title>
     <url>%2F2019%2F08%2F26%2Fsend%20quantity%20of%20http%20requests%20via%20shell%2F</url>
-    <content type="text"><![CDATA[In order to test the data pool volume, send over 60000 creation data to server.Shell Script: 1234567891011#!/bin/basha=1while [ $a -le 60000 ]; do # start from 1, end by 60000 json="&#123;\"areas\":[&#123;\"new\":[58,60,57],\"id\":\"$a\", \"center\":[-39,49],\"name\":\"$1$a\",\"Version\":\"1.0\"&#125;"; a=$((a+1)) curl -v -X POST -H "Content-Type: application/json; charset=UTF-8" -H "Cookie: sessionId=_____" http://url -d "$json";done Mind the syntax especially the space, &quot;&quot; and &#39;&#39;, using \ for escaping “” inside json to avoid syntax error.]]></content>
+    <content type="text"><![CDATA[In order to test the data pool volume, send over 60000 creation data to server.Shell Script: 1234567891011#!/bin/basha=1while [ $a -le 60000 ]; do # start from 1, end by 60000 json="&#123;\"areas\":[&#123;\"new\":[58,60,57],\"id\":\"$a\", \"center\":[-39,49],\"name\":\"$1$a\",\"Version\":\"1.0\"&#125;"; a=$((a+1)) curl -v -X POST -H "Content-Type: application/json; charset=UTF-8" -H "Cookie: sessionId=_____" http://url -d "$json";done Mind the syntax especially the space, &quot;&quot; and &#39;&#39;, using \ for escaping “” inside json to avoid syntax error. other materials: curl 的用法指南]]></content>
       <categories>
         <category>work</category>
       </categories>
       <tags>
         <tag>shell</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
