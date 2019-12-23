@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[NBI & SBI]]></title>
+    <url>%2F2019%2F12%2F23%2FNBIandSBI%2F</url>
+    <content type="text"><![CDATA[Northbound InterfaceNBI conceptualizes lower level details (e.g. data or functions) used by, or in the component. It interfaces to higher level layers and is normally drawn at the top of an architectural overview.e.g. REST API, SMMP, CORBA, SNMP北向接口，用于接口编程开发各app，采集、分析app在运行中产生的各种数据，因网络管理中从上而下分应用层、数据处理层、数据管理层，北向接口即应用层和数据处理层之间的数据交互定义接口（见下图），因为朝上（上北下南）称北向接口。 Southbound InterfaceA southbound interface decomposes concepts in the technical details, mostly specific to a single component of the architecture. Southbound interfaces are drawn at the bottom of an architectural overview.e.g. OpenFlow, NETCONF, XMPP A Northbound interface goes “up” and a Southbound interface goes “down”.northbound interfaces go towards the core of the data center or towards the Internet-facing egress of the network. Southbound goes towards the end-users/servers/VMs.Northbound interfaces normally talk to southbound interfaces of higher level components and vice versa.]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
+      <tags>
+        <tag>network</tag>
+        <tag>interface</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Gson LinkedTreeMap]]></title>
     <url>%2F2019%2F12%2F09%2FAbout%20Gson%20LinkedTreeMap%2F</url>
     <content type="text"><![CDATA[ProblemGiven a Gson object with format LinkedTreeMap&lt;String, String&gt;, e.g.: 123456LinkedTreeMap&lt;String, String&gt; misc = &#123; misc1: misc_site, misc2: misc_sector, misc3: null, misc4: null&#125; I got the HashMap with 12345&#123; misc: null&#125;and&#123;&#125; And pass case assertThat(misc).isNull(); is what I expected. Unfortunately both were deleted not Null.I try to transform the type into HashTable but got: 1ERROR: com.google.gson.internal.LinkedTreeMap cannot be cast to java.util.Hashtable SolutionConstruct an Iterator to get each value in map in sequence (LinkedTreeMap has already did it). 1234567Iterator it = misc.keySet().iterator();Integer cnt = 0;while (it.hasNext()) &#123; String key = (String) it.next(); if (misc.get(key) != null) cnt++;&#125;assertThat(cnt).isEqualTo(0); 不怎么好看不过能用。。 Ref: Gson解析时对于不确定泛型的处理]]></content>

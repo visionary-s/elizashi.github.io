@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    Hard &amp; Soft Dependencies |
+    NBI &amp; SBI |
     
     Solito</title>
   
@@ -23,7 +23,7 @@
 <body>
 <main class="content">
   <section class="outer">
-  <article id="post-Hard or Soft Dependencies" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  <article id="post-NBIandSBI" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -31,7 +31,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hard &amp; Soft Dependencies
+      NBI &amp; SBI
     </h1>
   
 
@@ -41,12 +41,12 @@
 
     
       <div class="article-meta">
-        <a href="/2019/07/16/Hard or Soft Dependencies/" class="article-date">
-  <time datetime="2019-07-16T08:37:06.508Z" itemprop="datePublished">2019-07-16</time>
+        <a href="/2019/12/23/NBIandSBI/" class="article-date">
+  <time datetime="2019-12-23T07:27:32.363Z" itemprop="datePublished">2019-12-23</time>
 </a>
         
   <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
+    <a class="article-category-link" href="/categories/work/">work</a>
   </div>
 
       </div>
@@ -58,34 +58,23 @@
       
 
       
-        <p>ref: <a href="https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency" target="_blank" rel="noopener">https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency</a></p>
-<h2 id="Hard-Dependency"><a href="#Hard-Dependency" class="headerlink" title="Hard Dependency"></a>Hard Dependency</h2><p>a module <strong>cannot</strong> function without the other modules on which it depends</p>
-<ul>
-<li><p>The module contains code that directly uses logic from another module (<strong>instances, class constants, static methods, public class properties, interfaces and traits</strong>).</p>
-</li>
-<li><p>The module contains strings that include <strong>class names, methods names, class constants, class properties, interfaces, and traits</strong> from another module.</p>
-</li>
-<li><p>The module de-serializes an <strong>object declared in another module</strong>.</p>
-</li>
-<li><p>The module uses or modifies the <strong>database tables used by another module</strong>.</p>
-<center><a id="more"></a></center>
+        <h2 id="Northbound-Interface"><a href="#Northbound-Interface" class="headerlink" title="Northbound Interface"></a>Northbound Interface</h2><p>NBI conceptualizes lower level details (e.g. data or functions) used by, or in the component. It interfaces to higher level layers and is normally drawn at the top of an architectural overview.<br><em>e.g. REST API, SMMP, CORBA, SNMP</em><br>北向接口，用于接口编程开发各app，采集、分析app在运行中产生的各种数据，因网络管理中从上而下分应用层、数据处理层、数据管理层，北向接口即应用层和数据处理层之间的数据交互定义接口（见下图），因为朝上（上北下南）称北向接口。</p>
+<h2 id="Southbound-Interface"><a href="#Southbound-Interface" class="headerlink" title="Southbound Interface"></a>Southbound Interface</h2><p>A southbound interface decomposes concepts in the technical details, mostly specific to a single component of the architecture. Southbound interfaces are drawn at the bottom of an architectural overview.<br><em>e.g. OpenFlow, NETCONF, XMPP</em></p>
+ <center><a id="more"></a></center>
 
-</li>
-</ul>
-<h2 id="Soft-Dependency"><a href="#Soft-Dependency" class="headerlink" title="Soft Dependency"></a>Soft Dependency</h2><p>a module <strong>can</strong> function without the other modules on which it depends</p>
-<ul>
-<li>The module directly <strong>checks</strong> another module’s availability.</li>
-<li>The module <strong>extends</strong> another module’s configuration.</li>
-<li>The module extends another module’s layout.</li>
-</ul>
+<hr>
+<p><strong>A Northbound interface goes “up” and a Southbound interface goes “down”.</strong><br>northbound interfaces go towards the core of the data center or towards the Internet-facing egress of the network.  Southbound goes towards the end-users/servers/VMs.<br>Northbound interfaces normally talk to southbound interfaces of higher level components and vice versa.</p>
+<center>
+<img src="https://res.cloudinary.com/elizashi/image/upload/v1577086420/gitblog/posts/nbi/Capture_isxpve.png" style="width: 80%">
+</center>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/16/Hard or Soft Dependencies/" data-id="ck4i51ohb0005n4hrt23ct287"
+      <a data-url="https://visionary-s.github.io/2019/12/23/NBIandSBI/" data-id="ck4i51ohm000gn4hrmysyxjw2"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interface/">interface</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
 
     </footer>
 
@@ -95,19 +84,10 @@
     
   <nav class="article-nav">
     
-      <a href="/2019/07/16/require js - define模块定义/" class="article-nav-link">
-        <strong class="article-nav-caption">Newer posts</strong>
-        <div class="article-nav-title">
-          
-            Require JS - define模块定义
-          
-        </div>
-      </a>
     
-    
-      <a href="/2019/07/16/CDT/" class="article-nav-link">
+      <a href="/2019/12/09/About Gson LinkedTreeMap/" class="article-nav-link">
         <strong class="article-nav-caption">Olde posts</strong>
-        <div class="article-nav-title">CDT Learning</div>
+        <div class="article-nav-title">Gson LinkedTreeMap</div>
       </a>
     
   </nav>
