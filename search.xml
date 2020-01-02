@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux CMD for daily use]]></title>
+    <url>%2F2020%2F01%2F02%2Flinux-cmd%2F</url>
+    <content type="text"><![CDATA[check log Display whole log file content: 1$ cat target.log Search key word in log file, and return lines containing keyword: 123$ cat target.log |grep "keyword"or$ grep -i "keyword" target.log these two method return same result Check the most recent log (the tail lines of log file): 123$ cat target.log |tail -n 200 # check the last 200 lines of log fileor$ tail -200f target.log # show last 200 lines and continue printing new logs TBC]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>cmd</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[NBI & SBI]]></title>
     <url>%2F2019%2F12%2F23%2FNBIandSBI%2F</url>
     <content type="text"><![CDATA[Northbound InterfaceNBI conceptualizes lower level details (e.g. data or functions) used by, or in the component. It interfaces to higher level layers and is normally drawn at the top of an architectural overview.e.g. REST API, SMMP, CORBA, SNMP北向接口，用于接口编程开发各app，采集、分析app在运行中产生的各种数据，因网络管理中从上而下分应用层、数据处理层、数据管理层，北向接口即应用层和数据处理层之间的数据交互定义接口（见下图），因为朝上（上北下南）称北向接口。 Southbound InterfaceA southbound interface decomposes concepts in the technical details, mostly specific to a single component of the architecture. Southbound interfaces are drawn at the bottom of an architectural overview.e.g. OpenFlow, NETCONF, XMPP A Northbound interface goes “up” and a Southbound interface goes “down”.northbound interfaces go towards the core of the data center or towards the Internet-facing egress of the network. Southbound goes towards the end-users/servers/VMs.Northbound interfaces normally talk to southbound interfaces of higher level components and vice versa.]]></content>
@@ -45,8 +57,8 @@
         <category>work</category>
       </categories>
       <tags>
-        <tag>shell</tag>
         <tag>linux</tag>
+        <tag>shell</tag>
       </tags>
   </entry>
   <entry>

@@ -57,6 +57,74 @@
 
     
       
+        <article id="post-Migrate local video header to cloud storage" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/07/25/Migrate local video header to cloud storage/">Migrate local video header to cloud storage</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/07/25/Migrate local video header to cloud storage/" class="article-date">
+  <time datetime="2019-07-25T08:17:00.986Z" itemprop="datePublished">2019-07-25</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p> Since the Ocean theme includes and initiates the videos and images about header via local folder <code>themes/ocean/source/images/ocean/</code>, the page loads slowly at mobile device. So I decided to transfer these large files to cloud side to promote loading speed.</p>
+<ol>
+<li><p>Find the local image folder as referred above.</p>
+</li>
+<li><p>upload these files to <a href="https://cloudinary.com/" target="_blank" rel="noopener">cloudinary</a>, it provides plugin as a module to js file:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudinary.videoTag(<span class="string">'gitblog/ocean/ocean_j5rpnt'</span>).toHtml();</span><br></pre></td></tr></table></figure>
+
+<p>the src ref-way can be find at <strong>“edit”</strong> page by right clicking on cloudinary/file.<br>Here I did not use this short path cuz I am not in need of a large quantity of inserted files.</p>
+<center>
+        
+          <a class="article-more-link" href="/2019/07/25/Migrate local video header to cloud storage/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2019/07/25/Migrate local video header to cloud storage/" data-id="ck4webxk6000yi4hrwvrt2tq6"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
         <article id="post-Post photos to Gallery" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -101,7 +169,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/24/Post photos to Gallery/" data-id="ck4s0jpqk000qpohrlsep6j3p"
+      <a data-url="https://visionary-s.github.io/2019/07/24/Post photos to Gallery/" data-id="ck4webxk2000ri4hrr0hapcbl"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -165,7 +233,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/17/cdt-app-lifecycle/" data-id="ck4s0jpqt0014pohrojci3q56"
+      <a data-url="https://visionary-s.github.io/2019/07/17/cdt-app-lifecycle/" data-id="ck4webxkc0019i4hrzrv6c6kx"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDT/">CDT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev-env/">dev-env</a></li></ul>
@@ -228,7 +296,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/17/JS对象引用/" data-id="ck4s0jpqh000lpohrf7psgv2g"
+      <a data-url="https://visionary-s.github.io/2019/07/17/JS对象引用/" data-id="ck4webxjp000ei4hrvyq0d4d5"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
@@ -293,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/17/JS-Label/" data-id="ck4s0jpqg000ipohrh4ug8337"
+      <a data-url="https://visionary-s.github.io/2019/07/17/JS-Label/" data-id="ck4webxjk000ai4hrl8if9769"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
@@ -356,7 +424,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/16/require js - define模块定义/" data-id="ck4s0jpqz001bpohrhcc6rt8o"
+      <a data-url="https://visionary-s.github.io/2019/07/16/require js - define模块定义/" data-id="ck4webxkf001di4hrxide6vq7"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -426,7 +494,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/16/Hard or Soft Dependencies/" data-id="ck4s0jpqc000dpohr9bt54540"
+      <a data-url="https://visionary-s.github.io/2019/07/16/Hard or Soft Dependencies/" data-id="ck4webxjn000di4hrotgzy5nf"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -488,7 +556,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/16/CDT/" data-id="ck4s0jpps0000pohrm1zq1jtd"
+      <a data-url="https://visionary-s.github.io/2019/07/16/CDT/" data-id="ck4webxj40000i4hrf3ajwbtp"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDT/">CDT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev-env/">dev-env</a></li></ul>
@@ -548,7 +616,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/15/Hexo Theme Modification/" data-id="ck4s0jpq8000apohrhtjnxl92"
+      <a data-url="https://visionary-s.github.io/2019/07/15/Hexo Theme Modification/" data-id="ck4webxja0002i4hrawyt4stj"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -616,7 +684,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/15/Hexo cmd/" data-id="ck4s0jpqe000epohr14kn9cdk"
+      <a data-url="https://visionary-s.github.io/2019/07/15/Hexo cmd/" data-id="ck4webxka0015i4hr9r99kazb"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -657,7 +725,7 @@
 
     </div>
     <ul class="list-inline">
-      <li>&copy; 2019 B. Eliza Shi</li>
+      <li>&copy; 2020 B. Eliza Shi</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
       <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
     </ul>

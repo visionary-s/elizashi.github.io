@@ -57,6 +57,78 @@
 
     
       
+        <article id="post-linux-cmd" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/01/02/linux-cmd/">Linux CMD for daily use</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/01/02/linux-cmd/" class="article-date">
+  <time datetime="2020-01-02T05:24:56.793Z" itemprop="datePublished">2020-01-02</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="check-log"><a href="#check-log" class="headerlink" title="check log"></a>check log</h3><ol>
+<li><p>Display whole log file content:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Search key word in log file, and return lines containing keyword:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log |grep <span class="string">"keyword"</span></span><br><span class="line">or</span><br><span class="line">$ grep -i <span class="string">"keyword"</span> target.log</span><br></pre></td></tr></table></figure>
+
+<p>these two method return same result</p>
+</li>
+<li><p>Check the most recent log (the tail lines of log file):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log |tail -n 200   <span class="comment"># check the last 200 lines of log file</span></span><br><span class="line">or</span><br><span class="line">$ tail -200f target.log   <span class="comment"># show last 200 lines and continue printing new logs</span></span><br></pre></td></tr></table></figure>
+
+<center>
+        
+          <a class="article-more-link" href="/2020/01/02/linux-cmd/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/01/02/linux-cmd/" data-id="ck4webxjw000ki4hr2fisbgao"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
         <article id="post-git-for-daily-use" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -110,7 +182,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/31/git-for-daily-use/" data-id="ck4s0jpqp000xpohrebua7hnd"
+      <a data-url="https://visionary-s.github.io/2019/07/31/git-for-daily-use/" data-id="ck4webxjz000pi4hr6bt3cm6j"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -172,7 +244,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/12/23/NBIandSBI/" data-id="ck4s0jpqn000vpohrm2i0i0dy"
+      <a data-url="https://visionary-s.github.io/2019/12/23/NBIandSBI/" data-id="ck4webxk4000vi4hr6o1y0th4"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interface/">interface</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
@@ -241,7 +313,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/12/09/About Gson LinkedTreeMap/" data-id="ck4s0jppy0002pohrl6g8eliw"
+      <a data-url="https://visionary-s.github.io/2019/12/09/About Gson LinkedTreeMap/" data-id="ck4webxk80011i4hr84holvps"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FT/">FT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structure/">data structure</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
@@ -307,7 +379,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/27/Kubernetes/" data-id="ck4s0jpqr0010pohrqye840g3"
+      <a data-url="https://visionary-s.github.io/2019/08/27/Kubernetes/" data-id="ck4webxju000ii4hr4dlvtr4m"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
@@ -372,7 +444,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/26/send quantity of http requests via shell/" data-id="ck4s0jpr1001epohr1k41xe6h"
+      <a data-url="https://visionary-s.github.io/2019/08/26/send quantity of http requests via shell/" data-id="ck4webxkk001gi4hrko1j835c"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
@@ -434,7 +506,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/19/FileUploadAndDisplay/" data-id="ck4s0jpq60008pohrt0iuxflb"
+      <a data-url="https://visionary-s.github.io/2019/08/19/FileUploadAndDisplay/" data-id="ck4webxjf0006i4hrqosp0apa"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -497,7 +569,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/13/webUploader/" data-id="ck4s0jpr3001ipohrtu8jk907"
+      <a data-url="https://visionary-s.github.io/2019/08/13/webUploader/" data-id="ck4webxkm001ki4hrgqjxku2s"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebUploader/">WebUploader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -565,7 +637,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/06/openlayer-knowledge/" data-id="ck4s0jpqv0017pohrpbv0upi8"
+      <a data-url="https://visionary-s.github.io/2019/08/06/openlayer-knowledge/" data-id="ck4webxko001ni4hrf223qly7"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openlayer/">openlayer</a></li></ul>
@@ -637,78 +709,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/05/ES6-Template String/" data-id="ck4s0jpq30006pohr6o186rvh"
+      <a data-url="https://visionary-s.github.io/2019/08/05/ES6-Template String/" data-id="ck4webxji0008i4hr6luzckui"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-Migrate local video header to cloud storage" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/07/25/Migrate local video header to cloud storage/">Migrate local video header to cloud storage</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/07/25/Migrate local video header to cloud storage/" class="article-date">
-  <time datetime="2019-07-25T08:17:00.986Z" itemprop="datePublished">2019-07-25</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/interest/">interest</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p> Since the Ocean theme includes and initiates the videos and images about header via local folder <code>themes/ocean/source/images/ocean/</code>, the page loads slowly at mobile device. So I decided to transfer these large files to cloud side to promote loading speed.</p>
-<ol>
-<li><p>Find the local image folder as referred above.</p>
-</li>
-<li><p>upload these files to <a href="https://cloudinary.com/" target="_blank" rel="noopener">cloudinary</a>, it provides plugin as a module to js file:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudinary.videoTag(<span class="string">'gitblog/ocean/ocean_j5rpnt'</span>).toHtml();</span><br></pre></td></tr></table></figure>
-
-<p>the src ref-way can be find at <strong>“edit”</strong> page by right clicking on cloudinary/file.<br>Here I did not use this short path cuz I am not in need of a large quantity of inserted files.</p>
-<center>
-        
-          <a class="article-more-link" href="/2019/07/25/Migrate local video header to cloud storage/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/Migrate local video header to cloud storage/" data-id="ck4s0jpql000rpohrh12iplyu"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
 
     </footer>
 
@@ -746,7 +750,7 @@
 
     </div>
     <ul class="list-inline">
-      <li>&copy; 2019 B. Eliza Shi</li>
+      <li>&copy; 2020 B. Eliza Shi</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
       <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
     </ul>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    About me |
+    Linux CMD for daily use |
     
     Solito</title>
   
@@ -23,7 +23,7 @@
 <body>
 <main class="content">
   <section class="outer">
-  <article id="page-" class="article article-type-page" itemscope itemprop="blogPost" data-scroll-reveal>
+  <article id="post-linux-cmd" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -31,7 +31,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      About me
+      Linux CMD for daily use
     </h1>
   
 
@@ -40,6 +40,17 @@
     
 
     
+      <div class="article-meta">
+        <a href="/2020/01/02/linux-cmd/" class="article-date">
+  <time datetime="2020-01-02T05:24:56.793Z" itemprop="datePublished">2020-01-02</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
 
     <div class="article-entry" itemprop="articleBody">
       
@@ -47,25 +58,55 @@
       
 
       
-        <p><em>Simple Optimistic Trier</em></p>
-<p><em>Wish for HEALTH</em></p>
-<center>Keep running . . .
-</center>
+        <h3 id="check-log"><a href="#check-log" class="headerlink" title="check log"></a>check log</h3><ol>
+<li><p>Display whole log file content:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Search key word in log file, and return lines containing keyword:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log |grep <span class="string">"keyword"</span></span><br><span class="line">or</span><br><span class="line">$ grep -i <span class="string">"keyword"</span> target.log</span><br></pre></td></tr></table></figure>
+
+<p>these two method return same result</p>
+</li>
+<li><p>Check the most recent log (the tail lines of log file):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log |tail -n 200   <span class="comment"># check the last 200 lines of log file</span></span><br><span class="line">or</span><br><span class="line">$ tail -200f target.log   <span class="comment"># show last 200 lines and continue printing new logs</span></span><br></pre></td></tr></table></figure>
+
+<center><a id="more"></a></center>
+
+<ol start="4">
+<li>TBC</li>
+</ol>
+</li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/about/index.html" data-id="ck4webxj90001i4hrhhqweuqi"
+      <a data-url="https://visionary-s.github.io/2020/01/02/linux-cmd/" data-id="ck4webxjw000ki4hr2fisbgao"
          class="article-share-link">Share</a>
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
     </footer>
 
   </div>
 
   
     
+  <nav class="article-nav">
+    
+    
+      <a href="/2019/12/23/NBIandSBI/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">NBI &amp; SBI</div>
+      </a>
+    
+  </nav>
+
 
   
 
+  
+    
   
 
 </article>
