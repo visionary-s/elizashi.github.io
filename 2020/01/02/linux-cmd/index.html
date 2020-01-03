@@ -71,17 +71,38 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log |tail -n 200   <span class="comment"># check the last 200 lines of log file</span></span><br><span class="line">or</span><br><span class="line">$ tail -200f target.log   <span class="comment"># show last 200 lines and continue printing new logs</span></span><br></pre></td></tr></table></figure>
 
 <center><a id="more"></a></center>
-
-<ol start="4">
-<li>TBC</li>
-</ol>
 </li>
 </ol>
+<hr>
+<h3 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h3><ol>
+<li><p>To test whether the target host is accessible, mainly has two ways:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ping &lt;host addr&gt;    <span class="comment"># sample address: 192.168.1.21</span></span><br><span class="line">$ ping6 &lt;host addr&gt;   <span class="comment"># ipv6 address</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ping + paras:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ ping -a &lt;addr&gt;  <span class="comment"># 把地址解析成主机名 (NetBios名)</span></span><br><span class="line">                  <span class="comment"># e.g. ping -a 192.168.1.21 returns</span></span><br><span class="line">                  <span class="comment"># Pinging iceblood.yofor.com [192.168.1.21] with 32 bytes of data</span></span><br><span class="line">                  <span class="comment"># so the NetBios name is iceblood.yofor.com with ip=192.168.1.21</span></span><br><span class="line">$ ping -t &lt;addr&gt;  <span class="comment"># continue pinging the addr</span></span><br><span class="line">                  <span class="comment"># press Ctl+Break to show statistic info and continue pinging</span></span><br><span class="line">                  <span class="comment"># Ctl+C to stop</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>for more: <a href="https://blog.csdn.net/zhoudaxia/article/details/6154065" target="_blank" rel="noopener">从ping和ping6说起</a></p>
+<hr>
+<h3 id="file-transport-scp"><a href="#file-transport-scp" class="headerlink" title="file transport (scp)"></a>file transport (scp)</h3><ol>
+<li><p>copy file from path1 to path2</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ scp path1 username@targetAddr:path2</span><br><span class="line"><span class="comment"># sample:</span></span><br><span class="line">$ scp /home/usrsby/xxx.jar root@10.136.40.75:/home/usrsby</span><br><span class="line"><span class="comment"># while using jumper as proxy, file has to be transported twice</span></span><br><span class="line">$ scp /home/usrsby/xxx.jar node-image-name:/opt/xxx/xx-xx/xxx-server/repository/com/xxx/x/xx-service-configuration/1.0-SNAPSHOT/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>download file from remote vm:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Step1: copy target file from vm to jumper in same way as above</span></span><br><span class="line"><span class="comment"># Step2: download file to jumper, execute in jumper</span></span><br><span class="line">$ scp username@remoteAddr:/remotePath/file folder_in_jumper</span><br><span class="line"><span class="comment"># Sample:</span></span><br><span class="line">$ scp root@10.136.40.75:/home/usrsby/xx.log /home/usrsby</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<h3 id="time"><a href="#time" class="headerlink" title="time"></a>time</h3><p>to show cuurent local time:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ date</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/02/linux-cmd/" data-id="ck4webxjw000ki4hr2fisbgao"
+      <a data-url="https://visionary-s.github.io/2020/01/02/linux-cmd/" data-id="ck4xtnf6y000w6shro4po9rdq"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>

@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Linux CMD for daily use]]></title>
     <url>%2F2020%2F01%2F02%2Flinux-cmd%2F</url>
-    <content type="text"><![CDATA[check log Display whole log file content: 1$ cat target.log Search key word in log file, and return lines containing keyword: 123$ cat target.log |grep "keyword"or$ grep -i "keyword" target.log these two method return same result Check the most recent log (the tail lines of log file): 123$ cat target.log |tail -n 200 # check the last 200 lines of log fileor$ tail -200f target.log # show last 200 lines and continue printing new logs TBC]]></content>
+    <content type="text"><![CDATA[check log Display whole log file content: 1$ cat target.log Search key word in log file, and return lines containing keyword: 123$ cat target.log |grep "keyword"or$ grep -i "keyword" target.log these two method return same result Check the most recent log (the tail lines of log file): 123$ cat target.log |tail -n 200 # check the last 200 lines of log fileor$ tail -200f target.log # show last 200 lines and continue printing new logs ping To test whether the target host is accessible, mainly has two ways: 12$ ping &lt;host addr&gt; # sample address: 192.168.1.21$ ping6 &lt;host addr&gt; # ipv6 address ping + paras: 1234567$ ping -a &lt;addr&gt; # 把地址解析成主机名 (NetBios名) # e.g. ping -a 192.168.1.21 returns # Pinging iceblood.yofor.com [192.168.1.21] with 32 bytes of data # so the NetBios name is iceblood.yofor.com with ip=192.168.1.21$ ping -t &lt;addr&gt; # continue pinging the addr # press Ctl+Break to show statistic info and continue pinging # Ctl+C to stop for more: 从ping和ping6说起 file transport (scp) copy file from path1 to path2 12345$ scp path1 username@targetAddr:path2# sample:$ scp /home/usrsby/xxx.jar root@10.136.40.75:/home/usrsby# while using jumper as proxy, file has to be transported twice$ scp /home/usrsby/xxx.jar node-image-name:/opt/xxx/xx-xx/xxx-server/repository/com/xxx/x/xx-service-configuration/1.0-SNAPSHOT/ download file from remote vm: 12345# Step1: copy target file from vm to jumper in same way as above# Step2: download file to jumper, execute in jumper$ scp username@remoteAddr:/remotePath/file folder_in_jumper# Sample:$ scp root@10.136.40.75:/home/usrsby/xx.log /home/usrsby timeto show cuurent local time: 1$ date]]></content>
       <categories>
         <category>work</category>
       </categories>
@@ -117,6 +117,7 @@
         <category>work</category>
       </categories>
       <tags>
+        <tag>cmd</tag>
         <tag>git</tag>
       </tags>
   </entry>
