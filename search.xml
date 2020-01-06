@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Mini-program project demo for starter]]></title>
+    <url>%2F2020%2F01%2F06%2Fmini-program%2F</url>
+    <content type="text"><![CDATA[demo program 我要圣诞帽https://github.com/jasscia/ChristmasHat 图片编辑，存图 掌故https://github.com/Gesangs/PhoneStory 新闻推送 简约睡眠Musichttps://github.com/shajinyang/BeautyAudio 音乐播放器 运势小程序https://github.com/panyefan/wxfortune 测运势，存图 跑马灯，左侧菜单，抽屉层，加载动画https://github.com/youzouzou/wxapp 小程序组件合集 订单管理，浮层菜单，页面设计https://github.com/GavinCarter1991/wx-onePro 内部平台，商户端界面 电商模板，购物车模板https://github.com/fangliu520/wxbestcake 摇一摇，二维码《微信小程序入门与实践》一书的小程序源代码前端： https://github.com/7insummer/orange-can 后端： https://github.com/7insummer/orange-can-server 仿微信运动步数排行https://www.jianshu.com/p/bb7131114993 Note. 以上代码都有两年左右年份，仅供入门学习参考ref: https://www.jianshu.com/p/0e471853a548 UI Lab iViewhttps://github.com/TalkingData/iview-weapp 教程：https://www.jianshu.com/p/09b4515152ff]]></content>
+      <categories>
+        <category>interest</category>
+      </categories>
+      <tags>
+        <tag>mini-program</tag>
+        <tag>resource</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[WebUploader]]></title>
     <url>%2F2020%2F01%2F03%2FwebUploader%2F</url>
     <content type="text"><![CDATA[Using WebUploader as 3pp to upload files to system. 1. 初始化123456789101112131415161718192021222324// 仅包含了常用参数var uploader = new WebUploader.Uploader(&#123; duplicate: true, // 是否允许重复文件 default undefined auto: false, // 选完文件后，是否自动上传 swf: 'path_of_swf/Uploader.swf', // swf文件路径 server: "/upload.html", // 文件接收服务端 pick: &#123; id: "#uploadFile", innerHTML: "localImg" &#125;, // 选择文件的按钮。可选 accept: &#123; // sample, 只允许选择图片文件 title: 'Images', extensions: 'gif,jpg,jpeg,bmp,png', mimeTypes: 'image/*' &#125;, threads: 1, // 线程数 fileSingleSizeLimit: 2000, // 单文件大小限制 fileNumLimit: 10, // 单次上传文件数量限制 fileSingleSizeLimit: // 验证单个文件大小是否超出限制, 超出则不允许加入队列 compress:false, // 是否压缩上传 chunked: true, // 是否要分片处理大文件上传, default false chunkSize: 5242880, // 如果要分片，分多大一片？ default 5242880 (5M) chunkRetry: 1, // 如果某个分片由于网络问题出错，允许自动重传多少次？ default 2 threads: 1, // 上传并发数。允许同时最大上传进程数 default 3 formData:&#123;&#125;, // 文件上传请求的参数表，每次发送都会发送此对象中的参数 method: 'GET', // POST or GET, default POST &#125;); 2. 监听event仅列举常用event uploadAccept当某个文件上传到服务端响应后，会派送此事件来询问服务端响应是否有效。如果此事件handler返回值为false, 则此文件将派送server类型的uploadError事件 12345uploader.on('uploadAccept', function (file, response) &#123; if (response.error) &#123; this.uploader.trigger('uploadError', file, response.UserMessage); &#125;&#125;); uploadSuccess当文件上传成功时触发（单文件上传成功） 123uploader.on('uploadSuccess', function (file) &#123; this._saveSuccessHandler(file);&#125;); uploadError当文件上传出错时触发 1234567891011uploader.on('uploadError', function (file, reason) &#123; var xhr = &#123;&#125;, responseJSON = &#123;&#125;; responseJSON.UserMessage = reason; xhr.status = 500; xhr.responseJSON = responseJSON; if (reason) &#123; createErrorDialog(xhr, 500, "upload failed"); &#125; this.uploader.reset(); // uploader重置 this.submitBtn.removeAttribute('disabled'); &#125;); For more details: https://www.jianshu.com/p/9f669deebf82]]></content>
@@ -90,8 +102,8 @@
         <category>work</category>
       </categories>
       <tags>
-        <tag>cmd</tag>
         <tag>linux</tag>
+        <tag>cmd</tag>
       </tags>
   </entry>
   <entry>
@@ -169,8 +181,8 @@
         <category>work</category>
       </categories>
       <tags>
-        <tag>git</tag>
         <tag>cmd</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
