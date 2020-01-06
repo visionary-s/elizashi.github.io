@@ -1,81 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Linux CMD for daily use]]></title>
-    <url>%2F2020%2F01%2F02%2Flinux-cmd%2F</url>
-    <content type="text"><![CDATA[check log Display whole log file content: 1$ cat target.log Search key word in log file, and return lines containing keyword: 123$ cat target.log |grep "keyword"or$ grep -i "keyword" target.log these two method return same result Check the most recent log (the tail lines of log file): 123$ cat target.log |tail -n 200 # check the last 200 lines of log fileor$ tail -200f target.log # show last 200 lines and continue printing new logs ping To test whether the target host is accessible, mainly has two ways: 12$ ping &lt;host addr&gt; # sample address: 192.168.1.21$ ping6 &lt;host addr&gt; # ipv6 address ping + paras: 1234567$ ping -a &lt;addr&gt; # 把地址解析成主机名 (NetBios名) # e.g. ping -a 192.168.1.21 returns # Pinging iceblood.yofor.com [192.168.1.21] with 32 bytes of data # so the NetBios name is iceblood.yofor.com with ip=192.168.1.21$ ping -t &lt;addr&gt; # continue pinging the addr # press Ctl+Break to show statistic info and continue pinging # Ctl+C to stop for more: 从ping和ping6说起 file transport (scp) copy file from path1 to path2 12345$ scp path1 username@targetAddr:path2# sample:$ scp /home/usrsby/xxx.jar root@10.136.40.75:/home/usrsby# while using jumper as proxy, file has to be transported twice$ scp /home/usrsby/xxx.jar node-image-name:/opt/xxx/xx-xx/xxx-server/repository/com/xxx/x/xx-service-configuration/1.0-SNAPSHOT/ download file from remote vm: 12345# Step1: copy target file from vm to jumper in same way as above# Step2: download file to jumper, execute in jumper$ scp username@remoteAddr:/remotePath/file folder_in_jumper# Sample:$ scp root@10.136.40.75:/home/usrsby/xx.log /home/usrsby timeto show cuurent local time: 1$ date]]></content>
-      <categories>
-        <category>work</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>cmd</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[NBI & SBI]]></title>
-    <url>%2F2019%2F12%2F23%2FNBIandSBI%2F</url>
-    <content type="text"><![CDATA[Northbound InterfaceNBI conceptualizes lower level details (e.g. data or functions) used by, or in the component. It interfaces to higher level layers and is normally drawn at the top of an architectural overview.e.g. REST API, SMMP, CORBA, SNMP北向接口，用于接口编程开发各app，采集、分析app在运行中产生的各种数据，因网络管理中从上而下分应用层、数据处理层、数据管理层，北向接口即应用层和数据处理层之间的数据交互定义接口（见下图），因为朝上（上北下南）称北向接口。 Southbound InterfaceA southbound interface decomposes concepts in the technical details, mostly specific to a single component of the architecture. Southbound interfaces are drawn at the bottom of an architectural overview.e.g. OpenFlow, NETCONF, XMPP A Northbound interface goes “up” and a Southbound interface goes “down”.northbound interfaces go towards the core of the data center or towards the Internet-facing egress of the network. Southbound goes towards the end-users/servers/VMs.Northbound interfaces normally talk to southbound interfaces of higher level components and vice versa.]]></content>
-      <categories>
-        <category>work</category>
-      </categories>
-      <tags>
-        <tag>network</tag>
-        <tag>interface</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Gson LinkedTreeMap]]></title>
-    <url>%2F2019%2F12%2F09%2FAbout%20Gson%20LinkedTreeMap%2F</url>
-    <content type="text"><![CDATA[ProblemGiven a Gson object with format LinkedTreeMap&lt;String, String&gt;, e.g.: 123456LinkedTreeMap&lt;String, String&gt; misc = &#123; misc1: misc_site, misc2: misc_sector, misc3: null, misc4: null&#125; I got the HashMap with 12345&#123; misc: null&#125;and&#123;&#125; And pass case assertThat(misc).isNull(); is what I expected. Unfortunately both were deleted not Null.I try to transform the type into HashTable but got: 1ERROR: com.google.gson.internal.LinkedTreeMap cannot be cast to java.util.Hashtable SolutionConstruct an Iterator to get each value in map in sequence (LinkedTreeMap has already did it). 1234567Iterator it = misc.keySet().iterator();Integer cnt = 0;while (it.hasNext()) &#123; String key = (String) it.next(); if (misc.get(key) != null) cnt++;&#125;assertThat(cnt).isEqualTo(0); 不怎么好看不过能用。。 Ref: Gson解析时对于不确定泛型的处理]]></content>
-      <categories>
-        <category>work</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>data structure</tag>
-        <tag>FT</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[K8s - kubectl]]></title>
-    <url>%2F2019%2F08%2F27%2FKubernetes%2F</url>
-    <content type="text"><![CDATA[Every time before start kubectl, remember export admin.config file first which contains server info for connection. The pwd should under path where the config file lies. 1$ export KUBECONFIG=./admin.conf then start nodes 1$ kubectl get node or 1$ kubectl get node -n testing]]></content>
-      <categories>
-        <category>work</category>
-      </categories>
-      <tags>
-        <tag>Kubernetes</tag>
-        <tag>K8s</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Send batches of data creation requests to http server via Shell]]></title>
-    <url>%2F2019%2F08%2F26%2Fsend%20quantity%20of%20http%20requests%20via%20shell%2F</url>
-    <content type="text"><![CDATA[In order to test the data pool volume, send over 60000 creation data to server.Shell Script: 1234567891011#!/bin/basha=1while [ $a -le 60000 ]; do # start from 1, end by 60000 json="&#123;\"areas\":[&#123;\"new\":[58,60,57],\"id\":\"$a\", \"center\":[-39,49],\"name\":\"$1$a\",\"Version\":\"1.0\"&#125;"; a=$((a+1)) curl -v -X POST -H "Content-Type: application/json; charset=UTF-8" -H "Cookie: sessionId=_____" http://url -d "$json";done Mind the syntax especially the space, &quot;&quot; and &#39;&#39;, using \ for escaping “” inside json to avoid syntax error. other materials: curl 的用法指南]]></content>
-      <categories>
-        <category>work</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[File Upload and Display]]></title>
-    <url>%2F2019%2F08%2F19%2FFileUploadAndDisplay%2F</url>
-    <content type="text"><![CDATA[input [type=file] 获取上传文件的内容 Modify: 1234567891011121314151617181920212223242526_addFileContent: function (fileTag) &#123; fileTag.addEventHandler("click", function () &#123; $("#fileUpload").change(function () &#123; var file = document.getElementById("fileUpload"); if (file.files.length &gt; 0) &#123; var trueFile = file.files[0]; console.log(document.getElementById("fileContent").value); var reader = new FileReader(); reader.readAsText(trueFile, 'UTF-8'); reader.onload = function () &#123; if (reader.error) &#123; console.log(reader.error); &#125; else &#123; var urlData = this.result; document.getElementById("fileContent").value = urlData; &#125; &#125;; &#125; else &#123; console.log("Failed to upload file!"); &#125; &#125;); &#125;); &#125; Other ref:Change event | MDN]]></content>
-      <categories>
-        <category>work</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-        <tag>jquery</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[WebUploader]]></title>
-    <url>%2F2019%2F08%2F13%2FwebUploader%2F</url>
+    <url>%2F2020%2F01%2F03%2FwebUploader%2F</url>
     <content type="text"><![CDATA[Using WebUploader as 3pp to upload files to system. 1. 初始化123456789101112131415161718192021222324// 仅包含了常用参数var uploader = new WebUploader.Uploader(&#123; duplicate: true, // 是否允许重复文件 default undefined auto: false, // 选完文件后，是否自动上传 swf: 'path_of_swf/Uploader.swf', // swf文件路径 server: "/upload.html", // 文件接收服务端 pick: &#123; id: "#uploadFile", innerHTML: "localImg" &#125;, // 选择文件的按钮。可选 accept: &#123; // sample, 只允许选择图片文件 title: 'Images', extensions: 'gif,jpg,jpeg,bmp,png', mimeTypes: 'image/*' &#125;, threads: 1, // 线程数 fileSingleSizeLimit: 2000, // 单文件大小限制 fileNumLimit: 10, // 单次上传文件数量限制 fileSingleSizeLimit: // 验证单个文件大小是否超出限制, 超出则不允许加入队列 compress:false, // 是否压缩上传 chunked: true, // 是否要分片处理大文件上传, default false chunkSize: 5242880, // 如果要分片，分多大一片？ default 5242880 (5M) chunkRetry: 1, // 如果某个分片由于网络问题出错，允许自动重传多少次？ default 2 threads: 1, // 上传并发数。允许同时最大上传进程数 default 3 formData:&#123;&#125;, // 文件上传请求的参数表，每次发送都会发送此对象中的参数 method: 'GET', // POST or GET, default POST &#125;); 2. 监听event仅列举常用event uploadAccept当某个文件上传到服务端响应后，会派送此事件来询问服务端响应是否有效。如果此事件handler返回值为false, 则此文件将派送server类型的uploadError事件 12345uploader.on('uploadAccept', function (file, response) &#123; if (response.error) &#123; this.uploader.trigger('uploadError', file, response.UserMessage); &#125;&#125;); uploadSuccess当文件上传成功时触发（单文件上传成功） 123uploader.on('uploadSuccess', function (file) &#123; this._saveSuccessHandler(file);&#125;); uploadError当文件上传出错时触发 1234567891011uploader.on('uploadError', function (file, reason) &#123; var xhr = &#123;&#125;, responseJSON = &#123;&#125;; responseJSON.UserMessage = reason; xhr.status = 500; xhr.responseJSON = responseJSON; if (reason) &#123; createErrorDialog(xhr, 500, "upload failed"); &#125; this.uploader.reset(); // uploader重置 this.submitBtn.removeAttribute('disabled'); &#125;); For more details: https://www.jianshu.com/p/9f669deebf82]]></content>
       <categories>
         <category>work</category>
@@ -87,8 +14,42 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Send batches of data creation requests to http server via Shell]]></title>
+    <url>%2F2020%2F01%2F03%2Fsend%20quantity%20of%20http%20requests%20via%20shell%2F</url>
+    <content type="text"><![CDATA[In order to test the data pool volume, send over 60000 creation data to server.Shell Script: 1234567891011#!/bin/basha=1while [ $a -le 60000 ]; do # start from 1, end by 60000 json="&#123;\"areas\":[&#123;\"new\":[58,60,57],\"id\":\"$a\", \"center\":[-39,49],\"name\":\"$1$a\",\"Version\":\"1.0\"&#125;"; a=$((a+1)) curl -v -X POST -H "Content-Type: application/json; charset=UTF-8" -H "Cookie: sessionId=_____" http://url -d "$json";done Mind the syntax especially the space, &quot;&quot; and &#39;&#39;, using \ for escaping “” inside json to avoid syntax error. other materials: curl 的用法指南]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Require JS - define模块定义]]></title>
+    <url>%2F2020%2F01%2F03%2Frequire%20js%20-%20define%E6%A8%A1%E5%9D%97%E5%AE%9A%E4%B9%89%2F</url>
+    <content type="text"><![CDATA[CMD (Common Module Definition)在 CMD 规范中，一个模块就是一个文件。代码的书写格式如下： define(factory);define 是一个全局函数，用来定义模块。 1. factory为函数时，表示模块的构造方法：123define(function(require, exports, module) &#123; // 模块代码&#125;); 执行该构造方法，可以得到模块向外提供的接口。factory 为对象、字符串时，表示模块的接口就是该对象、字符串 1define(&#123; "foo": "bar" &#125;); 也可以通过字符串定义模板模块: 1define('I am a template. My name is &#123;&#123;name&#125;&#125;.'); 2. define(id, deps, factory?)字符串 id 表示模块标识，数组 deps 是模块依赖 123define('hello', ['jquery'], function(require, exports, module) &#123; // 模块代码&#125;); factory参数可以省略。省略时，表示声明依赖关系。在开发阶段，推荐不要手写 id 和 deps 参数，因为这两个参数可以在构建阶段通过工具自动生成。 注意：带 id 和 deps 参数的 define 用法不属于 CMD 规范，而属于 Modules/Transport 规范。 3. require Functionrequire接受module-name(id)作为唯一参数，用来获取其他模块提供的接口 123456define(function(require, exports) &#123; // 获取模块 a 的接口 var a = require('./a'); // 调用模块 a 的方法 a.doSomething();&#125;); 4. exports Objectexports 是一个对象，用来向外提供模块接口。 1234567define(function(require, exports) &#123; // 对外提供 foo 属性 exports.foo = 'bar'; // 对外提供 doSomething 方法 exports.doSomething = function() &#123;&#125;;&#125;); 除了给exports对象增加成员，还可以使用return直接向外提供接口。 1234567define(function(require) &#123; // 通过 return 直接提供接口 return &#123; foo: 'bar', doSomething: function() &#123;&#125;; &#125;;&#125;); TBC ref: https://blog.csdn.net/cpf506497746/article/details/8832317]]></content>
+      <categories>
+        <category>basic</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Post photos to Gallery]]></title>
+    <url>%2F2020%2F01%2F03%2FPost%20photos%20to%20Gallery%2F</url>
+    <content type="text"><![CDATA[How to post a photo to blog gallery1. Setup the gallery page:12345$ hexo new page gallery // create 'gallery' page$ hexo new page about // create 'about' page$ hexo new page tags // 'tags' page$ hexo new page categories // 'categories' page 2. Find the index.md and modify it.After step 1, there will be folders named “gallery”, “about”… under /source/. And you can find a file named “index.md” generated automatically under these folders.Open and modify the front-matter part as : 1234567---title: Galleryalbums: [ ["img_url","img_caption"], ["img_url","img_caption"] ]--- use outer links can be a better way as internal insert of images will decrease loading speed.(I haven’t find a good-way to insert as internal files, so I turned to use weibo-albums-link as alt… ). There was something wrong that photos didn’t display successfully in mobile mode. 190725 Update: Problem fixed with changing photo cloud storage from weibo to cloudinary. (weibo albums no longer support free external ref links) same way to edit the “about” page]]></content>
+      <categories>
+        <category>interest</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Some tips about OpenLayer]]></title>
-    <url>%2F2019%2F08%2F06%2Fopenlayer-knowledge%2F</url>
+    <url>%2F2020%2F01%2F03%2Fopenlayer-knowledge%2F</url>
     <content type="text"><![CDATA[Using openlayer in work currently and need to write down some notes about it. EPSG 4326 VS EPSG 3857地理Coordiante系统由EPSG编号标识。最常用于网络地图应用的两个坐标系统是EPSG：4326和EPSG：3857。 EPSG：4326（又名WGS84，未投影）是一个地理的非项目坐标系。它是lat，longs GPS显示器，单位是十进制度。EPSG：4326无法在平面地图上以有意义的方式显示。 EPSG：3857（又名Pseudo-Mercator，球形墨卡托或Web墨卡托）是投影坐标系。这是Google Maps和几乎所有其他Web制图应用程序使用的坐标系。 通常，数据存储在EPSG：4326中并显示在EPSG：3857中，自行转换。 ref link Function to draw a sector accuratelyCuz the untransformed sector displayed with great error in angle = 45° (start angle) so I have to turn to this Function as following, which convert longitude and latitude into Mercator projection first before the calculation. 12345678910111213function GetMarcoXyArcArray(origin,radius,sides,r,angel) &#123; var x = []; x[0] = [origin[0],origin[1]]; for (var j = 1; j &lt; sides; j++) &#123; var tx = origin[0] + radius * Math.cos(Math.PI / 180 * (90 - angel + (sides/2 - j) * r / (sides-2))); var ty = origin[1] + radius * Math.sin(Math.PI / 180 * (90 - angel + (sides/2 - j) * r / (sides-2))); x[j]=[tx,ty]; &#125; //alert(x); return new ol.geom.Polygon([x]); &#125; Thanks to tianshibufan521’s post After modification: 190813 updatethis method will lead to wrong presentation size at about 4/5 of expected radius due to the Mercator projection. I couldn’t figure out why for the second time I tried the origin calculation method as following, it turned out to appear normally with start angle of 45°. 123456789101112131415for (var i = 0; i &lt; sides; ++i) &#123; rotatedAngle = (i * radian / 360 * 2 * Math.PI / sides) + (90 - angle - radian / 2 )* Math.PI / 180 ; // start from y = 0 (sector1 based on symmetry y axis, clockwise rotation) coordinate = this.getJWD(origin.Longitude, origin.Latitude, radius, rotatedAngle); // method getJWD() can be found ↓ link points.push(coordinate);&#125;// if not circle, add center point.// this allows drawing circle via polygon apiif (radian !== "360") &#123; points.push([origin.Longitude, origin.Latitude]);&#125;var ring = new ol.geom.LinearRing(points);var pointsCoords = ring.getCoordinates();feature = new ol.Feature(new ol.geom.Polygon([pointsCoords])); calculate longitude &amp; latitude via coordinateformer dev using func getJWD to calculate the coordinates, but this func cause the display error with start degree of 45°, so I discarded it.For more info about this func : link Draw a circleSimply used ol.geom.Circle instead of ol..geom.Polygon, which will cause a start/end radius as follows: Before After 12345var circle = new ol.geom.Circle( ol.proj.transform([longitude, latitude], 'EPSG:4326', 'EPSG:3857'), radius);var circleFeature = new ol.Feature(circle); OpenLayer Samples link || Circle update:The pattern turned out to be simple circle pattern，which does not include geometry params，but our project need geometry params in GeoJSON format to decide which area is covered.So I finally turn to ol/geom/Polygon.fromCircle which transform plain circle into Polygon format. It returns Polygon geometry so that can be used in further calculation of coverage. 12var circle = new OpenLayers.geom.Circle(circleParams.center, circleParams.radius);feature = new OpenLayers.Feature(new OpenLayers.geom.Polygon.fromCircle(circle, 500));]]></content>
       <categories>
         <category>work</category>
@@ -99,31 +60,20 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[ES6 - Template strings]]></title>
-    <url>%2F2019%2F08%2F05%2FES6-Template%20String%2F</url>
-    <content type="text"><![CDATA[刷题的时候遇到了这个新语法 - 模板字符串，记录一下用法。 是增强版的字符串，用反引号（`）标识。主要用法： 作为普通字符串使用 1`string text` 定义多行字符串 1234console.log(`string text line 1string text line 2`);// "string text line 1// string text line 2" 在字符串中嵌入变量 12let expression = "xxxx";`string text $&#123;expression&#125; string text` 标签模板 (tagged template)相当于一个模板函数，tag表示函数，整个表达式的返回值，就是tag函数处理模板字符串后的返回值。 123456let a = 5;let b = 10;tag`Hello $&#123; a + b &#125; world $&#123; a * b &#125;`;// 等同于tag(['Hello ', ' world ', ''], 15, 50); For more specific explanation:MDN阮一峰 (start from section 5)]]></content>
-      <categories>
-        <category>basic</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Git cmd for daily use]]></title>
-    <url>%2F2019%2F07%2F31%2Fgit-for-daily-use%2F</url>
-    <content type="text"><![CDATA[Codes commit procedure for daily work:1$ git status # check current modifications can skip these steps: 123$ git stash # save work (current modifications)$ git stash list # check to see saved work$ git stash apply 0 # apply work-id to restore the work to tmp branch git stash 用法总结和注意点 1$ git add . # do not miss "." or 1$ git add -u add -u 和 add . 的区别 Check status and see that modifications displayed in green. 1$ git commit -m "[Task/Bug] Jira-id : Jira Task content." Notice: better to build locally first and see if it will get failed. (Close local server before building, no need to close db server on docker) how to build:1$ ./startindesignenv.sh -c sometimes it failed due to late version of project, checkout and pull the latest version. 1$ git pull # pull the update to local branch 12$ git rebase -i master # rebase multi local submits and get sync with new branch on master and local, conflicts may occur if late-version conflicts occur, reset to last commit version, use git rebase to modify commit which is not pushed: link 12$ git log # check commit history$ git reset &lt;commit id&gt; # reset to certain commit version If build failed, you should redo “add” and “commit” step after resetting. Final Step： 1$ git push origin HEAD:refs/for/master Remember check Gerrit and add reviewers when work pushed. After the work is successfully built on cloud and get merged, add resolved mark and commit on JIRA task system. .amend &amp; reset:if something wrong with codes was found in code review and have to add modifications, you should try to use amend to change the Last Commit to modify commit message: 1$ git commit --amend to modify changed (already pushed) submit without abandon:add modified local files, then do 1$ git commit --amend --no-edit For more info about using amend :Rewriting historygit commit –amend用法(摘抄) If unfortunately failed to amend the commit, go back to last commited submit: 1$ git reset --hard &lt;commit-id&gt; remember to pull down the latest version in this step, then resubmit the new changes. .branch &amp; merge:Create a personal branch (excluded from master) locally: 123$ git branch &lt;declare a new branch name here&gt; # create# e.g. git branch test-branch$ git branch # view all existing branches Switch to certain branch: 1$ git checkout &lt;branch name&gt; push local commit to remote repository: 1234# when push current branch to remote$ git push origin test-branch# when push another branch to remote repository$ git push origin &lt;local_branch_name&gt;:&lt;remote_branch_name&gt; pull master branch to current branch: 1$ git merge master .git add not workToday I encountered with a problem that git add . did not work. The reason might be that someone else is pushing his work to main repository throght branch master while I was also trying to add my work on same branch then.The solution is simple, use: 1$ git add -A # equal to --all Cuz the work I was working on is changed to untracked status for forking reason.]]></content>
+    <title><![CDATA[NBI & SBI]]></title>
+    <url>%2F2020%2F01%2F03%2FNBIandSBI%2F</url>
+    <content type="text"><![CDATA[Northbound InterfaceNBI conceptualizes lower level details (e.g. data or functions) used by, or in the component. It interfaces to higher level layers and is normally drawn at the top of an architectural overview.e.g. REST API, SMMP, CORBA, SNMP北向接口，用于接口编程开发各app，采集、分析app在运行中产生的各种数据，因网络管理中从上而下分应用层、数据处理层、数据管理层，北向接口即应用层和数据处理层之间的数据交互定义接口（见下图），因为朝上（上北下南）称北向接口。 Southbound InterfaceA southbound interface decomposes concepts in the technical details, mostly specific to a single component of the architecture. Southbound interfaces are drawn at the bottom of an architectural overview.e.g. OpenFlow, NETCONF, XMPP A Northbound interface goes “up” and a Southbound interface goes “down”.northbound interfaces go towards the core of the data center or towards the Internet-facing egress of the network. Southbound goes towards the end-users/servers/VMs.Northbound interfaces normally talk to southbound interfaces of higher level components and vice versa.]]></content>
       <categories>
         <category>work</category>
       </categories>
       <tags>
-        <tag>cmd</tag>
-        <tag>git</tag>
+        <tag>network</tag>
+        <tag>interface</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[Migrate local video header to cloud storage]]></title>
-    <url>%2F2019%2F07%2F25%2FMigrate%20local%20video%20header%20to%20cloud%20storage%2F</url>
+    <url>%2F2020%2F01%2F03%2FMigrate%20local%20video%20header%20to%20cloud%20storage%2F</url>
     <content type="text"><![CDATA[Since the Ocean theme includes and initiates the videos and images about header via local folder themes/ocean/source/images/ocean/, the page loads slowly at mobile device. So I decided to transfer these large files to cloud side to promote loading speed. Find the local image folder as referred above. upload these files to cloudinary, it provides plugin as a module to js file: 1cloudinary.videoTag('gitblog/ocean/ocean_j5rpnt').toHtml(); the src ref-way can be find at “edit” page by right clicking on cloudinary/file.Here I did not use this short path cuz I am not in need of a large quantity of inserted files. Modify themes/ocean/_config.yml: 1234567# Ocean Video# Because I put videos in multiple formats on the same path, I just labeled the path here.ocean: overlay: true path: https://res.cloudinary.com/elizashi/ # path: /images/ocean/ brand: /images/ming-inverted.svg Find the ocean.ejs file in themes/ocean/layout/_partial/, and modify as follows: 12345&lt;% if (theme.ocean.overlay) &#123; %&gt; &lt;div class="video-frame"&gt; &lt;img src="&lt;%- theme.ocean.path %&gt;image/upload/v1564042232/gitblog/ocean/overlay-hero_hfo1px.png" alt="Decorative image frame"&gt; &lt;/div&gt;&lt;% &#125; %&gt; 12345678910&lt;div class="video-media"&gt; &lt;video playsinline="" autoplay="" loop="" muted="" data-autoplay="" poster="&lt;%- theme.ocean.path %&gt;image/upload/v1564042234/gitblog/ocean/ocean_dvmafj.png" x5-video-player-type="h5"&gt; &lt;source src="&lt;%- theme.ocean.path %&gt;video/upload/v1564042238/gitblog/ocean/ocean_j5rpnt.mp4" type="video/mp4"&gt; &lt;source src="&lt;%- theme.ocean.path %&gt;video/upload/v1564042232/gitblog/ocean/ocean_p4kg5c.ogv" type="video/ogg"&gt; &lt;source src="&lt;%- theme.ocean.path %&gt;video/upload/v1564042238/gitblog/ocean/ocean_qgwvjh.webm" type="video/webm"&gt; &lt;p&gt;Your user agent does not support the HTML5 Video element.&lt;/p&gt; &lt;/video&gt; &lt;div class="video-overlay"&gt;&lt;/div&gt;&lt;/div&gt; As I mentioned that I am not using many external src so I modify each file address one by one.If files come to more, shall turn to use the cloudinary.videoTag func to insert files or the code will get lengthy and jumbled.]]></content>
       <categories>
         <category>interest</category>
@@ -133,31 +83,32 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Post photos to Gallery]]></title>
-    <url>%2F2019%2F07%2F24%2FPost%20photos%20to%20Gallery%2F</url>
-    <content type="text"><![CDATA[How to post a photo to blog gallery1. Setup the gallery page:12345$ hexo new page gallery // create 'gallery' page$ hexo new page about // create 'about' page$ hexo new page tags // 'tags' page$ hexo new page categories // 'categories' page 2. Find the index.md and modify it.After step 1, there will be folders named “gallery”, “about”… under /source/. And you can find a file named “index.md” generated automatically under these folders.Open and modify the front-matter part as : 1234567---title: Galleryalbums: [ ["img_url","img_caption"], ["img_url","img_caption"] ]--- use outer links can be a better way as internal insert of images will decrease loading speed.(I haven’t find a good-way to insert as internal files, so I turned to use weibo-albums-link as alt… ). There was something wrong that photos didn’t display successfully in mobile mode. 190725 Update: Problem fixed with changing photo cloud storage from weibo to cloudinary. (weibo albums no longer support free external ref links) same way to edit the “about” page]]></content>
-      <categories>
-        <category>interest</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[CDT App Lifecycle]]></title>
-    <url>%2F2019%2F07%2F17%2Fcdt-app-lifecycle%2F</url>
-    <content type="text"><![CDATA[Apps that run in the container have their lifecycle managed.The container checks for various functions implemented by the app. If those functions are implemented, the container will execute them accordingly. The following functions are supported by the container: 1. void onStart()This method is called when the app is first instantiated in the current tab for the first time. 123onStart: function() &#123; // Code here&#125; 2. void onPause()This method is called when the user has left your app to view a different app. 123onPause: function() &#123; // Code here&#125; 3. void onResume()This method is called when the user has navigated away from the app to a different app, and has navigated back. 123onResume: function() &#123; // Code here&#125;]]></content>
+    <title><![CDATA[Linux CMD for daily use]]></title>
+    <url>%2F2020%2F01%2F03%2Flinux-cmd%2F</url>
+    <content type="text"><![CDATA[check log Display whole log file content: 1$ cat target.log Search key word in log file, and return lines containing keyword: 123$ cat target.log |grep "keyword"or$ grep -i "keyword" target.log these two method return same result Check the most recent log (the tail lines of log file): 123$ cat target.log |tail -n 200 # check the last 200 lines of log fileor$ tail -200f target.log # show last 200 lines and continue printing new logs ping To test whether the target host is accessible, mainly has two ways: 12$ ping &lt;host addr&gt; # sample address: 192.168.1.21$ ping6 &lt;host addr&gt; # ipv6 address ping + paras: 1234567$ ping -a &lt;addr&gt; # 把地址解析成主机名 (NetBios名) # e.g. ping -a 192.168.1.21 returns # Pinging iceblood.yofor.com [192.168.1.21] with 32 bytes of data # so the NetBios name is iceblood.yofor.com with ip=192.168.1.21$ ping -t &lt;addr&gt; # continue pinging the addr # press Ctl+Break to show statistic info and continue pinging # Ctl+C to stop For more: 从ping和ping6说起 file transport (scp) copy file from path1 to path2 12345$ scp path1 username@targetAddr:path2# sample:$ scp /home/usrsby/xxx.jar root@10.136.40.75:/home/usrsby# while using jumper as proxy, file has to be transported twice$ scp /home/usrsby/xxx.jar node-image-name:/opt/xxx/xx-xx/xxx-server/repository/com/xxx/x/xx-service-configuration/1.0-SNAPSHOT/ download file from remote vm: 12345# Step1: copy target file from vm to jumper in same way as above# Step2: download file to jumper, execute in jumper$ scp username@remoteAddr:/remotePath/file folder_in_jumper# Sample:$ scp root@10.136.40.75:/home/usrsby/xx.log /home/usrsby when copy a folder:Append -r after scp like: 12$ scp -r /tmp/tempA/ root@10.127.40.25:/tmp/usrsby/ # copy tempA folder to usrsby# !notice: do not dismiss "/" at the end of target path, not same as copying single file For more: linux利用scp远程上传下载文件/文件夹 timeto show current local time: 1$ date]]></content>
       <categories>
         <category>work</category>
       </categories>
       <tags>
-        <tag>CDT</tag>
-        <tag>dev-env</tag>
+        <tag>cmd</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[K8s - kubectl]]></title>
+    <url>%2F2020%2F01%2F03%2FKubernetes%2F</url>
+    <content type="text"><![CDATA[Every time before start kubectl, remember export admin.config file first which contains server info for connection. The pwd should under path where the config file lies. 1$ export KUBECONFIG=./admin.conf then start nodes 1$ kubectl get node or 1$ kubectl get node -n testing]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
+      <tags>
+        <tag>Kubernetes</tag>
+        <tag>K8s</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[JS对象引用]]></title>
-    <url>%2F2019%2F07%2F17%2FJS%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8%2F</url>
+    <url>%2F2020%2F01%2F03%2FJS%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8%2F</url>
     <content type="text"><![CDATA[如果不同的变量名指向同一个对象，那么它们都是这个对象的引用，也就是说指向同一个内存地址。修改其中一个变量，会影响到其他所有变量。 12345678var o1 = &#123;&#125;;var o2 = o1;o1.a = 1;o2.a // 1o2.b = 2;o1.b // 2 上面代码中，o1和o2指向同一个对象，因此为其中任何一个变量添加属性，另一个变量都可以读写该属性。 如果取消某一个变量对于原对象的引用，不会改变已经引用过的另一个变量。 1234567var o1 = &#123;&#125;;var o2 = o1;o1 = 1;console.log(o2); // &#123;&#125;console.log(o1); // 1console.log(typeof o1); // number 上面代码中，o1和o2指向同一个对象，然后o1的值变为1，这时不会对o2产生影响，o2还是指向原来的那个对象。 注意：这种引用只局限于object,如果两个变量指向同一个原始类型的值，则变量这时都是值的拷贝。 12345var x = 1;var y = x;x = 2;y // 1 上面代码中，当x的值变化后，y值不变，这就表示y和x并不是指向同一个内存地址。 ref: 阮一峰]]></content>
       <categories>
         <category>basic</category>
@@ -168,7 +119,7 @@
   </entry>
   <entry>
     <title><![CDATA[JS-Label]]></title>
-    <url>%2F2019%2F07%2F17%2FJS-Label%2F</url>
+    <url>%2F2020%2F01%2F03%2FJS-Label%2F</url>
     <content type="text"><![CDATA[标签（label），相当于定位符，用于跳转到程序的任意位置。 配合break 1234567891011top: // Label for (var i = 0; i &lt; 3; i++)&#123; for (var j = 0; j &lt; 3; j++)&#123; if (i === 1 &amp;&amp; j === 1) break top; // 注意，不加引号 console.log('i=' + i + ', j=' + j); &#125; &#125;// i=0, j=0// i=0, j=1// i=0, j=2// i=1, j=0 如果满足if，直接跳出双重循环。 配合continue 1234567891011121314top: for (var i = 0; i &lt; 3; i++)&#123; for (var j = 0; j &lt; 3; j++)&#123; if (i === 1 &amp;&amp; j === 1) continue top; console.log('i=' + i + ', j=' + j); &#125; &#125;// i=0, j=0// i=0, j=1// i=0, j=2// i=1, j=0// i=2, j=0// i=2, j=1// i=2, j=2 当i=1，j=1时，跳过打印（当前内层循环）直接进行下一个外层循环（不会跳出top） label用于跳出代码块12345678foo: &#123; console.log(1); break foo; console.log('本行不会输出');&#125;console.log(2);// 1// 2 ref: 阮一峰]]></content>
       <categories>
         <category>basic</category>
@@ -178,42 +129,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Require JS - define模块定义]]></title>
-    <url>%2F2019%2F07%2F16%2Frequire%20js%20-%20define%E6%A8%A1%E5%9D%97%E5%AE%9A%E4%B9%89%2F</url>
-    <content type="text"><![CDATA[CMD (Common Module Definition)在 CMD 规范中，一个模块就是一个文件。代码的书写格式如下： define(factory);define 是一个全局函数，用来定义模块。 1. factory为函数时，表示模块的构造方法：123define(function(require, exports, module) &#123; // 模块代码&#125;); 执行该构造方法，可以得到模块向外提供的接口。factory 为对象、字符串时，表示模块的接口就是该对象、字符串 1define(&#123; "foo": "bar" &#125;); 也可以通过字符串定义模板模块: 1define('I am a template. My name is &#123;&#123;name&#125;&#125;.'); 2. define(id, deps, factory?)字符串 id 表示模块标识，数组 deps 是模块依赖 123define('hello', ['jquery'], function(require, exports, module) &#123; // 模块代码&#125;); factory参数可以省略。省略时，表示声明依赖关系。在开发阶段，推荐不要手写 id 和 deps 参数，因为这两个参数可以在构建阶段通过工具自动生成。 注意：带 id 和 deps 参数的 define 用法不属于 CMD 规范，而属于 Modules/Transport 规范。 3. require Functionrequire接受module-name(id)作为唯一参数，用来获取其他模块提供的接口 123456define(function(require, exports) &#123; // 获取模块 a 的接口 var a = require('./a'); // 调用模块 a 的方法 a.doSomething();&#125;); 4. exports Objectexports 是一个对象，用来向外提供模块接口。 1234567define(function(require, exports) &#123; // 对外提供 foo 属性 exports.foo = 'bar'; // 对外提供 doSomething 方法 exports.doSomething = function() &#123;&#125;;&#125;); 除了给exports对象增加成员，还可以使用return直接向外提供接口。 1234567define(function(require) &#123; // 通过 return 直接提供接口 return &#123; foo: 'bar', doSomething: function() &#123;&#125;; &#125;;&#125;); TBC ref: https://blog.csdn.net/cpf506497746/article/details/8832317]]></content>
-      <categories>
-        <category>basic</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hard & Soft Dependencies]]></title>
-    <url>%2F2019%2F07%2F16%2FHard%20or%20Soft%20Dependencies%2F</url>
-    <content type="text"><![CDATA[ref: https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency Hard Dependencya module cannot function without the other modules on which it depends The module contains code that directly uses logic from another module (instances, class constants, static methods, public class properties, interfaces and traits). The module contains strings that include class names, methods names, class constants, class properties, interfaces, and traits from another module. The module de-serializes an object declared in another module. The module uses or modifies the database tables used by another module. Soft Dependencya module can function without the other modules on which it depends The module directly checks another module’s availability. The module extends another module’s configuration. The module extends another module’s layout.]]></content>
-      <categories>
-        <category>basic</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[CDT Learning]]></title>
-    <url>%2F2019%2F07%2F16%2FCDT%2F</url>
-    <content type="text"><![CDATA[Skeleton123456789101112131415my-app/ .cdt # installed lib and conf，do not modify help/ # help docs locales/ # translation files resources/ # imgs &amp; other resources that are not js files src/ # src code. Contains only one folder (my-app) my-app/ # name = app name, fully lowercase test/ bit/ # FT, API concerned only unit/ # UT .editorconfig # coding styles，已删 .gitignore app.config.js # metadata for app build.json # used by the build module container.config.js # only for dev, never used in production, contains dev version of container app.config.js app configuration file, example: 123456789101112131415161718192021 define(&#123; script: 'active-alerts/ActiveAlerts', // path to app, src下的脚本执行 title: 'Active Alerts', // app title, used in breadcrumb widget // opt parent: 'alert-management', // opt, when exe parent script will start the children children: [ &#123;app: 'alerts-log'&#125;, &#123;app: 'alerts-settings'&#125; ], // opt, expose app modules that can be loaded by other apps dynamically exports: &#123; 'active-alerts/Module1': 'active-alerts/modules/Module1', 'active-alerts/Module2': 'active-alerts/modules/Module2' &#125; // i18n.locales: list of supported language "i18n": &#123; // 这里可以不加引号，也可以加，上面的参数同理 // ES6可以不加，ES5要加 "locales": ["en-us"] &#125;&#125;); detailed folder structure: internal linkother link: breadcrumb widget]]></content>
-      <categories>
-        <category>work</category>
-      </categories>
-      <tags>
-        <tag>CDT</tag>
-        <tag>dev-env</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Hexo Theme Modification]]></title>
-    <url>%2F2019%2F07%2F15%2FHexo%20Theme%20Modification%2F</url>
+    <url>%2F2020%2F01%2F03%2FHexo%20Theme%20Modification%2F</url>
     <content type="text"><![CDATA[Modify the Theme in the following branch: 1Source/themes/&lt;Theme folder name&gt;/layout/_partial/*.ejs]]></content>
       <categories>
         <category>interest</category>
@@ -224,13 +141,96 @@
   </entry>
   <entry>
     <title><![CDATA[Hexo - Tools & cmd used during deployment]]></title>
-    <url>%2F2019%2F07%2F15%2FHexo%20cmd%2F</url>
+    <url>%2F2020%2F01%2F03%2FHexo%20cmd%2F</url>
     <content type="text"><![CDATA[Ref: https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/ npm CN image（taobao）1$ npm install -g cnpm --registry=https://registry.npm.taobao.org Hexo installation1$ cnpm install -g hexo-cli check if successfully installed 1$ hexo -v 123456789101112131415161718hexo: 3.9.0hexo-cli: 2.0.0os: Windows_NT 10.0.16299 win32 x64http_parser: 2.8.0node: 10.16.0v8: 6.8.275.32-node.52uv: 1.28.0zlib: 1.2.11brotli: 1.0.7ares: 1.15.0modules: 64nghttp2: 1.34.0napi: 4openssl: 1.1.1bicu: 64.2unicode: 12.1cldr: 35.1tz: 2019a Local init for first time setup1$ hexo init Start server and Run in browser1$ hexo s Visit http://localhost:4000/ Add ssh-keyPass When error generated (local compile)123$ hexo clean$ hexo g # gengerate post to public folder$ hexo s Deploy to github1$ hexo d]]></content>
       <categories>
         <category>interest</category>
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hard & Soft Dependencies]]></title>
+    <url>%2F2020%2F01%2F03%2FHard%20or%20Soft%20Dependencies%2F</url>
+    <content type="text"><![CDATA[ref: https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency Hard Dependencya module cannot function without the other modules on which it depends The module contains code that directly uses logic from another module (instances, class constants, static methods, public class properties, interfaces and traits). The module contains strings that include class names, methods names, class constants, class properties, interfaces, and traits from another module. The module de-serializes an object declared in another module. The module uses or modifies the database tables used by another module. Soft Dependencya module can function without the other modules on which it depends The module directly checks another module’s availability. The module extends another module’s configuration. The module extends another module’s layout.]]></content>
+      <categories>
+        <category>basic</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Git cmd for daily use]]></title>
+    <url>%2F2020%2F01%2F03%2Fgit-for-daily-use%2F</url>
+    <content type="text"><![CDATA[Codes commit procedure for daily work:1$ git status # check current modifications can skip these steps: 123$ git stash # save work (current modifications)$ git stash list # check to see saved work$ git stash apply 0 # apply work-id to restore the work to tmp branch git stash 用法总结和注意点 1$ git add . # do not miss "." or 1$ git add -u add -u 和 add . 的区别 Check status and see that modifications displayed in green. 1$ git commit -m "[Task/Bug] Jira-id : Jira Task content." Notice: better to build locally first and see if it will get failed. (Close local server before building, no need to close db server on docker) how to build:1$ ./startindesignenv.sh -c sometimes it failed due to late version of project, checkout and pull the latest version. 1$ git pull # pull the update to local branch 12$ git rebase -i master # rebase multi local submits and get sync with new branch on master and local, conflicts may occur if late-version conflicts occur, reset to last commit version, use git rebase to modify commit which is not pushed: link 12$ git log # check commit history$ git reset &lt;commit id&gt; # reset to certain commit version If build failed, you should redo “add” and “commit” step after resetting. Final Step： 1$ git push origin HEAD:refs/for/master Remember check Gerrit and add reviewers when work pushed. After the work is successfully built on cloud and get merged, add resolved mark and commit on JIRA task system. .amend &amp; reset:if something wrong with codes was found in code review and have to add modifications, you should try to use amend to change the Last Commit to modify commit message: 1$ git commit --amend to modify changed (already pushed) submit without abandon:add modified local files, then do 1$ git commit --amend --no-edit For more info about using amend :Rewriting historygit commit –amend用法(摘抄) If unfortunately failed to amend the commit, go back to last commited submit: 1$ git reset --hard &lt;commit-id&gt; remember to pull down the latest version in this step, then resubmit the new changes. .branch &amp; merge:Create a personal branch (excluded from master) locally: 123$ git branch &lt;declare a new branch name here&gt; # create# e.g. git branch test-branch$ git branch # view all existing branches Switch to certain branch: 1$ git checkout &lt;branch name&gt; push local commit to remote repository: 1234# when push current branch to remote$ git push origin test-branch# when push another branch to remote repository$ git push origin &lt;local_branch_name&gt;:&lt;remote_branch_name&gt; pull master branch to current branch: 1$ git merge master .git add not workToday I encountered with a problem that git add . did not work. The reason might be that someone else is pushing his work to main repository throght branch master while I was also trying to add my work on same branch then.The solution is simple, use: 1$ git add -A # equal to --all Cuz the work I was working on is changed to untracked status for forking reason.]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>cmd</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[File Upload and Display]]></title>
+    <url>%2F2020%2F01%2F03%2FFileUploadAndDisplay%2F</url>
+    <content type="text"><![CDATA[input [type=file] 获取上传文件的内容 Modify: 1234567891011121314151617181920212223242526_addFileContent: function (fileTag) &#123; fileTag.addEventHandler("click", function () &#123; $("#fileUpload").change(function () &#123; var file = document.getElementById("fileUpload"); if (file.files.length &gt; 0) &#123; var trueFile = file.files[0]; console.log(document.getElementById("fileContent").value); var reader = new FileReader(); reader.readAsText(trueFile, 'UTF-8'); reader.onload = function () &#123; if (reader.error) &#123; console.log(reader.error); &#125; else &#123; var urlData = this.result; document.getElementById("fileContent").value = urlData; &#125; &#125;; &#125; else &#123; console.log("Failed to upload file!"); &#125; &#125;); &#125;); &#125; Other ref:Change event | MDN]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+        <tag>jquery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ES6 - Template strings]]></title>
+    <url>%2F2020%2F01%2F03%2FES6-Template%20String%2F</url>
+    <content type="text"><![CDATA[刷题的时候遇到了这个新语法 - 模板字符串，记录一下用法。 是增强版的字符串，用反引号（`）标识。主要用法： 作为普通字符串使用 1`string text` 定义多行字符串 1234console.log(`string text line 1string text line 2`);// "string text line 1// string text line 2" 在字符串中嵌入变量 12let expression = "xxxx";`string text $&#123;expression&#125; string text` 标签模板 (tagged template)相当于一个模板函数，tag表示函数，整个表达式的返回值，就是tag函数处理模板字符串后的返回值。 123456let a = 5;let b = 10;tag`Hello $&#123; a + b &#125; world $&#123; a * b &#125;`;// 等同于tag(['Hello ', ' world ', ''], 15, 50); For more specific explanation:MDN阮一峰 (start from section 5)]]></content>
+      <categories>
+        <category>basic</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CDT Learning]]></title>
+    <url>%2F2020%2F01%2F03%2FCDT%2F</url>
+    <content type="text"><![CDATA[Skeleton123456789101112131415my-app/ .cdt # installed lib and conf，do not modify help/ # help docs locales/ # translation files resources/ # imgs &amp; other resources that are not js files src/ # src code. Contains only one folder (my-app) my-app/ # name = app name, fully lowercase test/ bit/ # FT, API concerned only unit/ # UT .editorconfig # coding styles，已删 .gitignore app.config.js # metadata for app build.json # used by the build module container.config.js # only for dev, never used in production, contains dev version of container app.config.js app configuration file, example: 123456789101112131415161718192021 define(&#123; script: 'active-alerts/ActiveAlerts', // path to app, src下的脚本执行 title: 'Active Alerts', // app title, used in breadcrumb widget // opt parent: 'alert-management', // opt, when exe parent script will start the children children: [ &#123;app: 'alerts-log'&#125;, &#123;app: 'alerts-settings'&#125; ], // opt, expose app modules that can be loaded by other apps dynamically exports: &#123; 'active-alerts/Module1': 'active-alerts/modules/Module1', 'active-alerts/Module2': 'active-alerts/modules/Module2' &#125; // i18n.locales: list of supported language "i18n": &#123; // 这里可以不加引号，也可以加，上面的参数同理 // ES6可以不加，ES5要加 "locales": ["en-us"] &#125;&#125;); detailed folder structure: internal linkother link: breadcrumb widget]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
+      <tags>
+        <tag>CDT</tag>
+        <tag>dev-env</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CDT App Lifecycle]]></title>
+    <url>%2F2020%2F01%2F03%2Fcdt-app-lifecycle%2F</url>
+    <content type="text"><![CDATA[Apps that run in the container have their lifecycle managed.The container checks for various functions implemented by the app. If those functions are implemented, the container will execute them accordingly. The following functions are supported by the container: 1. void onStart()This method is called when the app is first instantiated in the current tab for the first time. 123onStart: function() &#123; // Code here&#125; 2. void onPause()This method is called when the user has left your app to view a different app. 123onPause: function() &#123; // Code here&#125; 3. void onResume()This method is called when the user has navigated away from the app to a different app, and has navigated back. 123onResume: function() &#123; // Code here&#125;]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
+      <tags>
+        <tag>CDT</tag>
+        <tag>dev-env</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Gson LinkedTreeMap]]></title>
+    <url>%2F2020%2F01%2F03%2FAbout%20Gson%20LinkedTreeMap%2F</url>
+    <content type="text"><![CDATA[ProblemGiven a Gson object with format LinkedTreeMap&lt;String, String&gt;, e.g.: 123456LinkedTreeMap&lt;String, String&gt; misc = &#123; misc1: misc_site, misc2: misc_sector, misc3: null, misc4: null&#125; I got the HashMap with 12345&#123; misc: null&#125;and&#123;&#125; And pass case assertThat(misc).isNull(); is what I expected. Unfortunately both were deleted not Null.I try to transform the type into HashTable but got: 1ERROR: com.google.gson.internal.LinkedTreeMap cannot be cast to java.util.Hashtable SolutionConstruct an Iterator to get each value in map in sequence (LinkedTreeMap has already did it). 1234567Iterator it = misc.keySet().iterator();Integer cnt = 0;while (it.hasNext()) &#123; String key = (String) it.next(); if (misc.get(key) != null) cnt++;&#125;assertThat(cnt).isEqualTo(0); 不怎么好看不过能用。。 Ref: Gson解析时对于不确定泛型的处理]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>data structure</tag>
+        <tag>FT</tag>
       </tags>
   </entry>
 </search>
