@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JS getter]]></title>
+    <url>%2F2020%2F01%2F08%2Fjs-getter%2F</url>
+    <content type="text"><![CDATA[Encountered with the following function as below: 12345678910static get userFilter() &#123; return &#123; dataset1: &#123; value: '...' &#125;, dataset2: &#123; value: '...' &#125; &#125;;&#125; so question comes up: Whats the meaning of ‘static get’ in Javascript (ES6)? According to the above answer, static defines that this function inside class is static, which means you cannot call the func via the instance of the class1234567891011121314// e.g.class Agent &#123; static get CIRCLE() &#123; return 1; &#125; static get SQUARE() &#123; return 2; &#125;&#125;// you call this as a property directlyAgent.CIRCLE; // 1// but call by an instance is not allowedconst newAgent = new Agent();console.log(newAgent.CIRCLE); // undefined or TypeError: foo.classMethod is not a function Lookup: Static method | Class的基本语法 2.静态方法 get syntax binds an object property to a function that will be called when is property is looked up123456789// e.g.const obj = &#123; log: ['example','test'], get latest() &#123; if (this.log.length === 0) return undefined; return this.log[this.log.length - 1]; &#125;&#125;console.log(obj.latest); // "test". Note: the above code will create a pseudo-property latest for object obj, which will return the last array item in log, but the attempt to assign a value to latest will not change it. For more details, see MDN&gt;JavaScript reference&gt;Functions&gt;getter]]></content>
+      <categories>
+        <category>basic</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Mini-program project demo for starter]]></title>
     <url>%2F2020%2F01%2F06%2Fmini-program%2F</url>
     <content type="text"><![CDATA[demo program 我要圣诞帽https://github.com/jasscia/ChristmasHat 图片编辑，存图 掌故https://github.com/Gesangs/PhoneStory 新闻推送 简约睡眠Musichttps://github.com/shajinyang/BeautyAudio 音乐播放器 运势小程序https://github.com/panyefan/wxfortune 测运势，存图 跑马灯，左侧菜单，抽屉层，加载动画https://github.com/youzouzou/wxapp 小程序组件合集 订单管理，浮层菜单，页面设计https://github.com/GavinCarter1991/wx-onePro 内部平台，商户端界面 电商模板，购物车模板https://github.com/fangliu520/wxbestcake 摇一摇，二维码《微信小程序入门与实践》一书的小程序源代码前端： https://github.com/7insummer/orange-can 后端： https://github.com/7insummer/orange-can-server 仿微信运动步数排行https://www.jianshu.com/p/bb7131114993 Note. 以上代码都有两年左右年份，仅供入门学习参考ref: https://www.jianshu.com/p/0e471853a548 UI Lab iViewhttps://github.com/TalkingData/iview-weapp 教程：https://www.jianshu.com/p/09b4515152ff]]></content>
@@ -102,8 +113,8 @@
         <category>work</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>cmd</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -126,7 +137,7 @@
         <category>basic</category>
       </categories>
       <tags>
-        <tag>JS</tag>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -137,7 +148,7 @@
         <category>basic</category>
       </categories>
       <tags>
-        <tag>JS</tag>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -181,8 +192,8 @@
         <category>work</category>
       </categories>
       <tags>
-        <tag>cmd</tag>
         <tag>git</tag>
+        <tag>cmd</tag>
       </tags>
   </entry>
   <entry>

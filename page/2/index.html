@@ -57,6 +57,78 @@
 
     
       
+        <article id="post-linux-cmd" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/01/03/linux-cmd/">Linux CMD for daily use</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/01/03/linux-cmd/" class="article-date">
+  <time datetime="2020-01-03T07:18:59.463Z" itemprop="datePublished">2020-01-03</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="check-log"><a href="#check-log" class="headerlink" title="check log"></a>check log</h3><ol>
+<li><p>Display whole log file content:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Search key word in log file, and return lines containing keyword:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log |grep <span class="string">"keyword"</span></span><br><span class="line">or</span><br><span class="line">$ grep -i <span class="string">"keyword"</span> target.log</span><br></pre></td></tr></table></figure>
+
+<p>these two method return same result</p>
+</li>
+<li><p>Check the most recent log (the tail lines of log file):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log |tail -n 200   <span class="comment"># check the last 200 lines of log file</span></span><br><span class="line">or</span><br><span class="line">$ tail -200f target.log   <span class="comment"># show last 200 lines and continue printing new logs</span></span><br></pre></td></tr></table></figure>
+
+<center>
+        
+          <a class="article-more-link" href="/2020/01/03/linux-cmd/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/01/03/linux-cmd/" data-id="ck54qluvf00155ghrjf8spdtt"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
         <article id="post-Kubernetes" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -105,7 +177,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/Kubernetes/" data-id="ck53hitgg00163chr8l7rtmk8"
+      <a data-url="https://visionary-s.github.io/2020/01/03/Kubernetes/" data-id="ck54qluv2000k5ghr70hi4093"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
@@ -168,10 +240,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/JS对象引用/" data-id="ck53hitgw001o3chr0sfrpf55"
+      <a data-url="https://visionary-s.github.io/2020/01/03/JS对象引用/" data-id="ck54qluwt00355ghrijpzil01"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
 
     </footer>
 
@@ -233,10 +305,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/JS-Label/" data-id="ck53hitg2000u3chr6lr3z3bj"
+      <a data-url="https://visionary-s.github.io/2020/01/03/JS-Label/" data-id="ck54qluwr00345ghrlb8k9nl7"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
 
     </footer>
 
@@ -293,7 +365,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/Hexo Theme Modification/" data-id="ck53hitfz000s3chr57blydau"
+      <a data-url="https://visionary-s.github.io/2020/01/03/Hexo Theme Modification/" data-id="ck54qluuq000c5ghrhbgg5krh"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -361,7 +433,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/Hexo cmd/" data-id="ck53hitg8000y3chrarlujfhg"
+      <a data-url="https://visionary-s.github.io/2020/01/03/Hexo cmd/" data-id="ck54qluuu000d5ghrwy5miio7"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -431,7 +503,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/Hard or Soft Dependencies/" data-id="ck53hitgd00113chrbvd026g2"
+      <a data-url="https://visionary-s.github.io/2020/01/03/Hard or Soft Dependencies/" data-id="ck54qluuo00095ghrmrr8ptyz"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -493,7 +565,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/FileUploadAndDisplay/" data-id="ck53hitf300053chr821a8uhy"
+      <a data-url="https://visionary-s.github.io/2020/01/03/FileUploadAndDisplay/" data-id="ck54qluum00085ghrxrh4dd6x"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -565,7 +637,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/ES6-Template String/" data-id="ck53hitey00023chrs58st48e"
+      <a data-url="https://visionary-s.github.io/2020/01/03/ES6-Template String/" data-id="ck54qluug00035ghrc1y2vb9a"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -627,71 +699,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/CDT/" data-id="ck53hitf400063chriwsplddg"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDT/">CDT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev-env/">dev-env</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-cdt-app-lifecycle" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/03/cdt-app-lifecycle/">CDT App Lifecycle</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/03/cdt-app-lifecycle/" class="article-date">
-  <time datetime="2020-01-03T07:18:59.412Z" itemprop="datePublished">2020-01-03</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>Apps that run in the container have their lifecycle managed.<br>The container checks for various functions implemented by the app. If those functions are implemented, the container will execute them accordingly. The following functions are supported by the container:</p>
-<h4 id="1-void-onStart"><a href="#1-void-onStart" class="headerlink" title="1. void onStart()"></a>1. void onStart()</h4><p>This method is called when the app is first instantiated in the current tab for the first time.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onStart: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-void-onPause"><a href="#2-void-onPause" class="headerlink" title="2. void onPause()"></a>2. void onPause()</h4><p>This method is called when the user has left your app to view a different app.<br> <center>
-        
-          <a class="article-more-link" href="/2020/01/03/cdt-app-lifecycle/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/cdt-app-lifecycle/" data-id="ck53hitgs001h3chrpp2f8epq"
+      <a data-url="https://visionary-s.github.io/2020/01/03/CDT/" data-id="ck54qluub00015ghr0iwwzeas"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDT/">CDT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev-env/">dev-env</a></li></ul>
