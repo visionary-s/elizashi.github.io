@@ -110,10 +110,138 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/git-for-daily-use/" data-id="ck54qluvb000y5ghr2qxcvat3"
+      <a data-url="https://visionary-s.github.io/2020/01/03/git-for-daily-use/" data-id="ck5f0crli000x6shrdlg3k7cj"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-promise" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/01/14/promise/">Promise</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/01/14/promise/" class="article-date">
+  <time datetime="2020-01-14T08:36:07.446Z" itemprop="datePublished">2020-01-14</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/basic/">basic</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h2 id="js-async-Promise"><a href="#js-async-Promise" class="headerlink" title="js async - Promise"></a>js async - Promise</h2><p>How <code>Promise</code> works is that, each async task will return result and construct a Promise instance, and each instance has a <code>then</code>, which is used for directing to next callback func.<br>Here is a simple promise example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// async codes here..</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(f1); <span class="comment">// f1 is an async callback function/task,</span></span><br><span class="line">                          <span class="comment">// promise instance p1 receives f1's result</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// when f1 is done, do f2</span></span><br><span class="line">p1.then(f2);              <span class="comment">// f2 is the next async func to be executed</span></span><br></pre></td></tr></table></figure>
+
+<center>
+        
+          <a class="article-more-link" href="/2020/01/14/promise/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/01/14/promise/" data-id="ck5f0crm8001s6shrh6nbh1fe"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-sequelize" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/01/14/sequelize/">Sequelize</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/01/14/sequelize/" class="article-date">
+  <time datetime="2020-01-14T06:51:58.029Z" itemprop="datePublished">2020-01-14</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/basic/">basic</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>Sequelize 是一个基于 promise 的 Node.js ORM, 目前支持 Postgres, MySQL, SQLite 和 Microsoft SQL Server, 主要用来进行数据库和nodejs后端数据映射。<br>Docs: <a href="https://demopark.github.io/sequelize-docs-Zh-CN/" target="_blank" rel="noopener">Sequelize Docs 中文版</a>(不全)  |  <a href="https://sequelize.org/master/" target="_blank" rel="noopener">Official api docs</a></p>
+<p>Here I only mark certain api I use most frequently.</p>
+<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><h3 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h3><p>use <code>define</code> to map data model to table in db.<br><a name="dataModel"></a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">sequelize, DataTypes</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> Cell = sequelize.define(<span class="string">"Cell"</span>,</span><br><span class="line">        &#123;</span><br><span class="line">            id: &#123;</span><br><span class="line">                type: DataTypes.INTEGER,</span><br><span class="line">                primaryKey: <span class="literal">true</span>,</span><br><span class="line">                autoIncrement: <span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            type: &#123;</span><br><span class="line">                type: DataTypes.INTEGER,</span><br><span class="line">                defaultValue:<span class="number">1</span></span><br><span class="line">            &#125;,</span><br><span class="line">            name: &#123;</span><br><span class="line">                type: DataTypes.STRING(<span class="number">255</span>),</span><br><span class="line">                unique: <span class="string">'compositeIndex'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            ...</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            timestamps: <span class="literal">false</span></span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">    Cell.getCells = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...function...</span><br><span class="line"></span><br><span class="line">    ...function...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<center>
+        
+          <a class="article-more-link" href="/2020/01/14/sequelize/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/01/14/sequelize/" data-id="ck5f0crmd001z6shri86z6b3m"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
 
     </footer>
 
@@ -174,7 +302,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/08/js-getter/" data-id="ck54qluvd00125ghrp3swk9rf"
+      <a data-url="https://visionary-s.github.io/2020/01/08/js-getter/" data-id="ck5f0crlv001b6shryeezx921"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -244,7 +372,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/06/mini-program/" data-id="ck54qluvl001c5ghrkhsx33qu"
+      <a data-url="https://visionary-s.github.io/2020/01/06/mini-program/" data-id="ck5f0crm6001p6shrp59cf8jf"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mini-program/">mini-program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/resource/">resource</a></li></ul>
@@ -307,7 +435,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/webUploader/" data-id="ck54qluvr001m5ghrjzw3rl3o"
+      <a data-url="https://visionary-s.github.io/2020/01/03/webUploader/" data-id="ck5f0crm2001l6shrasz1gwnq"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebUploader/">WebUploader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -372,7 +500,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/send quantity of http requests via shell/" data-id="ck54qluvn001f5ghrt6ot4b3e"
+      <a data-url="https://visionary-s.github.io/2020/01/03/send quantity of http requests via shell/" data-id="ck5f0crmb001w6shrrl79gnms"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
@@ -435,7 +563,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/require js - define模块定义/" data-id="ck54qluvp001j5ghrvd73zj26"
+      <a data-url="https://visionary-s.github.io/2020/01/03/require js - define模块定义/" data-id="ck5f0crm0001i6shrj10r2urw"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -497,7 +625,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/Post photos to Gallery/" data-id="ck54qluv1000h5ghrxg9p2tbe"
+      <a data-url="https://visionary-s.github.io/2020/01/03/Post photos to Gallery/" data-id="ck5f0crlm00126shrgefcaa0w"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -565,140 +693,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/openlayer-knowledge/" data-id="ck54qluvk00195ghrm3hpvm85"
+      <a data-url="https://visionary-s.github.io/2020/01/03/openlayer-knowledge/" data-id="ck5f0crlt00176shrarp5h52y"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openlayer/">openlayer</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-NBIandSBI" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/03/NBIandSBI/">NBI &amp; SBI</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/03/NBIandSBI/" class="article-date">
-  <time datetime="2020-01-03T07:18:59.472Z" itemprop="datePublished">2020-01-03</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h2 id="Northbound-Interface"><a href="#Northbound-Interface" class="headerlink" title="Northbound Interface"></a>Northbound Interface</h2><p>NBI conceptualizes lower level details (e.g. data or functions) used by, or in the component. It interfaces to higher level layers and is normally drawn at the top of an architectural overview.<br><em>e.g. REST API, SMMP, CORBA, SNMP</em><br>北向接口，用于接口编程开发各app，采集、分析app在运行中产生的各种数据，因网络管理中从上而下分应用层、数据处理层、数据管理层，北向接口即应用层和数据处理层之间的数据交互定义接口（见下图），因为朝上（上北下南）称北向接口。</p>
-<h2 id="Southbound-Interface"><a href="#Southbound-Interface" class="headerlink" title="Southbound Interface"></a>Southbound Interface</h2><p>A southbound interface decomposes concepts in the technical details, mostly specific to a single component of the architecture. Southbound interfaces are drawn at the bottom of an architectural overview.<br><em>e.g. OpenFlow, NETCONF, XMPP</em></p>
- <center>
-        
-          <a class="article-more-link" href="/2020/01/03/NBIandSBI/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/NBIandSBI/" data-id="ck54qluv5000p5ghrmxbdsl4x"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interface/">interface</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-Migrate local video header to cloud storage" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/03/Migrate local video header to cloud storage/">Migrate local video header to cloud storage</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/03/Migrate local video header to cloud storage/" class="article-date">
-  <time datetime="2020-01-03T07:18:59.467Z" itemprop="datePublished">2020-01-03</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/interest/">interest</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p> Since the Ocean theme includes and initiates the videos and images about header via local folder <code>themes/ocean/source/images/ocean/</code>, the page loads slowly at mobile device. So I decided to transfer these large files to cloud side to promote loading speed.</p>
-<ol>
-<li><p>Find the local image folder as referred above.</p>
-</li>
-<li><p>upload these files to <a href="https://cloudinary.com/" target="_blank" rel="noopener">cloudinary</a>, it provides plugin as a module to js file:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudinary.videoTag(<span class="string">'gitblog/ocean/ocean_j5rpnt'</span>).toHtml();</span><br></pre></td></tr></table></figure>
-
-<p>the src ref-way can be find at <strong>“edit”</strong> page by right clicking on cloudinary/file.<br>Here I did not use this short path cuz I am not in need of a large quantity of inserted files.</p>
-<center>
-        
-          <a class="article-more-link" href="/2020/01/03/Migrate local video header to cloud storage/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/Migrate local video header to cloud storage/" data-id="ck54qluv9000v5ghrgfhhaqny"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
 
     </footer>
 

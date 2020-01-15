@@ -57,6 +57,136 @@
 
     
       
+        <article id="post-NBIandSBI" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/01/03/NBIandSBI/">NBI &amp; SBI</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/01/03/NBIandSBI/" class="article-date">
+  <time datetime="2020-01-03T07:18:59.472Z" itemprop="datePublished">2020-01-03</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h2 id="Northbound-Interface"><a href="#Northbound-Interface" class="headerlink" title="Northbound Interface"></a>Northbound Interface</h2><p>NBI conceptualizes lower level details (e.g. data or functions) used by, or in the component. It interfaces to higher level layers and is normally drawn at the top of an architectural overview.<br><em>e.g. REST API, SMMP, CORBA, SNMP</em><br>北向接口，用于接口编程开发各app，采集、分析app在运行中产生的各种数据，因网络管理中从上而下分应用层、数据处理层、数据管理层，北向接口即应用层和数据处理层之间的数据交互定义接口（见下图），因为朝上（上北下南）称北向接口。</p>
+<h2 id="Southbound-Interface"><a href="#Southbound-Interface" class="headerlink" title="Southbound Interface"></a>Southbound Interface</h2><p>A southbound interface decomposes concepts in the technical details, mostly specific to a single component of the architecture. Southbound interfaces are drawn at the bottom of an architectural overview.<br><em>e.g. OpenFlow, NETCONF, XMPP</em></p>
+ <center>
+        
+          <a class="article-more-link" href="/2020/01/03/NBIandSBI/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/01/03/NBIandSBI/" data-id="ck5f0crlk000z6shrzkepi95w"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interface/">interface</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-Migrate local video header to cloud storage" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/01/03/Migrate local video header to cloud storage/">Migrate local video header to cloud storage</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/01/03/Migrate local video header to cloud storage/" class="article-date">
+  <time datetime="2020-01-03T07:18:59.467Z" itemprop="datePublished">2020-01-03</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p> Since the Ocean theme includes and initiates the videos and images about header via local folder <code>themes/ocean/source/images/ocean/</code>, the page loads slowly at mobile device. So I decided to transfer these large files to cloud side to promote loading speed.</p>
+<ol>
+<li><p>Find the local image folder as referred above.</p>
+</li>
+<li><p>upload these files to <a href="https://cloudinary.com/" target="_blank" rel="noopener">cloudinary</a>, it provides plugin as a module to js file:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudinary.videoTag(<span class="string">'gitblog/ocean/ocean_j5rpnt'</span>).toHtml();</span><br></pre></td></tr></table></figure>
+
+<p>the src ref-way can be find at <strong>“edit”</strong> page by right clicking on cloudinary/file.<br>Here I did not use this short path cuz I am not in need of a large quantity of inserted files.</p>
+<center>
+        
+          <a class="article-more-link" href="/2020/01/03/Migrate local video header to cloud storage/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/01/03/Migrate local video header to cloud storage/" data-id="ck5f0crld000p6shrqf0cvot9"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
         <article id="post-linux-cmd" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -111,7 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/linux-cmd/" data-id="ck54qluvf00155ghrjf8spdtt"
+      <a data-url="https://visionary-s.github.io/2020/01/03/linux-cmd/" data-id="ck5f0crlx001e6shr4tbw7zqy"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
@@ -177,7 +307,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/Kubernetes/" data-id="ck54qluv2000k5ghr70hi4093"
+      <a data-url="https://visionary-s.github.io/2020/01/03/Kubernetes/" data-id="ck5f0crla000k6shrv4offflr"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
@@ -240,7 +370,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/JS对象引用/" data-id="ck54qluwt00355ghrijpzil01"
+      <a data-url="https://visionary-s.github.io/2020/01/03/JS对象引用/" data-id="ck5f0crl7000i6shrk7ljjoef"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -305,7 +435,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/JS-Label/" data-id="ck54qluwr00345ghrlb8k9nl7"
+      <a data-url="https://visionary-s.github.io/2020/01/03/JS-Label/" data-id="ck5f0crl2000e6shr71f7w4oz"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -365,7 +495,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/Hexo Theme Modification/" data-id="ck54qluuq000c5ghrhbgg5krh"
+      <a data-url="https://visionary-s.github.io/2020/01/03/Hexo Theme Modification/" data-id="ck5f0crkq00096shr9loqv5bo"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -433,7 +563,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/Hexo cmd/" data-id="ck54qluuu000d5ghrwy5miio7"
+      <a data-url="https://visionary-s.github.io/2020/01/03/Hexo cmd/" data-id="ck5f0crkx000d6shrkuhqhe8y"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -503,7 +633,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/Hard or Soft Dependencies/" data-id="ck54qluuo00095ghrmrr8ptyz"
+      <a data-url="https://visionary-s.github.io/2020/01/03/Hard or Soft Dependencies/" data-id="ck5f0crks000a6shrvxf3v198"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -565,144 +695,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/FileUploadAndDisplay/" data-id="ck54qluum00085ghrxrh4dd6x"
+      <a data-url="https://visionary-s.github.io/2020/01/03/FileUploadAndDisplay/" data-id="ck5f0crlf000s6shr0nr5tk1d"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-ES6-Template String" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/03/ES6-Template String/">ES6 - Template strings</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/03/ES6-Template String/" class="article-date">
-  <time datetime="2020-01-03T07:18:59.421Z" itemprop="datePublished">2020-01-03</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>刷题的时候遇到了这个新语法 - <strong>模板字符串</strong>，记录一下用法。</p>
-<p>是增强版的字符串，用反引号（`）标识。主要用法：</p>
-<ol>
-<li><p>作为普通字符串使用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`string text`</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>定义多行字符串</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">`string text line 1</span></span><br><span class="line"><span class="string">string text line 2`</span>);</span><br><span class="line"><span class="comment">// "string text line 1</span></span><br><span class="line"><span class="comment">// string text line 2"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在字符串中嵌入变量</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> expression = <span class="string">"xxxx"</span>;</span><br><span class="line"><span class="string">`string text <span class="subst">$&#123;expression&#125;</span> string text`</span></span><br></pre></td></tr></table></figure>
-
-<center>
-        
-          <a class="article-more-link" href="/2020/01/03/ES6-Template String/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/ES6-Template String/" data-id="ck54qluug00035ghrc1y2vb9a"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-CDT" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/03/CDT/">CDT Learning</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/03/CDT/" class="article-date">
-  <time datetime="2020-01-03T07:18:59.416Z" itemprop="datePublished">2020-01-03</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h2 id="Skeleton"><a href="#Skeleton" class="headerlink" title="Skeleton"></a>Skeleton</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">my-app/</span><br><span class="line">    .cdt                  <span class="comment"># installed lib and conf，do not modify</span></span><br><span class="line">    <span class="built_in">help</span>/                 <span class="comment"># help docs</span></span><br><span class="line">    locales/              <span class="comment"># translation files</span></span><br><span class="line">    resources/            <span class="comment"># imgs &amp; other resources that are not js files</span></span><br><span class="line">    src/                  <span class="comment"># src code. Contains only one folder (my-app)</span></span><br><span class="line">        my-app/           <span class="comment"># name = app name, fully lowercase</span></span><br><span class="line">    <span class="built_in">test</span>/                 </span><br><span class="line">        bit/              <span class="comment"># FT, API concerned only</span></span><br><span class="line">        unit/             <span class="comment"># UT</span></span><br><span class="line">    .editorconfig         <span class="comment"># coding styles，已删</span></span><br><span class="line">    .gitignore  </span><br><span class="line">    app.config.js         <span class="comment"># metadata for app</span></span><br><span class="line">    build.json            <span class="comment"># used by the build module</span></span><br><span class="line">    container.config.js   <span class="comment"># only for dev, never used in production, contains dev version of container</span></span><br></pre></td></tr></table></figure>
-
- <center>
-        
-          <a class="article-more-link" href="/2020/01/03/CDT/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/CDT/" data-id="ck54qluub00015ghr0iwwzeas"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDT/">CDT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev-env/">dev-env</a></li></ul>
 
     </footer>
 
