@@ -129,11 +129,16 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add -A  <span class="comment"># equal to --all</span></span><br></pre></td></tr></table></figure>
 
 <p>Cuz the work I was working on is changed to untracked status for forking reason.</p>
+<hr>
+<h1 id="-3"><a href="#-3" class="headerlink" title="."></a>.</h1><h4 id="git-crashed"><a href="#git-crashed" class="headerlink" title="git crashed"></a>git crashed</h4><p>起因：deploy自己的react练手项目到Heroku上时，因为react-script 3.3.0在webpack上不靠谱的脚本遇到websocket错误，在本地更改node_module里的脚本完，手贱把gitignore里的/node_module去掉后git add -A试图上传github, 放弃并cancel以后再打开git bash，把react-script downgrade到3.2.0再次提交时发现:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">fatal: Unable to create <span class="string">'.../.git/index.lock'</span>: File exists.</span><br><span class="line"></span><br><span class="line">Another git process seems to be running <span class="keyword">in</span> this repository, e.g.</span><br><span class="line">an editor opened by <span class="string">'git commit'</span>. Please make sure all processes</span><br><span class="line">are terminated <span class="keyword">then</span> try again. If it still fails, a git process</span><br><span class="line">may have crashed <span class="keyword">in</span> this repository earlier:</span><br><span class="line">remove the file manually to <span class="built_in">continue</span>.</span><br></pre></td></tr></table></figure>
+
+<p>Solution: <br>Find the <code>.../.git/index.lock</code> file and delete it. Then reopen git bash.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/git-for-daily-use/" data-id="ck5g3l28n0017kshrwwx67eqm"
+      <a data-url="https://visionary-s.github.io/2020/01/03/git-for-daily-use/" data-id="ck5i0zvbj003qqohr1hz2juzz"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>

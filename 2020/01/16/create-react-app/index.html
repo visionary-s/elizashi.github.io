@@ -101,11 +101,16 @@
 <li><p>rename <code>&lt;filename&gt;.css</code> file to <code>&lt;filename&gt;.module.scss</code>. <br>About <code>.module</code>: 个人理解是为了避免同名的class作用域互相影响，把这个stylesheet限定仅用于此module (即编译后class前加一个stylesheetname-前缀，用以区分) <br>For more details, see <a href="https://blog.bitsrc.io/how-to-use-sass-and-css-modules-with-create-react-app-83fa8b805e5e" target="_blank" rel="noopener">CSS Modules</a> part in this post.</p>
 </li>
 </ol>
+<hr>
+<h3 id="Heroku-ERROR-SecurityError-Failed-to-construct-‘WebSocket’"><a href="#Heroku-ERROR-SecurityError-Failed-to-construct-‘WebSocket’" class="headerlink" title="[Heroku ERROR] SecurityError: Failed to construct ‘WebSocket’"></a>[Heroku ERROR] SecurityError: Failed to construct ‘WebSocket’</h3><p><code>SecurityError: Failed to construct &#39;WebSocket&#39;: An insecure WebSocket connection may not be initiated from a page loaded over HTTPS.</code> <br>This is due to <code>react-scripts 3.3.0</code>, lookup its webpack script <code>node_modules/react-dev-utils/webpackHotDevClient.js</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="comment">// line 62, the original protocol is 'ws', change it to:</span></span><br><span class="line">  protocol: <span class="built_in">window</span>.location.protocol === <span class="string">'https:'</span> ? <span class="string">'wss'</span> : <span class="string">'ws'</span>,</span><br><span class="line">  <span class="comment">// which means using 'wss' when connection is secure</span></span><br></pre></td></tr></table></figure>
+
+<p>But the thing is not resovled, cuz Heroku deploy the app directly download codes from github (I add connection before), and it automatically downloads the node_modules, which will rewrite the script. <br>So the only way I can solve this problem at present is <strong>downgrade react-scripts to 3.2.0</strong> in <code>package.json</code>. it works and successfully deployed my app.<br>For more discussion about this problem, see <a href="https://stackoverflow.com/questions/59359280/react-app-error-failed-to-construct-websocket-an-insecure-websocket-connecti" target="_blank" rel="noopener">stackoverflow</a>.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/16/create-react-app/" data-id="ck5g3l28q001bkshrmy6lpc4y"
+      <a data-url="https://visionary-s.github.io/2020/01/16/create-react-app/" data-id="ck5i0zv8v0014qohrqj68t0pg"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/framework/">framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
