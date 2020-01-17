@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Tips for create-react-app]]></title>
+    <url>%2F2020%2F01%2F16%2Fcreate-react-app%2F</url>
+    <content type="text"><![CDATA[This is a recording work while using create-react-app. [ERROR] SKIP_PREFLIGHT_CHECK=trueerror happens when run npm start: Solution: create a new file named .env in folder. write cmd SKIP_PREFLIGHT_CHECK=true into the file, save and restart npm. change the localhost port 3000 write in .env file with: 1PORT=2200 This works on Windows, not tried on Mac OS. On windows with npm (works): in package.json: 1234"scripts": &#123; "start": "set PORT=2200&amp;&amp;react-scripts start", ...&#125; On Windows with yarn (not tried): in package.json: 123"scripts": &#123; "start": "set PORT=2200 &amp;&amp; react-scripts start", .... using npm cross-env (not tried): 1234"scripts": &#123; "start": "cross-env PORT=3006 react-scripts start", ...&#125; This method need to install cross-env to project first: 1$ npm install --save-dev cross-env [ERROR] Module not found: Can’t resolve ‘react-router-dom’ in ‘C:...\my-cv\src’It means dependency react-router-dom have not been added/installed. just run: 1$ npm install react-router-dom The dependency will be automatically added to package.json and package-lock.json with latest version. Then npm start again. Add stylesheets (Sass) install node-sass: 1$ npm install node-sass --save rename &lt;filename&gt;.css file to &lt;filename&gt;.module.scss. About .module: 个人理解是为了避免同名的class作用域互相影响，把这个stylesheet限定仅用于此module (即编译后class前加一个stylesheetname-前缀，用以区分) For more details, see CSS Modules part in this post.]]></content>
+      <categories>
+        <category>interest</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+        <tag>framework</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Promise]]></title>
     <url>%2F2020%2F01%2F14%2Fpromise%2F</url>
     <content type="text"><![CDATA[js async - PromiseHow Promise works is that, each async task will return result and construct a Promise instance, and each instance has a then, which is used for directing to next callback func.Here is a simple promise example: 123456789function f1(resolve, reject) &#123; // async codes here..&#125;var p1 = new Promise(f1); // f1 is an async callback function/task, // promise instance p1 receives f1's result// when f1 is done, do f2p1.then(f2); // f2 is the next async func to be executed Promise changed the style of multiple nesting levels. In olde way, these steps will be written as: 123456789step1(function (value1) &#123; step2(value1, function(value2) &#123; step3(value2, function(value3) &#123; step4(value3, function(value4) &#123; // ... &#125;); &#125;); &#125;);&#125;); using Promise, it will be like: 1234(new Promise(step1)) .then(step2) .then(step3) .then(step4); Promise state123456789const promise = new Promise(function(resolve, reject) &#123; // ... some code if (/* 异步操作成功 */)&#123; resolve(value); &#125; else &#123; reject(error); &#125;&#125;); resolve and reject is two functions provided by JS engine. (no need to declare) resolve : change the state of promise obj from pending to resolved reject : change the state of promise obj from pending to rejected note: when the state is changed, nothing can be done to roll back the transaction. 我的理解是，resolve(), reject()像两个一次性boolean函数，一旦被call就会从false变为true并直接将promise实例做上resolved/rejected的状态标记。 If the Promise instance has already been generated, can use then declare the callback functions for these two state: 1234567promise.then(function(value) &#123; // success // call when state changed to resolved&#125;, function(error) &#123; // failure // call when state changed to rejected&#125;); Both functions receive result returned by Promise obj as paremeter value/error. Promise 新建后会立即执行 123456789101112131415let promise = new Promise(function(resolve, reject) &#123; console.log('Promise'); //立即执行 resolve(); // state changed, call then&#125;);// `then` 要在当前脚本的所有同步任务（同级的）都执行完才会执行promise.then(function() &#123; // only resolve func console.log('resolved.');&#125;);console.log('Hi!');// Promise// Hi!// resolved For more info : ES6入门（阮一峰） | MDN - Promise]]></content>
@@ -68,8 +80,8 @@
         <category>work</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>shell</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
