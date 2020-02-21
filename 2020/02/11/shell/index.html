@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    NBI &amp; SBI |
+    shell grammar |
     
     Solito</title>
   
@@ -23,7 +23,7 @@
 <body>
 <main class="content">
   <section class="outer">
-  <article id="post-NBIandSBI" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  <article id="post-shell" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -31,7 +31,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      NBI &amp; SBI
+      shell grammar
     </h1>
   
 
@@ -41,8 +41,8 @@
 
     
       <div class="article-meta">
-        <a href="/2020/01/03/NBIandSBI/" class="article-date">
-  <time datetime="2020-01-03T07:18:59.472Z" itemprop="datePublished">2020-01-03</time>
+        <a href="/2020/02/11/shell/" class="article-date">
+  <time datetime="2020-02-11T10:43:29.739Z" itemprop="datePublished">2020-02-11</time>
 </a>
         
   <div class="article-category">
@@ -58,23 +58,30 @@
       
 
       
-        <h2 id="Northbound-Interface"><a href="#Northbound-Interface" class="headerlink" title="Northbound Interface"></a>Northbound Interface</h2><p>NBI conceptualizes lower level details (e.g. data or functions) used by, or in the component. It interfaces to higher level layers and is normally drawn at the top of an architectural overview.<br><em>e.g. REST API, SMMP, CORBA, SNMP</em><br>北向接口，用于接口编程开发各app，采集、分析app在运行中产生的各种数据，因网络管理中从上而下分应用层、数据处理层、数据管理层，北向接口即应用层和数据处理层之间的数据交互定义接口（见下图），因为朝上（上北下南）称北向接口。</p>
-<h2 id="Southbound-Interface"><a href="#Southbound-Interface" class="headerlink" title="Southbound Interface"></a>Southbound Interface</h2><p>A southbound interface decomposes concepts in the technical details, mostly specific to a single component of the architecture. Southbound interfaces are drawn at the bottom of an architectural overview.<br><em>e.g. OpenFlow, NETCONF, XMPP</em></p>
- <center><a id="more"></a></center>
+        <h3 id="gt-amp-gt-gt"><a href="#gt-amp-gt-gt" class="headerlink" title="&gt; &amp; &gt;&gt;"></a>&gt; &amp; &gt;&gt;</h3><ol>
+<li><p><code>&gt;</code> 创建</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"hello shell"</span> &gt; output.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>&gt;&gt;</code> 追加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"hello shell"</span> &gt;&gt; output.txt</span><br></pre></td></tr></table></figure>
 
-<hr>
-<p><strong>A Northbound interface goes “up” and a Southbound interface goes “down”.</strong><br>northbound interfaces go towards the core of the data center or towards the Internet-facing egress of the network.  Southbound goes towards the end-users/servers/VMs.<br>Northbound interfaces normally talk to southbound interfaces of higher level components and vice versa.</p>
-<center>
-<img src="https://res.cloudinary.com/elizashi/image/upload/v1577086420/gitblog/posts/nbi/Capture_isxpve.png" style="width: 80%">
-</center>
+</li>
+</ol>
+<blockquote>
+<p>当output.txt不存在时，两者都会创建一个新的output.txt；<br>当output.txt存在时，前者会清空并重新写入，后者怎会在末尾追加</p>
+</blockquote>
+<p>ref: <a href="https://blog.csdn.net/nahanai/article/details/83861449" target="_blank" rel="noopener">https://blog.csdn.net/nahanai/article/details/83861449</a></p>
+<center><a id="more"></a></center>
+---
+###
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/NBIandSBI/" data-id="ck5kotk9s001kdohrvz114zhn"
+      <a data-url="https://visionary-s.github.io/2020/02/11/shell/" data-id="ck6vyhtiw0000vshrc89g7wkl"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interface/">interface</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
 
     </footer>
 
@@ -84,19 +91,10 @@
     
   <nav class="article-nav">
     
-      <a href="/2020/01/03/openlayer-knowledge/" class="article-nav-link">
-        <strong class="article-nav-caption">Newer posts</strong>
-        <div class="article-nav-title">
-          
-            Some tips about OpenLayer
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/01/03/Migrate local video header to cloud storage/" class="article-nav-link">
+      <a href="/2020/01/16/create-react-app/" class="article-nav-link">
         <strong class="article-nav-caption">Olde posts</strong>
-        <div class="article-nav-title">Migrate local video header to cloud storage</div>
+        <div class="article-nav-title">Tips for create-react-app</div>
       </a>
     
   </nav>
