@@ -134,11 +134,15 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">fatal: Unable to create <span class="string">'.../.git/index.lock'</span>: File exists.</span><br><span class="line"></span><br><span class="line">Another git process seems to be running <span class="keyword">in</span> this repository, e.g.</span><br><span class="line">an editor opened by <span class="string">'git commit'</span>. Please make sure all processes</span><br><span class="line">are terminated <span class="keyword">then</span> try again. If it still fails, a git process</span><br><span class="line">may have crashed <span class="keyword">in</span> this repository earlier:</span><br><span class="line">remove the file manually to <span class="built_in">continue</span>.</span><br></pre></td></tr></table></figure>
 
 <p>Solution: <br>Find the <code>.../.git/index.lock</code> file and delete it. Then reopen git bash.</p>
+<hr>
+<h1 id="-4"><a href="#-4" class="headerlink" title="."></a>.</h1><h4 id="re-login-after-changing-password"><a href="#re-login-after-changing-password" class="headerlink" title="re-login after changing password"></a>re-login after changing password</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git config --global credential.helper wincred  <span class="comment"># for Windows, different from mac OS</span></span><br></pre></td></tr></table></figure>
+
+<p>Then just use git cmd like <code>git pull</code>, credential confirm dialog will popup, enter the updated password.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/git-for-daily-use/" data-id="ck5kotkaa0024dohrml7xopec"
+      <a data-url="https://visionary-s.github.io/2020/01/03/git-for-daily-use/" data-id="ck8ed2szo001f38hr6l77y5i9"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>

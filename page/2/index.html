@@ -57,6 +57,134 @@
 
     
       
+        <article id="post-send quantity of http requests via shell" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/01/03/send quantity of http requests via shell/">Send batches of data creation requests to http server via Shell</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/01/03/send quantity of http requests via shell/" class="article-date">
+  <time datetime="2020-01-03T07:18:59.491Z" itemprop="datePublished">2020-01-03</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>In order to test the data pool volume, send over 60000 creation data to server.<br>Shell Script:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">a=1</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> [ <span class="variable">$a</span> -le 60000 ]; <span class="keyword">do</span>  <span class="comment"># start from 1, end by 60000</span></span><br><span class="line">    json=<span class="string">"&#123;\"areas\":[&#123;\"new\":[58,60,57],\"id\":\"<span class="variable">$a</span>\", \"center\":[-39,49],\"name\":\"<span class="variable">$1</span><span class="variable">$a</span>\",\"Version\":\"1.0\"&#125;"</span>;</span><br><span class="line"></span><br><span class="line">    a=$((a+1))</span><br><span class="line"></span><br><span class="line">    curl -v -X POST -H <span class="string">"Content-Type: application/json; charset=UTF-8"</span> -H <span class="string">"Cookie: sessionId=_____"</span> http://url -d <span class="string">"<span class="variable">$json</span>"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Mind the syntax especially the space, <code>&quot;&quot;</code> and <code>&#39;&#39;</code>, using <code>\</code> for escaping “” inside json to avoid syntax error.</strong></p>
+<hr>
+<h4 id="other-materials"><a href="#other-materials" class="headerlink" title="other materials:"></a>other materials:</h4><ol>
+<li><a href="http://www.ruanyifeng.com/blog/2019/09/curl-reference.html" target="_blank" rel="noopener">curl 的用法指南</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/01/03/send quantity of http requests via shell/" data-id="ck8ed2t05001x38hrir4sjzoh"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-require js - define模块定义" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/01/03/require js - define模块定义/">Require JS - define模块定义</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/01/03/require js - define模块定义/" class="article-date">
+  <time datetime="2020-01-03T07:18:59.486Z" itemprop="datePublished">2020-01-03</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/basic/">basic</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p><strong>CMD (Common Module Definition)</strong><br>在 CMD 规范中，一个模块就是一个文件。代码的书写格式如下：<br>              <center><em>define(factory);</em></center><br>define 是一个全局函数，用来定义模块。</p>
+<h3 id="1-factory为函数时，表示模块的构造方法："><a href="#1-factory为函数时，表示模块的构造方法：" class="headerlink" title="1. factory为函数时，表示模块的构造方法："></a>1. factory为函数时，表示模块的构造方法：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 模块代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>执行该构造方法，可以得到模块向外提供的接口。<br>factory 为对象、字符串时，表示模块的接口就是该对象、字符串<br> <center>
+        
+          <a class="article-more-link" href="/2020/01/03/require js - define模块定义/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/01/03/require js - define模块定义/" data-id="ck8ed2t03001u38hrbvuklshy"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
         <article id="post-Post photos to Gallery" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -101,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/Post photos to Gallery/" data-id="ck5kotka0001pdohr0nw9bz9p"
+      <a data-url="https://visionary-s.github.io/2020/01/03/Post photos to Gallery/" data-id="ck8ed2sz9000x38hrteo7dahc"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -169,7 +297,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/openlayer-knowledge/" data-id="ck5kotkad002bdohrylzqo2ya"
+      <a data-url="https://visionary-s.github.io/2020/01/03/openlayer-knowledge/" data-id="ck8ed2t00001r38hrv9kc7umj"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openlayer/">openlayer</a></li></ul>
@@ -231,7 +359,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/NBIandSBI/" data-id="ck5kotk9s001kdohrvz114zhn"
+      <a data-url="https://visionary-s.github.io/2020/01/03/NBIandSBI/" data-id="ck8ed2sz7000u38hrknl6lx47"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interface/">interface</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
@@ -299,7 +427,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/Migrate local video header to cloud storage/" data-id="ck5kotk88000fdohrei4nl83u"
+      <a data-url="https://visionary-s.github.io/2020/01/03/Migrate local video header to cloud storage/" data-id="ck8ed2sz2000p38hr83oe1axe"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -371,7 +499,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/linux-cmd/" data-id="ck5kotkaf002ddohri7cfeljv"
+      <a data-url="https://visionary-s.github.io/2020/01/03/linux-cmd/" data-id="ck8ed2szt001j38hrni0w3zhr"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
@@ -440,7 +568,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/Kubernetes/" data-id="ck5kotk9p001idohrk56ymj7h"
+      <a data-url="https://visionary-s.github.io/2020/01/03/Kubernetes/" data-id="ck8ed2syw000j38hr7n08snxb"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
@@ -503,7 +631,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/JS对象引用/" data-id="ck5kotk86000edohrjagea7xo"
+      <a data-url="https://visionary-s.github.io/2020/01/03/JS对象引用/" data-id="ck8ed2sz0000n38hrf5t45yy5"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -568,138 +696,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/JS-Label/" data-id="ck5kotk8d000jdohrtbep07sz"
+      <a data-url="https://visionary-s.github.io/2020/01/03/JS-Label/" data-id="ck8ed2syt000i38hrtma0r5wc"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-Hexo Theme Modification" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/03/Hexo Theme Modification/">Hexo Theme Modification</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/03/Hexo Theme Modification/" class="article-date">
-  <time datetime="2020-01-03T07:18:59.445Z" itemprop="datePublished">2020-01-03</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/interest/">interest</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>Modify the Theme in the following branch:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Source/themes/&lt;Theme folder name&gt;/layout/_partial/*.ejs</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/Hexo Theme Modification/" data-id="ck5kotk7y0006dohrw8bfjhh3"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-Hexo cmd" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/03/Hexo cmd/">Hexo - Tools &amp; cmd used during deployment</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/03/Hexo cmd/" class="article-date">
-  <time datetime="2020-01-03T07:18:59.441Z" itemprop="datePublished">2020-01-03</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/interest/">interest</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>Ref: <a href="https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/" target="_blank" rel="noopener">https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/</a></p>
-<h3 id="npm-CN-image（taobao）"><a href="#npm-CN-image（taobao）" class="headerlink" title="npm CN image（taobao）"></a>npm CN image（taobao）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-
-<h3 id="Hexo-installation"><a href="#Hexo-installation" class="headerlink" title="Hexo installation"></a>Hexo installation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p>check if successfully installed</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure>
-
- <center>
-        
-          <a class="article-more-link" href="/2020/01/03/Hexo cmd/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/Hexo cmd/" data-id="ck5kotk800009dohrjmr73fts"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
 
     </footer>
 

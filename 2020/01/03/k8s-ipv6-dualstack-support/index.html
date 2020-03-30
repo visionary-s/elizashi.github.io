@@ -7,6 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
+    Support ipv6/dualStack in K8s |
     
     Solito</title>
   
@@ -21,384 +22,17 @@
 </html>
 <body>
 <main class="content">
-  <section class="jumbotron">
-  <div class="video">
-    
-      <div class="video-frame">
-        <img src="https://res.cloudinary.com/elizashi/image/upload/v1564042232/gitblog/ocean/overlay-hero_hfo1px.png" alt="Decorative image frame">
-      </div>
-    
-    <div class="video-media">
-      <video playsinline="" autoplay="" loop="" muted="" data-autoplay=""
-             poster="https://res.cloudinary.com/elizashi/image/upload/v1564042234/gitblog/ocean/ocean_dvmafj.png" x5-video-player-type="h5">
-        <source src="https://res.cloudinary.com/elizashi/video/upload/v1564042238/gitblog/ocean/ocean_j5rpnt.mp4" type="video/mp4">
-        <source src="https://res.cloudinary.com/elizashi/video/upload/v1564042232/gitblog/ocean/ocean_p4kg5c.ogv" type="video/ogg">
-        <source src="https://res.cloudinary.com/elizashi/video/upload/v1564042238/gitblog/ocean/ocean_qgwvjh.webm" type="video/webm">
-        <p>Your user agent does not support the HTML5 Video element.</p>
-      </video>
-      <div class="video-overlay"></div>
-    </div>
-    <div class="video-inner text-center text-white">
-      <h1><a href="/">Solito</a></h1>
-      <p>Buring silence in SHA.</p>
-      <div><img src="/images/ming-inverted.svg" class="brand" alt="Solito"></div>
-    </div>
-    <div class="video-learn-more">
-      <a class="anchor" href="#landingpage"><i class="fe fe-mouse"></i></a>
-    </div>
-  </div>
-</section>
-
-<div id="landingpage">
   <section class="outer">
-  <article class="articles">
-    
-    <h1 class="page-type-title"></h1>
-
-    
-      
-        <article id="post-Hexo Theme Modification" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  <article id="post-k8s-ipv6-dualstack-support" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/03/Hexo Theme Modification/">Hexo Theme Modification</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/03/Hexo Theme Modification/" class="article-date">
-  <time datetime="2020-01-03T07:18:59.445Z" itemprop="datePublished">2020-01-03</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/interest/">interest</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>Modify the Theme in the following branch:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Source/themes/&lt;Theme folder name&gt;/layout/_partial/*.ejs</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/Hexo Theme Modification/" data-id="ck8ed2syc000838hrs07cmeu0"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-Hexo cmd" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/03/Hexo cmd/">Hexo - Tools &amp; cmd used during deployment</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/03/Hexo cmd/" class="article-date">
-  <time datetime="2020-01-03T07:18:59.441Z" itemprop="datePublished">2020-01-03</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/interest/">interest</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>Ref: <a href="https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/" target="_blank" rel="noopener">https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/</a></p>
-<h3 id="npm-CN-image（taobao）"><a href="#npm-CN-image（taobao）" class="headerlink" title="npm CN image（taobao）"></a>npm CN image（taobao）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-
-<h3 id="Hexo-installation"><a href="#Hexo-installation" class="headerlink" title="Hexo installation"></a>Hexo installation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p>check if successfully installed</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure>
-
- <center>
-        
-          <a class="article-more-link" href="/2020/01/03/Hexo cmd/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/Hexo cmd/" data-id="ck8ed2syo000e38hr7bryea5n"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-Hard or Soft Dependencies" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/03/Hard or Soft Dependencies/">Hard &amp; Soft Dependencies</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/03/Hard or Soft Dependencies/" class="article-date">
-  <time datetime="2020-01-03T07:18:59.435Z" itemprop="datePublished">2020-01-03</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>ref: <a href="https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency" target="_blank" rel="noopener">https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency</a></p>
-<h2 id="Hard-Dependency"><a href="#Hard-Dependency" class="headerlink" title="Hard Dependency"></a>Hard Dependency</h2><p>a module <strong>cannot</strong> function without the other modules on which it depends</p>
-<ul>
-<li><p>The module contains code that directly uses logic from another module (<strong>instances, class constants, static methods, public class properties, interfaces and traits</strong>).</p>
-</li>
-<li><p>The module contains strings that include <strong>class names, methods names, class constants, class properties, interfaces, and traits</strong> from another module.</p>
-</li>
-<li><p>The module de-serializes an <strong>object declared in another module</strong>.</p>
-</li>
-<li><p>The module uses or modifies the <strong>database tables used by another module</strong>.</p>
-<center>
-        
-          <a class="article-more-link" href="/2020/01/03/Hard or Soft Dependencies/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/Hard or Soft Dependencies/" data-id="ck8ed2syl000d38hrba1nj1r4"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-FileUploadAndDisplay" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/03/FileUploadAndDisplay/">File Upload and Display</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/03/FileUploadAndDisplay/" class="article-date">
-  <time datetime="2020-01-03T07:18:59.426Z" itemprop="datePublished">2020-01-03</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p><a href="https://blog.csdn.net/WuLex/article/details/84296934" target="_blank" rel="noopener">input [type=file] 获取上传文件的内容</a></p>
-<p>Modify:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">_addFileContent: <span class="function"><span class="keyword">function</span> (<span class="params">fileTag</span>) </span>&#123;</span><br><span class="line">    fileTag.addEventHandler(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="string">"#fileUpload"</span>).change(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> file = <span class="built_in">document</span>.getElementById(<span class="string">"fileUpload"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (file.files.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">var</span> trueFile = file.files[<span class="number">0</span>];</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="built_in">document</span>.getElementById(<span class="string">"fileContent"</span>).value);</span><br><span class="line">                <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();</span><br><span class="line"></span><br><span class="line">                reader.readAsText(trueFile, <span class="string">'UTF-8'</span>);</span><br><span class="line"></span><br><span class="line">                reader.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">if</span> (reader.error) &#123;</span><br><span class="line">                        <span class="built_in">console</span>.log(reader.error);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">var</span> urlData = <span class="keyword">this</span>.result;</span><br><span class="line">                        <span class="built_in">document</span>.getElementById(<span class="string">"fileContent"</span>).value = urlData;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">"Failed to upload file!"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);          </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Other ref:<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/change" target="_blank" rel="noopener">Change event | MDN</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/FileUploadAndDisplay/" data-id="ck8ed2sxx000238hr9drdun9e"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-ES6-Template String" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/03/ES6-Template String/">ES6 - Template strings</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/03/ES6-Template String/" class="article-date">
-  <time datetime="2020-01-03T07:18:59.421Z" itemprop="datePublished">2020-01-03</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>刷题的时候遇到了这个新语法 - <strong>模板字符串</strong>，记录一下用法。</p>
-<p>是增强版的字符串，用反引号（`）标识。主要用法：</p>
-<ol>
-<li><p>作为普通字符串使用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`string text`</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>定义多行字符串</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">`string text line 1</span></span><br><span class="line"><span class="string">string text line 2`</span>);</span><br><span class="line"><span class="comment">// "string text line 1</span></span><br><span class="line"><span class="comment">// string text line 2"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在字符串中嵌入变量</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> expression = <span class="string">"xxxx"</span>;</span><br><span class="line"><span class="string">`string text <span class="subst">$&#123;expression&#125;</span> string text`</span></span><br></pre></td></tr></table></figure>
-
-<center>
-        
-          <a class="article-more-link" href="/2020/01/03/ES6-Template String/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/ES6-Template String/" data-id="ck8ed2syh000a38hrtazww9a8"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-k8s-ipv6-dualstack-support" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/03/k8s-ipv6-dualstack-support/">Support ipv6/dualStack in K8s</a>
-    </h2>
+    <h1 class="article-title" itemprop="name">
+      Support ipv6/dualStack in K8s
+    </h1>
   
 
 
@@ -715,159 +349,38 @@
   </div>
 
   
+    
+  <nav class="article-nav">
+    
+      <a href="/2020/01/03/ES6-Template String/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            ES6 - Template strings
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/01/03/cdt-app-lifecycle/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">CDT App Lifecycle</div>
+      </a>
+    
+  </nav>
 
+
+  
+
+  
+    
   
 
 </article>
 
 
 
-      
-        <article id="post-cdt-app-lifecycle" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/03/cdt-app-lifecycle/">CDT App Lifecycle</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/03/cdt-app-lifecycle/" class="article-date">
-  <time datetime="2020-01-03T07:18:59.412Z" itemprop="datePublished">2020-01-03</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>Apps that run in the container have their lifecycle managed.<br>The container checks for various functions implemented by the app. If those functions are implemented, the container will execute them accordingly. The following functions are supported by the container:</p>
-<h4 id="1-void-onStart"><a href="#1-void-onStart" class="headerlink" title="1. void onStart()"></a>1. void onStart()</h4><p>This method is called when the app is first instantiated in the current tab for the first time.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onStart: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-void-onPause"><a href="#2-void-onPause" class="headerlink" title="2. void onPause()"></a>2. void onPause()</h4><p>This method is called when the user has left your app to view a different app.<br> <center>
-        
-          <a class="article-more-link" href="/2020/01/03/cdt-app-lifecycle/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/cdt-app-lifecycle/" data-id="ck8ed2szc001138hrw5tow4sq"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDT/">CDT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev-env/">dev-env</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-About Gson LinkedTreeMap" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/03/About Gson LinkedTreeMap/">Gson LinkedTreeMap</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/03/About Gson LinkedTreeMap/" class="article-date">
-  <time datetime="2020-01-03T07:18:59.406Z" itemprop="datePublished">2020-01-03</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h4><p>Given a Gson object with format <code>LinkedTreeMap&lt;String, String&gt;</code>, e.g.:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LinkedTreeMap&lt;<span class="built_in">String</span>, <span class="built_in">String</span>&gt; misc = &#123;</span><br><span class="line">  misc1: misc_site,</span><br><span class="line">  misc2: misc_sector,</span><br><span class="line">  misc3: <span class="literal">null</span>,</span><br><span class="line">  misc4: <span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>I got the HashMap with</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  misc: <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line">and</span><br><span class="line">&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>And pass case <code>assertThat(misc).isNull();</code> is what I expected. Unfortunately both were deleted not Null.<br>I try to transform the type into HashTable but got:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR: com.google.gson.internal.LinkedTreeMap cannot be cast to java.util.Hashtable</span><br></pre></td></tr></table></figure>
-
- <center>
-        
-          <a class="article-more-link" href="/2020/01/03/About Gson LinkedTreeMap/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/About Gson LinkedTreeMap/" data-id="ck8ed2sxo000038hrlaaqbtc9"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FT/">FT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structure/">data structure</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-  </article>
-  
-
-  
-    <nav class="page-nav">
-      
-      <a class="extend prev" rel="prev" href="/page/2/">Prev page</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
-  
 </section>
-</div>
-
   <footer class="footer">
   <div class="outer">
     <div class="float-right">
