@@ -63,6 +63,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Client Version: version.Info&#123;Major:<span class="string">"1"</span>, Minor:<span class="string">"14"</span>, GitVersion:<span class="string">"v1.14.8"</span>, GitCommit:<span class="string">"211047e9a1922595eaa3a1127ed365e9299a6c23"</span>, GitTreeState:<span class="string">"clean"</span>, BuildDate:<span class="string">"2019-10-15T12:11:03Z"</span>, GoVersion:<span class="string">"go1.12.10"</span>, Compiler:<span class="string">"gc"</span>, Platform:<span class="string">"windows/amd64"</span>&#125;</span><br><span class="line">Server Version: version.Info&#123;Major:<span class="string">"1"</span>, Minor:<span class="string">"14"</span>, GitVersion:<span class="string">"v1.14.8"</span>, GitCommit:<span class="string">"211047e9a1922595eaa3a1127ed365e9299a6c23"</span>, GitTreeState:<span class="string">"clean"</span>, BuildDate:<span class="string">"2019-10-15T12:02:12Z"</span>, GoVersion:<span class="string">"go1.12.10"</span>, Compiler:<span class="string">"gc"</span>, Platform:<span class="string">"linux/amd64"</span>&#125;</span><br></pre></td></tr></table></figure>
 
 <p><em>1.14。。赶紧查docker desktop自带的kubernetes怎么更新，发现<a href="https://monkeywie.github.io/2019/09/16/k8s-update-operate/" target="_blank" rel="noopener">要写deploy</a>测试或者<a href="https://www.cnblogs.com/lonelyxmas/p/10670477.html" target="_blank" rel="noopener">重装k8s?</a> 感觉不适用。因为这是docker自带的不知道重装会不会有别的影响。本菜鸡只好，决定直接装到我们组的remote server上，这样测试也可以一步到位。</em></p>
+<center><a id="more"></a></center>
+
 <ol>
 <li>登上remote server发现第二个坑，我们的机子，连不了外网。。。wdnmd别说docker没有了，连yum install都不行，必须自己配置本地yum repo… <br>solution: 自己再装一个能连外网的虚拟机，把docker和k8s下载下来打好包再transfer到remote server上。</li>
 </ol>
@@ -353,7 +355,7 @@
 </li>
 </ul>
 </li>
-<li><p>Test functionality</p>
+<li><p>Test functionalities</p>
 <ul>
 <li><p>[error1] connot apply ipv6 address in our settings. <br>solution: change validation regex from <code>^http(s)?://[\\w\\.\\-?=%&amp;:/]+$</code> to <code>^http(s)?://([\[\\w\\.\\-?=%&amp;:/](\])?)+$</code></p>
 </li>
@@ -371,7 +373,23 @@
 
 <p>果然。。。config default HOST = ‘0.0.0.0’ –&gt; HOST = ‘’</p>
 </li>
+<li><p>system error : <code>connect ECONNREFUSED 127.0.0.1:8091,ENM=http://[fd04::fe]:8091</code> <br>this error indicate the default route the simulator service connect to is not correct, check in codes I found:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  ENMSERVICEPROTOCO: process.env.enmserviceprotoco || <span class="string">'http:'</span>,</span><br><span class="line">  ENMSERVICEPORT: process.env.enmserviceport || <span class="number">8083</span>,</span><br><span class="line">  ENMSERVICEHOST: process.env.enmservicehost || <span class="string">''</span>,</span><br><span class="line"></span><br><span class="line">  ENMNODEPROTOCO: process.env.enmnodeprotocol || <span class="string">'http:'</span>,</span><br><span class="line">  ENMNODEPORT: process.env.enmnodeport || <span class="number">8091</span>,</span><br><span class="line">  ENMNODEHOST: process.env.enmnodehost || <span class="string">'localhost'</span>,</span><br><span class="line"></span><br><span class="line">  CORENODEPROTOCO: process.env.corenodeprotocol || <span class="string">'http:'</span>,</span><br><span class="line">  CORENODEPORT: process.env.corenodeport || <span class="number">8585</span>,</span><br><span class="line">  CORENODEHOST: process.env.corenodehost || <span class="string">'localhost'</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
+<p>I guess there should be a <code>ENV</code> parameter configured in xxx simulator deployment.yaml. To temporarily fix this problem, I edit the deployment config of xxx-simulator, refer <a href="https://stackoverflow.com/questions/49928819/how-to-pull-environment-variables-with-helm-charts" target="_blank" rel="noopener">answer</a> and <a href="https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/" target="_blank" rel="noopener">k8s official doc</a>:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">...</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line"><span class="attr">  template:</span></span><br><span class="line"><span class="attr">    metadata:</span></span><br><span class="line"><span class="attr">      creationTimestamp:</span> <span class="literal">null</span></span><br><span class="line"><span class="attr">    labels:</span></span><br><span class="line"><span class="attr">      app:</span> <span class="string">xxx-simulator</span></span><br><span class="line"><span class="attr">    spec:</span></span><br><span class="line"><span class="attr">      containers:</span></span><br><span class="line"><span class="attr">        - env:</span></span><br><span class="line"><span class="attr">          - name:</span> <span class="string">enmnodehost</span></span><br><span class="line"><span class="attr">          value:</span> <span class="string">'[fd04::fe]'</span></span><br><span class="line"><span class="attr">          image:</span> <span class="attr">xxx-simulator:1.0.0</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure>
+
+<p>这方法不对，原因：<code>connect ECONNREFUSED 127.0.0.1:8091</code>是enmservice和simulator在通信，这个相当于连了localhost:8091 (查看enmservice的log也确实如此)，理论上应连[fd04::fe]:8091。问题出在enmservice request export of simulator的地址，所以改simulator的container启动配置没用。<br>检查simulator的export代码，发现当时写的时候没考虑到ipv6，因为我们的create完job以后从simulator export的jobUrl是这么传的。。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fqdn = req.headers &amp;&amp; req.headers[<span class="string">"host"</span>] ? req.headers[<span class="string">"host"</span>].split(<span class="string">':'</span>)[<span class="number">0</span>] : <span class="literal">null</span>;</span><br><span class="line">JOBSDATA = <span class="keyword">new</span> JOBS(moJobId, fqdn);</span><br></pre></td></tr></table></figure>
+
+<p>所以error message里会出现<code>http://[fd04:8091/bulk-con...</code>这种url</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"message"</span>: <span class="string">"Error: connect ECONNREFUSED ::1:8091"</span>,</span><br><span class="line"><span class="string">"options"</span>: &#123;</span><br><span class="line">  <span class="string">"ca"</span>: [</span><br><span class="line">    <span class="string">""</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"jar"</span>: &#123;&#125;,</span><br><span class="line">  <span class="string">"url"</span>: <span class="string">"http://[fd04:8091/bulk-configuration/v1/import-jobs/jobs/18974277/files"</span>,</span><br><span class="line">  <span class="string">"method"</span>: <span class="string">"POST"</span></span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>改了一下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fqdn = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">if</span> (req.headers &amp;&amp; req.headers[<span class="string">"host"</span>]) &#123;</span><br><span class="line">        <span class="keyword">const</span> headerHost = req.headers[<span class="string">"host"</span>];</span><br><span class="line">        <span class="keyword">if</span> (<span class="regexp">/\[/</span>.test(headerHost)) &#123;</span><br><span class="line">            <span class="keyword">let</span> start = headerHost.indexOf(<span class="string">'['</span>);</span><br><span class="line">            <span class="keyword">let</span> end = headerHost.indexOf(<span class="string">']'</span>);</span><br><span class="line">            fqdn = headerHost.slice(start, end + <span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            fqdn = headerHost.split(<span class="string">':'</span>)[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        fqdn = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 </li>
@@ -380,7 +398,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/03/20/k8s-ipv6-dualstack-support/" data-id="ck8h60d5l0043zohrc54erwvu"
+      <a data-url="https://visionary-s.github.io/2020/03/20/k8s-ipv6-dualstack-support/" data-id="ck8im7tyy0042rshrm129fgxm"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/k8s/">k8s</a></li></ul>
@@ -392,15 +410,6 @@
   
     
   <nav class="article-nav">
-    
-      <a href="/2020/03/23/docker/" class="article-nav-link">
-        <strong class="article-nav-caption">Newer posts</strong>
-        <div class="article-nav-title">
-          
-            docker CMD for daily use
-          
-        </div>
-      </a>
     
     
       <a href="/2020/03/13/CDT0/" class="article-nav-link">
