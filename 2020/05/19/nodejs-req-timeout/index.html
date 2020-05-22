@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    Timeout in Node.JS |
+    
+    Solito</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-nodejs-req-timeout" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Timeout in Node.JS
+    </h1>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/05/19/nodejs-req-timeout/" class="article-date">
+  <time datetime="2020-05-18T16:00:00.000Z" itemprop="datePublished">2020-05-19</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/basic/">basic</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>Thanks for answers in <a href="https://stackoverflow.com/questions/6214902/how-to-set-a-timeout-on-a-http-request-in-node" target="_blank" rel="noopener">https://stackoverflow.com/questions/6214902/how-to-set-a-timeout-on-a-http-request-in-node</a> <br>The problem can mainly divided into two part in my implemention:</p>
+<ul>
+<li>connection timeout</li>
+<li>response timeout</li>
+</ul>
+<ol>
+<li><p>connection timeout <br>On request stage:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// set the desired timeout in options</span></span><br><span class="line"><span class="keyword">const</span> options = &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    timeout: <span class="number">3000</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// create a request</span></span><br><span class="line"><span class="keyword">const</span> request = http.request(options, response =&gt; &#123;</span><br><span class="line">    <span class="comment">// your callback here</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// use its "timeout" event to abort the request</span></span><br><span class="line">request.on(<span class="string">'timeout'</span>, () =&gt; &#123;</span><br><span class="line">    request.abort();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<center><a id="more"></a></center>
+</li>
+<li><p>response timeout <br>On response stage:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> options = &#123; ... &#125;</span><br><span class="line"><span class="keyword">var</span> req = http.request(options, (res) =&gt; &#123;</span><br><span class="line">  <span class="comment">// Usual stuff: on(data), on(end), chunks, etc...</span></span><br><span class="line">&#125;);</span><br><span class="line">req.on(<span class="string">'socket'</span>, (socket) =&gt; &#123;</span><br><span class="line">    socket.setTimeout(myTimeout);  </span><br><span class="line">    socket.on(<span class="string">'timeout'</span>, () =&gt; &#123;</span><br><span class="line">        req.destroy();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">req.on(<span class="string">'error'</span>, (err) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err.code === <span class="string">"ECONNRESET"</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Timeout occurs"</span>);</span><br><span class="line">        <span class="comment">//specific error treatment</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//other error treatment</span></span><br><span class="line">&#125;);</span><br><span class="line">req.end();</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/05/19/nodejs-req-timeout/" data-id="ckahllqlc001pi8hrhdbyfcqv"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/05/18/postgres-tips/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">Tips when using postgresql</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span> visitors</li>
+  
+</ul>
+
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 B. Eliza Shi</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/ming.svg" alt="Solito"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+    <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <!-- <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li> -->
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" href="https://github.com/visionary-s" title="GitHub">
+        <i class="fe fe-github"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+
+</aside>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/snap.svg-min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/search.js"></script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

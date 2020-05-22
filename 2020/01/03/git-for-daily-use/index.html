@@ -91,6 +91,9 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span>                   <span class="comment"># check commit history</span></span><br><span class="line">$ git reset &lt;commit id&gt;     <span class="comment"># reset to certain commit version</span></span><br></pre></td></tr></table></figure>
 
 <p>If build failed, you should redo “add” and “commit” step after resetting.</p>
+<blockquote>
+<p>Tip: <code>git log</code> only show commit history of default remote branch (usually master). If remote has multiple branches in work, use <code>git log --all</code> to check full historical submits.</p>
+</blockquote>
 <p>Final Step：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin HEAD:refs/<span class="keyword">for</span>/master</span><br></pre></td></tr></table></figure>
 
@@ -138,11 +141,18 @@
 <h1 id="-4"><a href="#-4" class="headerlink" title="."></a>.</h1><h4 id="re-login-after-changing-password"><a href="#re-login-after-changing-password" class="headerlink" title="re-login after changing password"></a>re-login after changing password</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git config --global credential.helper wincred  <span class="comment"># for Windows, different from mac OS</span></span><br></pre></td></tr></table></figure>
 
 <p>Then just use git cmd like <code>git pull</code>, credential confirm dialog will popup, enter the updated password.</p>
+<hr>
+<h1 id="-5"><a href="#-5" class="headerlink" title="."></a>.</h1><p>check remote branches:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -r</span><br></pre></td></tr></table></figure>
+
+<p>Push to remote branch which is not master</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin HEAD:refs/<span class="keyword">for</span>/&lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/git-for-daily-use/" data-id="ck8k1tynt0018cchr0ziqbks7"
+      <a data-url="https://visionary-s.github.io/2020/01/03/git-for-daily-use/" data-id="ckahllqlx0029i8hrlyroseog"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>

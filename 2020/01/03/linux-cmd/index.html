@@ -127,12 +127,27 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ file &lt;fileName&gt;</span><br></pre></td></tr></table></figure>
 
 <h3 id="search-history-cmd"><a href="#search-history-cmd" class="headerlink" title="search history cmd"></a>search history cmd</h3><p>use <code>ctrl + r</code> to search history input, continue input until find the target cmd, then press <code>Enter</code> to execute.</p>
-<p>### </p>
+<h3 id="Port"><a href="#Port" class="headerlink" title="Port"></a>Port</h3><ol>
+<li>check port status<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:&lt;port-id&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>e.g.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@host63 ~]# lsof -i:32228</span><br><span class="line">COMMAND     PID USER   FD   TYPE    DEVICE SIZE/OFF NODE NAME</span><br><span class="line">kube-prox 21592 root   16u  IPv6 171971606      0t0  TCP *:32228 (LISTEN)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>check the process running on certain port<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -tunlp | grep &lt;port-id&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>e.g.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@host63 ~]# netstat -tunlp | grep 32228</span><br><span class="line">tcp6       0      0 :::32228                :::*                    LISTEN      21592/kube-proxy</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/linux-cmd/" data-id="ck8k1tyoi001fcchr5w682xj9"
+      <a data-url="https://visionary-s.github.io/2020/01/03/linux-cmd/" data-id="ckahllqku001di8hr3dwh8tzy"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
