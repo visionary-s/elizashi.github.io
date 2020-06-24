@@ -57,339 +57,6 @@
 
     
       
-        <article id="post-docker" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/20/docker/">docker CMD for daily use</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/20/docker/" class="article-date">
-  <time datetime="2020-01-19T16:00:00.000Z" itemprop="datePublished">2020-01-20</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h3 id="images"><a href="#images" class="headerlink" title="images"></a>images</h3><ol>
-<li><p>Display images on current server:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker images</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>rename image:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE</span><br><span class="line">oldName              latest              d583c3ac45fd        26 minutes ago      685.5 MB</span><br><span class="line">######## change to ########</span><br><span class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE</span><br><span class="line">newName            latest              d583c3ac45fd       26 minutes ago         685.5 MB</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker image tag oldName:latest newName:latest</span><br><span class="line">or</span><br><span class="line">$ docker image tag d583c3ac45fd newName:latest</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Notice: this operation is equal to “copy” + “rename”, thus there will be two repositories “oldName” and “newName” after change. If you want to remove “oldName”, use <code>docker rmi oldName</code>.</p>
-</blockquote>
-<center>
-        
-          <a class="article-more-link" href="/2020/01/20/docker/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/20/docker/" data-id="ckahllqkq001bi8hrtn3uq5ca"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-create-react-app" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/16/create-react-app/">Tips for create-react-app</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/16/create-react-app/" class="article-date">
-  <time datetime="2020-01-16T01:55:31.538Z" itemprop="datePublished">2020-01-16</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/interest/">interest</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>This is a recording work while using create-react-app.</p>
-<h3 id="ERROR-SKIP-PREFLIGHT-CHECK-true"><a href="#ERROR-SKIP-PREFLIGHT-CHECK-true" class="headerlink" title="[ERROR] SKIP_PREFLIGHT_CHECK=true"></a>[ERROR] SKIP_PREFLIGHT_CHECK=true</h3><p>error happens when run <code>npm start</code>:<br><img src="https://res.cloudinary.com/elizashi/image/upload/v1579140501/gitblog/posts/create-react-app/react-npm-start-error_fk5pfl.png" alt="Alt"></p>
-<p><strong>Solution:</strong></p>
-<ol>
-<li>create a new file named <strong>.env</strong> in folder.</li>
-<li>write cmd <code>SKIP_PREFLIGHT_CHECK=true</code> into the file, save and restart npm.</li>
-</ol>
-<center>
-        
-          <a class="article-more-link" href="/2020/01/16/create-react-app/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/16/create-react-app/" data-id="ckahllqkl0017i8hriwmxmr9x"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/framework/">framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-promise" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/14/promise/">Promise</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/14/promise/" class="article-date">
-  <time datetime="2020-01-14T08:36:07.446Z" itemprop="datePublished">2020-01-14</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h2 id="js-async-Promise"><a href="#js-async-Promise" class="headerlink" title="js async - Promise"></a>js async - Promise</h2><p>How <code>Promise</code> works is that, each async task will return result and construct a Promise instance, and each instance has a <code>then</code>, which is used for directing to next callback func.<br>Here is a simple promise example:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// async codes here..</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(f1); <span class="comment">// f1 is an async callback function/task,</span></span><br><span class="line">                          <span class="comment">// promise instance p1 receives f1's result</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// when f1 is done, do f2</span></span><br><span class="line">p1.then(f2);              <span class="comment">// f2 is the next async func to be executed</span></span><br></pre></td></tr></table></figure>
-
-<center>
-        
-          <a class="article-more-link" href="/2020/01/14/promise/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/14/promise/" data-id="ckahllqlq0022i8hrtc7nxc1i"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-sequelize" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/14/sequelize/">Sequelize</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/14/sequelize/" class="article-date">
-  <time datetime="2020-01-14T06:51:58.029Z" itemprop="datePublished">2020-01-14</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>Sequelize 是一个基于 promise 的 Node.js ORM, 目前支持 Postgres, MySQL, SQLite 和 Microsoft SQL Server, 主要用来进行数据库和nodejs后端数据映射。<br>Docs: <a href="https://demopark.github.io/sequelize-docs-Zh-CN/" target="_blank" rel="noopener">Sequelize Docs 中文版</a>(不全)  |  <a href="https://sequelize.org/master/" target="_blank" rel="noopener">Official api docs</a></p>
-<p>Here I only mark certain api I use most frequently.</p>
-<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><h3 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h3><p>use <code>define</code> to map data model to table in db.<br><a name="dataModel"></a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">sequelize, DataTypes</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> Cell = sequelize.define(<span class="string">"Cell"</span>,</span><br><span class="line">        &#123;</span><br><span class="line">            id: &#123;</span><br><span class="line">                type: DataTypes.INTEGER,</span><br><span class="line">                primaryKey: <span class="literal">true</span>,</span><br><span class="line">                autoIncrement: <span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            type: &#123;</span><br><span class="line">                type: DataTypes.INTEGER,</span><br><span class="line">                defaultValue:<span class="number">1</span></span><br><span class="line">            &#125;,</span><br><span class="line">            name: &#123;</span><br><span class="line">                type: DataTypes.STRING(<span class="number">255</span>),</span><br><span class="line">                unique: <span class="string">'compositeIndex'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            ...</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            timestamps: <span class="literal">false</span></span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">    Cell.getCells = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...function...</span><br><span class="line"></span><br><span class="line">    ...function...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<center>
-        
-          <a class="article-more-link" href="/2020/01/14/sequelize/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/14/sequelize/" data-id="ckahllqlu0026i8hrj0deap9w"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-js-getter" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/08/js-getter/">JS getter</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/08/js-getter/" class="article-date">
-  <time datetime="2020-01-08T02:43:22.867Z" itemprop="datePublished">2020-01-08</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>Encountered with the following function as below:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">get</span> userFilter() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        dataset1: &#123;</span><br><span class="line">            value: <span class="string">'...'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        dataset2: &#123;</span><br><span class="line">            value: <span class="string">'...'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>so question comes up: <a href="https://stackoverflow.com/questions/42884751/whats-the-meaning-of-static-get-in-javascript-es6" target="_blank" rel="noopener">Whats the meaning of ‘static get’ in Javascript (ES6)?</a></p>
-<center>
-        
-          <a class="article-more-link" href="/2020/01/08/js-getter/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/08/js-getter/" data-id="ckahllqk80010i8hrw1rofwjw"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
         <article id="post-mini-program" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -398,7 +65,7 @@
         
   
     <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/06/mini-program/">Mini-program project demo for starter</a>
+      <a class="article-title" href="/2020/05/26/mini-program/">Mini-program project demo for starter</a>
     </h2>
   
 
@@ -408,8 +75,8 @@
 
     
       <div class="article-meta">
-        <a href="/2020/01/06/mini-program/" class="article-date">
-  <time datetime="2020-01-06T08:14:54.076Z" itemprop="datePublished">2020-01-06</time>
+        <a href="/2020/05/26/mini-program/" class="article-date">
+  <time datetime="2020-05-26T07:53:00.266Z" itemprop="datePublished">2020-05-26</time>
 </a>
         
   <div class="article-category">
@@ -437,12 +104,12 @@
 <li><p>跑马灯，左侧菜单，抽屉层，加载动画<br><a href="https://github.com/youzouzou/wxapp" target="_blank" rel="noopener">https://github.com/youzouzou/wxapp</a> <br>小程序组件合集</p>
 <center>
         
-          <a class="article-more-link" href="/2020/01/06/mini-program/">Read More...</a>
+          <a class="article-more-link" href="/2020/05/26/mini-program/">Read More...</a>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/06/mini-program/" data-id="ckahllql3001ji8hr29tq984y"
+      <a data-url="https://visionary-s.github.io/2020/05/26/mini-program/" data-id="ckbt00if20020m4hrlzbl084b"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mini-program/">mini-program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/resource/">resource</a></li></ul>
@@ -460,7 +127,7 @@
 
 
       
-        <article id="post-webUploader" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+        <article id="post-Migrate local video header to cloud storage" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -468,7 +135,7 @@
         
   
     <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/03/webUploader/">WebUploader</a>
+      <a class="article-title" href="/2020/05/26/Migrate local video header to cloud storage/">Migrate local video header to cloud storage</a>
     </h2>
   
 
@@ -478,8 +145,76 @@
 
     
       <div class="article-meta">
-        <a href="/2020/01/03/webUploader/" class="article-date">
-  <time datetime="2020-01-03T07:18:59.495Z" itemprop="datePublished">2020-01-03</time>
+        <a href="/2020/05/26/Migrate local video header to cloud storage/" class="article-date">
+  <time datetime="2020-05-26T07:53:00.262Z" itemprop="datePublished">2020-05-26</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p> Since the Ocean theme includes and initiates the videos and images about header via local folder <code>themes/ocean/source/images/ocean/</code>, the page loads slowly at mobile device. So I decided to transfer these large files to cloud side to promote loading speed.</p>
+<ol>
+<li><p>Find the local image folder as referred above.</p>
+</li>
+<li><p>upload these files to <a href="https://cloudinary.com/" target="_blank" rel="noopener">cloudinary</a>, it provides plugin as a module to js file:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudinary.videoTag(<span class="string">'gitblog/ocean/ocean_j5rpnt'</span>).toHtml();</span><br></pre></td></tr></table></figure>
+
+<p>the src ref-way can be find at <strong>“edit”</strong> page by right clicking on cloudinary/file.<br>Here I did not use this short path cuz I am not in need of a large quantity of inserted files.</p>
+<center>
+        
+          <a class="article-more-link" href="/2020/05/26/Migrate local video header to cloud storage/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/05/26/Migrate local video header to cloud storage/" data-id="ckbt00ie6000xm4hrjcqzkr4j"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-linux-cmd" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/05/26/linux-cmd/">Linux CMD for daily use</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/05/26/linux-cmd/" class="article-date">
+  <time datetime="2020-05-26T07:53:00.257Z" itemprop="datePublished">2020-05-26</time>
 </a>
         
   <div class="article-category">
@@ -495,20 +230,29 @@
       
 
       
-        <p>Using <a href="https://fex.baidu.com/webuploader/doc/index.html" target="_blank" rel="noopener">WebUploader</a> as 3pp to upload files to system.</p>
-<h3 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 仅包含了常用参数</span></span><br><span class="line"><span class="keyword">var</span> uploader = <span class="keyword">new</span> WebUploader.Uploader(&#123;</span><br><span class="line">    duplicate: <span class="literal">true</span>, <span class="comment">// 是否允许重复文件 default undefined</span></span><br><span class="line">    auto: <span class="literal">false</span>,  <span class="comment">// 选完文件后，是否自动上传</span></span><br><span class="line">    swf: <span class="string">'path_of_swf/Uploader.swf'</span>,  <span class="comment">// swf文件路径</span></span><br><span class="line">    server: <span class="string">"/upload.html"</span>, <span class="comment">// 文件接收服务端</span></span><br><span class="line">    pick: &#123; <span class="attr">id</span>: <span class="string">"#uploadFile"</span>, <span class="attr">innerHTML</span>: <span class="string">"localImg"</span> &#125;, <span class="comment">// 选择文件的按钮。可选</span></span><br><span class="line">    accept: &#123; <span class="comment">// sample, 只允许选择图片文件</span></span><br><span class="line">            title: <span class="string">'Images'</span>,</span><br><span class="line">            extensions: <span class="string">'gif,jpg,jpeg,bmp,png'</span>,</span><br><span class="line">            mimeTypes: <span class="string">'image/*'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    threads: <span class="number">1</span>, <span class="comment">// 线程数</span></span><br><span class="line">    fileSingleSizeLimit: <span class="number">2000</span>,  <span class="comment">// 单文件大小限制</span></span><br><span class="line">    fileNumLimit: <span class="number">10</span>,  <span class="comment">// 单次上传文件数量限制</span></span><br><span class="line">    fileSingleSizeLimit:  <span class="comment">// 验证单个文件大小是否超出限制, 超出则不允许加入队列</span></span><br><span class="line">    compress:<span class="literal">false</span>, <span class="comment">// 是否压缩上传</span></span><br><span class="line">    chunked: <span class="literal">true</span>, <span class="comment">// 是否要分片处理大文件上传, default false</span></span><br><span class="line">    chunkSize: <span class="number">5242880</span>, <span class="comment">// 如果要分片，分多大一片？ default 5242880 (5M)</span></span><br><span class="line">    chunkRetry: <span class="number">1</span>,  <span class="comment">// 如果某个分片由于网络问题出错，允许自动重传多少次？ default 2</span></span><br><span class="line">    threads: <span class="number">1</span>, <span class="comment">// 上传并发数。允许同时最大上传进程数 default 3</span></span><br><span class="line">    formData:&#123;&#125;, <span class="comment">// 文件上传请求的参数表，每次发送都会发送此对象中的参数</span></span><br><span class="line">    method: <span class="string">'GET'</span>,  <span class="comment">// POST or GET, default POST</span></span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+        <h3 id="check-log"><a href="#check-log" class="headerlink" title="check log"></a>check log</h3><ol>
+<li><p>Display whole log file content:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Search key word in log file, and return lines containing keyword:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log |grep <span class="string">"keyword"</span></span><br><span class="line">or</span><br><span class="line">$ grep -i <span class="string">"keyword"</span> target.log</span><br></pre></td></tr></table></figure>
 
- <center>
+<p>these two method return same result</p>
+</li>
+<li><p>Check the most recent log (the tail lines of log file):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log |tail -n 200   <span class="comment"># check the last 200 lines of log file</span></span><br><span class="line">or</span><br><span class="line">$ tail -200f target.log   <span class="comment"># show last 200 lines and continue printing new logs</span></span><br></pre></td></tr></table></figure>
+
+<center>
         
-          <a class="article-more-link" href="/2020/01/03/webUploader/">Read More...</a>
+          <a class="article-more-link" href="/2020/05/26/linux-cmd/">Read More...</a>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/webUploader/" data-id="ckahllqm8002mi8hrqghs9xoq"
+      <a data-url="https://visionary-s.github.io/2020/05/26/linux-cmd/" data-id="ckbt00iev001tm4hrkudnhcka"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebUploader/">WebUploader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
 
     </footer>
 
@@ -523,7 +267,7 @@
 
 
       
-        <article id="post-send quantity of http requests via shell" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+        <article id="post-Kubernetes" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -531,7 +275,7 @@
         
   
     <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/03/send quantity of http requests via shell/">Send batches of data creation requests to http server via Shell</a>
+      <a class="article-title" href="/2020/05/26/Kubernetes/">K8s - kubectl</a>
     </h2>
   
 
@@ -541,8 +285,8 @@
 
     
       <div class="article-meta">
-        <a href="/2020/01/03/send quantity of http requests via shell/" class="article-date">
-  <time datetime="2020-01-03T07:18:59.491Z" itemprop="datePublished">2020-01-03</time>
+        <a href="/2020/05/26/Kubernetes/" class="article-date">
+  <time datetime="2020-05-26T07:53:00.252Z" itemprop="datePublished">2020-05-26</time>
 </a>
         
   <div class="article-category">
@@ -558,22 +302,26 @@
       
 
       
-        <p>In order to test the data pool volume, send over 60000 creation data to server.<br>Shell Script:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">a=1</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> [ <span class="variable">$a</span> -le 60000 ]; <span class="keyword">do</span>  <span class="comment"># start from 1, end by 60000</span></span><br><span class="line">    json=<span class="string">"&#123;\"areas\":[&#123;\"new\":[58,60,57],\"id\":\"<span class="variable">$a</span>\", \"center\":[-39,49],\"name\":\"<span class="variable">$1</span><span class="variable">$a</span>\",\"Version\":\"1.0\"&#125;"</span>;</span><br><span class="line"></span><br><span class="line">    a=$((a+1))</span><br><span class="line"></span><br><span class="line">    curl -v -X POST -H <span class="string">"Content-Type: application/json; charset=UTF-8"</span> -H <span class="string">"Cookie: sessionId=_____"</span> http://url -d <span class="string">"<span class="variable">$json</span>"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+        <p>Every time before start kubectl, remember export <code>admin.config</code> file first which contains server info for connection. The pwd should under path where the config file lies.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> KUBECONFIG=./admin.conf</span><br></pre></td></tr></table></figure>
 
-<p><strong>Mind the syntax especially the space, <code>&quot;&quot;</code> and <code>&#39;&#39;</code>, using <code>\</code> for escaping “” inside json to avoid syntax error.</strong></p>
-<hr>
-<h4 id="other-materials"><a href="#other-materials" class="headerlink" title="other materials:"></a>other materials:</h4><ol>
-<li><a href="http://www.ruanyifeng.com/blog/2019/09/curl-reference.html" target="_blank" rel="noopener">curl 的用法指南</a></li>
-</ol>
+<p>then start nodes</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get node</span><br></pre></td></tr></table></figure>
 
+<p>or</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get node -n testing</span><br></pre></td></tr></table></figure>
+
+<center>
+        
+          <a class="article-more-link" href="/2020/05/26/Kubernetes/">Read More...</a>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/send quantity of http requests via shell/" data-id="ckahllqm1002di8hr20c62f34"
+      <a data-url="https://visionary-s.github.io/2020/05/26/Kubernetes/" data-id="ckbt00ie3000sm4hrdi2jqvgt"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
 
     </footer>
 
@@ -588,7 +336,7 @@
 
 
       
-        <article id="post-require js - define模块定义" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+        <article id="post-JS对象引用" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -596,7 +344,7 @@
         
   
     <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/03/require js - define模块定义/">Require JS - define模块定义</a>
+      <a class="article-title" href="/2020/05/26/JS对象引用/">JS对象引用</a>
     </h2>
   
 
@@ -606,8 +354,8 @@
 
     
       <div class="article-meta">
-        <a href="/2020/01/03/require js - define模块定义/" class="article-date">
-  <time datetime="2020-01-03T07:18:59.486Z" itemprop="datePublished">2020-01-03</time>
+        <a href="/2020/05/26/JS对象引用/" class="article-date">
+  <time datetime="2020-05-26T07:53:00.238Z" itemprop="datePublished">2020-05-26</time>
 </a>
         
   <div class="article-category">
@@ -623,17 +371,17 @@
       
 
       
-        <p><strong>CMD (Common Module Definition)</strong><br>在 CMD 规范中，一个模块就是一个文件。代码的书写格式如下：<br>              <center><em>define(factory);</em></center><br>define 是一个全局函数，用来定义模块。</p>
-<h3 id="1-factory为函数时，表示模块的构造方法："><a href="#1-factory为函数时，表示模块的构造方法：" class="headerlink" title="1. factory为函数时，表示模块的构造方法："></a>1. factory为函数时，表示模块的构造方法：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 模块代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+        <p>如果不同的变量名指向同一个对象，那么它们都是这个对象的引用，也就是说指向同一个内存地址。修改其中一个变量，会影响到其他所有变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> o2 = o1;</span><br><span class="line"></span><br><span class="line">o1.a = <span class="number">1</span>;</span><br><span class="line">o2.a <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line">o2.b = <span class="number">2</span>;</span><br><span class="line">o1.b <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
 
-<p>执行该构造方法，可以得到模块向外提供的接口。<br>factory 为对象、字符串时，表示模块的接口就是该对象、字符串<br> <center>
+ <center>
         
-          <a class="article-more-link" href="/2020/01/03/require js - define模块定义/">Read More...</a>
+          <a class="article-more-link" href="/2020/05/26/JS对象引用/">Read More...</a>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/require js - define模块定义/" data-id="ckahllqln001zi8hr5m2j2orz"
+      <a data-url="https://visionary-s.github.io/2020/05/26/JS对象引用/" data-id="ckbt00idv000jm4hrkw9kydtk"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -651,7 +399,7 @@
 
 
       
-        <article id="post-Post photos to Gallery" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+        <article id="post-JS-Label" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -659,7 +407,7 @@
         
   
     <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/03/Post photos to Gallery/">Post photos to Gallery</a>
+      <a class="article-title" href="/2020/05/26/JS-Label/">JS-Label</a>
     </h2>
   
 
@@ -669,8 +417,137 @@
 
     
       <div class="article-meta">
-        <a href="/2020/01/03/Post photos to Gallery/" class="article-date">
-  <time datetime="2020-01-03T07:18:59.481Z" itemprop="datePublished">2020-01-03</time>
+        <a href="/2020/05/26/JS-Label/" class="article-date">
+  <time datetime="2020-05-26T07:53:00.234Z" itemprop="datePublished">2020-05-26</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/basic/">basic</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>标签（label），相当于定位符，用于跳转到程序的任意位置。</p>
+<ol>
+<li><p>配合break</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">top:  <span class="comment">// Label</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++)&#123;</span><br><span class="line">      <span class="keyword">if</span> (i === <span class="number">1</span> &amp;&amp; j === <span class="number">1</span>) <span class="keyword">break</span> top; <span class="comment">// 注意，不加引号</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'i='</span> + i + <span class="string">', j='</span> + j);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// i=0, j=0</span></span><br><span class="line"><span class="comment">// i=0, j=1</span></span><br><span class="line"><span class="comment">// i=0, j=2</span></span><br><span class="line"><span class="comment">// i=1, j=0</span></span><br></pre></td></tr></table></figure>
+
+<center>
+        
+          <a class="article-more-link" href="/2020/05/26/JS-Label/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/05/26/JS-Label/" data-id="ckbt00ie1000qm4hr14he9f8w"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-js-getter" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/05/26/js-getter/">JS getter</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/05/26/js-getter/" class="article-date">
+  <time datetime="2020-05-26T07:53:00.230Z" itemprop="datePublished">2020-05-26</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/basic/">basic</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>Encountered with the following function as below:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">get</span> userFilter() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        dataset1: &#123;</span><br><span class="line">            value: <span class="string">'...'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        dataset2: &#123;</span><br><span class="line">            value: <span class="string">'...'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>so question comes up: <a href="https://stackoverflow.com/questions/42884751/whats-the-meaning-of-static-get-in-javascript-es6" target="_blank" rel="noopener">Whats the meaning of ‘static get’ in Javascript (ES6)?</a></p>
+<center>
+        
+          <a class="article-more-link" href="/2020/05/26/js-getter/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/05/26/js-getter/" data-id="ckbt00ies001pm4hr517k4g2a"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-Hexo Theme Modification" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/05/26/Hexo Theme Modification/">Hexo Theme Modification</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/05/26/Hexo Theme Modification/" class="article-date">
+  <time datetime="2020-05-26T07:53:00.226Z" itemprop="datePublished">2020-05-26</time>
 </a>
         
   <div class="article-category">
@@ -686,19 +563,155 @@
       
 
       
-        <h3 id="How-to-post-a-photo-to-blog-gallery"><a href="#How-to-post-a-photo-to-blog-gallery" class="headerlink" title="How to post a photo to blog gallery"></a>How to post a photo to blog gallery</h3><h4 id="1-Setup-the-gallery-page"><a href="#1-Setup-the-gallery-page" class="headerlink" title="1. Setup the gallery page:"></a>1. Setup the gallery page:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page gallery      // create <span class="string">'gallery'</span> page</span><br><span class="line"></span><br><span class="line">$ hexo new page about        // create <span class="string">'about'</span> page</span><br><span class="line">$ hexo new page tags         // <span class="string">'tags'</span> page</span><br><span class="line">$ hexo new page categories   // <span class="string">'categories'</span> page</span><br></pre></td></tr></table></figure>
+        <p>Modify the Theme in the following branch:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Source/themes/&lt;Theme folder name&gt;/layout/_partial/*.ejs</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-Find-the-index-md-and-modify-it"><a href="#2-Find-the-index-md-and-modify-it" class="headerlink" title="2. Find the index.md and modify it."></a>2. Find the index.md and modify it.</h4><p>After step 1, there will be folders named “gallery”, “about”… under /source/.<br> <center>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/05/26/Hexo Theme Modification/" data-id="ckbt00ido000em4hry8ge1txf"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-Hexo cmd" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
         
-          <a class="article-more-link" href="/2020/01/03/Post photos to Gallery/">Read More...</a>
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/05/26/Hexo cmd/">Hexo - Tools &amp; cmd used during deployment</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/05/26/Hexo cmd/" class="article-date">
+  <time datetime="2020-05-26T07:53:00.222Z" itemprop="datePublished">2020-05-26</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>Ref: <a href="https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/" target="_blank" rel="noopener">https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/</a></p>
+<h3 id="npm-CN-image（taobao）"><a href="#npm-CN-image（taobao）" class="headerlink" title="npm CN image（taobao）"></a>npm CN image（taobao）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<h3 id="Hexo-installation"><a href="#Hexo-installation" class="headerlink" title="Hexo installation"></a>Hexo installation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>check if successfully installed</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure>
+
+ <center>
+        
+          <a class="article-more-link" href="/2020/05/26/Hexo cmd/">Read More...</a>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/03/Post photos to Gallery/" data-id="ckahllqju000qi8hrujjmma3q"
+      <a data-url="https://visionary-s.github.io/2020/05/26/Hexo cmd/" data-id="ckbt00idx000lm4hr4u2r4ht4"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-Hard or Soft Dependencies" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/05/26/Hard or Soft Dependencies/">Hard &amp; Soft Dependencies</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/05/26/Hard or Soft Dependencies/" class="article-date">
+  <time datetime="2020-05-26T07:53:00.217Z" itemprop="datePublished">2020-05-26</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/basic/">basic</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>ref: <a href="https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency" target="_blank" rel="noopener">https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency</a></p>
+<h2 id="Hard-Dependency"><a href="#Hard-Dependency" class="headerlink" title="Hard Dependency"></a>Hard Dependency</h2><p>a module <strong>cannot</strong> function without the other modules on which it depends</p>
+<ul>
+<li><p>The module contains code that directly uses logic from another module (<strong>instances, class constants, static methods, public class properties, interfaces and traits</strong>).</p>
+</li>
+<li><p>The module contains strings that include <strong>class names, methods names, class constants, class properties, interfaces, and traits</strong> from another module.</p>
+</li>
+<li><p>The module de-serializes an <strong>object declared in another module</strong>.</p>
+</li>
+<li><p>The module uses or modifies the <strong>database tables used by another module</strong>.</p>
+<center>
+        
+          <a class="article-more-link" href="/2020/05/26/Hard or Soft Dependencies/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/05/26/Hard or Soft Dependencies/" data-id="ckbt00idq000fm4hrdd1iguxy"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
 
     </footer>
 

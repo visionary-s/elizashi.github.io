@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    Tips for create-react-app |
+    
+    Solito</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-create-react-app" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Tips for create-react-app
+    </h1>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/05/26/create-react-app/" class="article-date">
+  <time datetime="2020-05-26T07:53:00.192Z" itemprop="datePublished">2020-05-26</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>This is a recording work while using create-react-app.</p>
+<h3 id="ERROR-SKIP-PREFLIGHT-CHECK-true"><a href="#ERROR-SKIP-PREFLIGHT-CHECK-true" class="headerlink" title="[ERROR] SKIP_PREFLIGHT_CHECK=true"></a>[ERROR] SKIP_PREFLIGHT_CHECK=true</h3><p>error happens when run <code>npm start</code>:<br><img src="https://res.cloudinary.com/elizashi/image/upload/v1579140501/gitblog/posts/create-react-app/react-npm-start-error_fk5pfl.png" alt="Alt"></p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li>create a new file named <strong>.env</strong> in folder.</li>
+<li>write cmd <code>SKIP_PREFLIGHT_CHECK=true</code> into the file, save and restart npm.</li>
+</ol>
+<center><a id="more"></a></center>
+
+<hr>
+<h3 id="change-the-localhost-port-3000"><a href="#change-the-localhost-port-3000" class="headerlink" title="change the localhost port 3000"></a>change the localhost port 3000</h3><ol>
+<li><p>write in <code>.env</code> file with:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PORT=2200</span><br></pre></td></tr></table></figure>
+
+<p>This works on Windows, not tried on Mac OS.</p>
+</li>
+<li><p>On windows with <code>npm</code> (works): <br>in <code>package.json</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"set PORT=2200&amp;&amp;react-scripts start"</span>,</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>On Windows with <code>yarn</code> (not tried): <br>in <code>package.json</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"set PORT=2200 &amp;&amp; react-scripts start"</span>,</span><br><span class="line">    ....</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>using npm <a href="https://www.npmjs.com/package/cross-env" target="_blank" rel="noopener"><code>cross-env</code></a> (not tried):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"start"</span>: <span class="string">"cross-env PORT=3006 react-scripts start"</span>,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>This method need to install cross-env to project first:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save-dev cross-env</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<h3 id="ERROR-Module-not-found-Can’t-resolve-‘react-router-dom’-in-‘C-my-cv-src’"><a href="#ERROR-Module-not-found-Can’t-resolve-‘react-router-dom’-in-‘C-my-cv-src’" class="headerlink" title="[ERROR] Module not found: Can’t resolve ‘react-router-dom’ in ‘C:...\my-cv\src’"></a>[ERROR] Module not found: Can’t resolve ‘react-router-dom’ in ‘C:...\my-cv\src’</h3><p>It means dependency <code>react-router-dom</code> have not been added/installed. just run:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install react-router-dom</span><br></pre></td></tr></table></figure>
+
+<p>The dependency will be automatically added to <code>package.json</code> and <code>package-lock.json</code> with latest version. Then npm start again.</p>
+<hr>
+<h3 id="Add-stylesheets-Sass"><a href="#Add-stylesheets-Sass" class="headerlink" title="Add stylesheets (Sass)"></a>Add stylesheets (Sass)</h3><ol>
+<li><p>install <code>node-sass</code>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install node-sass --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>rename <code>&lt;filename&gt;.css</code> file to <code>&lt;filename&gt;.module.scss</code>. <br>About <code>.module</code>: 个人理解是为了避免同名的class作用域互相影响，把这个stylesheet限定仅用于此module (即编译后class前加一个stylesheetname-前缀，用以区分) <br>For more details, see <a href="https://blog.bitsrc.io/how-to-use-sass-and-css-modules-with-create-react-app-83fa8b805e5e" target="_blank" rel="noopener">CSS Modules</a> part in this post.</p>
+</li>
+</ol>
+<hr>
+<h3 id="Heroku-ERROR-SecurityError-Failed-to-construct-‘WebSocket’"><a href="#Heroku-ERROR-SecurityError-Failed-to-construct-‘WebSocket’" class="headerlink" title="[Heroku ERROR] SecurityError: Failed to construct ‘WebSocket’"></a>[Heroku ERROR] SecurityError: Failed to construct ‘WebSocket’</h3><p><code>SecurityError: Failed to construct &#39;WebSocket&#39;: An insecure WebSocket connection may not be initiated from a page loaded over HTTPS.</code> <br>This is due to <code>react-scripts 3.3.0</code>, check webpack script in <code>node_modules/react-dev-utils/webpackHotDevClient.js</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="comment">// line 62, the original protocol is 'ws', change it to:</span></span><br><span class="line">  protocol: <span class="built_in">window</span>.location.protocol === <span class="string">'https:'</span> ? <span class="string">'wss'</span> : <span class="string">'ws'</span>,</span><br><span class="line">  <span class="comment">// which means using 'wss' when connection is secure</span></span><br></pre></td></tr></table></figure>
+
+<p>But the problem is not resovled, cuz when Heroku deploy the app, it automatically downloads the node_modules, which will rewrite the script. So the only way I can fix this issue at present is <strong>downgrade react-scripts to 3.2.0</strong> in <code>package.json</code>. <br>For more discussion about this problem, see <a href="https://stackoverflow.com/questions/59359280/react-app-error-failed-to-construct-websocket-an-insecure-websocket-connecti" target="_blank" rel="noopener">stackoverflow</a>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/05/26/create-react-app/" data-id="ckbt00iec0014m4hriqu7b061"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/framework/">framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2020/05/26/ES6-Template String/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            ES6 - Template strings
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/05/26/CDT0/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">CDT Learning</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span> visitors</li>
+  
+</ul>
+
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 B. Eliza Shi</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/ming.svg" alt="Solito"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+    <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <!-- <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li> -->
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" href="https://github.com/visionary-s" title="GitHub">
+        <i class="fe fe-github"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+
+</aside>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/snap.svg-min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/search.js"></script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>
