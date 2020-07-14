@@ -110,10 +110,74 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/26/git-for-daily-use/" data-id="ckbt03l92001jpghro9dd09v6"
+      <a data-url="https://visionary-s.github.io/2020/05/26/git-for-daily-use/" data-id="ckclqg4oh001es0hrtux554sf"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-request-nodejs" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/07/14/request-nodejs/">Request API</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/07/14/request-nodejs/" class="article-date">
+  <time datetime="2020-07-13T16:00:00.000Z" itemprop="datePublished">2020-07-14</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/basic/">basic</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>Request used in send request to other domain.<br><a href="https://blog.csdn.net/wuqingdeqing/article/details/99061026" target="_blank" rel="noopener">https://blog.csdn.net/wuqingdeqing/article/details/99061026</a> <br><a href="https://blog.csdn.net/miss1128726/article/details/49976855" target="_blank" rel="noopener">https://blog.csdn.net/miss1128726/article/details/49976855</a> <br>a basic sample of request:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">  uri: <span class="string">'http://api.example.fr/example/1.xml'</span>,</span><br><span class="line">  auth: &#123;</span><br><span class="line">    user: <span class="string">'test'</span>,</span><br><span class="line">    pass: <span class="string">'test'</span>,</span><br><span class="line">    sendImmediately: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">request(options, <span class="function"><span class="keyword">function</span>(<span class="params">error, response, body</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!error &amp;&amp; response.statusCode == <span class="number">200</span>)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'body : '</span> + body)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Code : '</span> + response.statusCode)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'error : '</span> + error)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'body : '</span> + body)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>This method has limitation for case that expecting to send datas to more than one server. Like, I want to send xml sais to multiple bdc servers, it turns out to only transfer datas to the last bdc. (using <code>request(options, responseHandler</code>)</p>
+ <center>
+        
+          <a class="article-more-link" href="/2020/07/14/request-nodejs/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/07/14/request-nodejs/" data-id="ckclqg4r20037s0hr6vhqlgw4"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
 
     </footer>
 
@@ -173,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/26/webUploader/" data-id="ckbt03l9x002rpghr5wvxagw4"
+      <a data-url="https://visionary-s.github.io/2020/05/26/webUploader/" data-id="ckclqg4sb003ws0hrhsom09vr"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebUploader/">WebUploader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -246,7 +310,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/26/shell/" data-id="ckbt03l9u002opghrxzhqdovb"
+      <a data-url="https://visionary-s.github.io/2020/05/26/shell/" data-id="ckclqg4rq003is0hrjdvjyq9n"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
@@ -311,7 +375,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/26/sequelize/" data-id="ckbt03l9s002kpghr0pojzpnx"
+      <a data-url="https://visionary-s.github.io/2020/05/26/sequelize/" data-id="ckclqg4s2003ps0hrfh529bm4"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
@@ -376,7 +440,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/26/send quantity of http requests via shell/" data-id="ckbt03l9q002hpghrops5gwnt"
+      <a data-url="https://visionary-s.github.io/2020/05/26/send quantity of http requests via shell/" data-id="ckclqg4rx003ms0hrooyqt06h"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
@@ -439,7 +503,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/26/require js - define模块定义/" data-id="ckbt03l9n002dpghrx9rgtgt9"
+      <a data-url="https://visionary-s.github.io/2020/05/26/require js - define模块定义/" data-id="ckclqg4ra003cs0hrp9t7zyy8"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -502,7 +566,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/26/promise/" data-id="ckbt03l9i0027pghrl7t4o7oh"
+      <a data-url="https://visionary-s.github.io/2020/05/26/promise/" data-id="ckclqg4rj003fs0hrzt27kosr"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -564,7 +628,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/26/Post photos to Gallery/" data-id="ckbt03l8i000wpghrd8oro3jw"
+      <a data-url="https://visionary-s.github.io/2020/05/26/Post photos to Gallery/" data-id="ckclqg4nm000xs0hrqkk43jdt"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -632,72 +696,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/26/openlayer-knowledge/" data-id="ckbt03l9e0020pghr74ltv06j"
+      <a data-url="https://visionary-s.github.io/2020/05/26/openlayer-knowledge/" data-id="ckclqg4qs0030s0hrpbre7qe9"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openlayer/">openlayer</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-NBIandSBI" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/05/26/NBIandSBI/">NBI &amp; SBI</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/05/26/NBIandSBI/" class="article-date">
-  <time datetime="2020-05-26T07:53:00.271Z" itemprop="datePublished">2020-05-26</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h2 id="Northbound-Interface"><a href="#Northbound-Interface" class="headerlink" title="Northbound Interface"></a>Northbound Interface</h2><p>NBI conceptualizes lower level details (e.g. data or functions) used by, or in the component. It interfaces to higher level layers and is normally drawn at the top of an architectural overview.<br><em>e.g. REST API, SMMP, CORBA, SNMP</em><br>北向接口，用于接口编程开发各app，采集、分析app在运行中产生的各种数据，因网络管理中从上而下分应用层、数据处理层、数据管理层，北向接口即应用层和数据处理层之间的数据交互定义接口（见下图），因为朝上（上北下南）称北向接口。</p>
-<h2 id="Southbound-Interface"><a href="#Southbound-Interface" class="headerlink" title="Southbound Interface"></a>Southbound Interface</h2><p>A southbound interface decomposes concepts in the technical details, mostly specific to a single component of the architecture. Southbound interfaces are drawn at the bottom of an architectural overview.<br><em>e.g. OpenFlow, NETCONF, XMPP</em></p>
- <center>
-        
-          <a class="article-more-link" href="/2020/05/26/NBIandSBI/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/26/NBIandSBI/" data-id="ckbt03l8l000zpghra8ei8x5h"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interface/">interface</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
 
     </footer>
 

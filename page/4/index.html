@@ -57,6 +57,77 @@
 
     
       
+        <article id="post-docker-error" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/05/13/docker-error/">docker errors in daily use</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/05/13/docker-error/" class="article-date">
+  <time datetime="2020-05-12T16:00:00.000Z" itemprop="datePublished">2020-05-13</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="Error1"><a href="#Error1" class="headerlink" title="Error1"></a>Error1</h3><ul>
+<li>Steps to reproduce the error:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get pods -A</span><br><span class="line">Unable to connect to the server: EOF</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>According to <a href="https://stackoverflow.com/questions/55234700/docker-for-windows-ce-kubernetes-unable-to-connect-to-the-server-eof" target="_blank" rel="noopener">this answer</a>, I tried</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps -a --filter name=k8s_kubedns_kube-dns --format <span class="string">"table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Image&#125;&#125;"</span></span><br><span class="line">Error response from daemon: open \\.\pipe\docker_engine_linux: The system cannot find the file specified.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps</span><br><span class="line">Error response from daemon: open \\.\pipe\docker_engine_linux: The system cannot find the file specified.</span><br><span class="line">$ docker info</span><br><span class="line">Client:</span><br><span class="line"> Debug Mode: <span class="literal">false</span></span><br><span class="line">Server:</span><br><span class="line">ERROR: Error response from daemon: open \\.\pipe\docker_engine_linux: The system cannot find the file specifie                                                                            d.</span><br><span class="line">errors pretty printing info</span><br></pre></td></tr></table></figure>
+
+<p>Search for <code>Error response from daemon</code>, I found <a href="https://github.com/docker/for-win/issues/4495" target="_blank" rel="noopener">this issue</a> same to mine</p>
+<center>
+        
+          <a class="article-more-link" href="/2020/05/13/docker-error/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/05/13/docker-error/" data-id="ckclqg4o80017s0hrceftc6o8"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
         <article id="post-windows-error" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -111,7 +182,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/13/windows-error/" data-id="ckbt03l9z002upghr5v5t8jr5"
+      <a data-url="https://visionary-s.github.io/2020/05/13/windows-error/" data-id="ckclqg4s5003ss0hrsypyg66a"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bash/">bash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/powershell/">powershell</a></li></ul>
@@ -182,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/09/postgres-error-linux/" data-id="ckbt03l9l002apghr5qs2ku2q"
+      <a data-url="https://visionary-s.github.io/2020/05/09/postgres-error-linux/" data-id="ckclqg4qv0034s0hredsqm0xy"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgres/">postgres</a></li></ul>
@@ -318,7 +389,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/04/08/k8s-errors/" data-id="ckbt03lch005apghrih1f7xbm"
+      <a data-url="https://visionary-s.github.io/2020/04/08/k8s-errors/" data-id="ckclqg4u60050s0hr443bhshm"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
@@ -383,7 +454,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/03/20/k8s-ipv6-dualstack-support/" data-id="ckbt03ld2005epghrya9p226k"
+      <a data-url="https://visionary-s.github.io/2020/03/20/k8s-ipv6-dualstack-support/" data-id="ckclqg4us0054s0hrq1c8dnud"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/k8s/">k8s</a></li></ul>
@@ -457,7 +528,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/20/docker/" data-id="ckbt03l8w001bpghrvl6nfy92"
+      <a data-url="https://visionary-s.github.io/2020/01/20/docker/" data-id="ckclqg4ok001is0hrkipmyjps"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
