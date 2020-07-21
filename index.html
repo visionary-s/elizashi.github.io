@@ -110,7 +110,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/26/git-for-daily-use/" data-id="ckcvsi80s0013u8hrzb30b7ze"
+      <a data-url="https://visionary-s.github.io/2020/05/26/git-for-daily-use/" data-id="ckcvsvtnz001zgwhrao947pul"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -171,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/20/npm/" data-id="ckcvsi81u001zu8hrabv7rkyv"
+      <a data-url="https://visionary-s.github.io/2020/07/20/npm/" data-id="ckcvsvtoj002fgwhr98ahywfg"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
@@ -227,85 +227,17 @@
         <p>This is a record for sonar fixing</p>
 <h3 id="Security-Hotspots"><a href="#Security-Hotspots" class="headerlink" title="Security Hotspots"></a>Security Hotspots</h3><p><em>Security Hotspots aren’t necessarily issues, but they need to be reviewed to make sure they aren’t vulnerabilities.</em></p>
 <h4 id="Make-sure-that-using-a-regular-expression-is-safe-here"><a href="#Make-sure-that-using-a-regular-expression-is-safe-here" class="headerlink" title="Make sure that using a regular expression is safe here"></a>Make sure that using a regular expression is safe here</h4><p><strong>Rule: Using regular expressions is security-sensitive</strong></p>
-<ol>
-<li>original code:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> re = <span class="regexp">/^\d+(\.\d+)?$/</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="1-original-code"><a href="#1-original-code" class="headerlink" title="1. original code:"></a>1. original code:</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> re = <span class="regexp">/^\d+(\.\d+)?$/</span>;</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
 <p>the rule recommend not using group<code>()</code> to reduce evaluate work load. 个人理解是，group内外都有\d+，可能有重复校验的问题</p>
-<h5 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> re = <span class="regexp">/^\d*(\.)&#123;0,1&#125;\d*$/</span>;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><p>original code:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/^.*(?=.&#123;8,20&#125;)(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[-!@#$%^&amp;*?_.]).*$/</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>original code:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!body.name || !<span class="regexp">/(\w+)&#123;6,16&#125;$/</span>.test(body.name))&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h5 id="solution-1"><a href="#solution-1" class="headerlink" title="solution"></a>solution</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!body.name || !<span class="regexp">/^\w&#123;6,16&#125;$/</span>.test(body.name))</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li><p>original code:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/^.*(?=.&#123;8,20&#125;)(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[_\-,.~!@#$%^&amp;+&#123;&#125;[\]|&lt;&gt;]).*$/</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>original code:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="regexp">/\/login.*/</span>.test(req.path) || <span class="regexp">/.*login\/*/</span>.test(req.headers.referer) || req.path.startsWith(<span class="string">"/api/"</span>) || req.path === <span class="string">"/"</span>) &#123;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h5 id="solution-2"><a href="#solution-2" class="headerlink" title="solution"></a>solution</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">``</span><span class="string">`</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">6. original code:</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"><span class="keyword">var</span> pattern1 = <span class="regexp">/SubNetwork=.*?MeContext=.*?ManagedElement=.*?MceFunction=.*?TermPointToMmeM3=[\s\S]*?TermPointToMmeM3Id[\s\S]*?ipAddress[\s\S]*?ipv6Address2.*/g</span>;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Make-sure-that-executing-SQL-queries-is-safe-here"><a href="#Make-sure-that-executing-SQL-queries-is-safe-here" class="headerlink" title="Make sure that executing SQL queries is safe here."></a>Make sure that executing SQL queries is safe here.</h4><p><strong>Rule: Formatting SQL queries is security-sensitive</strong></p>
-<ol>
-<li>original code:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = sequelize.query(<span class="string">`<span class="subst">$&#123;sql&#125;</span>`</span>, &#123;<span class="attr">type</span>: sequelize.QueryTypes.SELECT&#125;);</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h5 id="solution-3"><a href="#solution-3" class="headerlink" title="solution"></a>solution</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = sequelize.query(sql, &#123;<span class="attr">type</span>: sequelize.QueryTypes.SELECT&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>  <em>Note: not a good solution, just exploited loopholes. cuz This rule’s current implementation does not follow variables. It will only detect SQL queries which are formatted directly in the function call.</em></p>
-<h4 id="Review-this-potentially-hardcoded-credential"><a href="#Review-this-potentially-hardcoded-credential" class="headerlink" title="Review this potentially hardcoded credential."></a>Review this potentially hardcoded credential.</h4><p><strong>Rule: Hard-coded credentials are security-sensitive</strong></p>
-<ol>
-<li>original code:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> initUser = [</span><br><span class="line">    &#123;</span><br><span class="line">        userId: <span class="string">"admin"</span>,</span><br><span class="line">        password: <span class="string">"8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918"</span>,</span><br><span class="line">        roles: <span class="string">"Admin"</span>,</span><br><span class="line">        userExpiryDate: <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="keyword">new</span> <span class="built_in">Date</span>().getTime() - <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>),</span><br><span class="line">    &#125;</span><br><span class="line">];</span><br><span class="line"><span class="keyword">await</span> Users.bulkCreate(initUser);</span><br><span class="line">password: <span class="string">"8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918"</span>,</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h5 id="solution-4"><a href="#solution-4" class="headerlink" title="solution"></a>solution</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> initUser = [</span><br><span class="line">    &#123;</span><br><span class="line">        userId: <span class="string">"admin"</span>,</span><br><span class="line">        roles: <span class="string">"Admin"</span>,</span><br><span class="line">        userExpiryDate: <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="keyword">new</span> <span class="built_in">Date</span>().getTime() - <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>),</span><br><span class="line">    &#125;</span><br><span class="line">];</span><br><span class="line">initUser.password = Users.loadInitCredentials();</span><br><span class="line"><span class="keyword">await</span> Users.bulkCreate(initUser);</span><br><span class="line">Users.loadInitCredentials = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918"</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>This solution failed, TBD.</p>
-<ol start="2">
-<li>original code:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.value.password = <span class="string">"********"</span>;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h5 id="solution-5"><a href="#solution-5" class="headerlink" title="solution"></a>solution</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data.value.password = Setting.getDisplayPassword();</span><br><span class="line">getDisplayPassword: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"********"</span>;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-<h4 id="Make-sure-that-hashing-data-is-safe-here"><a href="#Make-sure-that-hashing-data-is-safe-here" class="headerlink" title="Make sure that hashing data is safe here."></a>Make sure that hashing data is safe here.</h4><p><strong>Rule: Hashing data is security-sensitive</strong></p>
-<ol>
-<li>original code:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> encryptedPass = crypto.createHash(<span class="string">'sha256'</span>).update(newBDC.ncmPassword, <span class="string">'utf8'</span>).digest(<span class="string">'hex'</span>);</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>x5</p>
-<h3 id="MITRE-CWE-563-Assignment-to-Variable-without-Use-‘Unused-Variable’"><a href="#MITRE-CWE-563-Assignment-to-Variable-without-Use-‘Unused-Variable’" class="headerlink" title="MITRE, CWE-563 - Assignment to Variable without Use (‘Unused Variable’)"></a>MITRE, CWE-563 - Assignment to Variable without Use (‘Unused Variable’)</h3><h4 id="Remove-this-useless-assignment-to-variable-“xxx”"><a href="#Remove-this-useless-assignment-to-variable-“xxx”" class="headerlink" title="Remove this useless assignment to variable “xxx”."></a>Remove this useless assignment to variable “xxx”.</h4><p><strong>Rule: Unused assignments should be removed</strong></p>
-<ol>
-<li>original code:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> res = <span class="keyword">await</span> client.connect();</span><br><span class="line">res = <span class="keyword">await</span> client.query(checkUserSQL);</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>Some explains here for this issue: <a href="https://stackoverflow.com/questions/42151535/use-of-unassigned-local-variable-when-using-a-foreach-loop" target="_blank" rel="noopener">https://stackoverflow.com/questions/42151535/use-of-unassigned-local-variable-when-using-a-foreach-loop</a></p>
-<h5 id="solution-6"><a href="#solution-6" class="headerlink" title="solution"></a>solution</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> res = <span class="keyword">await</span> client.connect();</span><br><span class="line"><span class="keyword">if</span> (res) &#123;</span><br><span class="line">      res = <span class="keyword">await</span> client.query(checkUserSQL);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>TBC</li>
-</ol>
-
+ <center>
+        
+          <a class="article-more-link" href="/2020/07/17/sonar/">Read More...</a>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/17/sonar/" data-id="ckcvsi8210026u8hr0n1xvk72"
+      <a data-url="https://visionary-s.github.io/2020/07/17/sonar/" data-id="ckcvsvtq6003hgwhrkqmwxxql"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sonar/">sonar</a></li></ul>
@@ -368,7 +300,7 @@
 <h3 id="Compiler-frontend-cdt2-debugging"><a href="#Compiler-frontend-cdt2-debugging" class="headerlink" title="Compiler (frontend, cdt2) debugging"></a>Compiler (frontend, cdt2) debugging</h3><p>Run upgraded cdt2+node images as a container first:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker run --rm -it -d --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,src=/home/eshibij/cec-3pp-upgrade,dst=/usr/share sekidocker.rnd.ki.sw.ericsson.se/bolte/bcam/bcam-compiler:cdt_2.6.1-node_14.5 cat</span><br><span class="line">e2849d6f818cb1ccacc1ce58c41d2695d0315b60b37f976c221397a997a856a2</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://blog.csdn.net/nzjdsds/article/details/81981732" target="_blank" rel="noopener">–rm</a>: clean up <br><a href="https://www.imooc.com/qadetail/327658" target="_blank" rel="noopener">-it</a>: wait for container cmds to be executed <br>-d: run in background and return container id <br>–mount: <a href="https://blog.csdn.net/longlong6682/article/details/104730138" target="_blank" rel="noopener">https://blog.csdn.net/longlong6682/article/details/104730138</a> <br>cat: seems like catting the container id</p>
+<p>[–rm](<a href="https://blog.csdn.net/nzjdsds/article/details/8hexo" target="_blank" rel="noopener">https://blog.csdn.net/nzjdsds/article/details/8hexo</a> 1981732): clean up <br><a href="https://www.imooc.com/qadetail/327658" target="_blank" rel="noopener">-it</a>: wait for container cmds to be executed <br>-d: run in background and return container id <br>–mount: <a href="https://blog.csdn.net/longlong6682/article/details/104730138" target="_blank" rel="noopener">https://blog.csdn.net/longlong6682/article/details/104730138</a> <br>cat: seems like catting the container id</p>
  <center>
         
           <a class="article-more-link" href="/2020/07/16/3pp-upgrade/">Read More...</a>
@@ -376,7 +308,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/16/3pp-upgrade/" data-id="ckcvsi7xr0001u8hrwqyj7zr4"
+      <a data-url="https://visionary-s.github.io/2020/07/16/3pp-upgrade/" data-id="ckcvsvtge0000gwhrs6mrvhvf"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/record/">record</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/work-flow/">work flow</a></li></ul>
@@ -440,7 +372,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/14/request-nodejs/" data-id="ckcvsi825002au8hrmxnvostg"
+      <a data-url="https://visionary-s.github.io/2020/07/14/request-nodejs/" data-id="ckcvsvtpf0031gwhrpcepagmy"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
@@ -512,7 +444,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/26/linux-cmd/" data-id="ckcvsi81f001lu8hrkdz7wsvm"
+      <a data-url="https://visionary-s.github.io/2020/05/26/linux-cmd/" data-id="ckcvsvtob0029gwhrhl3r1tlv"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
@@ -581,7 +513,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/19/nodejs-req-timeout/" data-id="ckcvsi81r001wu8hrmsgawyj9"
+      <a data-url="https://visionary-s.github.io/2020/05/19/nodejs-req-timeout/" data-id="ckcvsvtoo002igwhrhfm5aya3"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
@@ -647,7 +579,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/18/postgres-tips/" data-id="ckcvsi82a002du8hriyy07sel"
+      <a data-url="https://visionary-s.github.io/2020/05/18/postgres-tips/" data-id="ckcvsvtow002ogwhrkyk8oz24"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgres/">postgres</a></li></ul>
@@ -719,7 +651,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/13/windows-error/" data-id="ckcvsi8320030u8hrretgsnmm"
+      <a data-url="https://visionary-s.github.io/2020/05/13/windows-error/" data-id="ckcvsvtpy003cgwhrvw9gd4ts"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bash/">bash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/powershell/">powershell</a></li></ul>
@@ -790,7 +722,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/13/docker-error/" data-id="ckcvsi80l000zu8hrycq22uh5"
+      <a data-url="https://visionary-s.github.io/2020/05/13/docker-error/" data-id="ckcvsvtnm001ogwhrkutyjifv"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
