@@ -57,6 +57,77 @@
 
     
       
+        <article id="post-postgres-error-linux" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/05/09/postgres-error-linux/">Failed starting postgres DB container via k8s on linux</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/05/09/postgres-error-linux/" class="article-date">
+  <time datetime="2020-05-08T16:00:00.000Z" itemprop="datePublished">2020-05-09</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>When starting a postgres DB container via kubernetes on linux host server, it failed to start the container.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@compute2 log]# kubectl get pod</span><br><span class="line">NAME                                                READY   STATUS    RESTARTS   AGE</span><br><span class="line">test-764dc8f84b-smg92                               0/1     Error     3          49s</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@compute2 log]# kubectl logs test-764dc8f84b-smg92</span><br><span class="line">The files belonging to this database system will be owned by user &quot;postgres&quot;.</span><br><span class="line">This user must also own the server process.</span><br><span class="line"></span><br><span class="line">The database cluster will be initialized with locale &quot;en_US.utf8&quot;.</span><br><span class="line">The default database encoding has accordingly been set to &quot;UTF8&quot;.</span><br><span class="line">The default text search configuration will be set to &quot;english&quot;.</span><br><span class="line"></span><br><span class="line">Data page checksums are disabled.</span><br><span class="line"></span><br><span class="line">fixing permissions on existing directory /var/lib/postgresql/data ... ok</span><br><span class="line">creating subdirectories ... ok</span><br><span class="line">selecting default max_connections ... 20</span><br><span class="line">selecting default shared_buffers ... 400kB</span><br><span class="line">selecting dynamic shared memory implementation ... posix</span><br><span class="line">creating configuration files ... ok</span><br><span class="line">child process was terminated by signal 7</span><br><span class="line">initdb: removing contents of data directory &quot;/var/lib/postgresql/data&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Image is with no problem cuz I can do <code>docker run</code> to start container successfully. <br>————————————— Solution ————————————— <br><a href="https://github.com/docker-library/postgres/issues/451" target="_blank" rel="noopener">https://github.com/docker-library/postgres/issues/451</a> <br>there are several possible solutions to the problem:</p>
+<ol>
+<li>Modify the docker image to be able to set huge_pages = off in /usr/share/postgresql/postgresql.conf.sample before initdb was ran (this is what I did).</li>
+<li>Turn off huge page support on the system (vm.nr_hugepages = 0 in /etc/sysctl.conf).</li>
+<li>Fix Postgres’s fallback mechanism when huge_pages = try is set (the default).</li>
+<li>Modify the k8s manifest to enable huge page support (<a href="https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/" target="_blank" rel="noopener">https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/</a>).</li>
+<li>Modify k8s to show that huge pages are not supported on the system, when they are not enabled for a specific container.</li>
+</ol>
+<p>I tried the second way, and solve the issue successfully.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/05/09/postgres-error-linux/" data-id="ckcvsi81x0022u8hr3golgk0j"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgres/">postgres</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
         <article id="post-k8s-errors" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -175,7 +246,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/04/08/k8s-errors/" data-id="ckclqxmhi0055mghruo89bmbb"
+      <a data-url="https://visionary-s.github.io/2020/04/08/k8s-errors/" data-id="ckcvsi880005su8hryobsqvsx"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
@@ -244,7 +315,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/04/07/Kubernetes/" data-id="ckclqxmd8000amghro4uyemo1"
+      <a data-url="https://visionary-s.github.io/2020/04/07/Kubernetes/" data-id="ckcvsi80y0017u8hr9tkym9mv"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
@@ -309,7 +380,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/03/20/k8s-ipv6-dualstack-support/" data-id="ckclqxmhs0059mghrgzx0ae7g"
+      <a data-url="https://visionary-s.github.io/2020/03/20/k8s-ipv6-dualstack-support/" data-id="ckcvsi892005wu8hr4ai69xdh"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/k8s/">k8s</a></li></ul>
@@ -382,7 +453,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/02/11/shell/" data-id="ckclqxmfe002pmghryxmq3hj9"
+      <a data-url="https://visionary-s.github.io/2020/02/11/shell/" data-id="ckcvsi82n002nu8hr28t70bgc"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
@@ -456,7 +527,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/20/docker/" data-id="ckclqxmew0026mghrf4mz566k"
+      <a data-url="https://visionary-s.github.io/2020/01/20/docker/" data-id="ckcvsi813001bu8hr3z80jkmb"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
@@ -523,7 +594,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/19/create-react-app/" data-id="ckclqxmdy0010mghrabkaqsw9"
+      <a data-url="https://visionary-s.github.io/2020/01/19/create-react-app/" data-id="ckcvsi81c001hu8hrqio7rwk1"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/framework/">framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -588,7 +659,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/19/sequelize/" data-id="ckclqxmf8002imghr6fz7fmhv"
+      <a data-url="https://visionary-s.github.io/2020/01/19/sequelize/" data-id="ckcvsi82x002xu8hr0ad5w5zu"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
@@ -652,7 +723,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/08/js-getter/" data-id="ckclqxme6001amghr6ny3bjyi"
+      <a data-url="https://visionary-s.github.io/2020/01/08/js-getter/" data-id="ckcvsi81k001pu8hrv2ukubz0"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -722,72 +793,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/07/mini-program/" data-id="ckclqxmek001qmghrlvwptu4w"
+      <a data-url="https://visionary-s.github.io/2020/01/07/mini-program/" data-id="ckcvsi81n001su8hr80xxuzh0"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mini-program/">mini-program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/resource/">resource</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-NBIandSBI" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/12/23/NBIandSBI/">NBI &amp; SBI</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/12/23/NBIandSBI/" class="article-date">
-  <time datetime="2019-12-22T16:00:00.000Z" itemprop="datePublished">2019-12-23</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h2 id="Northbound-Interface"><a href="#Northbound-Interface" class="headerlink" title="Northbound Interface"></a>Northbound Interface</h2><p>NBI conceptualizes lower level details (e.g. data or functions) used by, or in the component. It interfaces to higher level layers and is normally drawn at the top of an architectural overview.<br><em>e.g. REST API, SMMP, CORBA, SNMP</em><br>北向接口，用于接口编程开发各app，采集、分析app在运行中产生的各种数据，因网络管理中从上而下分应用层、数据处理层、数据管理层，北向接口即应用层和数据处理层之间的数据交互定义接口（见下图），因为朝上（上北下南）称北向接口。</p>
-<h2 id="Southbound-Interface"><a href="#Southbound-Interface" class="headerlink" title="Southbound Interface"></a>Southbound Interface</h2><p>A southbound interface decomposes concepts in the technical details, mostly specific to a single component of the architecture. Southbound interfaces are drawn at the bottom of an architectural overview.<br><em>e.g. OpenFlow, NETCONF, XMPP</em></p>
- <center>
-        
-          <a class="article-more-link" href="/2019/12/23/NBIandSBI/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/12/23/NBIandSBI/" data-id="ckclqxmdm000lmghr6k11pjl7"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interface/">interface</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
 
     </footer>
 

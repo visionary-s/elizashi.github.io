@@ -125,11 +125,14 @@
 <p>delete all stopped containers</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps -a | grep <span class="string">'Exited'</span> | awk <span class="string">'&#123;print $1&#125;'</span> | xargs docker stop | xargs docker rm</span><br></pre></td></tr></table></figure>
 
+<h3 id="run-a-container-from-image"><a href="#run-a-container-from-image" class="headerlink" title="run a container from image"></a>run a container from image</h3><p>docker run [OPTIONS] IMAGE [COMMAND] [ARG…] <br>sample:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -itd --name &lt;container-name&gt; -p 8091:8091 -v &lt;volume-path&gt; &lt;image-id or name&gt;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/20/docker/" data-id="ckclqxmew0026mghrf4mz566k"
+      <a data-url="https://visionary-s.github.io/2020/01/20/docker/" data-id="ckcvsi813001bu8hr3z80jkmb"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
@@ -152,9 +155,9 @@
       </a>
     
     
-      <a href="/2020/01/19/create-react-app/" class="article-nav-link">
+      <a href="/2020/01/19/sequelize/" class="article-nav-link">
         <strong class="article-nav-caption">Olde posts</strong>
-        <div class="article-nav-title">Tips for create-react-app</div>
+        <div class="article-nav-title">Sequelize</div>
       </a>
     
   </nav>

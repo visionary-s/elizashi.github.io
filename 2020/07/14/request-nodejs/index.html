@@ -65,14 +65,21 @@
  <center><a id="more"></a></center>
 ---
 
-<p>A better way to resolve this problem is utilizing <code>request-promise</code>. <br>see <a href="https://www.npmjs.com/package/request-promise" target="_blank" rel="noopener">official API description</a>. <br>Here are my implementation:</p>
+<p>A better way to resolve this problem is utilizing <code>request-promise</code>. <br>see <a href="https://www.npmjs.com/package/request-promise" target="_blank" rel="noopener">official API description</a>. <br>Here is my implementation:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rp = <span class="built_in">require</span>(<span class="string">'request-promise'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="class"><span class="keyword">class</span> <span class="title">sample</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">async</span> sampleFunc(para1, para2, para3) &#123;</span><br><span class="line">    <span class="keyword">var</span> opts = &#123;</span><br><span class="line">      url: url,</span><br><span class="line">      method: <span class="string">'GET'</span>,</span><br><span class="line">      auth:&#123;</span><br><span class="line">          user: username,</span><br><span class="line">          pass: password,</span><br><span class="line">          sendImmediately: <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">if</span>(url.toLowerCase().startsWith(<span class="string">'https'</span>))&#123;</span><br><span class="line">        opts.ca = cert;</span><br><span class="line">        opts = <span class="built_in">Object</span>.assign(Config.defaultOptions,opts); <span class="comment">// sample</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> responseHandler = <span class="function">(<span class="params">err, res, data</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// sample</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">await</span> rp(opts).then(responseHandler).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// print error in log</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="0717-UPDATE"><a href="#0717-UPDATE" class="headerlink" title="0717 UPDATE"></a>0717 UPDATE</h3><p>ERROR implement request-promise above, <strong>note that it returns different paras from original request</strong> <br>Point:</p>
+<ul>
+<li>resolveWithFullResponse: true,</li>
+<li>then(reponse)<br>Corrected:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">async</span> sampleFunc(para1, para2, para3) &#123;</span><br><span class="line">    <span class="keyword">var</span> opts = &#123;</span><br><span class="line">      url: url,</span><br><span class="line">      method: <span class="string">'GET'</span>,</span><br><span class="line">      resolveWithFullResponse: <span class="literal">true</span>,</span><br><span class="line">      auth:&#123;</span><br><span class="line">          user: username,</span><br><span class="line">          pass: password,</span><br><span class="line">          sendImmediately: <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">...</span><br><span class="line">  <span class="keyword">const</span> responseHandler = <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// the res is a full response containing res.statusCode &amp; res.body</span></span><br><span class="line">    <span class="comment">// sample</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">await</span> rp(opts).then(responseHandler).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// print error in log</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/14/request-nodejs/" data-id="ckclqxmez0029mghr75dlt2n2"
+      <a data-url="https://visionary-s.github.io/2020/07/14/request-nodejs/" data-id="ckcvsi825002au8hrmxnvostg"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
@@ -84,6 +91,15 @@
   
     
   <nav class="article-nav">
+    
+      <a href="/2020/07/16/3pp-upgrade/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            3PP Upgrade
+          
+        </div>
+      </a>
     
     
       <a href="/2020/05/26/linux-cmd/" class="article-nav-link">

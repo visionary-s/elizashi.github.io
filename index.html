@@ -110,10 +110,276 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/26/git-for-daily-use/" data-id="ckclqxme40018mghr8gbw0zww"
+      <a data-url="https://visionary-s.github.io/2020/05/26/git-for-daily-use/" data-id="ckcvsi80s0013u8hrzb30b7ze"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-npm" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/07/20/npm/">NPM tips</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/07/20/npm/" class="article-date">
+  <time datetime="2020-07-19T16:00:00.000Z" itemprop="datePublished">2020-07-20</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/basic/">basic</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="npm-install"><a href="#npm-install" class="headerlink" title="npm install"></a>npm install</h3><p>different with <code>^</code>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ npm install express@^4.16.1 --save --save-exact</span><br><span class="line">+ express@4.17.1</span><br><span class="line">removed 3 packages, updated 1 package and moved 1 package <span class="keyword">in</span> 124.659s</span><br><span class="line">$ npm install express@4.16.1 --save</span><br><span class="line">+ express@4.16.1</span><br><span class="line">added 4 packages from 4 contributors, removed 3 packages and updated 16 packages <span class="keyword">in</span> 20.374s</span><br></pre></td></tr></table></figure>
+
+<p>ref: <a href="https://docs.npmjs.com/cli/install" target="_blank" rel="noopener">https://docs.npmjs.com/cli/install</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/07/20/npm/" data-id="ckcvsi81u001zu8hrabv7rkyv"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-sonar" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/07/17/sonar/">Sonar Fix</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/07/17/sonar/" class="article-date">
+  <time datetime="2020-07-16T16:00:00.000Z" itemprop="datePublished">2020-07-17</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>This is a record for sonar fixing</p>
+<h3 id="Security-Hotspots"><a href="#Security-Hotspots" class="headerlink" title="Security Hotspots"></a>Security Hotspots</h3><p><em>Security Hotspots aren’t necessarily issues, but they need to be reviewed to make sure they aren’t vulnerabilities.</em></p>
+<h4 id="Make-sure-that-using-a-regular-expression-is-safe-here"><a href="#Make-sure-that-using-a-regular-expression-is-safe-here" class="headerlink" title="Make sure that using a regular expression is safe here"></a>Make sure that using a regular expression is safe here</h4><p><strong>Rule: Using regular expressions is security-sensitive</strong></p>
+<ol>
+<li>original code:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> re = <span class="regexp">/^\d+(\.\d+)?$/</span>;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>the rule recommend not using group<code>()</code> to reduce evaluate work load. 个人理解是，group内外都有\d+，可能有重复校验的问题</p>
+<h5 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> re = <span class="regexp">/^\d*(\.)&#123;0,1&#125;\d*$/</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>original code:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/^.*(?=.&#123;8,20&#125;)(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[-!@#$%^&amp;*?_.]).*$/</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>original code:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!body.name || !<span class="regexp">/(\w+)&#123;6,16&#125;$/</span>.test(body.name))&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h5 id="solution-1"><a href="#solution-1" class="headerlink" title="solution"></a>solution</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!body.name || !<span class="regexp">/^\w&#123;6,16&#125;$/</span>.test(body.name))</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>original code:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/^.*(?=.&#123;8,20&#125;)(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[_\-,.~!@#$%^&amp;+&#123;&#125;[\]|&lt;&gt;]).*$/</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>original code:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="regexp">/\/login.*/</span>.test(req.path) || <span class="regexp">/.*login\/*/</span>.test(req.headers.referer) || req.path.startsWith(<span class="string">"/api/"</span>) || req.path === <span class="string">"/"</span>) &#123;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h5 id="solution-2"><a href="#solution-2" class="headerlink" title="solution"></a>solution</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">``</span><span class="string">`</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">6. original code:</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"><span class="keyword">var</span> pattern1 = <span class="regexp">/SubNetwork=.*?MeContext=.*?ManagedElement=.*?MceFunction=.*?TermPointToMmeM3=[\s\S]*?TermPointToMmeM3Id[\s\S]*?ipAddress[\s\S]*?ipv6Address2.*/g</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Make-sure-that-executing-SQL-queries-is-safe-here"><a href="#Make-sure-that-executing-SQL-queries-is-safe-here" class="headerlink" title="Make sure that executing SQL queries is safe here."></a>Make sure that executing SQL queries is safe here.</h4><p><strong>Rule: Formatting SQL queries is security-sensitive</strong></p>
+<ol>
+<li>original code:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = sequelize.query(<span class="string">`<span class="subst">$&#123;sql&#125;</span>`</span>, &#123;<span class="attr">type</span>: sequelize.QueryTypes.SELECT&#125;);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h5 id="solution-3"><a href="#solution-3" class="headerlink" title="solution"></a>solution</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = sequelize.query(sql, &#123;<span class="attr">type</span>: sequelize.QueryTypes.SELECT&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>  <em>Note: not a good solution, just exploited loopholes. cuz This rule’s current implementation does not follow variables. It will only detect SQL queries which are formatted directly in the function call.</em></p>
+<h4 id="Review-this-potentially-hardcoded-credential"><a href="#Review-this-potentially-hardcoded-credential" class="headerlink" title="Review this potentially hardcoded credential."></a>Review this potentially hardcoded credential.</h4><p><strong>Rule: Hard-coded credentials are security-sensitive</strong></p>
+<ol>
+<li>original code:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> initUser = [</span><br><span class="line">    &#123;</span><br><span class="line">        userId: <span class="string">"admin"</span>,</span><br><span class="line">        password: <span class="string">"8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918"</span>,</span><br><span class="line">        roles: <span class="string">"Admin"</span>,</span><br><span class="line">        userExpiryDate: <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="keyword">new</span> <span class="built_in">Date</span>().getTime() - <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>),</span><br><span class="line">    &#125;</span><br><span class="line">];</span><br><span class="line"><span class="keyword">await</span> Users.bulkCreate(initUser);</span><br><span class="line">password: <span class="string">"8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918"</span>,</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h5 id="solution-4"><a href="#solution-4" class="headerlink" title="solution"></a>solution</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> initUser = [</span><br><span class="line">    &#123;</span><br><span class="line">        userId: <span class="string">"admin"</span>,</span><br><span class="line">        roles: <span class="string">"Admin"</span>,</span><br><span class="line">        userExpiryDate: <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="keyword">new</span> <span class="built_in">Date</span>().getTime() - <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>),</span><br><span class="line">    &#125;</span><br><span class="line">];</span><br><span class="line">initUser.password = Users.loadInitCredentials();</span><br><span class="line"><span class="keyword">await</span> Users.bulkCreate(initUser);</span><br><span class="line">Users.loadInitCredentials = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918"</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>This solution failed, TBD.</p>
+<ol start="2">
+<li>original code:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.value.password = <span class="string">"********"</span>;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h5 id="solution-5"><a href="#solution-5" class="headerlink" title="solution"></a>solution</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data.value.password = Setting.getDisplayPassword();</span><br><span class="line">getDisplayPassword: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"********"</span>;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h4 id="Make-sure-that-hashing-data-is-safe-here"><a href="#Make-sure-that-hashing-data-is-safe-here" class="headerlink" title="Make sure that hashing data is safe here."></a>Make sure that hashing data is safe here.</h4><p><strong>Rule: Hashing data is security-sensitive</strong></p>
+<ol>
+<li>original code:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> encryptedPass = crypto.createHash(<span class="string">'sha256'</span>).update(newBDC.ncmPassword, <span class="string">'utf8'</span>).digest(<span class="string">'hex'</span>);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>x5</p>
+<h3 id="MITRE-CWE-563-Assignment-to-Variable-without-Use-‘Unused-Variable’"><a href="#MITRE-CWE-563-Assignment-to-Variable-without-Use-‘Unused-Variable’" class="headerlink" title="MITRE, CWE-563 - Assignment to Variable without Use (‘Unused Variable’)"></a>MITRE, CWE-563 - Assignment to Variable without Use (‘Unused Variable’)</h3><h4 id="Remove-this-useless-assignment-to-variable-“xxx”"><a href="#Remove-this-useless-assignment-to-variable-“xxx”" class="headerlink" title="Remove this useless assignment to variable “xxx”."></a>Remove this useless assignment to variable “xxx”.</h4><p><strong>Rule: Unused assignments should be removed</strong></p>
+<ol>
+<li>original code:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> res = <span class="keyword">await</span> client.connect();</span><br><span class="line">res = <span class="keyword">await</span> client.query(checkUserSQL);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>Some explains here for this issue: <a href="https://stackoverflow.com/questions/42151535/use-of-unassigned-local-variable-when-using-a-foreach-loop" target="_blank" rel="noopener">https://stackoverflow.com/questions/42151535/use-of-unassigned-local-variable-when-using-a-foreach-loop</a></p>
+<h5 id="solution-6"><a href="#solution-6" class="headerlink" title="solution"></a>solution</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> res = <span class="keyword">await</span> client.connect();</span><br><span class="line"><span class="keyword">if</span> (res) &#123;</span><br><span class="line">      res = <span class="keyword">await</span> client.query(checkUserSQL);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>TBC</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/07/17/sonar/" data-id="ckcvsi8210026u8hr0n1xvk72"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sonar/">sonar</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-3pp-upgrade" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/07/16/3pp-upgrade/">3PP Upgrade</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/07/16/3pp-upgrade/" class="article-date">
+  <time datetime="2020-07-15T16:00:00.000Z" itemprop="datePublished">2020-07-16</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>This is a record for my work to product 3pp upgrade.</p>
+<h3 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h3><p>log on a host server to build docker image and test deployment:</p>
+<ul>
+<li>log on a jump server first</li>
+<li>ssh e-id@seroius01502</li>
+</ul>
+<p>use xxxx/xxx-compiler(cdt2 image) to build frontend <br>use xxx/xxx-base(node image) to build backend</p>
+<h3 id="Compiler-frontend-cdt2-debugging"><a href="#Compiler-frontend-cdt2-debugging" class="headerlink" title="Compiler (frontend, cdt2) debugging"></a>Compiler (frontend, cdt2) debugging</h3><p>Run upgraded cdt2+node images as a container first:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker run --rm -it -d --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,src=/home/eshibij/cec-3pp-upgrade,dst=/usr/share sekidocker.rnd.ki.sw.ericsson.se/bolte/bcam/bcam-compiler:cdt_2.6.1-node_14.5 cat</span><br><span class="line">e2849d6f818cb1ccacc1ce58c41d2695d0315b60b37f976c221397a997a856a2</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/nzjdsds/article/details/81981732" target="_blank" rel="noopener">–rm</a>: clean up <br><a href="https://www.imooc.com/qadetail/327658" target="_blank" rel="noopener">-it</a>: wait for container cmds to be executed <br>-d: run in background and return container id <br>–mount: <a href="https://blog.csdn.net/longlong6682/article/details/104730138" target="_blank" rel="noopener">https://blog.csdn.net/longlong6682/article/details/104730138</a> <br>cat: seems like catting the container id</p>
+ <center>
+        
+          <a class="article-more-link" href="/2020/07/16/3pp-upgrade/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/07/16/3pp-upgrade/" data-id="ckcvsi7xr0001u8hrwqyj7zr4"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/record/">record</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/work-flow/">work flow</a></li></ul>
 
     </footer>
 
@@ -174,7 +440,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/14/request-nodejs/" data-id="ckclqxmez0029mghr75dlt2n2"
+      <a data-url="https://visionary-s.github.io/2020/07/14/request-nodejs/" data-id="ckcvsi825002au8hrmxnvostg"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
@@ -246,138 +512,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/26/linux-cmd/" data-id="ckclqxmea001dmghrq30rtnyw"
+      <a data-url="https://visionary-s.github.io/2020/05/26/linux-cmd/" data-id="ckcvsi81f001lu8hrkdz7wsvm"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-JS对象引用" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/05/26/JS对象引用/">JS对象引用</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/05/26/JS对象引用/" class="article-date">
-  <time datetime="2020-05-26T07:53:00.238Z" itemprop="datePublished">2020-05-26</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>如果不同的变量名指向同一个对象，那么它们都是这个对象的引用，也就是说指向同一个内存地址。修改其中一个变量，会影响到其他所有变量。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> o2 = o1;</span><br><span class="line"></span><br><span class="line">o1.a = <span class="number">1</span>;</span><br><span class="line">o2.a <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line">o2.b = <span class="number">2</span>;</span><br><span class="line">o1.b <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-
- <center>
-        
-          <a class="article-more-link" href="/2020/05/26/JS对象引用/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/26/JS对象引用/" data-id="ckclqxme10014mghr43rx9v3a"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-JS-Label" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/05/26/JS-Label/">JS-Label</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/05/26/JS-Label/" class="article-date">
-  <time datetime="2020-05-26T07:53:00.234Z" itemprop="datePublished">2020-05-26</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>标签（label），相当于定位符，用于跳转到程序的任意位置。</p>
-<ol>
-<li><p>配合break</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">top:  <span class="comment">// Label</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++)&#123;</span><br><span class="line">      <span class="keyword">if</span> (i === <span class="number">1</span> &amp;&amp; j === <span class="number">1</span>) <span class="keyword">break</span> top; <span class="comment">// 注意，不加引号</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'i='</span> + i + <span class="string">', j='</span> + j);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// i=0, j=0</span></span><br><span class="line"><span class="comment">// i=0, j=1</span></span><br><span class="line"><span class="comment">// i=0, j=2</span></span><br><span class="line"><span class="comment">// i=1, j=0</span></span><br></pre></td></tr></table></figure>
-
-<center>
-        
-          <a class="article-more-link" href="/2020/05/26/JS-Label/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/26/JS-Label/" data-id="ckclqxmeh001nmghrqz2r470q"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
 
     </footer>
 
@@ -443,7 +581,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/19/nodejs-req-timeout/" data-id="ckclqxmec001gmghrfk16d64m"
+      <a data-url="https://visionary-s.github.io/2020/05/19/nodejs-req-timeout/" data-id="ckcvsi81r001wu8hrmsgawyj9"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
@@ -509,81 +647,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/18/postgres-tips/" data-id="ckclqxmem001tmghrxns34llc"
+      <a data-url="https://visionary-s.github.io/2020/05/18/postgres-tips/" data-id="ckcvsi82a002du8hriyy07sel"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgres/">postgres</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-docker-error" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/05/13/docker-error/">docker errors in daily use</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/05/13/docker-error/" class="article-date">
-  <time datetime="2020-05-12T16:00:00.000Z" itemprop="datePublished">2020-05-13</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h3 id="Error1"><a href="#Error1" class="headerlink" title="Error1"></a>Error1</h3><ul>
-<li>Steps to reproduce the error:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get pods -A</span><br><span class="line">Unable to connect to the server: EOF</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>According to <a href="https://stackoverflow.com/questions/55234700/docker-for-windows-ce-kubernetes-unable-to-connect-to-the-server-eof" target="_blank" rel="noopener">this answer</a>, I tried</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps -a --filter name=k8s_kubedns_kube-dns --format <span class="string">"table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Image&#125;&#125;"</span></span><br><span class="line">Error response from daemon: open \\.\pipe\docker_engine_linux: The system cannot find the file specified.</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps</span><br><span class="line">Error response from daemon: open \\.\pipe\docker_engine_linux: The system cannot find the file specified.</span><br><span class="line">$ docker info</span><br><span class="line">Client:</span><br><span class="line"> Debug Mode: <span class="literal">false</span></span><br><span class="line">Server:</span><br><span class="line">ERROR: Error response from daemon: open \\.\pipe\docker_engine_linux: The system cannot find the file specifie                                                                            d.</span><br><span class="line">errors pretty printing info</span><br></pre></td></tr></table></figure>
-
-<p>Search for <code>Error response from daemon</code>, I found <a href="https://github.com/docker/for-win/issues/4495" target="_blank" rel="noopener">this issue</a> same to mine</p>
-<center>
-        
-          <a class="article-more-link" href="/2020/05/13/docker-error/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/13/docker-error/" data-id="ckclqxmef001kmghrixc04mom"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
 
     </footer>
 
@@ -652,7 +719,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/13/windows-error/" data-id="ckclqxmfg002rmghrto6w5g4z"
+      <a data-url="https://visionary-s.github.io/2020/05/13/windows-error/" data-id="ckcvsi8320030u8hrretgsnmm"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bash/">bash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/powershell/">powershell</a></li></ul>
@@ -670,7 +737,7 @@
 
 
       
-        <article id="post-postgres-error-linux" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+        <article id="post-docker-error" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -678,7 +745,7 @@
         
   
     <h2 itemprop="name">
-      <a class="article-title" href="/2020/05/09/postgres-error-linux/">Failed starting postgres DB container via k8s on linux</a>
+      <a class="article-title" href="/2020/05/13/docker-error/">docker errors in daily use</a>
     </h2>
   
 
@@ -688,8 +755,8 @@
 
     
       <div class="article-meta">
-        <a href="/2020/05/09/postgres-error-linux/" class="article-date">
-  <time datetime="2020-05-08T16:00:00.000Z" itemprop="datePublished">2020-05-09</time>
+        <a href="/2020/05/13/docker-error/" class="article-date">
+  <time datetime="2020-05-12T16:00:00.000Z" itemprop="datePublished">2020-05-13</time>
 </a>
         
   <div class="article-category">
@@ -705,28 +772,28 @@
       
 
       
-        <p>When starting a postgres DB container via kubernetes on linux host server, it failed to start the container.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@compute2 log]# kubectl get pod</span><br><span class="line">NAME                                                READY   STATUS    RESTARTS   AGE</span><br><span class="line">test-764dc8f84b-smg92                               0/1     Error     3          49s</span><br></pre></td></tr></table></figure>
+        <h3 id="Error1"><a href="#Error1" class="headerlink" title="Error1"></a>Error1</h3><ul>
+<li>Steps to reproduce the error:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get pods -A</span><br><span class="line">Unable to connect to the server: EOF</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@compute2 log]# kubectl logs test-764dc8f84b-smg92</span><br><span class="line">The files belonging to this database system will be owned by user &quot;postgres&quot;.</span><br><span class="line">This user must also own the server process.</span><br><span class="line"></span><br><span class="line">The database cluster will be initialized with locale &quot;en_US.utf8&quot;.</span><br><span class="line">The default database encoding has accordingly been set to &quot;UTF8&quot;.</span><br><span class="line">The default text search configuration will be set to &quot;english&quot;.</span><br><span class="line"></span><br><span class="line">Data page checksums are disabled.</span><br><span class="line"></span><br><span class="line">fixing permissions on existing directory /var/lib/postgresql/data ... ok</span><br><span class="line">creating subdirectories ... ok</span><br><span class="line">selecting default max_connections ... 20</span><br><span class="line">selecting default shared_buffers ... 400kB</span><br><span class="line">selecting dynamic shared memory implementation ... posix</span><br><span class="line">creating configuration files ... ok</span><br><span class="line">child process was terminated by signal 7</span><br><span class="line">initdb: removing contents of data directory &quot;/var/lib/postgresql/data&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>According to <a href="https://stackoverflow.com/questions/55234700/docker-for-windows-ce-kubernetes-unable-to-connect-to-the-server-eof" target="_blank" rel="noopener">this answer</a>, I tried</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps -a --filter name=k8s_kubedns_kube-dns --format <span class="string">"table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Image&#125;&#125;"</span></span><br><span class="line">Error response from daemon: open \\.\pipe\docker_engine_linux: The system cannot find the file specified.</span><br></pre></td></tr></table></figure>
 
-<p>Image is with no problem cuz I can do <code>docker run</code> to start container successfully. <br>————————————— Solution ————————————— <br><a href="https://github.com/docker-library/postgres/issues/451" target="_blank" rel="noopener">https://github.com/docker-library/postgres/issues/451</a> <br>there are several possible solutions to the problem:</p>
-<ol>
-<li>Modify the docker image to be able to set huge_pages = off in /usr/share/postgresql/postgresql.conf.sample before initdb was ran (this is what I did).</li>
-<li>Turn off huge page support on the system (vm.nr_hugepages = 0 in /etc/sysctl.conf).</li>
-<li>Fix Postgres’s fallback mechanism when huge_pages = try is set (the default).</li>
-<li>Modify the k8s manifest to enable huge page support (<a href="https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/" target="_blank" rel="noopener">https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/</a>).</li>
-<li>Modify k8s to show that huge pages are not supported on the system, when they are not enabled for a specific container.</li>
-</ol>
-<p>I tried the second way, and solve the issue successfully.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps</span><br><span class="line">Error response from daemon: open \\.\pipe\docker_engine_linux: The system cannot find the file specified.</span><br><span class="line">$ docker info</span><br><span class="line">Client:</span><br><span class="line"> Debug Mode: <span class="literal">false</span></span><br><span class="line">Server:</span><br><span class="line">ERROR: Error response from daemon: open \\.\pipe\docker_engine_linux: The system cannot find the file specifie                                                                            d.</span><br><span class="line">errors pretty printing info</span><br></pre></td></tr></table></figure>
 
+<p>Search for <code>Error response from daemon</code>, I found <a href="https://github.com/docker/for-win/issues/4495" target="_blank" rel="noopener">this issue</a> same to mine</p>
+<center>
+        
+          <a class="article-more-link" href="/2020/05/13/docker-error/">Read More...</a>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/09/postgres-error-linux/" data-id="ckclqxmeu0022mghrtqqk4icw"
+      <a data-url="https://visionary-s.github.io/2020/05/13/docker-error/" data-id="ckcvsi80l000zu8hrycq22uh5"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgres/">postgres</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
 
     </footer>
 
