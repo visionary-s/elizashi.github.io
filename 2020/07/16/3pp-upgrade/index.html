@@ -117,6 +117,47 @@
 
 </li>
 </ul>
+<ol start="2">
+<li>cross-env: Permission denied<br>error code:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@f7748a275a7a:/mnt/share/coreservice/backend<span class="comment"># npm test</span></span><br><span class="line">&gt; BCAM_Backend_Handler@1.0.0 <span class="built_in">test</span> /mnt/share/coreservice/backend</span><br><span class="line">&gt; cross-env NODE_ENV=LOCAL mocha <span class="built_in">test</span> --<span class="built_in">exit</span> --timeout=10000</span><br><span class="line">sh: 1: cross-env: Permission denied</span><br><span class="line">npm ERR! Test failed.  See above <span class="keyword">for</span> more details</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>solution: rebuild and run test again</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm rebuild</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>local test failed due to <code>&quot;before all&quot; hook</code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">root@f7748a275a7a:/mnt/share/coreservice/backend<span class="comment"># npm test</span></span><br><span class="line">&gt; BCAM_Backend_Handler@1.0.0 <span class="built_in">test</span> /mnt/share/coreservice/backend</span><br><span class="line">&gt; cross-env NODE_ENV=LOCAL mocha <span class="built_in">test</span> --<span class="built_in">exit</span> --timeout=10000</span><br><span class="line">sequelize deprecated String based operators are now deprecated. Please use Symbol based operators <span class="keyword">for</span> better security, <span class="built_in">read</span> more at http://docs.sequelizejs.com/manual/tutorial/querying.html<span class="comment">#operators node_modules/sequelize/lib/sequelize.js:245:13</span></span><br><span class="line">  <span class="comment">#model.js</span></span><br><span class="line">    <span class="comment">#Cell test()</span></span><br><span class="line">      1) <span class="string">"before all"</span> hook</span><br><span class="line">  <span class="comment">#ENMJobtest.js</span></span><br><span class="line">    2) <span class="string">"before all"</span> hook: create ENMJobTest Datas</span><br><span class="line">    3) <span class="string">"after all"</span> hook</span><br><span class="line">  <span class="comment">#ENodeBTest.js</span></span><br><span class="line">    <span class="comment">#ENodeB test()</span></span><br><span class="line">      4) <span class="string">"before all"</span> hook: create ENodeBTest Datas</span><br><span class="line">  <span class="comment">#model.js</span></span><br><span class="line">    <span class="comment">#MbsArea test()</span></span><br><span class="line">      5) <span class="string">"before all"</span> hook</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>It happened due to no local db was found by the test procedures, create postgre db using image <code>postgres:12.3-alpine</code> with</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run --name bcamdb -e POSTGRES_PASSWORD=bcam -p5432:5432 -d postgres:12.3-alpine</span><br></pre></td></tr></table></figure>
+
+<p>Enter the db and get its local address:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">bash-5.0<span class="comment"># ip a</span></span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN qlen 1000</span><br><span class="line">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1/8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">14468: eth0@if14469: &lt;BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN&gt; mtu 1500 qdisc noqueue state UP</span><br><span class="line">    link/ether 02:42:ac:11:00:02 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 172.17.0.2/16 brd 172.17.255.255 scope global eth0</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br></pre></td></tr></table></figure>
+
+<p>Re-enter to backend container and ping the address to test connection:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@f7748a275a7a:/<span class="comment"># ping 172.17.0.2</span></span><br><span class="line">PING 172.17.0.2 (172.17.0.2) 56(84) bytes of data.</span><br><span class="line">64 bytes from 172.17.0.2: icmp_seq=1 ttl=64 time=0.067 ms</span><br><span class="line">64 bytes from 172.17.0.2: icmp_seq=2 ttl=64 time=0.050 ms</span><br><span class="line">^C</span><br><span class="line">  --- 172.17.0.2 ping statistics ---</span><br><span class="line">2 packets transmitted, 2 received, 0% packet loss, time 999ms</span><br></pre></td></tr></table></figure>
+
+<p>re-write the backend env file <code>application-default.yml</code> and <code>application-local.yml</code>, retry and still failed.</p>
+<ul>
+<li><p>check if connection is able to be built:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ &gt;/dev/tcp/172.17.0.2/5432</span><br></pre></td></tr></table></figure>
+
+<p>no error throw out, so request to can be sent to db container</p>
+</li>
+<li><p>other debug:<br><code>&amp;</code> means running in background, also can be added after <code>npm test &amp;</code>, here I tried to do package capture but failed</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt install tcpdump</span><br><span class="line">$ tcpdump -i any port 5432 &amp;</span><br></pre></td></tr></table></figure>
+
+<p>check process in running and kill process:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ps -ef</span><br><span class="line">$ pkill npm</span><br><span class="line">$ pkill node</span><br><span class="line">$ pkill node npm</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>logon the default postgre:    </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ su - postgres</span><br><span class="line">ddacfbb38c89:~$ psql</span><br></pre></td></tr></table></figure>
+
+<p>It might be issues from node version 14. To escape the env problem, try to upgrade node.js version on windows locally.</p>
+</li>
+</ul>
 <h3 id="backend-3pp-upgrade"><a href="#backend-3pp-upgrade" class="headerlink" title="backend 3pp upgrade"></a>backend 3pp upgrade</h3><p>For upgrade part, firstly get to know <a href="https://docs.npmjs.com/cli/update" target="_blank" rel="noopener">https://docs.npmjs.com/cli/update</a> and <a href="https://docs.npmjs.com/cli/install" target="_blank" rel="noopener">https://docs.npmjs.com/cli/install</a> <br>other refs:</p>
 <ul>
 <li><a href="https://stackoverflow.com/questions/43127863/node-update-a-specific-package" target="_blank" rel="noopener">https://stackoverflow.com/questions/43127863/node-update-a-specific-package</a></li>
@@ -128,10 +169,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/16/3pp-upgrade/" data-id="ckcvsvtge0000gwhrs6mrvhvf"
+      <a data-url="https://visionary-s.github.io/2020/07/16/3pp-upgrade/" data-id="ckd5s7cac001poghrtl1awai3"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/record/">record</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/work-flow/">work flow</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/record/">record</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/work-flow/">work flow</a></li></ul>
 
     </footer>
 
@@ -145,7 +186,7 @@
         <strong class="article-nav-caption">Newer posts</strong>
         <div class="article-nav-title">
           
-            Sonar Fix
+            Sonar Fix (backend)
           
         </div>
       </a>

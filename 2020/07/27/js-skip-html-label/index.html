@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    Tag: sonar |
+    Skip html labels in JS |
     
     Solito</title>
   
@@ -23,54 +23,91 @@
 <body>
 <main class="content">
   <section class="outer">
-  <article class="articles">
+  <article id="post-js-skip-html-label" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
     
-    <h1 class="page-type-title">#&nbspsonar</h1>
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Skip html labels in JS
+    </h1>
+  
+
+
+      </header>
+    
 
     
-    
-    
-      
-      
-        
-        
-    <div class="archives-wrap">
-      <div class="archive-year-wrap">
-        <a href="/archives/2020" class="archive-year">2020</a>
-      </div>
-      <div class="archives">
-        
-        <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/17/sonar/" class="archive-article-date">
-  <time datetime="2020-07-16T16:00:00.000Z" itemprop="datePublished">07/17</time>
+      <div class="article-meta">
+        <a href="/2020/07/27/js-skip-html-label/" class="article-date">
+  <time datetime="2020-07-26T16:00:00.000Z" itemprop="datePublished">2020-07-27</time>
 </a>
-      
-  
-    <h2 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/17/sonar/">Sonar Fix (backend)</a>
-    </h2>
-  
-
-
-    </header>
-    
-    
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sonar/">sonar</a></li></ul>
-
-    
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/basic/">basic</a>
   </div>
-</article>
-        
-        
+
       </div>
-    </div>
     
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str = str.replace(<span class="regexp">/&lt;[^&lt;&gt;]+&gt;/g</span>, <span class="string">''</span>);</span><br></pre></td></tr></table></figure>
+
+<p>sample:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> error = <span class="string">"&lt;html&gt;&lt;head&gt;&lt;title&gt;Error&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Unauthorized&lt;/body&gt;&lt;/html&gt;"</span>;</span><br><span class="line">error = error.replace(<span class="regexp">/&lt;[^&lt;&gt;]+&gt;/g</span>, <span class="string">''</span>);</span><br><span class="line"><span class="built_in">console</span>.log(error);</span><br><span class="line"><span class="comment">// print ErrorUnauthorized</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/07/27/js-skip-html-label/" data-id="ckd5s7cb2002loghrc7girjak"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2020/07/28/3pp-upgrade-windows/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            3pp Upgrade on Windows
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/07/20/npm/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">NPM tips</div>
+      </a>
+    
+  </nav>
+
+
   
 
   
+    
+  
+
+</article>
+
+
+
 </section>
   <footer class="footer">
   <div class="outer">
