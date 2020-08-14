@@ -64,12 +64,40 @@
 <p>ref: <a href="https://docs.npmjs.com/cli/install" target="_blank" rel="noopener">https://docs.npmjs.com/cli/install</a></p>
 <center><a id="more"></a></center>
 
-<p>TBC</p>
+<h3 id="npm-list"><a href="#npm-list" class="headerlink" title="npm list"></a>npm list</h3><p>check the installed packages under current folder:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ npm list</span><br><span class="line">express-test@0.0.0 C:\Users\eshibij\Desktop\express-test</span><br><span class="line">-- express@4.16.1 invalid</span><br><span class="line">  +-- accepts@1.3.7 extraneous</span><br><span class="line">  +-- array-flatten@1.1.1 extraneous</span><br><span class="line">  +-- body-parser@1.18.2 extraneous</span><br><span class="line">  ....</span><br></pre></td></tr></table></figure>
+
+<h3 id="upgrade-node-to-given-version"><a href="#upgrade-node-to-given-version" class="headerlink" title="upgrade node to given version"></a>upgrade node to given version</h3><ol>
+<li>install <code>n</code> widget as tool upgrading node:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@f7748a275a7a:/<span class="comment"># node -v</span></span><br><span class="line">v14.5.0</span><br><span class="line">root@f7748a275a7a:/<span class="comment"># npm cache clean -f</span></span><br><span class="line">npm WARN using --force I sure hope you know what you are doing.</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@f7748a275a7a:/<span class="comment"># npm install -g n        </span></span><br><span class="line">/usr/<span class="built_in">local</span>/bin/n -&gt; /usr/<span class="built_in">local</span>/lib/node_modules/n/bin/n</span><br><span class="line">+ n@6.7.0</span><br><span class="line">added 1 package from 4 contributors <span class="keyword">in</span> 0.205s</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>install node with given version:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@f7748a275a7a:/<span class="comment"># n v14.6.0</span></span><br><span class="line">  installing : node-v14.6.0</span><br><span class="line">       mkdir : /usr/<span class="built_in">local</span>/n/versions/node/14.6.0</span><br><span class="line">       fetch : https://nodejs.org/dist/v14.6.0/node-v14.6.0-linux-x64.tar.xz</span><br><span class="line">   installed : v14.6.0 (with npm 6.14.6)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@f7748a275a7a:/<span class="comment"># node -v</span></span><br><span class="line">v14.6.0</span><br></pre></td></tr></table></figure>
+
+<h3 id="node-js-run-unit-test-mocha"><a href="#node-js-run-unit-test-mocha" class="headerlink" title="node js run unit test (mocha)"></a>node js run unit test (mocha)</h3><p>ref: <a href="https://blog.csdn.net/weixin_42429288/article/details/97638626" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42429288/article/details/97638626</a></p>
+<ol>
+<li>run single test<br>Add <code>only</code> before target case or suite, like<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">it.only(<span class="string">'XXX-1035 ....'</span>, <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="keyword">await</span> db.initDB();</span><br><span class="line">    <span class="keyword">await</span> Area.dumpTestData2(<span class="string">'../../test/UT/data/Area1.json'</span>);</span><br><span class="line">    <span class="keyword">await</span> agent.get(<span class="string">'/test/v1/xxx?origin=xxxx1'</span>)</span><br><span class="line">      .expect(<span class="number">200</span>,[ &#123; <span class="attr">out</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="keyword">in</span>: <span class="number">1</span>,</span><br><span class="line">        region: <span class="string">'region1'</span>,</span><br><span class="line">        adminZones: [ <span class="string">'Zona Norte'</span>, <span class="string">'Madrid Captial'</span> ] &#125; ])</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>can also add it before a suite, like:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">describe.only(<span class="string">'#digestAPI test()'</span>, <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    before(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">        <span class="keyword">await</span> db.initDB();</span><br><span class="line">        <span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line">        app = express();</span><br><span class="line">        serverDigest.baseRoute(app,<span class="number">9999</span>);</span><br><span class="line">        agent = request.agent(app);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    after(<span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// process.exit();</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    it(<span class="string">'XXX-980 ...'</span>, <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>skip single Test<br>same way as <code>only</code>, you can add it after <code>describe</code> or <code>it</code> to skip certain suite/case.</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/20/npm/" data-id="ckd5s7cb9002soghr2orbf0wn"
+      <a data-url="https://visionary-s.github.io/2020/07/20/npm/" data-id="ckdtn5ixl002oe8hrm4d8m5lg"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>

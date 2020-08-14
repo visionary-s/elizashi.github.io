@@ -155,21 +155,51 @@
 <li><p>logon the default postgre:    </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ su - postgres</span><br><span class="line">ddacfbb38c89:~$ psql</span><br></pre></td></tr></table></figure>
 
-<p>It might be issues from node version 14. To escape the env problem, try to upgrade node.js version on windows locally.</p>
+<p>It is the issue concerning with <code>pg</code> module: <a href="https://github.com/brianc/node-postgres/issues/2170" target="_blank" rel="noopener">https://github.com/brianc/node-postgres/issues/2170</a> <br>update the version of <a href="https://github.com/brianc/node-postgres/tree/master/packages/pg" target="_blank" rel="noopener">pg</a> to <strong>v8.0.3</strong> or above solved this problem.</p>
 </li>
 </ul>
+<p>  <strong>updated solution</strong> <br>  use <code>--net</code> to attach your container directly to the host’s network interfaces.<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run --name &lt;container-name&gt; -e POSTGRES_PASSWORD=postgres --net=container:&lt;target-container-id&gt; -d &lt;image-name&gt;:&lt;tag&gt;</span><br></pre></td></tr></table></figure></p>
 <h3 id="backend-3pp-upgrade"><a href="#backend-3pp-upgrade" class="headerlink" title="backend 3pp upgrade"></a>backend 3pp upgrade</h3><p>For upgrade part, firstly get to know <a href="https://docs.npmjs.com/cli/update" target="_blank" rel="noopener">https://docs.npmjs.com/cli/update</a> and <a href="https://docs.npmjs.com/cli/install" target="_blank" rel="noopener">https://docs.npmjs.com/cli/install</a> <br>other refs:</p>
 <ul>
 <li><a href="https://stackoverflow.com/questions/43127863/node-update-a-specific-package" target="_blank" rel="noopener">https://stackoverflow.com/questions/43127863/node-update-a-specific-package</a></li>
 <li><a href="https://stackoverflow.com/questions/16073603/how-do-i-update-each-dependency-in-package-json-to-the-latest-version" target="_blank" rel="noopener">https://stackoverflow.com/questions/16073603/how-do-i-update-each-dependency-in-package-json-to-the-latest-version</a></li>
 <li><a href="https://stackoverflow.com/questions/15890958/how-to-install-a-previous-exact-version-of-a-npm-package" target="_blank" rel="noopener">https://stackoverflow.com/questions/15890958/how-to-install-a-previous-exact-version-of-a-npm-package</a></li>
 </ul>
-<p>Update step:<br>  -</p>
+<p>Update step:</p>
+<ul>
+<li>update <code>package.json</code> file with given versions</li>
+<li>run <code>npm install</code> to update package in <code>./node_modules</code></li>
+<li>run <code>npm test</code> for all UTs or add <code>only</code> before <code>it</code> to run a single test like：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/mnt/share/coreservice/backend $ npm test /test/CellTest.js -- -t <span class="string">"#Cell test()"</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="Handle-errors"><a href="#Handle-errors" class="headerlink" title="Handle errors"></a>Handle errors</h4><ol>
+<li>port is in use:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1) Uncaught error outside <span class="built_in">test</span> suite:</span><br><span class="line">     Uncaught Error: listen EADDRINUSE: address already <span class="keyword">in</span> use :::8083</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>for case that <code>netstat</code> is not installed, use <code>ss -lp</code> instead to  check port:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@f7748a275a7a:/mnt/share/enmservice<span class="comment"># natstat -ano |grep 8083</span></span><br><span class="line">bash: natstat: <span class="built_in">command</span> not found</span><br><span class="line">root@f7748a275a7a:/mnt/share/enmservice<span class="comment"># ss -lp |grep 8083</span></span><br><span class="line">tcp    LISTEN     0      128    :::8083                 :::*                     users:((<span class="string">"node"</span>,pid=7662,fd=21))</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>ss</code> is auto-defined as “another utility to investigate sockets”. For more information you can use <code>ss --help</code> or <code>man ss</code></p>
+</blockquote>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">kill</span> 7662</span><br></pre></td></tr></table></figure></code></pre><ol start="2">
+<li><p>package <code>connect-multiparty</code> not compatible with node v14.<br>ref: <a href="https://github.com/expressjs/connect-multiparty/issues/29" target="_blank" rel="noopener">https://github.com/expressjs/connect-multiparty/issues/29</a> <br>change to lib <code>multiparty</code> or <a href="https://visionary-s.github.io/2020/07/20/npm/">update node version to v14.6.0</a></p>
+</li>
+<li><p>Error: EPERM: operation not permitted, unlink ‘C:\work\cec\saiservice\node_modules.staging\semver-9c480dbf\README.md’<br>This usually occurs when the network connection is not stable. thx to <a href="https://blog.csdn.net/SilenceJude/article/details/101196261" target="_blank" rel="noopener">https://blog.csdn.net/SilenceJude/article/details/101196261</a> <br><strong>Solution</strong>:</p>
+<ul>
+<li>delete <code>node_modules</code> folder in related package</li>
+<li>npm install again</li>
+<li>if not work, <code>npm cache clean -f</code> before installing</li>
+</ul>
+</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/16/3pp-upgrade/" data-id="ckd5s7cac001poghrtl1awai3"
+      <a data-url="https://visionary-s.github.io/2020/07/16/3pp-upgrade/" data-id="ckdtn5ixg002ie8hr5in1glkt"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/record/">record</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/work-flow/">work flow</a></li></ul>
