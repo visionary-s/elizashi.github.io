@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    Post photos to Gallery |
+    
+    Solito</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-Post photos to Gallery" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Post photos to Gallery
+    </h1>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/07/25/Post photos to Gallery/" class="article-date">
+  <time datetime="2019-07-24T16:00:00.000Z" itemprop="datePublished">2019-07-25</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="How-to-post-a-photo-to-blog-gallery"><a href="#How-to-post-a-photo-to-blog-gallery" class="headerlink" title="How to post a photo to blog gallery"></a>How to post a photo to blog gallery</h3><h4 id="1-Setup-the-gallery-page"><a href="#1-Setup-the-gallery-page" class="headerlink" title="1. Setup the gallery page:"></a>1. Setup the gallery page:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page gallery      // create <span class="string">'gallery'</span> page</span><br><span class="line"></span><br><span class="line">$ hexo new page about        // create <span class="string">'about'</span> page</span><br><span class="line">$ hexo new page tags         // <span class="string">'tags'</span> page</span><br><span class="line">$ hexo new page categories   // <span class="string">'categories'</span> page</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-Find-the-index-md-and-modify-it"><a href="#2-Find-the-index-md-and-modify-it" class="headerlink" title="2. Find the index.md and modify it."></a>2. Find the index.md and modify it.</h4><p>After step 1, there will be folders named “gallery”, “about”… under /source/.<br> <center><a id="more"></a></center></p>
+<p>And you can find a file named “index.md” generated automatically under these folders.<br>Open and modify the front-matter part as :</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Gallery</span><br><span class="line">albums: [</span><br><span class="line">        [<span class="string">"img_url"</span>,<span class="string">"img_caption"</span>],</span><br><span class="line">        [<span class="string">"img_url"</span>,<span class="string">"img_caption"</span>]</span><br><span class="line">        ]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>use outer links can be a better way as internal insert of images will decrease loading speed.<br>(I haven’t find a good-way to insert as internal files, so I turned to use weibo-albums-link as alt… ).</p>
+<p>There was something wrong that photos didn’t display successfully in mobile mode.</p>
+<ul>
+<li><strong>190725 Update</strong>: Problem fixed with changing photo cloud storage from weibo to <a href="https://cloudinary.com/" target="_blank" rel="noopener">cloudinary</a>. (weibo albums no longer support free external ref links)</li>
+</ul>
+<h4 id="same-way-to-edit-the-“about”-page"><a href="#same-way-to-edit-the-“about”-page" class="headerlink" title="same way to edit the “about” page"></a>same way to edit the “about” page</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2019/07/25/Post photos to Gallery/" data-id="ckesbxs7e0011okhrom8rjufg"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2019/07/25/Migrate local video header to cloud storage/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            Migrate local video header to cloud storage
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2019/07/25/Hard or Soft Dependencies/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">Hard &amp; Soft Dependencies</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span> visitors</li>
+  
+</ul>
+
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 B. Eliza Shi</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/ming.svg" alt="Solito"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+    <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <!-- <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li> -->
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" href="https://github.com/visionary-s" title="GitHub">
+        <i class="fe fe-github"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+
+</aside>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/snap.svg-min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/search.js"></script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    CDT Learning |
+    
+    Solito</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-CDT" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CDT Learning
+    </h1>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/07/25/CDT/" class="article-date">
+  <time datetime="2019-07-24T16:00:00.000Z" itemprop="datePublished">2019-07-25</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h2 id="Skeleton"><a href="#Skeleton" class="headerlink" title="Skeleton"></a>Skeleton</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">my-app/</span><br><span class="line">    .cdt                  <span class="comment"># installed lib and conf，do not modify</span></span><br><span class="line">    <span class="built_in">help</span>/                 <span class="comment"># help docs</span></span><br><span class="line">    locales/              <span class="comment"># translation files</span></span><br><span class="line">    resources/            <span class="comment"># imgs &amp; other resources that are not js files</span></span><br><span class="line">    src/                  <span class="comment"># src code. Contains only one folder (my-app)</span></span><br><span class="line">        my-app/           <span class="comment"># name = app name, fully lowercase</span></span><br><span class="line">    <span class="built_in">test</span>/                 </span><br><span class="line">        bit/              <span class="comment"># FT, API concerned only</span></span><br><span class="line">        unit/             <span class="comment"># UT</span></span><br><span class="line">    .editorconfig         <span class="comment"># coding styles，已删</span></span><br><span class="line">    .gitignore  </span><br><span class="line">    app.config.js         <span class="comment"># metadata for app</span></span><br><span class="line">    build.json            <span class="comment"># used by the build module</span></span><br><span class="line">    container.config.js   <span class="comment"># only for dev, never used in production, contains dev version of container</span></span><br></pre></td></tr></table></figure>
+
+ <center><a id="more"></a></center>
+
+<h4 id="app-config-js"><a href="#app-config-js" class="headerlink" title="app.config.js"></a>app.config.js</h4><p>  app configuration file, example:<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">  define(&#123;</span><br><span class="line">    script: <span class="string">'active-alerts/ActiveAlerts'</span>, <span class="comment">// path to app, src下的脚本执行</span></span><br><span class="line">    title:  <span class="string">'Active Alerts'</span>,    <span class="comment">// app title, used in breadcrumb widget</span></span><br><span class="line">    <span class="comment">// opt</span></span><br><span class="line">    parent: <span class="string">'alert-management'</span>,</span><br><span class="line">    <span class="comment">// opt, when exe parent script will start the children</span></span><br><span class="line">    children: [              </span><br><span class="line">        &#123;<span class="attr">app</span>: <span class="string">'alerts-log'</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">app</span>: <span class="string">'alerts-settings'</span>&#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">// opt, expose app modules that can be loaded by other apps dynamically</span></span><br><span class="line">    exports: &#123;     </span><br><span class="line">        <span class="string">'active-alerts/Module1'</span>: <span class="string">'active-alerts/modules/Module1'</span>,</span><br><span class="line">        <span class="string">'active-alerts/Module2'</span>: <span class="string">'active-alerts/modules/Module2'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// i18n.locales: list of supported language</span></span><br><span class="line">    <span class="string">"i18n"</span>: &#123;   <span class="comment">// 这里可以不加引号，也可以加，上面的参数同理</span></span><br><span class="line">                <span class="comment">// ES6可以不加，ES5要加</span></span><br><span class="line">        <span class="string">"locales"</span>: [<span class="string">"en-us"</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>detailed folder structure: <a href="https://arm101-eiffel004.lmera.ericsson.se:8443/nexus/content/sites/tor/cdt/latest/proj_struct.html" target="_blank" rel="noopener">internal link</a><br>other link: <a href="https://cloud.tencent.com/developer/section/1489898" target="_blank" rel="noopener">breadcrumb widget</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2019/07/25/CDT/" data-id="ckesbxs6m0006okhrli3zavlw"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDT/">CDT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev-env/">dev-env</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2019/07/25/Hard or Soft Dependencies/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            Hard &amp; Soft Dependencies
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2019/07/25/cdt-app-lifecycle/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">CDT App Lifecycle</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span> visitors</li>
+  
+</ul>
+
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 B. Eliza Shi</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/ming.svg" alt="Solito"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+    <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <!-- <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li> -->
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" href="https://github.com/visionary-s" title="GitHub">
+        <i class="fe fe-github"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+
+</aside>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/snap.svg-min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/search.js"></script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

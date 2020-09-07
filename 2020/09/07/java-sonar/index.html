@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    Sonar Fix (Java backend) |
+    
+    Solito</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-java-sonar" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Sonar Fix (Java backend)
+    </h1>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/09/07/java-sonar/" class="article-date">
+  <time datetime="2020-09-06T16:00:00.000Z" itemprop="datePublished">2020-09-07</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>This is a record for sonar fixing for backend based on Java.</p>
+<h3 id="CERT-issues"><a href="#CERT-issues" class="headerlink" title="CERT issues"></a>CERT issues</h3><h4 id="Extract-this-increment-or-decrement-operator-into-a-dedicated-statement"><a href="#Extract-this-increment-or-decrement-operator-into-a-dedicated-statement" class="headerlink" title="Extract this increment or decrement operator into a dedicated statement."></a>Extract this increment or decrement operator into a dedicated statement.</h4><p><strong>Rule: Increment (++) and decrement (–) operators should not be used in a method call or mixed with other operators in an expression</strong></p>
+<h5 id="1-original-code"><a href="#1-original-code" class="headerlink" title="1. original code:"></a>1. original code:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">u8a = ++u8b + u8c--;</span><br><span class="line">foo = bar++ / <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+
+ <center><a id="more"></a></center>
+
+<h5 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">++u8b;</span><br><span class="line">u8a = u8b + u8c;</span><br><span class="line">u8c--;</span><br><span class="line">foo = bar / <span class="number">4</span>;</span><br><span class="line">bar++;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-original-code"><a href="#2-original-code" class="headerlink" title="2. original code:"></a>2. original code:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (++searchCounter &gt; portRange) &#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="solution-1"><a href="#solution-1" class="headerlink" title="solution"></a>solution</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">++searchCounter;</span><br><span class="line"><span class="keyword">if</span> (searchCounter &gt; portRange) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-original-code"><a href="#3-original-code" class="headerlink" title="3. original code:"></a>3. original code:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> retry = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (retry++ &lt; RETRY_NUM &amp;&amp; ..) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="solution-2"><a href="#solution-2" class="headerlink" title="solution"></a>solution</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> retry = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (retry &lt; RETRY_NUM + <span class="number">1</span> &amp;&amp; ..) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  retry++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-original-code"><a href="#4-original-code" class="headerlink" title="4. original code:"></a>4. original code:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> ((++cnt &lt;= num) &amp;&amp; (...)) &#123;</span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="solution-3"><a href="#solution-3" class="headerlink" title="solution"></a>solution</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> cnt = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> ((cnt &lt;= num) &amp;&amp; (...)) &#123;</span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line">  cnt++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Specify-an-appropriate-locale-when-comparing-locale-dependent-data"><a href="#Specify-an-appropriate-locale-when-comparing-locale-dependent-data" class="headerlink" title="Specify an appropriate locale when comparing locale-dependent data."></a>Specify an appropriate locale when comparing locale-dependent data.</h4><h5 id="2-original-code-1"><a href="#2-original-code-1" class="headerlink" title="2. original code:"></a>2. original code:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String password = user.getPassword().toLowerCase();</span><br></pre></td></tr></table></figure>
+
+<h5 id="solution-4"><a href="#solution-4" class="headerlink" title="solution"></a>solution</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String password = user.getPassword().toLowerCase(Locale.getDefault());</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Classes-and-methods-that-rely-on-the-default-system-encoding-should-not-be-used"><a href="#Classes-and-methods-that-rely-on-the-default-system-encoding-should-not-be-used" class="headerlink" title="Classes and methods that rely on the default system encoding should not be used"></a>Classes and methods that rely on the default system encoding should not be used</h4><p><strong>Rule: 1. Remove this use of “toString”. 2. Remove this use of constructor “FileWriter(File,boolean)”. etc</strong></p>
+<h5 id="1-original-code-1"><a href="#1-original-code-1" class="headerlink" title="1. original code:"></a>1. original code:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"></span><br><span class="line">BufferedWriter csvFileBufferWriter = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> FileWriter(csvFile, <span class="keyword">true</span>))</span><br></pre></td></tr></table></figure>
+
+<h5 id="solution-5"><a href="#solution-5" class="headerlink" title="solution"></a>solution</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStreamWriter;</span><br><span class="line"><span class="keyword">import</span> java.nio.charset.Charset;</span><br><span class="line"></span><br><span class="line">BufferedWriter csvFileBufferWriter = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(csvFile, <span class="keyword">true</span>), Charset.defaultCharset()))</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-original-code-2"><a href="#2-original-code-2" class="headerlink" title="2. original code:"></a>2. original code:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (JAXBException e) &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> bos.toString();</span><br></pre></td></tr></table></figure>
+
+<h5 id="solution-6"><a href="#solution-6" class="headerlink" title="solution"></a>solution</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="keyword">return</span> bos.toString(Charset.defaultCharset().name());</span><br><span class="line">&#125; <span class="keyword">catch</span> (JAXBException | UnsupportedEncodingException e) &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-original-code-1"><a href="#3-original-code-1" class="headerlink" title="3. original code:"></a>3. original code:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.FileReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> (FileReader fileReader = <span class="keyword">new</span> FileReader(fileName)) &#123;</span><br><span class="line">  List&lt;..&gt; list = unmarshal2List(fileReader);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="solution-7"><a href="#solution-7" class="headerlink" title="solution"></a>solution</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"><span class="keyword">import</span> java.nio.charset.Charset;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> (FileInputStream fileReader = <span class="keyword">new</span> FileInputStream(fileName)) &#123;</span><br><span class="line">  List&lt;..&gt; list = unmarshal2List(<span class="keyword">new</span> InputStreamReader(fileReader, Charset.defaultCharset()));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/09/07/java-sonar/" data-id="ckesbxs7c000yokhrjy65splv"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sonar/">sonar</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/07/27/js-skip-html-label/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">Skip html labels in JS</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span> visitors</li>
+  
+</ul>
+
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 B. Eliza Shi</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/ming.svg" alt="Solito"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+    <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <!-- <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li> -->
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" href="https://github.com/visionary-s" title="GitHub">
+        <i class="fe fe-github"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+
+</aside>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/snap.svg-min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/search.js"></script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>
