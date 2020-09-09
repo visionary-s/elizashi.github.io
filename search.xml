@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Sonar Fix (Java backend)]]></title>
     <url>%2F2020%2F09%2F07%2Fjava-sonar%2F</url>
-    <content type="text"><![CDATA[This is a record for sonar fixing for backend based on Java. CERT issuesExtract this increment or decrement operator into a dedicated statement.Rule: Increment (++) and decrement (–) operators should not be used in a method call or mixed with other operators in an expression 1. original code:12u8a = ++u8b + u8c--;foo = bar++ / 4; solution12345++u8b;u8a = u8b + u8c;u8c--;foo = bar / 4;bar++; 2. original code:123if (++searchCounter &gt; portRange) &#123; //...&#125; solution123++searchCounter;if (searchCounter &gt; portRange) &#123;&#125; 3. original code:1234int retry = 0;while (retry++ &lt; RETRY_NUM &amp;&amp; ..) &#123; // ...&#125; solution12345int retry = 1;while (retry &lt; RETRY_NUM + 1 &amp;&amp; ..) &#123; // ... retry++;&#125; 4. original code:1234int cnt = 0;while ((++cnt &lt;= num) &amp;&amp; (...)) &#123; // ...&#125; solution12345int cnt = 1;while ((cnt &lt;= num) &amp;&amp; (...)) &#123; // ... cnt++;&#125; Specify an appropriate locale when comparing locale-dependent data.2. original code:1String password = user.getPassword().toLowerCase(); solution1String password = user.getPassword().toLowerCase(Locale.getDefault()); Classes and methods that rely on the default system encoding should not be usedRule: 1. Remove this use of “toString”. 2. Remove this use of constructor “FileWriter(File,boolean)”. etc 1. original code:123import java.io.FileWriter;BufferedWriter csvFileBufferWriter = new BufferedWriter(new FileWriter(csvFile, true)) solution12345import java.io.FileOutputStream;import java.io.OutputStreamWriter;import java.nio.charset.Charset;BufferedWriter csvFileBufferWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(csvFile, true), Charset.defaultCharset())) 2. original code:123456try &#123; // ...&#125; catch (JAXBException e) &#123; throw new RuntimeException();&#125;return bos.toString(); solution123456try &#123; // ... return bos.toString(Charset.defaultCharset().name());&#125; catch (JAXBException | UnsupportedEncodingException e) &#123; throw new RuntimeException();&#125; 3. original code:12345import java.io.FileReader;try (FileReader fileReader = new FileReader(fileName)) &#123; List&lt;..&gt; list = unmarshal2List(fileReader);&#125; solution1234567import java.io.FileInputStream;import java.io.InputStreamReader;import java.nio.charset.Charset;try (FileInputStream fileReader = new FileInputStream(fileName)) &#123; List&lt;..&gt; list = unmarshal2List(new InputStreamReader(fileReader, Charset.defaultCharset()));&#125;]]></content>
+    <content type="text"><![CDATA[This is a record for sonar fixing for backend based on Java. CERT issuesExtract this increment or decrement operator into a dedicated statement.Rule: Increment (++) and decrement (–) operators should not be used in a method call or mixed with other operators in an expression 1. original code:12u8a = ++u8b + u8c--;foo = bar++ / 4; solution12345++u8b;u8a = u8b + u8c;u8c--;foo = bar / 4;bar++; 2. original code:123if (++searchCounter &gt; portRange) &#123; //...&#125; solution123++searchCounter;if (searchCounter &gt; portRange) &#123;&#125; 3. original code:1234int retry = 0;while (retry++ &lt; RETRY_NUM &amp;&amp; ..) &#123; // ...&#125; solution12345int retry = 1;while (retry &lt; RETRY_NUM + 1 &amp;&amp; ..) &#123; // ... retry++;&#125; 4. original code:1234int cnt = 0;while ((++cnt &lt;= num) &amp;&amp; (...)) &#123; // ...&#125; solution12345int cnt = 1;while ((cnt &lt;= num) &amp;&amp; (...)) &#123; // ... cnt++;&#125; Specify an appropriate locale when comparing locale-dependent data.2. original code:1String password = user.getPassword().toLowerCase(); solution1String password = user.getPassword().toLowerCase(Locale.getDefault()); Classes and methods that rely on the default system encoding should not be usedRule: 1. Remove this use of “toString”. 2. Remove this use of constructor “FileWriter(File,boolean)”. etc 1. original code:123import java.io.FileWriter;BufferedWriter csvFileBufferWriter = new BufferedWriter(new FileWriter(csvFile, true)) solution12345import java.io.FileOutputStream;import java.io.OutputStreamWriter;import java.nio.charset.Charset;BufferedWriter csvFileBufferWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(csvFile, true), Charset.defaultCharset())) This solution came out with new sonar issue https://sonarqube.lmera.ericsson.se/coding_rules?open=fb-contrib%3AIOI_USE_OF_FILE_STREAM_CONSTRUCTORS&amp;rule_key=fb-contrib%3AIOI_USE_OF_FILE_STREAM_CONSTRUCTORS 2nd modification: 123import java.nio.file.Files;BufferedWriter csvFileBufferWriter = new BufferedWriter(new OutputStreamWriter(Files.newOutputStream(csvFile.toPath()), Charset.defaultCharset())) another case: 12File file = new File(saiFileLocation);FileInputStream reader = new FileInputStream(file); change to 1InputStream reader = Files.newInputStream(Paths.get(saiFileLocation)); 2. original code:123456try &#123; // ...&#125; catch (JAXBException e) &#123; throw new RuntimeException();&#125;return bos.toString(); solution123456try &#123; // ... return bos.toString(Charset.defaultCharset().name());&#125; catch (JAXBException | UnsupportedEncodingException e) &#123; throw new RuntimeException();&#125; 3. original code:12345import java.io.FileReader;try (FileReader fileReader = new FileReader(fileName)) &#123; List&lt;..&gt; list = unmarshal2List(fileReader);&#125; solution1234567import java.io.FileInputStream;import java.io.InputStreamReader;import java.nio.charset.Charset;try (FileInputStream fileReader = new FileInputStream(fileName)) &#123; List&lt;..&gt; list = unmarshal2List(new InputStreamReader(fileReader, Charset.defaultCharset()));&#125;]]></content>
       <categories>
         <category>work</category>
       </categories>
@@ -92,8 +92,8 @@
         <category>work</category>
       </categories>
       <tags>
-        <tag>git</tag>
         <tag>cmd</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -214,8 +214,8 @@
         <category>work</category>
       </categories>
       <tags>
-        <tag>cmd</tag>
         <tag>docker</tag>
+        <tag>cmd</tag>
       </tags>
   </entry>
   <entry>
@@ -304,19 +304,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[WebUploader]]></title>
-    <url>%2F2019%2F08%2F19%2FwebUploader%2F</url>
-    <content type="text"><![CDATA[Using WebUploader as 3pp to upload files to system. 1. 初始化123456789101112131415161718192021222324// 仅包含了常用参数var uploader = new WebUploader.Uploader(&#123; duplicate: true, // 是否允许重复文件 default undefined auto: false, // 选完文件后，是否自动上传 swf: 'path_of_swf/Uploader.swf', // swf文件路径 server: "/upload.html", // 文件接收服务端 pick: &#123; id: "#uploadFile", innerHTML: "localImg" &#125;, // 选择文件的按钮。可选 accept: &#123; // sample, 只允许选择图片文件 title: 'Images', extensions: 'gif,jpg,jpeg,bmp,png', mimeTypes: 'image/*' &#125;, threads: 1, // 线程数 fileSingleSizeLimit: 2000, // 单文件大小限制 fileNumLimit: 10, // 单次上传文件数量限制 fileSingleSizeLimit: // 验证单个文件大小是否超出限制, 超出则不允许加入队列 compress:false, // 是否压缩上传 chunked: true, // 是否要分片处理大文件上传, default false chunkSize: 5242880, // 如果要分片，分多大一片？ default 5242880 (5M) chunkRetry: 1, // 如果某个分片由于网络问题出错，允许自动重传多少次？ default 2 threads: 1, // 上传并发数。允许同时最大上传进程数 default 3 formData:&#123;&#125;, // 文件上传请求的参数表，每次发送都会发送此对象中的参数 method: 'GET', // POST or GET, default POST &#125;); 2. 监听event仅列举常用event uploadAccept当某个文件上传到服务端响应后，会派送此事件来询问服务端响应是否有效。如果此事件handler返回值为false, 则此文件将派送server类型的uploadError事件 12345uploader.on('uploadAccept', function (file, response) &#123; if (response.error) &#123; this.uploader.trigger('uploadError', file, response.UserMessage); &#125;&#125;); uploadSuccess当文件上传成功时触发（单文件上传成功） 123uploader.on('uploadSuccess', function (file) &#123; this._saveSuccessHandler(file);&#125;); uploadError当文件上传出错时触发 1234567891011uploader.on('uploadError', function (file, reason) &#123; var xhr = &#123;&#125;, responseJSON = &#123;&#125;; responseJSON.UserMessage = reason; xhr.status = 500; xhr.responseJSON = responseJSON; if (reason) &#123; createErrorDialog(xhr, 500, "upload failed"); &#125; this.uploader.reset(); // uploader重置 this.submitBtn.removeAttribute('disabled'); &#125;); For more details: https://www.jianshu.com/p/9f669deebf82]]></content>
-      <categories>
-        <category>work</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-        <tag>jquery</tag>
-        <tag>WebUploader</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Some tips about OpenLayer]]></title>
     <url>%2F2019%2F08%2F19%2Fopenlayer-knowledge%2F</url>
     <content type="text"><![CDATA[Using openlayer in work currently and need to write down some notes about it. EPSG 4326 VS EPSG 3857地理Coordiante系统由EPSG编号标识。最常用于网络地图应用的两个坐标系统是EPSG：4326和EPSG：3857。 EPSG：4326（又名WGS84，未投影）是一个地理的非项目坐标系。它是lat，longs GPS显示器，单位是十进制度。EPSG：4326无法在平面地图上以有意义的方式显示。 EPSG：3857（又名Pseudo-Mercator，球形墨卡托或Web墨卡托）是投影坐标系。这是Google Maps和几乎所有其他Web制图应用程序使用的坐标系。 通常，数据存储在EPSG：4326中并显示在EPSG：3857中，自行转换。 ref link Function to draw a sector accuratelyCuz the untransformed sector displayed with great error in angle = 45° (start angle) so I have to turn to this Function as following, which convert longitude and latitude into Mercator projection first before the calculation. 12345678910111213function GetMarcoXyArcArray(origin,radius,sides,r,angel) &#123; var x = []; x[0] = [origin[0],origin[1]]; for (var j = 1; j &lt; sides; j++) &#123; var tx = origin[0] + radius * Math.cos(Math.PI / 180 * (90 - angel + (sides/2 - j) * r / (sides-2))); var ty = origin[1] + radius * Math.sin(Math.PI / 180 * (90 - angel + (sides/2 - j) * r / (sides-2))); x[j]=[tx,ty]; &#125; //alert(x); return new ol.geom.Polygon([x]); &#125; Thanks to tianshibufan521’s post After modification: 190813 updatethis method will lead to wrong presentation size at about 4/5 of expected radius due to the Mercator projection. I couldn’t figure out why for the second time I tried the origin calculation method as following, it turned out to appear normally with start angle of 45°. 123456789101112131415for (var i = 0; i &lt; sides; ++i) &#123; rotatedAngle = (i * radian / 360 * 2 * Math.PI / sides) + (90 - angle - radian / 2 )* Math.PI / 180 ; // start from y = 0 (sector1 based on symmetry y axis, clockwise rotation) coordinate = this.getJWD(origin.Longitude, origin.Latitude, radius, rotatedAngle); // method getJWD() can be found ↓ link points.push(coordinate);&#125;// if not circle, add center point.// this allows drawing circle via polygon apiif (radian !== "360") &#123; points.push([origin.Longitude, origin.Latitude]);&#125;var ring = new ol.geom.LinearRing(points);var pointsCoords = ring.getCoordinates();feature = new ol.Feature(new ol.geom.Polygon([pointsCoords])); calculate longitude &amp; latitude via coordinateformer dev using func getJWD to calculate the coordinates, but this func cause the display error with start degree of 45°, so I discarded it.For more info about this func : link Draw a circleSimply used ol.geom.Circle instead of ol..geom.Polygon, which will cause a start/end radius as follows: Before After 12345var circle = new ol.geom.Circle( ol.proj.transform([longitude, latitude], 'EPSG:4326', 'EPSG:3857'), radius);var circleFeature = new ol.Feature(circle); OpenLayer Samples link || Circle update:The pattern turned out to be simple circle pattern，which does not include geometry params，but our project need geometry params in GeoJSON format to decide which area is covered.So I finally turn to ol/geom/Polygon.fromCircle which transform plain circle into Polygon format. It returns Polygon geometry so that can be used in further calculation of coverage. 12var circle = new OpenLayers.geom.Circle(circleParams.center, circleParams.radius);feature = new OpenLayers.Feature(new OpenLayers.geom.Polygon.fromCircle(circle, 500));]]></content>
@@ -338,6 +325,19 @@
       <tags>
         <tag>js</tag>
         <tag>jquery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[WebUploader]]></title>
+    <url>%2F2019%2F08%2F19%2FwebUploader%2F</url>
+    <content type="text"><![CDATA[Using WebUploader as 3pp to upload files to system. 1. 初始化123456789101112131415161718192021222324// 仅包含了常用参数var uploader = new WebUploader.Uploader(&#123; duplicate: true, // 是否允许重复文件 default undefined auto: false, // 选完文件后，是否自动上传 swf: 'path_of_swf/Uploader.swf', // swf文件路径 server: "/upload.html", // 文件接收服务端 pick: &#123; id: "#uploadFile", innerHTML: "localImg" &#125;, // 选择文件的按钮。可选 accept: &#123; // sample, 只允许选择图片文件 title: 'Images', extensions: 'gif,jpg,jpeg,bmp,png', mimeTypes: 'image/*' &#125;, threads: 1, // 线程数 fileSingleSizeLimit: 2000, // 单文件大小限制 fileNumLimit: 10, // 单次上传文件数量限制 fileSingleSizeLimit: // 验证单个文件大小是否超出限制, 超出则不允许加入队列 compress:false, // 是否压缩上传 chunked: true, // 是否要分片处理大文件上传, default false chunkSize: 5242880, // 如果要分片，分多大一片？ default 5242880 (5M) chunkRetry: 1, // 如果某个分片由于网络问题出错，允许自动重传多少次？ default 2 threads: 1, // 上传并发数。允许同时最大上传进程数 default 3 formData:&#123;&#125;, // 文件上传请求的参数表，每次发送都会发送此对象中的参数 method: 'GET', // POST or GET, default POST &#125;); 2. 监听event仅列举常用event uploadAccept当某个文件上传到服务端响应后，会派送此事件来询问服务端响应是否有效。如果此事件handler返回值为false, 则此文件将派送server类型的uploadError事件 12345uploader.on('uploadAccept', function (file, response) &#123; if (response.error) &#123; this.uploader.trigger('uploadError', file, response.UserMessage); &#125;&#125;); uploadSuccess当文件上传成功时触发（单文件上传成功） 123uploader.on('uploadSuccess', function (file) &#123; this._saveSuccessHandler(file);&#125;); uploadError当文件上传出错时触发 1234567891011uploader.on('uploadError', function (file, reason) &#123; var xhr = &#123;&#125;, responseJSON = &#123;&#125;; responseJSON.UserMessage = reason; xhr.status = 500; xhr.responseJSON = responseJSON; if (reason) &#123; createErrorDialog(xhr, 500, "upload failed"); &#125; this.uploader.reset(); // uploader重置 this.submitBtn.removeAttribute('disabled'); &#125;); For more details: https://www.jianshu.com/p/9f669deebf82]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+        <tag>jquery</tag>
+        <tag>WebUploader</tag>
       </tags>
   </entry>
   <entry>
@@ -363,53 +363,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[JS对象引用]]></title>
-    <url>%2F2019%2F07%2F25%2FJS%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[如果不同的变量名指向同一个对象，那么它们都是这个对象的引用，也就是说指向同一个内存地址。修改其中一个变量，会影响到其他所有变量。 12345678var o1 = &#123;&#125;;var o2 = o1;o1.a = 1;o2.a // 1o2.b = 2;o1.b // 2 上面代码中，o1和o2指向同一个对象，因此为其中任何一个变量添加属性，另一个变量都可以读写该属性。 如果取消某一个变量对于原对象的引用，不会改变已经引用过的另一个变量。 1234567var o1 = &#123;&#125;;var o2 = o1;o1 = 1;console.log(o2); // &#123;&#125;console.log(o1); // 1console.log(typeof o1); // number 上面代码中，o1和o2指向同一个对象，然后o1的值变为1，这时不会对o2产生影响，o2还是指向原来的那个对象。 注意：这种引用只局限于object,如果两个变量指向同一个原始类型的值，则变量这时都是值的拷贝。 12345var x = 1;var y = x;x = 2;y // 1 上面代码中，当x的值变化后，y值不变，这就表示y和x并不是指向同一个内存地址。 ref: 阮一峰]]></content>
-      <categories>
-        <category>basic</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[JS-Label]]></title>
-    <url>%2F2019%2F07%2F25%2FJS-Label%2F</url>
-    <content type="text"><![CDATA[标签（label），相当于定位符，用于跳转到程序的任意位置。 配合break 1234567891011top: // Label for (var i = 0; i &lt; 3; i++)&#123; for (var j = 0; j &lt; 3; j++)&#123; if (i === 1 &amp;&amp; j === 1) break top; // 注意，不加引号 console.log('i=' + i + ', j=' + j); &#125; &#125;// i=0, j=0// i=0, j=1// i=0, j=2// i=1, j=0 如果满足if，直接跳出双重循环。 配合continue 1234567891011121314top: for (var i = 0; i &lt; 3; i++)&#123; for (var j = 0; j &lt; 3; j++)&#123; if (i === 1 &amp;&amp; j === 1) continue top; console.log('i=' + i + ', j=' + j); &#125; &#125;// i=0, j=0// i=0, j=1// i=0, j=2// i=1, j=0// i=2, j=0// i=2, j=1// i=2, j=2 当i=1，j=1时，跳过打印（当前内层循环）直接进行下一个外层循环（不会跳出top） label用于跳出代码块12345678foo: &#123; console.log(1); break foo; console.log('本行不会输出');&#125;console.log(2);// 1// 2 ref: 阮一峰]]></content>
-      <categories>
-        <category>basic</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Hexo - Tools & cmd used during deployment]]></title>
     <url>%2F2019%2F07%2F25%2FHexo%20cmd%2F</url>
     <content type="text"><![CDATA[Ref: https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/ npm CN image（taobao）1$ npm install -g cnpm --registry=https://registry.npm.taobao.org Hexo installation1$ cnpm install -g hexo-cli check if successfully installed 1$ hexo -v 123456789101112131415161718hexo: 3.9.0hexo-cli: 2.0.0os: Windows_NT 10.0.16299 win32 x64http_parser: 2.8.0node: 10.16.0v8: 6.8.275.32-node.52uv: 1.28.0zlib: 1.2.11brotli: 1.0.7ares: 1.15.0modules: 64nghttp2: 1.34.0napi: 4openssl: 1.1.1bicu: 64.2unicode: 12.1cldr: 35.1tz: 2019a Local init for first time setup1$ hexo init Start server and Run in browser1$ hexo s Visit http://localhost:4000/ Add ssh-keyPass When error generated (local compile)123$ hexo clean$ hexo g # gengerate post to public folder$ hexo s Deploy to github1$ hexo d]]></content>
-      <categories>
-        <category>interest</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Require JS - define模块定义]]></title>
-    <url>%2F2019%2F07%2F25%2Frequire%20js%20-%20define%E6%A8%A1%E5%9D%97%E5%AE%9A%E4%B9%89%2F</url>
-    <content type="text"><![CDATA[CMD (Common Module Definition)在 CMD 规范中，一个模块就是一个文件。代码的书写格式如下： define(factory);define 是一个全局函数，用来定义模块。 1. factory为函数时，表示模块的构造方法：123define(function(require, exports, module) &#123; // 模块代码&#125;); 执行该构造方法，可以得到模块向外提供的接口。factory 为对象、字符串时，表示模块的接口就是该对象、字符串 1define(&#123; "foo": "bar" &#125;); 也可以通过字符串定义模板模块: 1define('I am a template. My name is &#123;&#123;name&#125;&#125;.'); 2. define(id, deps, factory?)字符串 id 表示模块标识，数组 deps 是模块依赖 123define('hello', ['jquery'], function(require, exports, module) &#123; // 模块代码&#125;); factory参数可以省略。省略时，表示声明依赖关系。在开发阶段，推荐不要手写 id 和 deps 参数，因为这两个参数可以在构建阶段通过工具自动生成。 注意：带 id 和 deps 参数的 define 用法不属于 CMD 规范，而属于 Modules/Transport 规范。 3. require Functionrequire接受module-name(id)作为唯一参数，用来获取其他模块提供的接口 123456define(function(require, exports) &#123; // 获取模块 a 的接口 var a = require('./a'); // 调用模块 a 的方法 a.doSomething();&#125;); 4. exports Objectexports 是一个对象，用来向外提供模块接口。 1234567define(function(require, exports) &#123; // 对外提供 foo 属性 exports.foo = 'bar'; // 对外提供 doSomething 方法 exports.doSomething = function() &#123;&#125;;&#125;); 除了给exports对象增加成员，还可以使用return直接向外提供接口。 1234567define(function(require) &#123; // 通过 return 直接提供接口 return &#123; foo: 'bar', doSomething: function() &#123;&#125;; &#125;;&#125;); TBC ref: https://blog.csdn.net/cpf506497746/article/details/8832317]]></content>
-      <categories>
-        <category>basic</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Migrate local video header to cloud storage]]></title>
-    <url>%2F2019%2F07%2F25%2FMigrate%20local%20video%20header%20to%20cloud%20storage%2F</url>
-    <content type="text"><![CDATA[Since the Ocean theme includes and initiates the videos and images about header via local folder themes/ocean/source/images/ocean/, the page loads slowly at mobile device. So I decided to transfer these large files to cloud side to promote loading speed. Find the local image folder as referred above. upload these files to cloudinary, it provides plugin as a module to js file: 1cloudinary.videoTag('gitblog/ocean/ocean_j5rpnt').toHtml(); the src ref-way can be find at “edit” page by right clicking on cloudinary/file.Here I did not use this short path cuz I am not in need of a large quantity of inserted files. Modify themes/ocean/_config.yml: 1234567# Ocean Video# Because I put videos in multiple formats on the same path, I just labeled the path here.ocean: overlay: true path: https://res.cloudinary.com/elizashi/ # path: /images/ocean/ brand: /images/ming-inverted.svg Find the ocean.ejs file in themes/ocean/layout/_partial/, and modify as follows: 12345&lt;% if (theme.ocean.overlay) &#123; %&gt; &lt;div class="video-frame"&gt; &lt;img src="&lt;%- theme.ocean.path %&gt;image/upload/v1564042232/gitblog/ocean/overlay-hero_hfo1px.png" alt="Decorative image frame"&gt; &lt;/div&gt;&lt;% &#125; %&gt; 12345678910&lt;div class="video-media"&gt; &lt;video playsinline="" autoplay="" loop="" muted="" data-autoplay="" poster="&lt;%- theme.ocean.path %&gt;image/upload/v1564042234/gitblog/ocean/ocean_dvmafj.png" x5-video-player-type="h5"&gt; &lt;source src="&lt;%- theme.ocean.path %&gt;video/upload/v1564042238/gitblog/ocean/ocean_j5rpnt.mp4" type="video/mp4"&gt; &lt;source src="&lt;%- theme.ocean.path %&gt;video/upload/v1564042232/gitblog/ocean/ocean_p4kg5c.ogv" type="video/ogg"&gt; &lt;source src="&lt;%- theme.ocean.path %&gt;video/upload/v1564042238/gitblog/ocean/ocean_qgwvjh.webm" type="video/webm"&gt; &lt;p&gt;Your user agent does not support the HTML5 Video element.&lt;/p&gt; &lt;/video&gt; &lt;div class="video-overlay"&gt;&lt;/div&gt;&lt;/div&gt; As I mentioned that I am not using many external src so I modify each file address one by one.If files come to more, shall turn to use the cloudinary.videoTag func to insert files or the code will get lengthy and jumbled.]]></content>
       <categories>
         <category>interest</category>
       </categories>
@@ -429,9 +385,32 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hard & Soft Dependencies]]></title>
-    <url>%2F2019%2F07%2F25%2FHard%20or%20Soft%20Dependencies%2F</url>
-    <content type="text"><![CDATA[ref: https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency Hard Dependencya module cannot function without the other modules on which it depends The module contains code that directly uses logic from another module (instances, class constants, static methods, public class properties, interfaces and traits). The module contains strings that include class names, methods names, class constants, class properties, interfaces, and traits from another module. The module de-serializes an object declared in another module. The module uses or modifies the database tables used by another module. Soft Dependencya module can function without the other modules on which it depends The module directly checks another module’s availability. The module extends another module’s configuration. The module extends another module’s layout.]]></content>
+    <title><![CDATA[Migrate local video header to cloud storage]]></title>
+    <url>%2F2019%2F07%2F25%2FMigrate%20local%20video%20header%20to%20cloud%20storage%2F</url>
+    <content type="text"><![CDATA[Since the Ocean theme includes and initiates the videos and images about header via local folder themes/ocean/source/images/ocean/, the page loads slowly at mobile device. So I decided to transfer these large files to cloud side to promote loading speed. Find the local image folder as referred above. upload these files to cloudinary, it provides plugin as a module to js file: 1cloudinary.videoTag('gitblog/ocean/ocean_j5rpnt').toHtml(); the src ref-way can be find at “edit” page by right clicking on cloudinary/file.Here I did not use this short path cuz I am not in need of a large quantity of inserted files. Modify themes/ocean/_config.yml: 1234567# Ocean Video# Because I put videos in multiple formats on the same path, I just labeled the path here.ocean: overlay: true path: https://res.cloudinary.com/elizashi/ # path: /images/ocean/ brand: /images/ming-inverted.svg Find the ocean.ejs file in themes/ocean/layout/_partial/, and modify as follows: 12345&lt;% if (theme.ocean.overlay) &#123; %&gt; &lt;div class="video-frame"&gt; &lt;img src="&lt;%- theme.ocean.path %&gt;image/upload/v1564042232/gitblog/ocean/overlay-hero_hfo1px.png" alt="Decorative image frame"&gt; &lt;/div&gt;&lt;% &#125; %&gt; 12345678910&lt;div class="video-media"&gt; &lt;video playsinline="" autoplay="" loop="" muted="" data-autoplay="" poster="&lt;%- theme.ocean.path %&gt;image/upload/v1564042234/gitblog/ocean/ocean_dvmafj.png" x5-video-player-type="h5"&gt; &lt;source src="&lt;%- theme.ocean.path %&gt;video/upload/v1564042238/gitblog/ocean/ocean_j5rpnt.mp4" type="video/mp4"&gt; &lt;source src="&lt;%- theme.ocean.path %&gt;video/upload/v1564042232/gitblog/ocean/ocean_p4kg5c.ogv" type="video/ogg"&gt; &lt;source src="&lt;%- theme.ocean.path %&gt;video/upload/v1564042238/gitblog/ocean/ocean_qgwvjh.webm" type="video/webm"&gt; &lt;p&gt;Your user agent does not support the HTML5 Video element.&lt;/p&gt; &lt;/video&gt; &lt;div class="video-overlay"&gt;&lt;/div&gt;&lt;/div&gt; As I mentioned that I am not using many external src so I modify each file address one by one.If files come to more, shall turn to use the cloudinary.videoTag func to insert files or the code will get lengthy and jumbled.]]></content>
+      <categories>
+        <category>interest</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CDT App Lifecycle]]></title>
+    <url>%2F2019%2F07%2F25%2Fcdt-app-lifecycle%2F</url>
+    <content type="text"><![CDATA[Apps that run in the container have their lifecycle managed.The container checks for various functions implemented by the app. If those functions are implemented, the container will execute them accordingly. The following functions are supported by the container: 1. void onStart()This method is called when the app is first instantiated in the current tab for the first time. 123onStart: function() &#123; // Code here&#125; 2. void onPause()This method is called when the user has left your app to view a different app. 123onPause: function() &#123; // Code here&#125; 3. void onResume()This method is called when the user has navigated away from the app to a different app, and has navigated back. 123onResume: function() &#123; // Code here&#125;]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
+      <tags>
+        <tag>dev-env</tag>
+        <tag>CDT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JS对象引用]]></title>
+    <url>%2F2019%2F07%2F25%2FJS%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[如果不同的变量名指向同一个对象，那么它们都是这个对象的引用，也就是说指向同一个内存地址。修改其中一个变量，会影响到其他所有变量。 12345678var o1 = &#123;&#125;;var o2 = o1;o1.a = 1;o2.a // 1o2.b = 2;o1.b // 2 上面代码中，o1和o2指向同一个对象，因此为其中任何一个变量添加属性，另一个变量都可以读写该属性。 如果取消某一个变量对于原对象的引用，不会改变已经引用过的另一个变量。 1234567var o1 = &#123;&#125;;var o2 = o1;o1 = 1;console.log(o2); // &#123;&#125;console.log(o1); // 1console.log(typeof o1); // number 上面代码中，o1和o2指向同一个对象，然后o1的值变为1，这时不会对o2产生影响，o2还是指向原来的那个对象。 注意：这种引用只局限于object,如果两个变量指向同一个原始类型的值，则变量这时都是值的拷贝。 12345var x = 1;var y = x;x = 2;y // 1 上面代码中，当x的值变化后，y值不变，这就表示y和x并不是指向同一个内存地址。 ref: 阮一峰]]></content>
       <categories>
         <category>basic</category>
       </categories>
@@ -447,20 +426,41 @@
         <category>work</category>
       </categories>
       <tags>
-        <tag>CDT</tag>
         <tag>dev-env</tag>
+        <tag>CDT</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[CDT App Lifecycle]]></title>
-    <url>%2F2019%2F07%2F25%2Fcdt-app-lifecycle%2F</url>
-    <content type="text"><![CDATA[Apps that run in the container have their lifecycle managed.The container checks for various functions implemented by the app. If those functions are implemented, the container will execute them accordingly. The following functions are supported by the container: 1. void onStart()This method is called when the app is first instantiated in the current tab for the first time. 123onStart: function() &#123; // Code here&#125; 2. void onPause()This method is called when the user has left your app to view a different app. 123onPause: function() &#123; // Code here&#125; 3. void onResume()This method is called when the user has navigated away from the app to a different app, and has navigated back. 123onResume: function() &#123; // Code here&#125;]]></content>
+    <title><![CDATA[JS-Label]]></title>
+    <url>%2F2019%2F07%2F25%2FJS-Label%2F</url>
+    <content type="text"><![CDATA[标签（label），相当于定位符，用于跳转到程序的任意位置。 配合break 1234567891011top: // Label for (var i = 0; i &lt; 3; i++)&#123; for (var j = 0; j &lt; 3; j++)&#123; if (i === 1 &amp;&amp; j === 1) break top; // 注意，不加引号 console.log('i=' + i + ', j=' + j); &#125; &#125;// i=0, j=0// i=0, j=1// i=0, j=2// i=1, j=0 如果满足if，直接跳出双重循环。 配合continue 1234567891011121314top: for (var i = 0; i &lt; 3; i++)&#123; for (var j = 0; j &lt; 3; j++)&#123; if (i === 1 &amp;&amp; j === 1) continue top; console.log('i=' + i + ', j=' + j); &#125; &#125;// i=0, j=0// i=0, j=1// i=0, j=2// i=1, j=0// i=2, j=0// i=2, j=1// i=2, j=2 当i=1，j=1时，跳过打印（当前内层循环）直接进行下一个外层循环（不会跳出top） label用于跳出代码块12345678foo: &#123; console.log(1); break foo; console.log('本行不会输出');&#125;console.log(2);// 1// 2 ref: 阮一峰]]></content>
       <categories>
-        <category>work</category>
+        <category>basic</category>
       </categories>
       <tags>
-        <tag>CDT</tag>
-        <tag>dev-env</tag>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hard & Soft Dependencies]]></title>
+    <url>%2F2019%2F07%2F25%2FHard%20or%20Soft%20Dependencies%2F</url>
+    <content type="text"><![CDATA[ref: https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency Hard Dependencya module cannot function without the other modules on which it depends The module contains code that directly uses logic from another module (instances, class constants, static methods, public class properties, interfaces and traits). The module contains strings that include class names, methods names, class constants, class properties, interfaces, and traits from another module. The module de-serializes an object declared in another module. The module uses or modifies the database tables used by another module. Soft Dependencya module can function without the other modules on which it depends The module directly checks another module’s availability. The module extends another module’s configuration. The module extends another module’s layout.]]></content>
+      <categories>
+        <category>basic</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Require JS - define模块定义]]></title>
+    <url>%2F2019%2F07%2F25%2Frequire%20js%20-%20define%E6%A8%A1%E5%9D%97%E5%AE%9A%E4%B9%89%2F</url>
+    <content type="text"><![CDATA[CMD (Common Module Definition)在 CMD 规范中，一个模块就是一个文件。代码的书写格式如下： define(factory);define 是一个全局函数，用来定义模块。 1. factory为函数时，表示模块的构造方法：123define(function(require, exports, module) &#123; // 模块代码&#125;); 执行该构造方法，可以得到模块向外提供的接口。factory 为对象、字符串时，表示模块的接口就是该对象、字符串 1define(&#123; "foo": "bar" &#125;); 也可以通过字符串定义模板模块: 1define('I am a template. My name is &#123;&#123;name&#125;&#125;.'); 2. define(id, deps, factory?)字符串 id 表示模块标识，数组 deps 是模块依赖 123define('hello', ['jquery'], function(require, exports, module) &#123; // 模块代码&#125;); factory参数可以省略。省略时，表示声明依赖关系。在开发阶段，推荐不要手写 id 和 deps 参数，因为这两个参数可以在构建阶段通过工具自动生成。 注意：带 id 和 deps 参数的 define 用法不属于 CMD 规范，而属于 Modules/Transport 规范。 3. require Functionrequire接受module-name(id)作为唯一参数，用来获取其他模块提供的接口 123456define(function(require, exports) &#123; // 获取模块 a 的接口 var a = require('./a'); // 调用模块 a 的方法 a.doSomething();&#125;); 4. exports Objectexports 是一个对象，用来向外提供模块接口。 1234567define(function(require, exports) &#123; // 对外提供 foo 属性 exports.foo = 'bar'; // 对外提供 doSomething 方法 exports.doSomething = function() &#123;&#125;;&#125;); 除了给exports对象增加成员，还可以使用return直接向外提供接口。 1234567define(function(require) &#123; // 通过 return 直接提供接口 return &#123; foo: 'bar', doSomething: function() &#123;&#125;; &#125;;&#125;); TBC ref: https://blog.csdn.net/cpf506497746/article/details/8832317]]></content>
+      <categories>
+        <category>basic</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
