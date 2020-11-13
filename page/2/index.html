@@ -57,143 +57,6 @@
 
     
       
-        <article id="post-js-sonar" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/07/17/js-sonar/">Sonar Fix (node.js backend)</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/07/17/js-sonar/" class="article-date">
-  <time datetime="2020-07-16T16:00:00.000Z" itemprop="datePublished">2020-07-17</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>This is a record for sonar fixing for backend based on node.js.</p>
-<h3 id="Security-Hotspots"><a href="#Security-Hotspots" class="headerlink" title="Security Hotspots"></a>Security Hotspots</h3><p><em>Security Hotspots aren’t necessarily issues, but they need to be reviewed to make sure they aren’t vulnerabilities.</em></p>
-<h4 id="Make-sure-that-using-a-regular-expression-is-safe-here"><a href="#Make-sure-that-using-a-regular-expression-is-safe-here" class="headerlink" title="Make sure that using a regular expression is safe here"></a>Make sure that using a regular expression is safe here</h4><p><strong>Rule: Using regular expressions is security-sensitive</strong></p>
-<h5 id="1-original-code"><a href="#1-original-code" class="headerlink" title="1. original code:"></a>1. original code:</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> re = <span class="regexp">/^\d+(\.\d+)?$/</span>;</span><br></pre></td></tr></table></figure>
-
-<p>the rule recommend not using group<code>()</code> to reduce evaluate work load. 个人理解是，group内外都有\d+，可能有重复校验的问题</p>
- <center>
-        
-          <a class="article-more-link" href="/2020/07/17/js-sonar/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/17/js-sonar/" data-id="ckhfsw9u10027v8hr5o6acfwy"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sonar/">sonar</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-3pp-upgrade" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/07/16/3pp-upgrade/">3PP Upgrade</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/07/16/3pp-upgrade/" class="article-date">
-  <time datetime="2020-07-15T16:00:00.000Z" itemprop="datePublished">2020-07-16</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>This is a record for my work to product 3pp upgrade.</p>
-<h3 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h3><p>log on a host server to build docker image and test deployment:</p>
-<ul>
-<li>log on a jump server first</li>
-<li>ssh e-id@seroius01502</li>
-</ul>
-<p>use xxxx/xxx-compiler(cdt2 image) to build frontend <br>use xxx/xxx-base(node image) to build backend</p>
-<h3 id="Compiler-frontend-cdt2-debugging"><a href="#Compiler-frontend-cdt2-debugging" class="headerlink" title="Compiler (frontend, cdt2) debugging"></a>Compiler (frontend, cdt2) debugging</h3><p>Run upgraded cdt2+node images as a container first:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker run --rm -it -d --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,src=/home/eshibij/cec-3pp-upgrade,dst=/usr/share sekidocker.rnd.ki.sw.ericsson.se/bolte/bcam/bcam-compiler:cdt_2.6.1-node_14.5 cat</span><br><span class="line">e2849d6f818cb1ccacc1ce58c41d2695d0315b60b37f976c221397a997a856a2</span><br></pre></td></tr></table></figure>
-
-<p>[–rm](<a href="https://blog.csdn.net/nzjdsds/article/details/8hexo" target="_blank" rel="noopener">https://blog.csdn.net/nzjdsds/article/details/8hexo</a> 1981732): clean up <br><a href="https://www.imooc.com/qadetail/327658" target="_blank" rel="noopener">-it</a>: wait for container cmds to be executed <br>-d: run in background and return container id <br>–mount: <a href="https://blog.csdn.net/longlong6682/article/details/104730138" target="_blank" rel="noopener">https://blog.csdn.net/longlong6682/article/details/104730138</a> <br>cat: seems like catting the container id</p>
- <center>
-        
-          <a class="article-more-link" href="/2020/07/16/3pp-upgrade/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/16/3pp-upgrade/" data-id="ckhfswa0k006tv8hrv5b3ah7p"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/record/">record</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/work-flow/">work flow</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
         <article id="post-request-nodejs" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -240,7 +103,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/14/request-nodejs/" data-id="ckhfsw9vv0032v8hrahu1b3ln"
+      <a data-url="https://visionary-s.github.io/2020/07/14/request-nodejs/" data-id="ckhfv77ju002ydkhr3hnn3wjn"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
@@ -309,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/19/nodejs-req-timeout/" data-id="ckhfsw9uj002gv8hreolwmcik"
+      <a data-url="https://visionary-s.github.io/2020/05/19/nodejs-req-timeout/" data-id="ckhfv77ix002fdkhryn9bk02r"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
@@ -375,10 +238,81 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/18/postgres-tips/" data-id="ckhfsw9ux002nv8hra4s4y1ua"
+      <a data-url="https://visionary-s.github.io/2020/05/18/postgres-tips/" data-id="ckhfv77j9002pdkhrpdk2ylxp"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgres/">postgres</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-docker-error" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/05/13/docker-error/">docker errors in daily use</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/05/13/docker-error/" class="article-date">
+  <time datetime="2020-05-12T16:00:00.000Z" itemprop="datePublished">2020-05-13</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="Error1"><a href="#Error1" class="headerlink" title="Error1"></a>Error1</h3><ul>
+<li>Steps to reproduce the error:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get pods -A</span><br><span class="line">Unable to connect to the server: EOF</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>According to <a href="https://stackoverflow.com/questions/55234700/docker-for-windows-ce-kubernetes-unable-to-connect-to-the-server-eof" target="_blank" rel="noopener">this answer</a>, I tried</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps -a --filter name=k8s_kubedns_kube-dns --format <span class="string">"table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Image&#125;&#125;"</span></span><br><span class="line">Error response from daemon: open \\.\pipe\docker_engine_linux: The system cannot find the file specified.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps</span><br><span class="line">Error response from daemon: open \\.\pipe\docker_engine_linux: The system cannot find the file specified.</span><br><span class="line">$ docker info</span><br><span class="line">Client:</span><br><span class="line"> Debug Mode: <span class="literal">false</span></span><br><span class="line">Server:</span><br><span class="line">ERROR: Error response from daemon: open \\.\pipe\docker_engine_linux: The system cannot find the file specifie                                                                            d.</span><br><span class="line">errors pretty printing info</span><br></pre></td></tr></table></figure>
+
+<p>Search for <code>Error response from daemon</code>, I found <a href="https://github.com/docker/for-win/issues/4495" target="_blank" rel="noopener">this issue</a> same to mine</p>
+<center>
+        
+          <a class="article-more-link" href="/2020/05/13/docker-error/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/05/13/docker-error/" data-id="ckhfv77ib001zdkhr7xubntus"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
 
     </footer>
 
@@ -447,81 +381,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/13/windows-error/" data-id="ckhfsw9wj003fv8hrk72phu2p"
+      <a data-url="https://visionary-s.github.io/2020/05/13/windows-error/" data-id="ckhfv77od0068dkhrd4uiqz35"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bash/">bash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/powershell/">powershell</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-docker-error" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/05/13/docker-error/">docker errors in daily use</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/05/13/docker-error/" class="article-date">
-  <time datetime="2020-05-12T16:00:00.000Z" itemprop="datePublished">2020-05-13</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h3 id="Error1"><a href="#Error1" class="headerlink" title="Error1"></a>Error1</h3><ul>
-<li>Steps to reproduce the error:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get pods -A</span><br><span class="line">Unable to connect to the server: EOF</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>According to <a href="https://stackoverflow.com/questions/55234700/docker-for-windows-ce-kubernetes-unable-to-connect-to-the-server-eof" target="_blank" rel="noopener">this answer</a>, I tried</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps -a --filter name=k8s_kubedns_kube-dns --format <span class="string">"table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Image&#125;&#125;"</span></span><br><span class="line">Error response from daemon: open \\.\pipe\docker_engine_linux: The system cannot find the file specified.</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps</span><br><span class="line">Error response from daemon: open \\.\pipe\docker_engine_linux: The system cannot find the file specified.</span><br><span class="line">$ docker info</span><br><span class="line">Client:</span><br><span class="line"> Debug Mode: <span class="literal">false</span></span><br><span class="line">Server:</span><br><span class="line">ERROR: Error response from daemon: open \\.\pipe\docker_engine_linux: The system cannot find the file specifie                                                                            d.</span><br><span class="line">errors pretty printing info</span><br></pre></td></tr></table></figure>
-
-<p>Search for <code>Error response from daemon</code>, I found <a href="https://github.com/docker/for-win/issues/4495" target="_blank" rel="noopener">this issue</a> same to mine</p>
-<center>
-        
-          <a class="article-more-link" href="/2020/05/13/docker-error/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/13/docker-error/" data-id="ckhfsw9sg001hv8hrvmorgh22"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
 
     </footer>
 
@@ -589,7 +452,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/09/postgres-error-linux/" data-id="ckhfsw9ur002jv8hrxg9vdzpp"
+      <a data-url="https://visionary-s.github.io/2020/05/09/postgres-error-linux/" data-id="ckhfv77j5002mdkhriw2fc8mq"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgres/">postgres</a></li></ul>
@@ -725,7 +588,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/04/08/k8s-errors/" data-id="ckhfswa1h0070v8hr7enx2tbs"
+      <a data-url="https://visionary-s.github.io/2020/04/08/k8s-errors/" data-id="ckhfv77pd006mdkhrel5oq2sf"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
@@ -794,10 +657,148 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/04/07/Kubernetes/" data-id="ckhfsw9r1000mv8hrb7z3jh4b"
+      <a data-url="https://visionary-s.github.io/2020/04/07/Kubernetes/" data-id="ckhfv77gv000wdkhrcg02id4y"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-k8s-ipv6-dualstack-support" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/03/20/k8s-ipv6-dualstack-support/">Support ipv6/dualStack in K8s</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/03/20/k8s-ipv6-dualstack-support/" class="article-date">
+  <time datetime="2020-03-19T16:00:00.000Z" itemprop="datePublished">2020-03-20</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p><strong>记录惊天巨坑enable ipv6 and dual stack for our product，从k8s安装开始</strong></p>
+<p><em>0. 原来产品是本地安装测试的，仅支持ipv4安装很简便，但这次要求支持ipv6/dualStack，根据<a href="https://kubernetes.io/docs/concepts/services-networking/dual-stack/" target="_blank" rel="noopener">官网文档</a>，我们需要1.16版本以上的kubernetes，<code>kubectl version</code>查看本地版本:</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Client Version: version.Info&#123;Major:<span class="string">"1"</span>, Minor:<span class="string">"14"</span>, GitVersion:<span class="string">"v1.14.8"</span>, GitCommit:<span class="string">"211047e9a1922595eaa3a1127ed365e9299a6c23"</span>, GitTreeState:<span class="string">"clean"</span>, BuildDate:<span class="string">"2019-10-15T12:11:03Z"</span>, GoVersion:<span class="string">"go1.12.10"</span>, Compiler:<span class="string">"gc"</span>, Platform:<span class="string">"windows/amd64"</span>&#125;</span><br><span class="line">Server Version: version.Info&#123;Major:<span class="string">"1"</span>, Minor:<span class="string">"14"</span>, GitVersion:<span class="string">"v1.14.8"</span>, GitCommit:<span class="string">"211047e9a1922595eaa3a1127ed365e9299a6c23"</span>, GitTreeState:<span class="string">"clean"</span>, BuildDate:<span class="string">"2019-10-15T12:02:12Z"</span>, GoVersion:<span class="string">"go1.12.10"</span>, Compiler:<span class="string">"gc"</span>, Platform:<span class="string">"linux/amd64"</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>1.14。。赶紧查docker desktop自带的kubernetes怎么更新，发现<a href="https://monkeywie.github.io/2019/09/16/k8s-update-operate/" target="_blank" rel="noopener">要写deploy</a>测试或者<a href="https://www.cnblogs.com/lonelyxmas/p/10670477.html" target="_blank" rel="noopener">重装k8s?</a> 感觉不适用。因为这是docker自带的不知道重装会不会有别的影响。决定直接装到我们组的remote server上，这样测试也可以一步到位。</em></p>
+<center>
+        
+          <a class="article-more-link" href="/2020/03/20/k8s-ipv6-dualstack-support/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/03/20/k8s-ipv6-dualstack-support/" data-id="ckhfv77px006qdkhr2sx28jk9"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/k8s/">k8s</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-shell" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/02/11/shell/">shell grammar</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/02/11/shell/" class="article-date">
+  <time datetime="2020-02-10T16:00:00.000Z" itemprop="datePublished">2020-02-11</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="gt-amp-gt-gt"><a href="#gt-amp-gt-gt" class="headerlink" title="&gt; &amp; &gt;&gt;"></a>&gt; &amp; &gt;&gt;</h3><ol>
+<li><p><code>&gt;</code> 创建</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"hello shell"</span> &gt; output.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>&gt;&gt;</code> 追加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"hello shell"</span> &gt;&gt; output.txt</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<blockquote>
+<p>当output.txt不存在时，两者都会创建一个新的output.txt；<br>当output.txt存在时，前者会清空并重新写入，后者怎会在末尾追加</p>
+</blockquote>
+<p>ref: <a href="https://blog.csdn.net/nahanai/article/details/83861449" target="_blank" rel="noopener">https://blog.csdn.net/nahanai/article/details/83861449</a></p>
+<center>
+        
+          <a class="article-more-link" href="/2020/02/11/shell/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/02/11/shell/" data-id="ckhfv77k80035dkhrqzpt3hkq"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
 
     </footer>
 

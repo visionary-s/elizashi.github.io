@@ -57,144 +57,6 @@
 
     
       
-        <article id="post-k8s-ipv6-dualstack-support" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/03/20/k8s-ipv6-dualstack-support/">Support ipv6/dualStack in K8s</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/03/20/k8s-ipv6-dualstack-support/" class="article-date">
-  <time datetime="2020-03-19T16:00:00.000Z" itemprop="datePublished">2020-03-20</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p><strong>记录惊天巨坑enable ipv6 and dual stack for our product，从k8s安装开始</strong></p>
-<p><em>0. 原来产品是本地安装测试的，仅支持ipv4安装很简便，但这次要求支持ipv6/dualStack，根据<a href="https://kubernetes.io/docs/concepts/services-networking/dual-stack/" target="_blank" rel="noopener">官网文档</a>，我们需要1.16版本以上的kubernetes，<code>kubectl version</code>查看本地版本:</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Client Version: version.Info&#123;Major:<span class="string">"1"</span>, Minor:<span class="string">"14"</span>, GitVersion:<span class="string">"v1.14.8"</span>, GitCommit:<span class="string">"211047e9a1922595eaa3a1127ed365e9299a6c23"</span>, GitTreeState:<span class="string">"clean"</span>, BuildDate:<span class="string">"2019-10-15T12:11:03Z"</span>, GoVersion:<span class="string">"go1.12.10"</span>, Compiler:<span class="string">"gc"</span>, Platform:<span class="string">"windows/amd64"</span>&#125;</span><br><span class="line">Server Version: version.Info&#123;Major:<span class="string">"1"</span>, Minor:<span class="string">"14"</span>, GitVersion:<span class="string">"v1.14.8"</span>, GitCommit:<span class="string">"211047e9a1922595eaa3a1127ed365e9299a6c23"</span>, GitTreeState:<span class="string">"clean"</span>, BuildDate:<span class="string">"2019-10-15T12:02:12Z"</span>, GoVersion:<span class="string">"go1.12.10"</span>, Compiler:<span class="string">"gc"</span>, Platform:<span class="string">"linux/amd64"</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<p><em>1.14。。赶紧查docker desktop自带的kubernetes怎么更新，发现<a href="https://monkeywie.github.io/2019/09/16/k8s-update-operate/" target="_blank" rel="noopener">要写deploy</a>测试或者<a href="https://www.cnblogs.com/lonelyxmas/p/10670477.html" target="_blank" rel="noopener">重装k8s?</a> 感觉不适用。因为这是docker自带的不知道重装会不会有别的影响。决定直接装到我们组的remote server上，这样测试也可以一步到位。</em></p>
-<center>
-        
-          <a class="article-more-link" href="/2020/03/20/k8s-ipv6-dualstack-support/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/03/20/k8s-ipv6-dualstack-support/" data-id="ckhfswa2e0074v8hr2ow5x6vq"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/k8s/">k8s</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-shell" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/02/11/shell/">shell grammar</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/02/11/shell/" class="article-date">
-  <time datetime="2020-02-10T16:00:00.000Z" itemprop="datePublished">2020-02-11</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h3 id="gt-amp-gt-gt"><a href="#gt-amp-gt-gt" class="headerlink" title="&gt; &amp; &gt;&gt;"></a>&gt; &amp; &gt;&gt;</h3><ol>
-<li><p><code>&gt;</code> 创建</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"hello shell"</span> &gt; output.txt</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>&gt;&gt;</code> 追加</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"hello shell"</span> &gt;&gt; output.txt</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<blockquote>
-<p>当output.txt不存在时，两者都会创建一个新的output.txt；<br>当output.txt存在时，前者会清空并重新写入，后者怎会在末尾追加</p>
-</blockquote>
-<p>ref: <a href="https://blog.csdn.net/nahanai/article/details/83861449" target="_blank" rel="noopener">https://blog.csdn.net/nahanai/article/details/83861449</a></p>
-<center>
-        
-          <a class="article-more-link" href="/2020/02/11/shell/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/02/11/shell/" data-id="ckhfsw9vq0030v8hru3mcovsx"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
         <article id="post-docker" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -251,7 +113,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/20/docker/" data-id="ckhfsw9s6001dv8hrt46q9ro9"
+      <a data-url="https://visionary-s.github.io/2020/01/20/docker/" data-id="ckhfv77hx001pdkhry6ykxzun"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
@@ -316,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/19/sequelize/" data-id="ckhfsw9w70038v8hr8pruwe4r"
+      <a data-url="https://visionary-s.github.io/2020/01/19/sequelize/" data-id="ckhfv77kl003cdkhrgu48ezz7"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
@@ -383,7 +245,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/19/create-react-app/" data-id="ckhfsw9rw0016v8hrj7iiyyla"
+      <a data-url="https://visionary-s.github.io/2020/01/19/create-react-app/" data-id="ckhfv77ha0018dkhrx1pbf0fy"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/framework/">framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -447,7 +309,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/08/js-getter/" data-id="ckhfsw9td001uv8hrdel2lnnu"
+      <a data-url="https://visionary-s.github.io/2020/01/08/js-getter/" data-id="ckhfv77if0022dkhrk0oebt5t"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -517,7 +379,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/07/mini-program/" data-id="ckhfsw9to0021v8hrhbak7pai"
+      <a data-url="https://visionary-s.github.io/2020/01/07/mini-program/" data-id="ckhfv77iq0029dkhrd4tpr8eb"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mini-program/">mini-program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/resource/">resource</a></li></ul>
@@ -579,7 +441,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/12/23/NBIandSBI/" data-id="ckhfsw9qw000iv8hrsrpxfwjq"
+      <a data-url="https://visionary-s.github.io/2019/12/23/NBIandSBI/" data-id="ckhfv77ho001idkhraioyv95s"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interface/">interface</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
@@ -644,7 +506,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/12/18/send quantity of http requests via shell/" data-id="ckhfsw9wd003bv8hruq8cbt0l"
+      <a data-url="https://visionary-s.github.io/2019/12/18/send quantity of http requests via shell/" data-id="ckhfv77kf0039dkhrec7fze9y"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
@@ -713,10 +575,141 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/12/09/About Gson LinkedTreeMap/" data-id="ckhfsw9ph0000v8hrrq18djxp"
+      <a data-url="https://visionary-s.github.io/2019/12/09/About Gson LinkedTreeMap/" data-id="ckhfv77fp0006dkhr6c6df1uy"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FT/">FT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structure/">data structure</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-openlayer-knowledge" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/08/19/openlayer-knowledge/">Some tips about OpenLayer</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/08/19/openlayer-knowledge/" class="article-date">
+  <time datetime="2019-08-18T16:00:00.000Z" itemprop="datePublished">2019-08-19</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>Using openlayer in work currently and need to write down some notes about it.</p>
+<h3 id="EPSG-4326-VS-EPSG-3857"><a href="#EPSG-4326-VS-EPSG-3857" class="headerlink" title="EPSG 4326 VS EPSG 3857"></a>EPSG 4326 VS EPSG 3857</h3><p>地理Coordiante系统由EPSG编号标识。最常用于网络地图应用的两个坐标系统是EPSG：4326和EPSG：3857。</p>
+<ul>
+<li><strong>EPSG：4326</strong>（又名WGS84，未投影）是一个地理的非项目坐标系。它是lat，longs GPS显示器，单位是十进制度。EPSG：4326无法在平面地图上以有意义的方式显示。</li>
+<li><strong>EPSG：3857</strong>（又名Pseudo-Mercator，球形墨卡托或Web墨卡托）是投影坐标系。这是Google Maps和几乎所有其他Web制图应用程序使用的坐标系。</li>
+</ul>
+<p>通常，数据存储在EPSG：4326中并显示在EPSG：3857中，自行转换。</p>
+<p><a href="http://liubf.com/2018/08/22/epsg-4326-vs-epsg-3857/" target="_blank" rel="noopener">ref link</a></p>
+ <center>
+        
+          <a class="article-more-link" href="/2019/08/19/openlayer-knowledge/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2019/08/19/openlayer-knowledge/" data-id="ckhfv77j1002jdkhrokipx13i"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openlayer/">openlayer</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-webUploader" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/08/19/webUploader/">WebUploader</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/08/19/webUploader/" class="article-date">
+  <time datetime="2019-08-18T16:00:00.000Z" itemprop="datePublished">2019-08-19</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>Using <a href="https://fex.baidu.com/webuploader/doc/index.html" target="_blank" rel="noopener">WebUploader</a> as 3pp to upload files to system.</p>
+<h3 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 仅包含了常用参数</span></span><br><span class="line"><span class="keyword">var</span> uploader = <span class="keyword">new</span> WebUploader.Uploader(&#123;</span><br><span class="line">    duplicate: <span class="literal">true</span>, <span class="comment">// 是否允许重复文件 default undefined</span></span><br><span class="line">    auto: <span class="literal">false</span>,  <span class="comment">// 选完文件后，是否自动上传</span></span><br><span class="line">    swf: <span class="string">'path_of_swf/Uploader.swf'</span>,  <span class="comment">// swf文件路径</span></span><br><span class="line">    server: <span class="string">"/upload.html"</span>, <span class="comment">// 文件接收服务端</span></span><br><span class="line">    pick: &#123; <span class="attr">id</span>: <span class="string">"#uploadFile"</span>, <span class="attr">innerHTML</span>: <span class="string">"localImg"</span> &#125;, <span class="comment">// 选择文件的按钮。可选</span></span><br><span class="line">    accept: &#123; <span class="comment">// sample, 只允许选择图片文件</span></span><br><span class="line">            title: <span class="string">'Images'</span>,</span><br><span class="line">            extensions: <span class="string">'gif,jpg,jpeg,bmp,png'</span>,</span><br><span class="line">            mimeTypes: <span class="string">'image/*'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    threads: <span class="number">1</span>, <span class="comment">// 线程数</span></span><br><span class="line">    fileSingleSizeLimit: <span class="number">2000</span>,  <span class="comment">// 单文件大小限制</span></span><br><span class="line">    fileNumLimit: <span class="number">10</span>,  <span class="comment">// 单次上传文件数量限制</span></span><br><span class="line">    fileSingleSizeLimit:  <span class="comment">// 验证单个文件大小是否超出限制, 超出则不允许加入队列</span></span><br><span class="line">    compress:<span class="literal">false</span>, <span class="comment">// 是否压缩上传</span></span><br><span class="line">    chunked: <span class="literal">true</span>, <span class="comment">// 是否要分片处理大文件上传, default false</span></span><br><span class="line">    chunkSize: <span class="number">5242880</span>, <span class="comment">// 如果要分片，分多大一片？ default 5242880 (5M)</span></span><br><span class="line">    chunkRetry: <span class="number">1</span>,  <span class="comment">// 如果某个分片由于网络问题出错，允许自动重传多少次？ default 2</span></span><br><span class="line">    threads: <span class="number">1</span>, <span class="comment">// 上传并发数。允许同时最大上传进程数 default 3</span></span><br><span class="line">    formData:&#123;&#125;, <span class="comment">// 文件上传请求的参数表，每次发送都会发送此对象中的参数</span></span><br><span class="line">    method: <span class="string">'GET'</span>,  <span class="comment">// POST or GET, default POST</span></span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+ <center>
+        
+          <a class="article-more-link" href="/2019/08/19/webUploader/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2019/08/19/webUploader/" data-id="ckhfv77kr003fdkhrkzmymsli"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebUploader/">WebUploader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
 
     </footer>
 
