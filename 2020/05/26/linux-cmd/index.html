@@ -105,9 +105,14 @@
 <hr>
 <h3 id="grep-awk-amp-sed"><a href="#grep-awk-amp-sed" class="headerlink" title="grep, awk &amp; sed"></a>grep, awk &amp; sed</h3><p><strong>AWSOME specific summary! –&gt; <a href="http://blog.cee.moe/a-brief-introduction-to-grep-awk-and-sed.html" target="_blank" rel="noopener">A brief introduction to grep, awk &amp; sed</a></strong></p>
 <ol>
-<li><p><strong><code>grep</code> (Global Regular Expression Print)</strong> is used to search for specific terms in a file.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ grep <span class="string">'test'</span> file.txt</span><br></pre></td></tr></table></figure>
+<li><strong><code>grep</code> (Global Regular Expression Print)</strong> is used to search for specific terms in a file.<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ grep <span class="built_in">test</span> testscript  <span class="comment"># grep keyword filename</span></span><br><span class="line">just <span class="keyword">for</span> <span class="built_in">test</span></span><br><span class="line">$ grep <span class="built_in">test</span> * <span class="comment"># grep keyword all_files</span></span><br><span class="line">testCase:<span class="built_in">test</span></span><br><span class="line">testscript:just <span class="keyword">for</span> <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
 </li>
+</ol>
+<p>If multiple keywords are selected:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ less filename | grep -E <span class="string">"kw1|kw2"</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ grep -E <span class="string">"kw1|kw2"</span> filename</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
 <li><p><strong><code>awk</code></strong> is a text pattern scanning and processing language, which is created by <strong>A</strong>ho, <strong>W</strong>einberger &amp; <strong>K</strong>ernighan. awk is mostly used for <strong>data extraction and reporting</strong> (dealing with .csv files).</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">print</span> 1st and 4th column</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> awk <span class="string">'&#123;print $1, $4&#125;'</span> file.txt</span></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> same with <span class="string">'cat file.txt'</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> awk <span class="string">'&#123;print $0&#125;'</span> file.txt</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="keyword">for</span> more see the reference</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -143,16 +148,43 @@
 <p>e.g.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@host63 ~]# netstat -tunlp | grep 32228</span><br><span class="line">tcp6       0      0 :::32228                :::*                    LISTEN      21592/kube-proxy</span><br></pre></td></tr></table></figure>
 
-<h3 id="search-for-files"><a href="#search-for-files" class="headerlink" title="search for files"></a>search for files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ find / -name *&lt;tap here&gt;*</span><br></pre></td></tr></table></figure>
+<h3 id="search-for-files"><a href="#search-for-files" class="headerlink" title="search for files"></a>search for files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ find / -name *&lt;tap here&gt;* <span class="comment"># search from all files</span></span><br><span class="line">$ find . -name *&lt;tap here&gt;* <span class="comment"># search under current path</span></span><br></pre></td></tr></table></figure>
 
 <p>or</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ whereis &lt;name here&gt;</span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>whereis命令只能用于程序名的搜索，而且只搜索二进制文件（参数-b）、man说明文件（参数-m）和源代码文件（参数-s）。如果省略参数，则返回所有信息</p>
+</blockquote>
+<p>For more. refer <a href="http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html</a></p>
+<h3 id="permit"><a href="#permit" class="headerlink" title="permit"></a>permit</h3><ol>
+<li>give execution permit to certain <strong>file</strong>:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod +x file.sh</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>Then <code>file.sh</code> is a executable file and display in green, also use <code>-</code> can revert permit and the target file will return back to white.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod -x file.sh</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>777: give read, write and execution permit to file/folder:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod -R 777 *</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>Above cmd means give permits to all files or folders under current path, also we can use specific file name to institute <code>*</code>. \</p>
+<blockquote>
+<p>777:分别对应文件实际拥有者，文件实际拥有者所在的组，其它用户的权限，数字权限是基于八进制数字系统而创建的，读权限（read，r）的值是4，写权限（write，w）的值是2，执行权限（execute，x）的值是1，没有授权的值是0</p>
+</blockquote>
+<h3 id="tcsh-set-resource"><a href="#tcsh-set-resource" class="headerlink" title="tcsh set resource"></a>tcsh set resource</h3><p>Linux usually use bash as the default shell, but for specific working env whcih only tcsh is allowed, use the following file to change the shell style. It serves as <code>.bashrc</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi ~/.cshrc</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>tcsh is an improved version of csh (c-shell)</p>
+</blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/26/linux-cmd/" data-id="ckeurtv6b001tachropwx2tkf"
+      <a data-url="https://visionary-s.github.io/2020/05/26/linux-cmd/" data-id="ckhfsw9ud002dv8hrqpv80xyu"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>

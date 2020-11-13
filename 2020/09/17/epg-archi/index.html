@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    EPG Architecture |
+    
+    Solito</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-epg-archi" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      EPG Architecture
+    </h1>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/09/17/epg-archi/" class="article-date">
+  <time datetime="2020-09-16T16:00:00.000Z" itemprop="datePublished">2020-09-17</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p><a name="index"></a> This is a study record of product EPG Architecture.</p>
+<ul>
+<li><a href="#arch">Architecture</a></li>
+<li><a href="#platform">Platform</a></li>
+<li><a href="#app">Application</a></li>
+<li><a href="#deploy">Deployment</a></li>
+</ul>
+<h3 id="Architecture"><a href="#Architecture" class="headerlink" title=" Architecture"></a><a name="arch"></a> Architecture</h3><p>Architecture mainly consists of two parts:</p>
+<ul>
+<li>Application: software</li>
+<li>Platform: IPOS, Hardware</li>
+</ul>
+<h3 id="Platform"><a href="#Platform" class="headerlink" title=" Platform"></a><a name="platform"></a> Platform</h3> <center>
+ <img src="https://res.cloudinary.com/elizashi/image/upload/v1600331266/gitblog/posts/epg-product/SSR_Platform_wkdnyz.png" style="width: 80%">
+ </center>
+
+ <center><em>logical architecture of the SSR platform</em></center>
+
+ <center><a id="more"></a></center>
+
+<p> The key components of the platform logical architecture are as follows:</p>
+<ul>
+<li>Route-Processor/Switch (RPSW): RP = Route-Processor, main controller in system. SW = switch = SW card</li>
+<li>SW: SW card</li>
+<li>Alarm/Switch (ALSW)</li>
+<li>Line Card: connect with external nodes and provide Layer 2 &amp; 3 with data forwarding</li>
+<li>Platform Control Plane Switching and Switch Fabric: A dedicated 10-Gigabit Ethernet Control Plane switching and a switch fabric manage communication between controller cards (PRSW, ALSW, SW) and line cards</li>
+<li>Smart Services Card (SSC): for details see section <a href="#hardware">Hardware</a></li>
+</ul>
+<p><a href="#index">Back to top ↑</a></p>
+<h3 id="Application"><a href="#Application" class="headerlink" title=" Application"></a><a name="app"></a> Application</h3><p>Appliction = CP + UP apps running on the SSCs. Each SSC is assigned as <em>Control Processing Board (<strong>CPB</strong>)</em> or <em>Packet Processing Board (<strong>PPB</strong>)</em>.</p>
+<ol>
+<li><p>Control plane app</p>
+<table>
+<thead>
+<tr>
+<th>CP app</th>
+<th>function &amp; role</th>
+<th>others</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GSC (Global Session Controller)</td>
+<td>1. <strong>admission control</strong><br> 2. shared IP pool functionality</td>
+<td>can run on any CPB</td>
+</tr>
+<tr>
+<td>PSC (PGW Session Controller)</td>
+<td>1. establishes and controls user sessions towards the APN networks &amp; external nodes (e.g. Online Charging System (OCS)) by processing GTP-C messages received on the <strong>Gn/Gp, S5/S8-C, GTP-based S2a, and S2b interfaces</strong><br> 2. gathering of performance statistics, charging data generation, forwarding of PGW Charging Data Records (CDRs) and Rf ACRs</td>
+<td>All PSC instances <strong>share a single IP address per network</strong> and the PGW-C communicates each logical interface IP address to the surrounding nodes in the same network through signalling messages</td>
+</tr>
+<tr>
+<td>SSC (SGW Session Controller)</td>
+<td>1. establishes and controls user sessions by processing GTP-C messages received on the <strong>S4-C, S5/S8-C, and S11-C interfaces</strong><br> 2. charging data generation for SGW-CDRs and Rf ACRs</td>
+<td>Same single IP mode as above</td>
+</tr>
+</tbody></table>
+<p>For details about control plane functionality, see section <a href="#pgw-c">PGW-C overview</a> and <a href="#sgw-c">SGW-C overview</a></p>
+</li>
+<li><p>User plane app <br>runs on user plane PPBs</p>
+<table>
+<thead>
+<tr>
+<th>UP app</th>
+<th>function &amp; role</th>
+<th>others</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Data plane</td>
+<td>handling real-time user packet</td>
+<td></td>
+</tr>
+<tr>
+<td>PFCP End-point</td>
+<td>control plane of the UP<br>the end-point of PFCP  (Packet Forwarding Control Plane) communication between the Sx and N4 interface<br>session mgrmt</td>
+<td>stateless</td>
+</tr>
+<tr>
+<td>Timer Wheel</td>
+<td>timer created for session<br>check DB for session expire</td>
+<td>stateless</td>
+</tr>
+<tr>
+<td>DB</td>
+<td>store session info</td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<p><a href="#index">Back to top ↑</a></p>
+<h3 id="Deployment-Types"><a href="#Deployment-Types" class="headerlink" title=" Deployment Types"></a><a name="deploy"></a> Deployment Types</h3><ol>
+<li><p>EPG runs as a <strong>standalone UP node</strong></p>
+<center>
+<img src="https://res.cloudinary.com/elizashi/image/upload/v1600672702/gitblog/posts/epg-product/standaloneEPG_jta3rm.png" style="width: 60%">
+</center>
+
+<p>Above shows an example of a standalone UP node acting as a combined PGW-U and SGW-U, with all its network IP addresses and ranges.</p>
+</li>
+<li><p>EPG runs with the UP node functionality and the CP node functionality deployed on the same SSR chassis, where CP and UP share the same O&amp;M admin login address but are logically two separate <strong>single nodes</strong>.</p>
+<center>
+<img src="https://res.cloudinary.com/elizashi/image/upload/v1600673600/gitblog/posts/epg-product/singleNodeEPG_vkkxpz.png" style="width: 90%">
+</center>
+
+<p>Above shows an example of an EPG running as a single node with all its applications and network IP addresses and ranges. <br>The minimum configuration for a single node deployment:</p>
+<ul>
+<li>Two CPBs: the PGW-C runs the PSC application and the SGW-C runs the SGW Session Controller app. If the node acts as a PGW-C, one CPB also runs the GSC application.</li>
+<li>Two PPBs running the UP app, which can be used as an SGW-U, a PGW-U or as a combined SGW-U and PGW-U</li>
+<li>Two RPSWs</li>
+</ul>
+</li>
+</ol>
+<p><a href="#index">Back to top ↑</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/09/17/epg-archi/" data-id="ckhfsw9t6001rv8hrtwwlavvy"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/packet-core/">packet core</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/product/">product</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/telecom/">telecom</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2020/09/21/epg-net/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            EPG Network
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/09/14/epg/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">EPG overview</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span> visitors</li>
+  
+</ul>
+
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 B. Eliza Shi</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/ming.svg" alt="Solito"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+    <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <!-- <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li> -->
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" href="https://github.com/visionary-s" title="GitHub">
+        <i class="fe fe-github"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+
+</aside>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/snap.svg-min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/search.js"></script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

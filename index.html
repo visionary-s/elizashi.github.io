@@ -57,6 +57,78 @@
 
     
       
+        <article id="post-linux-cmd" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/05/26/linux-cmd/">Linux CMD for daily use</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/05/26/linux-cmd/" class="article-date">
+  <time datetime="2020-05-26T07:53:00.257Z" itemprop="datePublished">2020-05-26</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="check-log"><a href="#check-log" class="headerlink" title="check log"></a>check log</h3><ol>
+<li><p>Display whole log file content:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Search key word in log file, and return lines containing keyword:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log |grep <span class="string">"keyword"</span></span><br><span class="line">or</span><br><span class="line">$ grep -i <span class="string">"keyword"</span> target.log</span><br></pre></td></tr></table></figure>
+
+<p>these two method return same result</p>
+</li>
+<li><p>Check the most recent log (the tail lines of log file):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log |tail -n 200   <span class="comment"># check the last 200 lines of log file</span></span><br><span class="line">or</span><br><span class="line">$ tail -200f target.log   <span class="comment"># show last 200 lines and continue printing new logs</span></span><br></pre></td></tr></table></figure>
+
+<center>
+        
+          <a class="article-more-link" href="/2020/05/26/linux-cmd/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/05/26/linux-cmd/" data-id="ckhfsw9ud002dv8hrqpv80xyu"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
         <article id="post-git-for-daily-use" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -110,10 +182,358 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/26/git-for-daily-use/" data-id="ckeurtv5w0017achr0ugkv0n7"
+      <a data-url="https://visionary-s.github.io/2020/05/26/git-for-daily-use/" data-id="ckhfsw9sy001ov8hrx5ujjr95"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-pyqt" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/09/28/pyqt/">PyQt Learning &amp; Practice</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/09/28/pyqt/" class="article-date">
+  <time datetime="2020-09-28T05:32:45.233Z" itemprop="datePublished">2020-09-28</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ pip install PyQt5</span><br><span class="line">Collecting PyQt5</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/43/cf/f89c7e632014cb8725fc30b36292ca709a5b5598e4e99fff09cb677fc898/PyQt5-5.15.1-5.15.1-cp35.cp36.cp37.cp38.cp39-none-win32.whl (51.2MB)</span><br><span class="line">     |████████████████████████████████| 51.2MB 117kB/s</span><br><span class="line">Collecting PyQt5-sip&lt;13,&gt;=12.8 (from PyQt5)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/69/eb/bb296c8a96eadacd5e91df3f5d600d9e4727b90e8b010cb86e146f995ce4/PyQt5_sip-12.8.1-cp37-cp37m-win32.whl (50kB)</span><br><span class="line">     |████████████████████████████████| 51kB 233kB/s</span><br><span class="line">Installing collected packages: PyQt5-sip, PyQt5</span><br><span class="line">Successfully installed PyQt5-5.15.1 PyQt5-sip-12.8.1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">$ pip install pyqt5-tools</span><br><span class="line">Collecting pyqt5-tools</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/68/5b/202a0dbe7774f26be5ade0fa42cbd4cc6fc4dc5b19c824dfccf6160f8566/pyqt5_tools-5.15.1.1.7.4-cp37-cp37m-win32.whl (48.1MB)</span><br><span class="line">     |█                               | 1.7MB 16kB/s eta 0:47:49ERROR: Exception:</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_vendor\urllib3\response.py"</span>, line 397, <span class="keyword">in</span> _error_catcher</span><br><span class="line">    yield</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_vendor\urllib3\response.py"</span>, line 479, <span class="keyword">in</span> <span class="built_in">read</span></span><br><span class="line">    data = self._fp.read(amt)</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_vendor\cachecontrol\filewrapper.py"</span>, line 62, <span class="keyword">in</span> <span class="built_in">read</span></span><br><span class="line">    data = self.__fp.read(amt)</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\http\client.py"</span>, line 457, <span class="keyword">in</span> <span class="built_in">read</span></span><br><span class="line">    n = self.readinto(b)</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\http\client.py"</span>, line 501, <span class="keyword">in</span> readinto</span><br><span class="line">    n = self.fp.readinto(b)</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\socket.py"</span>, line 589, <span class="keyword">in</span> readinto</span><br><span class="line">    <span class="built_in">return</span> self._sock.recv_into(b)</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\ssl.py"</span>, line 1071, <span class="keyword">in</span> recv_into</span><br><span class="line">    <span class="built_in">return</span> self.read(nbytes, buffer)</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\ssl.py"</span>, line 929, <span class="keyword">in</span> <span class="built_in">read</span></span><br><span class="line">    <span class="built_in">return</span> self._sslobj.read(len, buffer)</span><br><span class="line">socket.timeout: The <span class="built_in">read</span> operation timed out</span><br><span class="line"></span><br><span class="line">During handling of the above exception, another exception occurred:</span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\cli\base_command.py"</span>, line 188, <span class="keyword">in</span> main</span><br><span class="line">    status = self.run(options, args)</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\commands\install.py"</span>, line 345, <span class="keyword">in</span> run</span><br><span class="line">    resolver.resolve(requirement_set)</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\legacy_resolve.py"</span>, line 196, <span class="keyword">in</span> resolve</span><br><span class="line">    self._resolve_one(requirement_set, req)</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\legacy_resolve.py"</span>, line 359, <span class="keyword">in</span> _resolve_one</span><br><span class="line">    abstract_dist = self._get_abstract_dist_for(req_to_install)</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\legacy_resolve.py"</span>, line 307, <span class="keyword">in</span> _get_abstract_dist_for</span><br><span class="line">    self.require_hashes</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\operations\prepare.py"</span>, line 199, <span class="keyword">in</span> prepare_linked_requirement</span><br><span class="line">    progress_bar=self.progress_bar</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\download.py"</span>, line 1064, <span class="keyword">in</span> unpack_url</span><br><span class="line">    progress_bar=progress_bar</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\download.py"</span>, line 924, <span class="keyword">in</span> unpack_http_url</span><br><span class="line">    progress_bar)</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\download.py"</span>, line 1152, <span class="keyword">in</span> _download_http_url</span><br><span class="line">    _download_url(resp, link, content_file, hashes, progress_bar)</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\download.py"</span>, line 861, <span class="keyword">in</span> _download_url</span><br><span class="line">    hashes.check_against_chunks(downloaded_chunks)</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\utils\hashes.py"</span>, line 75, <span class="keyword">in</span> check_against_chunks</span><br><span class="line">    <span class="keyword">for</span> chunk <span class="keyword">in</span> chunks:</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\download.py"</span>, line 829, <span class="keyword">in</span> written_chunks</span><br><span class="line">    <span class="keyword">for</span> chunk <span class="keyword">in</span> chunks:</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\utils\ui.py"</span>, line 156, <span class="keyword">in</span> iter</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> it:</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\download.py"</span>, line 818, <span class="keyword">in</span> resp_read</span><br><span class="line">    decode_content=False):</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_vendor\urllib3\response.py"</span>, line 531, <span class="keyword">in</span> stream</span><br><span class="line">    data = self.read(amt=amt, decode_content=decode_content)</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_vendor\urllib3\response.py"</span>, line 496, <span class="keyword">in</span> <span class="built_in">read</span></span><br><span class="line">    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\contextlib.py"</span>, line 130, <span class="keyword">in</span> __exit__</span><br><span class="line">    self.gen.throw(<span class="built_in">type</span>, value, traceback)</span><br><span class="line">  File <span class="string">"c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_vendor\urllib3\response.py"</span>, line 402, <span class="keyword">in</span> _error_catcher</span><br><span class="line">    raise ReadTimeoutError(self._pool, None, <span class="string">'Read timed out.'</span>)</span><br><span class="line">pip._vendor.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host=<span class="string">'files.pythonhosted.org'</span>, port=443): Read timed out.</span><br><span class="line">WARNING: You are using pip version 19.2.3, however version 20.2.4 is available.</span><br><span class="line">You should consider upgrading via the <span class="string">'python -m pip install --upgrade pip'</span> <span class="built_in">command</span>.</span><br></pre></td></tr></table></figure>
+
+<p>rerun the install cmd, then finished with:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ pip install pyqt5-tools</span><br><span class="line">Collecting pyqt5-tools</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/68/5b/202a0dbe7774f26be5ade0fa42cbd4cc6fc4dc5b19c824dfccf6160f8566/pyqt5_tools-5.15.1.1.7.4-cp37-cp37m-win32.whl (48.1MB)</span><br><span class="line">     |████████████████████████████████| 48.1MB 656kB/s</span><br><span class="line">Collecting python-dotenv (from pyqt5-tools)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/f2/16/28d434b28c5be29a6af8fd0e3a2bda3bd30500ef0cd17bc79f7a6793a8d4/python_dotenv-0.14.0-py2.py3-none-any.whl</span><br><span class="line">Collecting click (from pyqt5-tools)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/d2/3d/fa76db83bf75c4f8d338c2fd15c8d33fdd7ad23a9b5e57eb6c5de26b430e/click-7.1.2-py2.py3-none-any.whl (82kB)</span><br><span class="line">     |████████████████████████████████| 92kB 590kB/s</span><br><span class="line">Requirement already satisfied: pyqt5==5.15.1 <span class="keyword">in</span> c:\users\eshibij\appdata\<span class="built_in">local</span>\programs\python\python37-32\lib\site-packages (from pyqt5-tools) (5.15.1)</span><br><span class="line">Requirement already satisfied: PyQt5-sip&lt;13,&gt;=12.8 <span class="keyword">in</span> c:\users\eshibij\appdata\<span class="built_in">local</span>\programs\python\python37-32\lib\site-packages (from pyqt5==5.15.1-&gt;pyqt5-tools) (12.8.1)</span><br><span class="line">Installing collected packages: python-dotenv, click, pyqt5-tools</span><br><span class="line">Successfully installed click-7.1.2 pyqt5-tools-5.15.1.1.7.4 python-dotenv-0.14.0</span><br><span class="line">WARNING: You are using pip version 19.2.3, however version 20.2.4 is available.</span><br><span class="line">You should consider upgrading via the <span class="string">'python -m pip install --upgrade pip'</span> <span class="built_in">command</span>.</span><br></pre></td></tr></table></figure>
+
+<p>check if successfully installed:<br>win + s and search with <code>designer</code>, then callout the Qt tool GUI.</p>
+<p>ref: <a href="https://blog.csdn.net/azuremouse/article/details/90338961" target="_blank" rel="noopener">https://blog.csdn.net/azuremouse/article/details/90338961</a></p>
+<h3 id="Widget"><a href="#Widget" class="headerlink" title="Widget"></a>Widget</h3><h3 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/09/28/pyqt/" data-id="ckhfsw9vj002wv8hr8330w6i1"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GUI/">GUI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyQt/">PyQt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-epg-net" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/09/21/epg-net/">EPG Network</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/09/21/epg-net/" class="article-date">
+  <time datetime="2020-09-20T16:00:00.000Z" itemprop="datePublished">2020-09-21</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p><a name="index"></a> This is a study record of product EPG Network.</p>
+<ul>
+<li><a href="#view">Overview</a></li>
+<li><a href="#eps">EPS</a></li>
+<li><a href="#cups">CUPS</a></li>
+<li><a href="#5gc">5G Core</a></li>
+</ul>
+<h3 id="Overview"><a href="#Overview" class="headerlink" title=" Overview"></a><a name="view"></a> Overview</h3><p>The EPG supports GPRS, EPS, and CUPS-based architecture technologies.</p>
+<ul>
+<li>GPRS: for GSM and WCDMA systems</li>
+<li>EPS: for LTE system and the non-3GPP networks</li>
+</ul>
+<h3 id="EPS-evolved-packet-system"><a href="#EPS-evolved-packet-system" class="headerlink" title=" EPS (evolved packet system)"></a><a name="eps"></a> EPS (evolved packet system)</h3><p>Below is a basic architecture of EPS. For more details, check related ppt in git backup.</p>
+<center>
+<img src="https://res.cloudinary.com/elizashi/image/upload/v1600244451/gitblog/posts/epg-product/EPS_z2todw.png" style="width: 80%">
+</center>
+
+ <center>
+        
+          <a class="article-more-link" href="/2020/09/21/epg-net/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/09/21/epg-net/" data-id="ckhfsw9s00019v8hriwx2ho7h"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/packet-core/">packet core</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/product/">product</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/telecom/">telecom</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-epg-archi" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/09/17/epg-archi/">EPG Architecture</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/09/17/epg-archi/" class="article-date">
+  <time datetime="2020-09-16T16:00:00.000Z" itemprop="datePublished">2020-09-17</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p><a name="index"></a> This is a study record of product EPG Architecture.</p>
+<ul>
+<li><a href="#arch">Architecture</a></li>
+<li><a href="#platform">Platform</a></li>
+<li><a href="#app">Application</a></li>
+<li><a href="#deploy">Deployment</a></li>
+</ul>
+<h3 id="Architecture"><a href="#Architecture" class="headerlink" title=" Architecture"></a><a name="arch"></a> Architecture</h3><p>Architecture mainly consists of two parts:</p>
+<ul>
+<li>Application: software</li>
+<li>Platform: IPOS, Hardware</li>
+</ul>
+<h3 id="Platform"><a href="#Platform" class="headerlink" title=" Platform"></a><a name="platform"></a> Platform</h3> <center>
+ <img src="https://res.cloudinary.com/elizashi/image/upload/v1600331266/gitblog/posts/epg-product/SSR_Platform_wkdnyz.png" style="width: 80%">
+ </center>
+
+ <center><em>logical architecture of the SSR platform</em></center>
+
+ <center>
+        
+          <a class="article-more-link" href="/2020/09/17/epg-archi/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/09/17/epg-archi/" data-id="ckhfsw9t6001rv8hrtwwlavvy"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/packet-core/">packet core</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/product/">product</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/telecom/">telecom</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-3gpp-protocol" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/09/14/3gpp-protocol/">Phase1 - Mobile Packet Core</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/09/14/3gpp-protocol/" class="article-date">
+  <time datetime="2020-09-13T16:00:00.000Z" itemprop="datePublished">2020-09-14</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>This is a study record of <a href="https://www.3gpp.org/ftp/Specs/archive/23_series/23.060/" target="_blank" rel="noopener">3GPP protocol</a>, here are some points to focus on:</p>
+<ul>
+<li>The architecture of GPRS, protocal stack</li>
+<li>The NEs of core network</li>
+<li>The differences and similarities between 3G/4G(attach/PDP context/secondary context/update/create/delete)</li>
+</ul>
+<h3 id="Architecture-of-GPRS"><a href="#Architecture-of-GPRS" class="headerlink" title="Architecture of GPRS"></a>Architecture of GPRS</h3><h3 id="Protocol-stack"><a href="#Protocol-stack" class="headerlink" title="Protocol stack"></a>Protocol stack</h3><h3 id="NEs-of-core-network"><a href="#NEs-of-core-network" class="headerlink" title="NEs of core network"></a>NEs of core network</h3><h3 id="Differences-between-3G-4G"><a href="#Differences-between-3G-4G" class="headerlink" title="Differences between 3G/4G"></a>Differences between 3G/4G</h3><h3 id="Similarities-between-3G-4G"><a href="#Similarities-between-3G-4G" class="headerlink" title="Similarities between 3G/4G"></a>Similarities between 3G/4G</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/09/14/3gpp-protocol/" data-id="ckhfsw9pu0002v8hrm24kou5l"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/packet-core/">packet core</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/protocol/">protocol</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/telecom/">telecom</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-epg" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/09/14/epg/">EPG overview</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/09/14/epg/" class="article-date">
+  <time datetime="2020-09-13T16:00:00.000Z" itemprop="datePublished">2020-09-14</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>The EPG is a fundamental component of the EPC and 5GC networks. EPG acts as a gateway between a mobile packet core network and other PDNs, such as the internet, corporate intranets, and private data networks.</p>
+<h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><ul>
+<li><a href="../2020/09/17/epg-archi/">Architecture</a></li>
+<li><a href="../2020/09/21/epg-net/">Network</a></li>
+<li><a href>Hardware</a></li>
+<li><a href>Functions</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/09/14/epg/" data-id="ckhfsw9ss001lv8hrp4zkklba"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/packet-core/">packet core</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/product/">product</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/telecom/">telecom</a></li></ul>
 
     </footer>
 
@@ -174,7 +594,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/09/07/java-sonar/" data-id="ckeurtv6g0020achr1g8c7vdy"
+      <a data-url="https://visionary-s.github.io/2020/09/07/java-sonar/" data-id="ckhfsw9tj001yv8hrphpmmclg"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sonar/">sonar</a></li></ul>
@@ -236,7 +656,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/27/js-skip-html-label/" data-id="ckeurtv69001qachrw2nxobes"
+      <a data-url="https://visionary-s.github.io/2020/07/27/js-skip-html-label/" data-id="ckhfsw9tv0025v8hrfk6cnzx2"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -300,418 +720,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/20/npm/" data-id="ckeurtv6u002hachr172l9u6s"
+      <a data-url="https://visionary-s.github.io/2020/07/20/npm/" data-id="ckhfsw9v4002qv8hrg9sksyp5"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-js-sonar" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/07/17/js-sonar/">Sonar Fix (node.js backend)</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/07/17/js-sonar/" class="article-date">
-  <time datetime="2020-07-16T16:00:00.000Z" itemprop="datePublished">2020-07-17</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>This is a record for sonar fixing for backend based on node.js.</p>
-<h3 id="Security-Hotspots"><a href="#Security-Hotspots" class="headerlink" title="Security Hotspots"></a>Security Hotspots</h3><p><em>Security Hotspots aren’t necessarily issues, but they need to be reviewed to make sure they aren’t vulnerabilities.</em></p>
-<h4 id="Make-sure-that-using-a-regular-expression-is-safe-here"><a href="#Make-sure-that-using-a-regular-expression-is-safe-here" class="headerlink" title="Make sure that using a regular expression is safe here"></a>Make sure that using a regular expression is safe here</h4><p><strong>Rule: Using regular expressions is security-sensitive</strong></p>
-<h5 id="1-original-code"><a href="#1-original-code" class="headerlink" title="1. original code:"></a>1. original code:</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> re = <span class="regexp">/^\d+(\.\d+)?$/</span>;</span><br></pre></td></tr></table></figure>
-
-<p>the rule recommend not using group<code>()</code> to reduce evaluate work load. 个人理解是，group内外都有\d+，可能有重复校验的问题</p>
- <center>
-        
-          <a class="article-more-link" href="/2020/07/17/js-sonar/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/17/js-sonar/" data-id="ckeurtv66001machr8rf146v9"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sonar/">sonar</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-3pp-upgrade" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/07/16/3pp-upgrade/">3PP Upgrade</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/07/16/3pp-upgrade/" class="article-date">
-  <time datetime="2020-07-15T16:00:00.000Z" itemprop="datePublished">2020-07-16</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>This is a record for my work to product 3pp upgrade.</p>
-<h3 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h3><p>log on a host server to build docker image and test deployment:</p>
-<ul>
-<li>log on a jump server first</li>
-<li>ssh e-id@seroius01502</li>
-</ul>
-<p>use xxxx/xxx-compiler(cdt2 image) to build frontend <br>use xxx/xxx-base(node image) to build backend</p>
-<h3 id="Compiler-frontend-cdt2-debugging"><a href="#Compiler-frontend-cdt2-debugging" class="headerlink" title="Compiler (frontend, cdt2) debugging"></a>Compiler (frontend, cdt2) debugging</h3><p>Run upgraded cdt2+node images as a container first:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker run --rm -it -d --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,src=/home/eshibij/cec-3pp-upgrade,dst=/usr/share sekidocker.rnd.ki.sw.ericsson.se/bolte/bcam/bcam-compiler:cdt_2.6.1-node_14.5 cat</span><br><span class="line">e2849d6f818cb1ccacc1ce58c41d2695d0315b60b37f976c221397a997a856a2</span><br></pre></td></tr></table></figure>
-
-<p>[–rm](<a href="https://blog.csdn.net/nzjdsds/article/details/8hexo" target="_blank" rel="noopener">https://blog.csdn.net/nzjdsds/article/details/8hexo</a> 1981732): clean up <br><a href="https://www.imooc.com/qadetail/327658" target="_blank" rel="noopener">-it</a>: wait for container cmds to be executed <br>-d: run in background and return container id <br>–mount: <a href="https://blog.csdn.net/longlong6682/article/details/104730138" target="_blank" rel="noopener">https://blog.csdn.net/longlong6682/article/details/104730138</a> <br>cat: seems like catting the container id</p>
- <center>
-        
-          <a class="article-more-link" href="/2020/07/16/3pp-upgrade/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/16/3pp-upgrade/" data-id="ckeurtv8w005tachrde96l3vi"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/record/">record</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/work-flow/">work flow</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-request-nodejs" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/07/14/request-nodejs/">Request API</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/07/14/request-nodejs/" class="article-date">
-  <time datetime="2020-07-13T16:00:00.000Z" itemprop="datePublished">2020-07-14</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>Request used in send request to other domain.<br><a href="https://blog.csdn.net/wuqingdeqing/article/details/99061026" target="_blank" rel="noopener">https://blog.csdn.net/wuqingdeqing/article/details/99061026</a> <br><a href="https://blog.csdn.net/miss1128726/article/details/49976855" target="_blank" rel="noopener">https://blog.csdn.net/miss1128726/article/details/49976855</a> <br>a basic sample of request:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">  uri: <span class="string">'http://api.example.fr/example/1.xml'</span>,</span><br><span class="line">  auth: &#123;</span><br><span class="line">    user: <span class="string">'test'</span>,</span><br><span class="line">    pass: <span class="string">'test'</span>,</span><br><span class="line">    sendImmediately: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">request(options, <span class="function"><span class="keyword">function</span>(<span class="params">error, response, body</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!error &amp;&amp; response.statusCode == <span class="number">200</span>)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'body : '</span> + body)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Code : '</span> + response.statusCode)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'error : '</span> + error)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'body : '</span> + body)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>This method has limitation for case that expecting to send datas to more than one server. Like, I want to send xml sais to multiple bdc servers, it turns out to only transfer datas to the last bdc. (using <code>request(options, responseHandler</code>)</p>
- <center>
-        
-          <a class="article-more-link" href="/2020/07/14/request-nodejs/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/14/request-nodejs/" data-id="ckeurtv6y002lachrvhhpvygf"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-linux-cmd" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/05/26/linux-cmd/">Linux CMD for daily use</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/05/26/linux-cmd/" class="article-date">
-  <time datetime="2020-05-26T07:53:00.257Z" itemprop="datePublished">2020-05-26</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h3 id="check-log"><a href="#check-log" class="headerlink" title="check log"></a>check log</h3><ol>
-<li><p>Display whole log file content:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Search key word in log file, and return lines containing keyword:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log |grep <span class="string">"keyword"</span></span><br><span class="line">or</span><br><span class="line">$ grep -i <span class="string">"keyword"</span> target.log</span><br></pre></td></tr></table></figure>
-
-<p>these two method return same result</p>
-</li>
-<li><p>Check the most recent log (the tail lines of log file):</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log |tail -n 200   <span class="comment"># check the last 200 lines of log file</span></span><br><span class="line">or</span><br><span class="line">$ tail -200f target.log   <span class="comment"># show last 200 lines and continue printing new logs</span></span><br></pre></td></tr></table></figure>
-
-<center>
-        
-          <a class="article-more-link" href="/2020/05/26/linux-cmd/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/26/linux-cmd/" data-id="ckeurtv6b001tachropwx2tkf"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-nodejs-req-timeout" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/05/19/nodejs-req-timeout/">Timeout in Node.JS</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/05/19/nodejs-req-timeout/" class="article-date">
-  <time datetime="2020-05-18T16:00:00.000Z" itemprop="datePublished">2020-05-19</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>Thanks for answers in <a href="https://stackoverflow.com/questions/6214902/how-to-set-a-timeout-on-a-http-request-in-node" target="_blank" rel="noopener">https://stackoverflow.com/questions/6214902/how-to-set-a-timeout-on-a-http-request-in-node</a> <br>The problem can mainly divided into two part in my implemention:</p>
-<ul>
-<li>connection timeout</li>
-<li>response timeout</li>
-</ul>
-<ol>
-<li><p>connection timeout <br>On request stage:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// set the desired timeout in options</span></span><br><span class="line"><span class="keyword">const</span> options = &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    timeout: <span class="number">3000</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// create a request</span></span><br><span class="line"><span class="keyword">const</span> request = http.request(options, response =&gt; &#123;</span><br><span class="line">    <span class="comment">// your callback here</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// use its "timeout" event to abort the request</span></span><br><span class="line">request.on(<span class="string">'timeout'</span>, () =&gt; &#123;</span><br><span class="line">    request.abort();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<center>
-        
-          <a class="article-more-link" href="/2020/05/19/nodejs-req-timeout/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/19/nodejs-req-timeout/" data-id="ckeurtv6i0023achrtxda7iyr"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-postgres-tips" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/05/18/postgres-tips/">Tips when using postgresql</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/05/18/postgres-tips/" class="article-date">
-  <time datetime="2020-05-17T16:00:00.000Z" itemprop="datePublished">2020-05-18</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h3 id="ERROR-column-“xxx”-does-not-exist"><a href="#ERROR-column-“xxx”-does-not-exist" class="headerlink" title="[ERROR] column “xxx” does not exist"></a>[ERROR] column “xxx” does not exist</h3><p>This issue happens when run <code>db=&gt; select * from &quot;ExxJobs&quot; where status=&quot;Ongoing&quot;;</code> <br>It returns</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ERROR:  column <span class="string">"Ongoing"</span> does not exist</span><br><span class="line">LINE 1: select * from <span class="string">"ExxJobs"</span> <span class="built_in">where</span> status=<span class="string">"Ongoing"</span>;</span><br><span class="line">                                             ^</span><br><span class="line">ERROR:  column <span class="string">"ongoing"</span> does not exist</span><br><span class="line">LINE 1: select * from <span class="string">"ExxJobs"</span> <span class="built_in">where</span> status=Ongoing;</span><br><span class="line">                                             ^</span><br></pre></td></tr></table></figure>
-
-<p><strong>Solution</strong> <br>just change “” to ‘’.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db=&gt; select * from <span class="string">"ExxJobs"</span> <span class="built_in">where</span> status=<span class="string">'Ongoing'</span>;</span><br><span class="line"> id | <span class="built_in">type</span>| xxxJobId |   xxxJobUrl  | status  | errorMessage |         createdAt          |         updatedAt</span><br><span class="line">----+-----------------+----------+--------------------------------------------------------------------------------------------------------+---------+--------------+----------------------------+----------------------------</span><br><span class="line"> 16 | ... | 22947534 |   &#123;<span class="string">"..."</span>&#125;   |  Ongoing |              | 2020-05-18 06:17:32.525+00 | 2020-05-18 06:17:32.544+00</span><br><span class="line">(1 row)</span><br></pre></td></tr></table></figure>
-
-<p>similarly:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cecdb=&gt; delete from <span class="string">"ExxJobs"</span> <span class="built_in">where</span> <span class="string">'xxxJobId'</span>=22674314;</span><br><span class="line">ERROR:  invalid input syntax <span class="keyword">for</span> <span class="built_in">integer</span>: <span class="string">"xxxJobId"</span></span><br><span class="line">LINE 1: delete from <span class="string">"ExxJobs"</span> <span class="built_in">where</span> <span class="string">'xxxJobId'</span>=22674314;</span><br><span class="line"></span><br><span class="line">db=&gt; delete from <span class="string">"ExxJobs"</span> <span class="built_in">where</span> <span class="string">"xxxJobId"</span>=<span class="string">'22674314'</span>;</span><br><span class="line">DELETE 1</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/18/postgres-tips/" data-id="ckeurtv6o002bachr6qfivkab"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgres/">postgres</a></li></ul>
 
     </footer>
 
@@ -732,7 +744,7 @@
   
     <nav class="page-nav">
       
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next page</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next page</a>
     </nav>
   
 </section>

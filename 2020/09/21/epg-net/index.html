@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    EPG Network |
+    
+    Solito</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-epg-net" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      EPG Network
+    </h1>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/09/21/epg-net/" class="article-date">
+  <time datetime="2020-09-20T16:00:00.000Z" itemprop="datePublished">2020-09-21</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p><a name="index"></a> This is a study record of product EPG Network.</p>
+<ul>
+<li><a href="#view">Overview</a></li>
+<li><a href="#eps">EPS</a></li>
+<li><a href="#cups">CUPS</a></li>
+<li><a href="#5gc">5G Core</a></li>
+</ul>
+<h3 id="Overview"><a href="#Overview" class="headerlink" title=" Overview"></a><a name="view"></a> Overview</h3><p>The EPG supports GPRS, EPS, and CUPS-based architecture technologies.</p>
+<ul>
+<li>GPRS: for GSM and WCDMA systems</li>
+<li>EPS: for LTE system and the non-3GPP networks</li>
+</ul>
+<h3 id="EPS-evolved-packet-system"><a href="#EPS-evolved-packet-system" class="headerlink" title=" EPS (evolved packet system)"></a><a name="eps"></a> EPS (evolved packet system)</h3><p>Below is a basic architecture of EPS. For more details, check related ppt in git backup.</p>
+<center>
+<img src="https://res.cloudinary.com/elizashi/image/upload/v1600244451/gitblog/posts/epg-product/EPS_z2todw.png" style="width: 80%">
+</center>
+
+ <center><a id="more"></a></center>
+
+<p><a href="#index">Back to top ↑</a></p>
+<h3 id="CUPS"><a href="#CUPS" class="headerlink" title=" CUPS"></a><a name="cups"></a> CUPS</h3><p>EPG uses a Control and User Plane separation (CUPS) architecture. <br>A CP can be connected to one or several UP nodes, also a UP can be connected to one or several CP nodes.<br>The CPl and the UP communicate through the Sxb interface for PGW-C and PGW-U, and the Sxa interface for SGW-C and SGW-U, using the Packet Forwarding Control Plane (PFCP) protocol.</p>
+<center>
+<img src="https://res.cloudinary.com/elizashi/image/upload/v1600680454/gitblog/posts/epg-product/EPCnetwork_m2ausw.png" style="width: 80%">
+</center>
+
+<center><em>EPC Network Functions and Interfaces with CUPS</em></center> .
+
+<p>EPG can act as one or more of the following network functions:</p>
+<table>
+<thead>
+<tr>
+<th>func</th>
+<th>role</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PGW-C</td>
+<td>session connectivity control for the PCEF, includes selection and control of PGW-U with respect to its functions</td>
+</tr>
+<tr>
+<td>SGW-C</td>
+<td>session connectivity control, includes selection and control of the SGW-U with respect to its functions</td>
+</tr>
+<tr>
+<td>PGW-U</td>
+<td>UP connectivity towards <strong>external PDNs</strong>. It is controlled by the PGW-C function</td>
+</tr>
+<tr>
+<td>SGW-U</td>
+<td>UP connectivity between <strong>radio access network and packet gateway</strong>. It is controlled by the SGW-C function</td>
+</tr>
+</tbody></table>
+<p><a href="#index">Back to top ↑</a></p>
+<h3 id="5G-Core"><a href="#5G-Core" class="headerlink" title=" 5G Core"></a><a name="5gc"></a> 5G Core</h3><p>UPF = user plane network function. UPF communicates with the SMF in the 5G control plane through the N4 interface.</p>
+<center>
+<img src="https://res.cloudinary.com/elizashi/image/upload/v1600680822/gitblog/posts/epg-product/5GC_nhbtrw.png" style="width: 80%">
+</center>
+
+<center><em>5G Core Network Architecture</em></center>
+
+
+
+<p><a href="#index">Back to top ↑</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/09/21/epg-net/" data-id="ckhfsw9s00019v8hriwx2ho7h"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/packet-core/">packet core</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/product/">product</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/telecom/">telecom</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2020/09/28/pyqt/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            PyQt Learning &amp; Practice
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/09/17/epg-archi/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">EPG Architecture</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span> visitors</li>
+  
+</ul>
+
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 B. Eliza Shi</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/ming.svg" alt="Solito"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+    <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <!-- <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li> -->
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" href="https://github.com/visionary-s" title="GitHub">
+        <i class="fe fe-github"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+
+</aside>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/snap.svg-min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/search.js"></script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>
