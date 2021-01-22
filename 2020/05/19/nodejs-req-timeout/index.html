@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   
@@ -13,13 +13,19 @@
   
     <link rel="shortcut icon" href="/favicon.ico">
   
-  <link rel="stylesheet" href="/css/style.css">
   
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/css/style.css">
+
   
-  <script src="/js/pace.min.js"></script>
-</head>
-</html>
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
 <body>
 <main class="content">
   <section class="outer">
@@ -58,30 +64,27 @@
       
 
       
-        <p>Thanks for answers in <a href="https://stackoverflow.com/questions/6214902/how-to-set-a-timeout-on-a-http-request-in-node" target="_blank" rel="noopener">https://stackoverflow.com/questions/6214902/how-to-set-a-timeout-on-a-http-request-in-node</a> <br>The problem can mainly divided into two part in my implemention:</p>
+        <p>Thanks for answers in <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/6214902/how-to-set-a-timeout-on-a-http-request-in-node">https://stackoverflow.com/questions/6214902/how-to-set-a-timeout-on-a-http-request-in-node</a> <br>The problem can mainly divided into two part in my implemention:</p>
 <ul>
 <li>connection timeout</li>
 <li>response timeout</li>
 </ul>
 <ol>
 <li><p>connection timeout <br>On request stage:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// set the desired timeout in options</span></span><br><span class="line"><span class="keyword">const</span> options = &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    timeout: <span class="number">3000</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// create a request</span></span><br><span class="line"><span class="keyword">const</span> request = http.request(options, response =&gt; &#123;</span><br><span class="line">    <span class="comment">// your callback here</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// use its "timeout" event to abort the request</span></span><br><span class="line">request.on(<span class="string">'timeout'</span>, () =&gt; &#123;</span><br><span class="line">    request.abort();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// set the desired timeout in options</span></span><br><span class="line"><span class="keyword">const</span> options = &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    timeout: <span class="number">3000</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// create a request</span></span><br><span class="line"><span class="keyword">const</span> request = http.request(options, <span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// your callback here</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// use its &quot;timeout&quot; event to abort the request</span></span><br><span class="line">request.on(<span class="string">&#x27;timeout&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    request.abort();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <center><a id="more"></a></center>
 </li>
 <li><p>response timeout <br>On response stage:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> options = &#123; ... &#125;</span><br><span class="line"><span class="keyword">var</span> req = http.request(options, (res) =&gt; &#123;</span><br><span class="line">  <span class="comment">// Usual stuff: on(data), on(end), chunks, etc...</span></span><br><span class="line">&#125;);</span><br><span class="line">req.on(<span class="string">'socket'</span>, (socket) =&gt; &#123;</span><br><span class="line">    socket.setTimeout(myTimeout);  </span><br><span class="line">    socket.on(<span class="string">'timeout'</span>, () =&gt; &#123;</span><br><span class="line">        req.destroy();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">req.on(<span class="string">'error'</span>, (err) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err.code === <span class="string">"ECONNRESET"</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Timeout occurs"</span>);</span><br><span class="line">        <span class="comment">//specific error treatment</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//other error treatment</span></span><br><span class="line">&#125;);</span><br><span class="line">req.end();</span><br></pre></td></tr></table></figure>
-
-</li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> options = &#123; ... &#125;</span><br><span class="line"><span class="keyword">var</span> req = http.request(options, <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// Usual stuff: on(data), on(end), chunks, etc...</span></span><br><span class="line">&#125;);</span><br><span class="line">req.on(<span class="string">&#x27;socket&#x27;</span>, <span class="function">(<span class="params">socket</span>) =&gt;</span> &#123;</span><br><span class="line">    socket.setTimeout(myTimeout);  </span><br><span class="line">    socket.on(<span class="string">&#x27;timeout&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        req.destroy();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">req.on(<span class="string">&#x27;error&#x27;</span>, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (err.code === <span class="string">&quot;ECONNRESET&quot;</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;Timeout occurs&quot;</span>);</span><br><span class="line">        <span class="comment">//specific error treatment</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//other error treatment</span></span><br><span class="line">&#125;);</span><br><span class="line">req.end();</span><br></pre></td></tr></table></figure></li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/19/nodejs-req-timeout/" data-id="ckhfv77ix002fdkhryn9bk02r"
+      <a data-url="https://visionary-s.github.io/2020/05/19/nodejs-req-timeout/" data-id="ckk7xapra002b48hrhal28zhm"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li></ul>
 
     </footer>
 
@@ -131,9 +134,9 @@
 
     </div>
     <ul class="list-inline">
-      <li>&copy; 2020 B. Eliza Shi</li>
+      <li>&copy; 2021 B. Eliza Shi</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
-      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+      <li>Theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
     </ul>
   </div>
 </footer>
@@ -205,20 +208,30 @@
 </div>
 
 </aside>
+
 <script src="/js/jquery-2.0.3.min.js"></script>
+
+
 <script src="/js/lazyload.min.js"></script>
+
+
 <script src="/js/snap.svg-min.js"></script>
+
+
 <script src="/js/busuanzi-2.3.pure.min.js"></script>
 
 
-  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
-  <script src="/js/search.js"></script>
+
 
 
 <script src="/js/ocean.js"></script>
+
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   
@@ -13,13 +13,19 @@
   
     <link rel="shortcut icon" href="/favicon.ico">
   
-  <link rel="stylesheet" href="/css/style.css">
   
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/css/style.css">
+
   
-  <script src="/js/pace.min.js"></script>
-</head>
-</html>
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
 <body>
 <main class="content">
   <section class="outer">
@@ -71,49 +77,39 @@
 <h3 id="change-the-localhost-port-3000"><a href="#change-the-localhost-port-3000" class="headerlink" title="change the localhost port 3000"></a>change the localhost port 3000</h3><ol>
 <li><p>write in <code>.env</code> file with:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PORT=2200</span><br></pre></td></tr></table></figure>
-
 <p>This works on Windows, not tried on Mac OS.</p>
 </li>
 <li><p>On windows with <code>npm</code> (works): <br>in <code>package.json</code>:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"set PORT=2200&amp;&amp;react-scripts start"</span>,</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;start&quot;</span>: <span class="string">&quot;set PORT=2200&amp;&amp;react-scripts start&quot;</span>,</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>On Windows with <code>yarn</code> (not tried): <br>in <code>package.json</code>:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"set PORT=2200 &amp;&amp; react-scripts start"</span>,</span><br><span class="line">    ....</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>using npm <a href="https://www.npmjs.com/package/cross-env" target="_blank" rel="noopener"><code>cross-env</code></a> (not tried):</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"start"</span>: <span class="string">"cross-env PORT=3006 react-scripts start"</span>,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;start&quot;</span>: <span class="string">&quot;set PORT=2200 &amp;&amp; react-scripts start&quot;</span>,</span><br><span class="line">    ....</span><br></pre></td></tr></table></figure></li>
+<li><p>using npm <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/cross-env"><code>cross-env</code></a> (not tried):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">  <span class="string">&quot;start&quot;</span>: <span class="string">&quot;cross-env PORT=3006 react-scripts start&quot;</span>,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>This method need to install cross-env to project first:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save-dev cross-env</span><br></pre></td></tr></table></figure>
-
 </li>
 </ol>
 <hr>
 <h3 id="ERROR-Module-not-found-Can’t-resolve-‘react-router-dom’-in-‘C-my-cv-src’"><a href="#ERROR-Module-not-found-Can’t-resolve-‘react-router-dom’-in-‘C-my-cv-src’" class="headerlink" title="[ERROR] Module not found: Can’t resolve ‘react-router-dom’ in ‘C:...\my-cv\src’"></a>[ERROR] Module not found: Can’t resolve ‘react-router-dom’ in ‘C:...\my-cv\src’</h3><p>It means dependency <code>react-router-dom</code> have not been added/installed. just run:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install react-router-dom</span><br></pre></td></tr></table></figure>
-
 <p>The dependency will be automatically added to <code>package.json</code> and <code>package-lock.json</code> with latest version. Then npm start again.</p>
 <hr>
 <h3 id="Add-stylesheets-Sass"><a href="#Add-stylesheets-Sass" class="headerlink" title="Add stylesheets (Sass)"></a>Add stylesheets (Sass)</h3><ol>
-<li><p>install <code>node-sass</code>:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install node-sass --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>rename <code>&lt;filename&gt;.css</code> file to <code>&lt;filename&gt;.module.scss</code>. <br>About <code>.module</code>: 个人理解是为了避免同名的class作用域互相影响，把这个stylesheet限定仅用于此module (即编译后class前加一个stylesheetname-前缀，用以区分) <br>For more details, see <a href="https://blog.bitsrc.io/how-to-use-sass-and-css-modules-with-create-react-app-83fa8b805e5e" target="_blank" rel="noopener">CSS Modules</a> part in this post.</p>
-</li>
+<li>install <code>node-sass</code>:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install node-sass --save</span><br></pre></td></tr></table></figure></li>
+<li>rename <code>&lt;filename&gt;.css</code> file to <code>&lt;filename&gt;.module.scss</code>. <br>About <code>.module</code>: 个人理解是为了避免同名的class作用域互相影响，把这个stylesheet限定仅用于此module (即编译后class前加一个stylesheetname-前缀，用以区分) <br>For more details, see <a target="_blank" rel="noopener" href="https://blog.bitsrc.io/how-to-use-sass-and-css-modules-with-create-react-app-83fa8b805e5e">CSS Modules</a> part in this post.</li>
 </ol>
 <hr>
 <h3 id="Heroku-ERROR-SecurityError-Failed-to-construct-‘WebSocket’"><a href="#Heroku-ERROR-SecurityError-Failed-to-construct-‘WebSocket’" class="headerlink" title="[Heroku ERROR] SecurityError: Failed to construct ‘WebSocket’"></a>[Heroku ERROR] SecurityError: Failed to construct ‘WebSocket’</h3><p><code>SecurityError: Failed to construct &#39;WebSocket&#39;: An insecure WebSocket connection may not be initiated from a page loaded over HTTPS.</code> <br>This is due to <code>react-scripts 3.3.0</code>, check webpack script in <code>node_modules/react-dev-utils/webpackHotDevClient.js</code>:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="comment">// line 62, the original protocol is 'ws', change it to:</span></span><br><span class="line">  protocol: <span class="built_in">window</span>.location.protocol === <span class="string">'https:'</span> ? <span class="string">'wss'</span> : <span class="string">'ws'</span>,</span><br><span class="line">  <span class="comment">// which means using 'wss' when connection is secure</span></span><br></pre></td></tr></table></figure>
-
-<p>But the problem is not resovled, cuz when Heroku deploy the app, it automatically downloads the node_modules, which will rewrite the script. So the only way I can fix this issue at present is <strong>downgrade react-scripts to 3.2.0</strong> in <code>package.json</code>. <br>For more discussion about this problem, see <a href="https://stackoverflow.com/questions/59359280/react-app-error-failed-to-construct-websocket-an-insecure-websocket-connecti" target="_blank" rel="noopener">stackoverflow</a>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="comment">// line 62, the original protocol is &#x27;ws&#x27;, change it to:</span></span><br><span class="line">  protocol: <span class="built_in">window</span>.location.protocol === <span class="string">&#x27;https:&#x27;</span> ? <span class="string">&#x27;wss&#x27;</span> : <span class="string">&#x27;ws&#x27;</span>,</span><br><span class="line">  <span class="comment">// which means using &#x27;wss&#x27; when connection is secure</span></span><br></pre></td></tr></table></figure>
+<p>But the problem is not resovled, cuz when Heroku deploy the app, it automatically downloads the node_modules, which will rewrite the script. So the only way I can fix this issue at present is <strong>downgrade react-scripts to 3.2.0</strong> in <code>package.json</code>. <br>For more discussion about this problem, see <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/59359280/react-app-error-failed-to-construct-websocket-an-insecure-websocket-connecti">stackoverflow</a>.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/19/create-react-app/" data-id="ckhfv77ha0018dkhrx1pbf0fy"
+      <a data-url="https://visionary-s.github.io/2020/01/19/create-react-app/" data-id="ckk7xapr0001l48hr7gyr04lo"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/framework/">framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/framework/" rel="tag">framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
 
     </footer>
 
@@ -123,19 +119,19 @@
     
   <nav class="article-nav">
     
-      <a href="/2020/01/19/sequelize/" class="article-nav-link">
+      <a href="/2020/01/20/docker/" class="article-nav-link">
         <strong class="article-nav-caption">Newer posts</strong>
         <div class="article-nav-title">
           
-            Sequelize
+            docker CMD for daily use
           
         </div>
       </a>
     
     
-      <a href="/2020/01/08/js-getter/" class="article-nav-link">
+      <a href="/2020/01/19/sequelize/" class="article-nav-link">
         <strong class="article-nav-caption">Olde posts</strong>
-        <div class="article-nav-title">JS getter</div>
+        <div class="article-nav-title">Sequelize</div>
       </a>
     
   </nav>
@@ -163,9 +159,9 @@
 
     </div>
     <ul class="list-inline">
-      <li>&copy; 2020 B. Eliza Shi</li>
+      <li>&copy; 2021 B. Eliza Shi</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
-      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+      <li>Theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
     </ul>
   </div>
 </footer>
@@ -237,20 +233,30 @@
 </div>
 
 </aside>
+
 <script src="/js/jquery-2.0.3.min.js"></script>
+
+
 <script src="/js/lazyload.min.js"></script>
+
+
 <script src="/js/snap.svg-min.js"></script>
+
+
 <script src="/js/busuanzi-2.3.pure.min.js"></script>
 
 
-  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
-  <script src="/js/search.js"></script>
+
 
 
 <script src="/js/ocean.js"></script>
+
 
 </body>
 </html>

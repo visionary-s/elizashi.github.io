@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   
@@ -13,13 +13,19 @@
   
     <link rel="shortcut icon" href="/favicon.ico">
   
-  <link rel="stylesheet" href="/css/style.css">
   
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/css/style.css">
+
   
-  <script src="/js/pace.min.js"></script>
-</head>
-</html>
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
 <body>
 <main class="content">
   <section class="outer">
@@ -58,31 +64,27 @@
       
 
       
-        <p>Request used in send request to other domain.<br><a href="https://blog.csdn.net/wuqingdeqing/article/details/99061026" target="_blank" rel="noopener">https://blog.csdn.net/wuqingdeqing/article/details/99061026</a> <br><a href="https://blog.csdn.net/miss1128726/article/details/49976855" target="_blank" rel="noopener">https://blog.csdn.net/miss1128726/article/details/49976855</a> <br>a basic sample of request:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">  uri: <span class="string">'http://api.example.fr/example/1.xml'</span>,</span><br><span class="line">  auth: &#123;</span><br><span class="line">    user: <span class="string">'test'</span>,</span><br><span class="line">    pass: <span class="string">'test'</span>,</span><br><span class="line">    sendImmediately: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">request(options, <span class="function"><span class="keyword">function</span>(<span class="params">error, response, body</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!error &amp;&amp; response.statusCode == <span class="number">200</span>)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'body : '</span> + body)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Code : '</span> + response.statusCode)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'error : '</span> + error)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'body : '</span> + body)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
+        <p>Request used in send request to other domain.<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wuqingdeqing/article/details/99061026">https://blog.csdn.net/wuqingdeqing/article/details/99061026</a> <br><a target="_blank" rel="noopener" href="https://blog.csdn.net/miss1128726/article/details/49976855">https://blog.csdn.net/miss1128726/article/details/49976855</a> <br>a basic sample of request:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">  uri: <span class="string">&#x27;http://api.example.fr/example/1.xml&#x27;</span>,</span><br><span class="line">  auth: &#123;</span><br><span class="line">    user: <span class="string">&#x27;test&#x27;</span>,</span><br><span class="line">    pass: <span class="string">&#x27;test&#x27;</span>,</span><br><span class="line">    sendImmediately: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">request(options, <span class="function"><span class="keyword">function</span>(<span class="params">error, response, body</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!error &amp;&amp; response.statusCode == <span class="number">200</span>)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;body : &#x27;</span> + body)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;Code : &#x27;</span> + response.statusCode)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;error : &#x27;</span> + error)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;body : &#x27;</span> + body)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>This method has limitation for case that expecting to send datas to more than one server. Like, I want to send xml sais to multiple bdc servers, it turns out to only transfer datas to the last bdc. (using <code>request(options, responseHandler</code>)</p>
  <center><a id="more"></a></center>
 ---
 
-<p>A better way to resolve this problem is utilizing <code>request-promise</code>. <br>see <a href="https://www.npmjs.com/package/request-promise" target="_blank" rel="noopener">official API description</a>. <br>Here is my implementation:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rp = <span class="built_in">require</span>(<span class="string">'request-promise'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="class"><span class="keyword">class</span> <span class="title">sample</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">async</span> sampleFunc(para1, para2, para3) &#123;</span><br><span class="line">    <span class="keyword">var</span> opts = &#123;</span><br><span class="line">      url: url,</span><br><span class="line">      method: <span class="string">'GET'</span>,</span><br><span class="line">      auth:&#123;</span><br><span class="line">          user: username,</span><br><span class="line">          pass: password,</span><br><span class="line">          sendImmediately: <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">if</span>(url.toLowerCase().startsWith(<span class="string">'https'</span>))&#123;</span><br><span class="line">        opts.ca = cert;</span><br><span class="line">        opts = <span class="built_in">Object</span>.assign(Config.defaultOptions,opts); <span class="comment">// sample</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> responseHandler = <span class="function">(<span class="params">err, res, data</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// sample</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">await</span> rp(opts).then(responseHandler).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// print error in log</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<p>A better way to resolve this problem is utilizing <code>request-promise</code>. <br>see <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/request-promise">official API description</a>. <br>Here is my implementation:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rp = <span class="built_in">require</span>(<span class="string">&#x27;request-promise&#x27;</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="class"><span class="keyword">class</span> <span class="title">sample</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">async</span> <span class="function"><span class="title">sampleFunc</span>(<span class="params">para1, para2, para3</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> opts = &#123;</span><br><span class="line">      url: url,</span><br><span class="line">      method: <span class="string">&#x27;GET&#x27;</span>,</span><br><span class="line">      auth:&#123;</span><br><span class="line">          user: username,</span><br><span class="line">          pass: password,</span><br><span class="line">          sendImmediately: <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">if</span>(url.toLowerCase().startsWith(<span class="string">&#x27;https&#x27;</span>))&#123;</span><br><span class="line">        opts.ca = cert;</span><br><span class="line">        opts = <span class="built_in">Object</span>.assign(Config.defaultOptions,opts); <span class="comment">// sample</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> responseHandler = <span class="function">(<span class="params">err, res, data</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// sample</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">await</span> rp(opts).then(responseHandler).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// print error in log</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="0717-UPDATE"><a href="#0717-UPDATE" class="headerlink" title="0717 UPDATE"></a>0717 UPDATE</h3><p>ERROR implement request-promise above, <strong>note that it returns different paras from original request</strong> <br>Point:</p>
 <ul>
 <li>resolveWithFullResponse: true,</li>
-<li>then(reponse)<br>Corrected:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">async</span> sampleFunc(para1, para2, para3) &#123;</span><br><span class="line">    <span class="keyword">var</span> opts = &#123;</span><br><span class="line">      url: url,</span><br><span class="line">      method: <span class="string">'GET'</span>,</span><br><span class="line">      resolveWithFullResponse: <span class="literal">true</span>,</span><br><span class="line">      auth:&#123;</span><br><span class="line">          user: username,</span><br><span class="line">          pass: password,</span><br><span class="line">          sendImmediately: <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">...</span><br><span class="line">  <span class="keyword">const</span> responseHandler = <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// the res is a full response containing res.statusCode &amp; res.body</span></span><br><span class="line">    <span class="comment">// sample</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">await</span> rp(opts).then(responseHandler).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// print error in log</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>then(reponse)<br>Corrected:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">async</span> <span class="function"><span class="title">sampleFunc</span>(<span class="params">para1, para2, para3</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> opts = &#123;</span><br><span class="line">      url: url,</span><br><span class="line">      method: <span class="string">&#x27;GET&#x27;</span>,</span><br><span class="line">      resolveWithFullResponse: <span class="literal">true</span>,</span><br><span class="line">      auth:&#123;</span><br><span class="line">          user: username,</span><br><span class="line">          pass: password,</span><br><span class="line">          sendImmediately: <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">...</span><br><span class="line">  <span class="keyword">const</span> responseHandler = <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// the res is a full response containing res.statusCode &amp; res.body</span></span><br><span class="line">    <span class="comment">// sample</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">await</span> rp(opts).then(responseHandler).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// print error in log</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/14/request-nodejs/" data-id="ckhfv77ju002ydkhr3hnn3wjn"
+      <a data-url="https://visionary-s.github.io/2020/07/14/request-nodejs/" data-id="ckk7xaprs003348hrgpvsh4an"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/" rel="tag">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/" rel="tag">node.js</a></li></ul>
 
     </footer>
 
@@ -132,9 +134,9 @@
 
     </div>
     <ul class="list-inline">
-      <li>&copy; 2020 B. Eliza Shi</li>
+      <li>&copy; 2021 B. Eliza Shi</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
-      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+      <li>Theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
     </ul>
   </div>
 </footer>
@@ -206,20 +208,30 @@
 </div>
 
 </aside>
+
 <script src="/js/jquery-2.0.3.min.js"></script>
+
+
 <script src="/js/lazyload.min.js"></script>
+
+
 <script src="/js/snap.svg-min.js"></script>
+
+
 <script src="/js/busuanzi-2.3.pure.min.js"></script>
 
 
-  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
-  <script src="/js/search.js"></script>
+
 
 
 <script src="/js/ocean.js"></script>
+
 
 </body>
 </html>

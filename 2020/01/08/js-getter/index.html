@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   
@@ -13,13 +13,19 @@
   
     <link rel="shortcut icon" href="/favicon.ico">
   
-  <link rel="stylesheet" href="/css/style.css">
   
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/css/style.css">
+
   
-  <script src="/js/pace.min.js"></script>
-</head>
-</html>
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
 <body>
 <main class="content">
   <section class="outer">
@@ -59,32 +65,29 @@
 
       
         <p>Encountered with the following function as below:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">get</span> userFilter() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        dataset1: &#123;</span><br><span class="line">            value: <span class="string">'...'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        dataset2: &#123;</span><br><span class="line">            value: <span class="string">'...'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>so question comes up: <a href="https://stackoverflow.com/questions/42884751/whats-the-meaning-of-static-get-in-javascript-es6" target="_blank" rel="noopener">Whats the meaning of ‘static get’ in Javascript (ES6)?</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">get</span> <span class="title">userFilter</span>() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        dataset1: &#123;</span><br><span class="line">            value: <span class="string">&#x27;...&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        dataset2: &#123;</span><br><span class="line">            value: <span class="string">&#x27;...&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>so question comes up: <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/42884751/whats-the-meaning-of-static-get-in-javascript-es6">Whats the meaning of ‘static get’ in Javascript (ES6)?</a></p>
 <center><a id="more"></a></center>
 
 <p>According to the above answer,</p>
 <ul>
-<li><code>static</code> defines that this function inside class is static, which means you cannot call the func via the instance of the class<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// e.g.</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Agent</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">get</span> CIRCLE() &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">get</span> SQUARE() &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// you call this as a property directly</span></span><br><span class="line">Agent.CIRCLE; <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// but call by an instance is not allowed</span></span><br><span class="line"><span class="keyword">const</span> newAgent = <span class="keyword">new</span> Agent();</span><br><span class="line"><span class="built_in">console</span>.log(newAgent.CIRCLE); <span class="comment">// undefined or TypeError: foo.classMethod is not a function</span></span><br></pre></td></tr></table></figure>
-
+<li><p><code>static</code> defines that this function inside class is static, which means you cannot call the func via the instance of the class</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// e.g.</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Agent</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">get</span> <span class="title">CIRCLE</span>() &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">get</span> <span class="title">SQUARE</span>() &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// you call this as a property directly</span></span><br><span class="line">Agent.CIRCLE; <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// but call by an instance is not allowed</span></span><br><span class="line"><span class="keyword">const</span> newAgent = <span class="keyword">new</span> Agent();</span><br><span class="line"><span class="built_in">console</span>.log(newAgent.CIRCLE); <span class="comment">// undefined or TypeError: foo.classMethod is not a function</span></span><br></pre></td></tr></table></figure>
+<p>Lookup: <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Static_method">Static method</a> | <a target="_blank" rel="noopener" href="http://es6.ruanyifeng.com/?search=get&x=0&y=0#docs/class#%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95">Class的基本语法 2.静态方法</a></p>
+</li>
+<li><p><code>get</code> syntax binds an object property to a function that will be called when is property is looked up</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// e.g.</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  log: [<span class="string">&#x27;example&#x27;</span>,<span class="string">&#x27;test&#x27;</span>],</span><br><span class="line">  <span class="keyword">get</span> <span class="title">latest</span>() &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.log.length === <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.log[<span class="built_in">this</span>.log.length - <span class="number">1</span>];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj.latest); <span class="comment">// &quot;test&quot;.</span></span><br></pre></td></tr></table></figure>
+<p>Note: the above code will create a pseudo-property <code>latest</code> for object <code>obj</code>, which will return the last array item in <code>log</code>, but the attempt to assign a value to <code>latest</code> will not change it. <br>For more details, see <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get">MDN&gt;JavaScript reference&gt;Functions&gt;getter</a></p>
 </li>
 </ul>
-<p>Lookup: <a href="https://developer.mozilla.org/en-US/docs/Glossary/Static_method" target="_blank" rel="noopener">Static method</a> | <a href="http://es6.ruanyifeng.com/?search=get&x=0&y=0#docs/class#%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95" target="_blank" rel="noopener">Class的基本语法 2.静态方法</a></p>
-<ul>
-<li><code>get</code> syntax binds an object property to a function that will be called when is property is looked up<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// e.g.</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  log: [<span class="string">'example'</span>,<span class="string">'test'</span>],</span><br><span class="line">  <span class="keyword">get</span> latest() &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.log.length === <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.log[<span class="keyword">this</span>.log.length - <span class="number">1</span>];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj.latest); <span class="comment">// "test".</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>Note: the above code will create a pseudo-property <code>latest</code> for object <code>obj</code>, which will return the last array item in <code>log</code>, but the attempt to assign a value to <code>latest</code> will not change it. <br>For more details, see <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get" target="_blank" rel="noopener">MDN&gt;JavaScript reference&gt;Functions&gt;getter</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/08/js-getter/" data-id="ckhfv77if0022dkhrk0oebt5t"
+      <a data-url="https://visionary-s.github.io/2020/01/08/js-getter/" data-id="ckk7xapr4001u48hr1r2kgcsi"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
 
     </footer>
 
@@ -94,11 +97,11 @@
     
   <nav class="article-nav">
     
-      <a href="/2020/01/19/create-react-app/" class="article-nav-link">
+      <a href="/2020/01/19/sequelize/" class="article-nav-link">
         <strong class="article-nav-caption">Newer posts</strong>
         <div class="article-nav-title">
           
-            Tips for create-react-app
+            Sequelize
           
         </div>
       </a>
@@ -134,9 +137,9 @@
 
     </div>
     <ul class="list-inline">
-      <li>&copy; 2020 B. Eliza Shi</li>
+      <li>&copy; 2021 B. Eliza Shi</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
-      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+      <li>Theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
     </ul>
   </div>
 </footer>
@@ -208,20 +211,30 @@
 </div>
 
 </aside>
+
 <script src="/js/jquery-2.0.3.min.js"></script>
+
+
 <script src="/js/lazyload.min.js"></script>
+
+
 <script src="/js/snap.svg-min.js"></script>
+
+
 <script src="/js/busuanzi-2.3.pure.min.js"></script>
 
 
-  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
-  <script src="/js/search.js"></script>
+
 
 
 <script src="/js/ocean.js"></script>
+
 
 </body>
 </html>

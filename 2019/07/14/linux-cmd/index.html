@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    Linux CMD for daily use |
+    
+    Solito</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-linux-cmd" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux CMD for daily use
+    </h1>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/07/14/linux-cmd/" class="article-date">
+  <time datetime="2019-07-13T16:00:00.000Z" itemprop="datePublished">2019-07-14</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="check-log"><a href="#check-log" class="headerlink" title="check log"></a>check log</h3><ol>
+<li><p>Display whole log file content:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log</span><br></pre></td></tr></table></figure></li>
+<li><p>Search key word in log file, and return lines containing keyword:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log |grep <span class="string">&quot;keyword&quot;</span></span><br><span class="line">or</span><br><span class="line">$ grep -i <span class="string">&quot;keyword&quot;</span> target.log</span><br></pre></td></tr></table></figure>
+<p>these two method return same result</p>
+</li>
+<li><p>Check the most recent log (the tail lines of log file):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log |tail -n 200   <span class="comment"># check the last 200 lines of log file</span></span><br><span class="line">or</span><br><span class="line">$ tail -200f target.log   <span class="comment"># show last 200 lines and continue printing new logs</span></span><br></pre></td></tr></table></figure>
+<center><a id="more"></a></center>
+</li>
+</ol>
+<hr>
+<h3 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h3><ol>
+<li>To test whether the target host is accessible, mainly has two ways:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ping &lt;host addr&gt;    <span class="comment"># sample address: 192.168.1.21</span></span><br><span class="line">$ ping6 &lt;host addr&gt;   <span class="comment"># ipv6 address</span></span><br></pre></td></tr></table></figure></li>
+<li>ping + paras:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ ping -a &lt;addr&gt;  <span class="comment"># 把地址解析成主机名 (NetBios名)</span></span><br><span class="line">                  <span class="comment"># e.g. ping -a 192.168.1.21 returns</span></span><br><span class="line">                  <span class="comment"># Pinging iceblood.yofor.com [192.168.1.21] with 32 bytes of data</span></span><br><span class="line">                  <span class="comment"># so the NetBios name is iceblood.yofor.com with ip=192.168.1.21</span></span><br><span class="line">$ ping -t &lt;addr&gt;  <span class="comment"># continue pinging the addr</span></span><br><span class="line">                  <span class="comment"># press Ctl+Break to show statistic info and continue pinging</span></span><br><span class="line">                  <span class="comment"># Ctl+C to stop</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>For more:</strong> <a target="_blank" rel="noopener" href="https://blog.csdn.net/zhoudaxia/article/details/6154065">从ping和ping6说起</a></p>
+<hr>
+<h3 id="file-transport-scp"><a href="#file-transport-scp" class="headerlink" title="file transport (scp)"></a>file transport (scp)</h3><ol>
+<li>copy file from path1 to path2<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ scp path1 username@targetAddr:path2</span><br><span class="line"><span class="comment"># sample:</span></span><br><span class="line">$ scp /home/usrsby/xxx.jar root@10.136.40.75:/home/usrsby</span><br><span class="line"><span class="comment"># while using jumper as proxy, file has to be transported twice</span></span><br><span class="line">$ scp /home/usrsby/xxx.jar node-image-name:/opt/xxx/xx-xx/xxx-server/repository/com/xxx/x/xx-service-configuration/1.0-SNAPSHOT/</span><br></pre></td></tr></table></figure></li>
+<li>download file from remote vm:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Step1: copy target file from vm to jumper in same way as above</span></span><br><span class="line"><span class="comment"># Step2: download file to jumper, execute in jumper</span></span><br><span class="line">$ scp username@remoteAddr:/remotePath/file folder_in_jumper</span><br><span class="line"><span class="comment"># Sample:</span></span><br><span class="line">$ scp root@10.136.40.75:/home/usrsby/xx.log /home/usrsby</span><br></pre></td></tr></table></figure></li>
+<li>when copy a folder:<br>Append <code>-r</code> after <code>scp</code> like:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ scp -r /tmp/tempA/ root@10.127.40.25:/tmp/usrsby/ <span class="comment"># copy tempA folder to usrsby</span></span><br><span class="line"><span class="comment"># !notice: do not dismiss &quot;/&quot; at the end of target path, not same as copying single file</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>For more:</strong> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/linuxprobe-sarah/p/9902649.html">linux利用scp远程上传下载文件/文件夹</a></p>
+<hr>
+<h3 id="time"><a href="#time" class="headerlink" title="time"></a>time</h3><p>to show current local time:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ date</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="grep-awk-amp-sed"><a href="#grep-awk-amp-sed" class="headerlink" title="grep, awk &amp; sed"></a>grep, awk &amp; sed</h3><p><strong>AWSOME specific summary! –&gt; <a target="_blank" rel="noopener" href="http://blog.cee.moe/a-brief-introduction-to-grep-awk-and-sed.html">A brief introduction to grep, awk &amp; sed</a></strong></p>
+<ol>
+<li><strong><code>grep</code> (Global Regular Expression Print)</strong> is used to search for specific terms in a file.<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ grep <span class="built_in">test</span> testscript  <span class="comment"># grep keyword filename</span></span><br><span class="line">just <span class="keyword">for</span> <span class="built_in">test</span></span><br><span class="line">$ grep <span class="built_in">test</span> * <span class="comment"># grep keyword all_files</span></span><br><span class="line">testCase:<span class="built_in">test</span></span><br><span class="line">testscript:just <span class="keyword">for</span> <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+If multiple keywords are selected:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ less filename | grep -E <span class="string">&quot;kw1|kw2&quot;</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ grep -E <span class="string">&quot;kw1|kw2&quot;</span> filename</span><br></pre></td></tr></table></figure>
+grep and save to a new file:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ grep -E <span class="string">&quot;ERROR|CRIT|WARN&quot;</span> xxxxx.log &gt; /path/&lt;new-file&gt;.txt</span><br></pre></td></tr></table></figure></li>
+<li><strong><code>awk</code></strong> is a text pattern scanning and processing language, which is created by <strong>A</strong>ho, <strong>W</strong>einberger &amp; <strong>K</strong>ernighan. awk is mostly used for <strong>data extraction and reporting</strong> (dealing with .csv files).<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">print</span> 1st and 4th column</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> awk <span class="string">&#x27;&#123;print $1, $4&#125;&#x27;</span> file.txt</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="bash"><span class="comment"># same with &#x27;cat file.txt&#x27;</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> awk <span class="string">&#x27;&#123;print $0&#125;&#x27;</span> file.txt</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="keyword">for</span> more see the reference</span></span><br></pre></td></tr></table></figure></li>
+<li><code>sed</code> refers to <strong>Stream Editor</strong>. It can perform text transformations on a given file or an input stream.<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> replace the 1st <span class="string">&#x27;test&#x27;</span> with <span class="string">&#x27;text&#x27;</span> <span class="keyword">in</span> each line</span></span><br><span class="line">sed &#x27;s/test/text/&#x27; file.txt</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="bash"><span class="comment"># replace all &#x27;test&#x27; with &#x27;text&#x27; in each line</span></span></span><br><span class="line">sed &#x27;s/test/text/g&#x27; file.txt</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="bash"><span class="comment"># replace the 2nd &#x27;test&#x27; with &#x27;text&#x27; in each line</span></span></span><br><span class="line">sed &#x27;s/test/text/2&#x27; file.txt</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="bash"><span class="comment"># replace all &#x27;test&#x27; from the 2nd to the end of each line with &#x27;text&#x27;</span></span></span><br><span class="line">sed &#x27;s/test/text/2g&#x27; file.txt</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="bash"><span class="comment"># replace the &#x27;test&#x27; in the 2nd line with &#x27;text&#x27;</span></span></span><br><span class="line">sed &#x27;2s/test/text/g&#x27; file.txt</span><br></pre></td></tr></table></figure>
+<h3 id="2-gt-dev-null-1-gt-amp-2"><a href="#2-gt-dev-null-1-gt-amp-2" class="headerlink" title="2&gt;/dev/null 1&gt;&amp;2"></a>2&gt;/dev/null 1&gt;&amp;2</h3><a target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/163352/what-does-dev-null-21-mean-in-this-article-of-crontab-basics">https://unix.stackexchange.com/questions/163352/what-does-dev-null-21-mean-in-this-article-of-crontab-basics</a><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean">https://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean</a></li>
+</ol>
+<h3 id="–"><a href="#–" class="headerlink" title="–"></a>–</h3><p><a target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/11376/what-does-double-dash-mean">https://unix.stackexchange.com/questions/11376/what-does-double-dash-mean</a></p>
+<h3 id="switch-to-root-user"><a href="#switch-to-root-user" class="headerlink" title="switch to root user"></a>switch to root user</h3><p><code>su</code> –&gt; enter password of root user</p>
+<h3 id="packaging-and-unzip-extraction"><a href="#packaging-and-unzip-extraction" class="headerlink" title="packaging and unzip (extraction)"></a>packaging and unzip (extraction)</h3><ul>
+<li>unzip ：<code>$ tar zxvf fileName.tar.gz</code><br>For <code>.gz</code> file, it may appears as:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxvf loggd_persistent.log.0.gz</span><br><span class="line">tar: This does not look like a tar archive</span><br><span class="line">tar: Skipping to next header</span><br><span class="line">tar: Exiting with failure status due to previous errors</span><br></pre></td></tr></table></figure>
+Then use:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ gzip -d &lt;source-file&gt;</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ gunzip &lt;source-file&gt;</span><br></pre></td></tr></table></figure></li>
+<li>packaging: <code>tar zcvf fileName.tar.gz dirPath</code> <br>or use<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ gzip &lt;source-file&gt;                      <span class="comment"># will not keep the source file</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ gzip -c &lt;source-file&gt; &gt; &lt;zipped-file&gt;   <span class="comment"># will keep both source file and zipped file</span></span><br></pre></td></tr></table></figure>
+To zip a folder:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gzip -r &lt;directory&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="file-type"><a href="#file-type" class="headerlink" title="file type"></a>file type</h3>for details, see <a target="_blank" rel="noopener" href="https://blog.csdn.net/rong09_13/article/details/79233956">https://blog.csdn.net/rong09_13/article/details/79233956</a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ file &lt;fileName&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="search-history-cmd"><a href="#search-history-cmd" class="headerlink" title="search history cmd"></a>search history cmd</h3>use <code>ctrl + r</code> to search history input, continue input until find the target cmd, then press <code>Enter</code> to execute.</li>
+</ul>
+<h3 id="Port"><a href="#Port" class="headerlink" title="Port"></a>Port</h3><ol>
+<li>check port status<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:&lt;port-id&gt;</span><br></pre></td></tr></table></figure>
+e.g.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@host63 ~]# lsof -i:32228</span><br><span class="line">COMMAND     PID USER   FD   TYPE    DEVICE SIZE&#x2F;OFF NODE NAME</span><br><span class="line">kube-prox 21592 root   16u  IPv6 171971606      0t0  TCP *:32228 (LISTEN)</span><br></pre></td></tr></table></figure></li>
+<li>check the process running on certain port<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -tunlp | grep &lt;port-id&gt;</span><br></pre></td></tr></table></figure>
+e.g.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@host63 ~]# netstat -tunlp | grep 32228</span><br><span class="line">tcp6       0      0 :::32228                :::*                    LISTEN      21592&#x2F;kube-proxy</span><br></pre></td></tr></table></figure>
+<h3 id="search-for-files"><a href="#search-for-files" class="headerlink" title="search for files"></a>search for files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ find / -name *&lt;tap here&gt;* <span class="comment"># search from all files</span></span><br><span class="line">$ find . -name *&lt;tap here&gt;* <span class="comment"># search under current path</span></span><br></pre></td></tr></table></figure>
+or<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ whereis &lt;name here&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>whereis命令只能用于程序名的搜索，而且只搜索二进制文件（参数-b）、man说明文件（参数-m）和源代码文件（参数-s）。如果省略参数，则返回所有信息</p>
+</blockquote>
+</li>
+</ol>
+<p>For more. refer <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html">http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html</a></p>
+<h3 id="permit"><a href="#permit" class="headerlink" title="permit"></a>permit</h3><ol>
+<li>give execution permit to certain <strong>file</strong>:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod +x file.sh</span><br></pre></td></tr></table></figure>
+Then <code>file.sh</code> is a executable file and display in green, also use <code>-</code> can revert permit and the target file will return back to white.<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod -x file.sh</span><br></pre></td></tr></table></figure></li>
+<li>777: give read, write and execution permit to file/folder:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod -R 777 *</span><br></pre></td></tr></table></figure>
+Above cmd means give permits to all files or folders under current path, also we can use specific file name to institute <code>*</code>. \<blockquote>
+<p>777:分别对应文件实际拥有者，文件实际拥有者所在的组，其它用户的权限，数字权限是基于八进制数字系统而创建的，读权限（read，r）的值是4，写权限（write，w）的值是2，执行权限（execute，x）的值是1，没有授权的值是0</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="tcsh-set-resource"><a href="#tcsh-set-resource" class="headerlink" title="tcsh set resource"></a>tcsh set resource</h3><p>Linux usually use bash as the default shell, but for specific working env whcih only tcsh is allowed, use the following file to change the shell style. It serves as <code>.bashrc</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi ~/.cshrc</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>tcsh is an improved version of csh (c-shell)</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2019/07/14/linux-cmd/" data-id="ckk7xaprj002m48hr704veudq"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2019/07/17/Hexo%20Theme%20Modification/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            Hexo Theme Modification
+          
+        </div>
+      </a>
+    
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span> visitors</li>
+  
+</ul>
+
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2021 B. Eliza Shi</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/ming.svg" alt="Solito"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+    <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <!-- <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li> -->
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" href="https://github.com/visionary-s" title="GitHub">
+        <i class="fe fe-github"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+
+</aside>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/snap.svg-min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+<script src="/js/ocean.js"></script>
+
+
+</body>
+</html>

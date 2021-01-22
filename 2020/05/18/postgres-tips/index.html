@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   
@@ -13,13 +13,19 @@
   
     <link rel="shortcut icon" href="/favicon.ico">
   
-  <link rel="stylesheet" href="/css/style.css">
   
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/css/style.css">
+
   
-  <script src="/js/pace.min.js"></script>
-</head>
-</html>
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
 <body>
 <main class="content">
   <section class="outer">
@@ -59,22 +65,18 @@
 
       
         <h3 id="ERROR-column-“xxx”-does-not-exist"><a href="#ERROR-column-“xxx”-does-not-exist" class="headerlink" title="[ERROR] column “xxx” does not exist"></a>[ERROR] column “xxx” does not exist</h3><p>This issue happens when run <code>db=&gt; select * from &quot;ExxJobs&quot; where status=&quot;Ongoing&quot;;</code> <br>It returns</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ERROR:  column <span class="string">"Ongoing"</span> does not exist</span><br><span class="line">LINE 1: select * from <span class="string">"ExxJobs"</span> <span class="built_in">where</span> status=<span class="string">"Ongoing"</span>;</span><br><span class="line">                                             ^</span><br><span class="line">ERROR:  column <span class="string">"ongoing"</span> does not exist</span><br><span class="line">LINE 1: select * from <span class="string">"ExxJobs"</span> <span class="built_in">where</span> status=Ongoing;</span><br><span class="line">                                             ^</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ERROR:  column <span class="string">&quot;Ongoing&quot;</span> does not exist</span><br><span class="line">LINE 1: select * from <span class="string">&quot;ExxJobs&quot;</span> <span class="built_in">where</span> status=<span class="string">&quot;Ongoing&quot;</span>;</span><br><span class="line">                                             ^</span><br><span class="line">ERROR:  column <span class="string">&quot;ongoing&quot;</span> does not exist</span><br><span class="line">LINE 1: select * from <span class="string">&quot;ExxJobs&quot;</span> <span class="built_in">where</span> status=Ongoing;</span><br><span class="line">                                             ^</span><br></pre></td></tr></table></figure>
 <p><strong>Solution</strong> <br>just change “” to ‘’.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db=&gt; select * from <span class="string">"ExxJobs"</span> <span class="built_in">where</span> status=<span class="string">'Ongoing'</span>;</span><br><span class="line"> id | <span class="built_in">type</span>| xxxJobId |   xxxJobUrl  | status  | errorMessage |         createdAt          |         updatedAt</span><br><span class="line">----+-----------------+----------+--------------------------------------------------------------------------------------------------------+---------+--------------+----------------------------+----------------------------</span><br><span class="line"> 16 | ... | 22947534 |   &#123;<span class="string">"..."</span>&#125;   |  Ongoing |              | 2020-05-18 06:17:32.525+00 | 2020-05-18 06:17:32.544+00</span><br><span class="line">(1 row)</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db=&gt; select * from <span class="string">&quot;ExxJobs&quot;</span> <span class="built_in">where</span> status=<span class="string">&#x27;Ongoing&#x27;</span>;</span><br><span class="line"> id | <span class="built_in">type</span>| xxxJobId |   xxxJobUrl  | status  | errorMessage |         createdAt          |         updatedAt</span><br><span class="line">----+-----------------+----------+--------------------------------------------------------------------------------------------------------+---------+--------------+----------------------------+----------------------------</span><br><span class="line"> 16 | ... | 22947534 |   &#123;<span class="string">&quot;...&quot;</span>&#125;   |  Ongoing |              | 2020-05-18 06:17:32.525+00 | 2020-05-18 06:17:32.544+00</span><br><span class="line">(1 row)</span><br></pre></td></tr></table></figure>
 <p>similarly:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cecdb=&gt; delete from <span class="string">"ExxJobs"</span> <span class="built_in">where</span> <span class="string">'xxxJobId'</span>=22674314;</span><br><span class="line">ERROR:  invalid input syntax <span class="keyword">for</span> <span class="built_in">integer</span>: <span class="string">"xxxJobId"</span></span><br><span class="line">LINE 1: delete from <span class="string">"ExxJobs"</span> <span class="built_in">where</span> <span class="string">'xxxJobId'</span>=22674314;</span><br><span class="line"></span><br><span class="line">db=&gt; delete from <span class="string">"ExxJobs"</span> <span class="built_in">where</span> <span class="string">"xxxJobId"</span>=<span class="string">'22674314'</span>;</span><br><span class="line">DELETE 1</span><br></pre></td></tr></table></figure>
-
-
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cecdb=&gt; delete from <span class="string">&quot;ExxJobs&quot;</span> <span class="built_in">where</span> <span class="string">&#x27;xxxJobId&#x27;</span>=22674314;</span><br><span class="line">ERROR:  invalid input syntax <span class="keyword">for</span> <span class="built_in">integer</span>: <span class="string">&quot;xxxJobId&quot;</span></span><br><span class="line">LINE 1: delete from <span class="string">&quot;ExxJobs&quot;</span> <span class="built_in">where</span> <span class="string">&#x27;xxxJobId&#x27;</span>=22674314;</span><br><span class="line"></span><br><span class="line">db=&gt; delete from <span class="string">&quot;ExxJobs&quot;</span> <span class="built_in">where</span> <span class="string">&quot;xxxJobId&quot;</span>=<span class="string">&#x27;22674314&#x27;</span>;</span><br><span class="line">DELETE 1</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/18/postgres-tips/" data-id="ckhfv77j9002pdkhrpdk2ylxp"
+      <a data-url="https://visionary-s.github.io/2020/05/18/postgres-tips/" data-id="ckk7xapro002t48hr5ecp6302"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgres/">postgres</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgres/" rel="tag">postgres</a></li></ul>
 
     </footer>
 
@@ -124,9 +126,9 @@
 
     </div>
     <ul class="list-inline">
-      <li>&copy; 2020 B. Eliza Shi</li>
+      <li>&copy; 2021 B. Eliza Shi</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
-      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+      <li>Theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
     </ul>
   </div>
 </footer>
@@ -198,20 +200,30 @@
 </div>
 
 </aside>
+
 <script src="/js/jquery-2.0.3.min.js"></script>
+
+
 <script src="/js/lazyload.min.js"></script>
+
+
 <script src="/js/snap.svg-min.js"></script>
+
+
 <script src="/js/busuanzi-2.3.pure.min.js"></script>
 
 
-  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
-  <script src="/js/search.js"></script>
+
 
 
 <script src="/js/ocean.js"></script>
+
 
 </body>
 </html>

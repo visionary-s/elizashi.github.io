@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   
@@ -13,13 +13,19 @@
   
     <link rel="shortcut icon" href="/favicon.ico">
   
-  <link rel="stylesheet" href="/css/style.css">
   
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/css/style.css">
+
   
-  <script src="/js/pace.min.js"></script>
-</head>
-</html>
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
 <body>
 <main class="content">
   <section class="outer">
@@ -59,16 +65,14 @@
 
       
         <p>When starting a postgres DB container via kubernetes on linux host server, it failed to start the container.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@compute2 log]# kubectl get pod</span><br><span class="line">NAME                                                READY   STATUS    RESTARTS   AGE</span><br><span class="line">test-764dc8f84b-smg92                               0/1     Error     3          49s</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@compute2 log]# kubectl logs test-764dc8f84b-smg92</span><br><span class="line">The files belonging to this database system will be owned by user &quot;postgres&quot;.</span><br><span class="line">This user must also own the server process.</span><br><span class="line"></span><br><span class="line">The database cluster will be initialized with locale &quot;en_US.utf8&quot;.</span><br><span class="line">The default database encoding has accordingly been set to &quot;UTF8&quot;.</span><br><span class="line">The default text search configuration will be set to &quot;english&quot;.</span><br><span class="line"></span><br><span class="line">Data page checksums are disabled.</span><br><span class="line"></span><br><span class="line">fixing permissions on existing directory /var/lib/postgresql/data ... ok</span><br><span class="line">creating subdirectories ... ok</span><br><span class="line">selecting default max_connections ... 20</span><br><span class="line">selecting default shared_buffers ... 400kB</span><br><span class="line">selecting dynamic shared memory implementation ... posix</span><br><span class="line">creating configuration files ... ok</span><br><span class="line">child process was terminated by signal 7</span><br><span class="line">initdb: removing contents of data directory &quot;/var/lib/postgresql/data&quot;</span><br></pre></td></tr></table></figure>
-
-<p>Image is with no problem cuz I can do <code>docker run</code> to start container successfully. <br>————————————— Solution ————————————— <br><a href="https://github.com/docker-library/postgres/issues/451" target="_blank" rel="noopener">https://github.com/docker-library/postgres/issues/451</a> <br>there are several possible solutions to the problem:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@compute2 log]# kubectl get pod</span><br><span class="line">NAME                                                READY   STATUS    RESTARTS   AGE</span><br><span class="line">test-764dc8f84b-smg92                               0&#x2F;1     Error     3          49s</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@compute2 log]# kubectl logs test-764dc8f84b-smg92</span><br><span class="line">The files belonging to this database system will be owned by user &quot;postgres&quot;.</span><br><span class="line">This user must also own the server process.</span><br><span class="line"></span><br><span class="line">The database cluster will be initialized with locale &quot;en_US.utf8&quot;.</span><br><span class="line">The default database encoding has accordingly been set to &quot;UTF8&quot;.</span><br><span class="line">The default text search configuration will be set to &quot;english&quot;.</span><br><span class="line"></span><br><span class="line">Data page checksums are disabled.</span><br><span class="line"></span><br><span class="line">fixing permissions on existing directory &#x2F;var&#x2F;lib&#x2F;postgresql&#x2F;data ... ok</span><br><span class="line">creating subdirectories ... ok</span><br><span class="line">selecting default max_connections ... 20</span><br><span class="line">selecting default shared_buffers ... 400kB</span><br><span class="line">selecting dynamic shared memory implementation ... posix</span><br><span class="line">creating configuration files ... ok</span><br><span class="line">child process was terminated by signal 7</span><br><span class="line">initdb: removing contents of data directory &quot;&#x2F;var&#x2F;lib&#x2F;postgresql&#x2F;data&quot;</span><br></pre></td></tr></table></figure>
+<p>Image is with no problem cuz I can do <code>docker run</code> to start container successfully. <br>————————————— Solution ————————————— <br><a target="_blank" rel="noopener" href="https://github.com/docker-library/postgres/issues/451">https://github.com/docker-library/postgres/issues/451</a> <br>there are several possible solutions to the problem:</p>
 <ol>
 <li>Modify the docker image to be able to set huge_pages = off in /usr/share/postgresql/postgresql.conf.sample before initdb was ran (this is what I did).</li>
 <li>Turn off huge page support on the system (vm.nr_hugepages = 0 in /etc/sysctl.conf).</li>
 <li>Fix Postgres’s fallback mechanism when huge_pages = try is set (the default).</li>
-<li>Modify the k8s manifest to enable huge page support (<a href="https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/" target="_blank" rel="noopener">https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/</a>).</li>
+<li>Modify the k8s manifest to enable huge page support (<a target="_blank" rel="noopener" href="https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/">https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/</a>).</li>
 <li>Modify k8s to show that huge pages are not supported on the system, when they are not enabled for a specific container.</li>
 </ol>
 <p>I tried the second way, and solve the issue successfully.</p>
@@ -76,10 +80,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/09/postgres-error-linux/" data-id="ckhfv77j5002mdkhriw2fc8mq"
+      <a data-url="https://visionary-s.github.io/2020/05/09/postgres-error-linux/" data-id="ckk7xapri002j48hrh7zjfhjr"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgres/">postgres</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/" rel="tag">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgres/" rel="tag">postgres</a></li></ul>
 
     </footer>
 
@@ -129,9 +133,9 @@
 
     </div>
     <ul class="list-inline">
-      <li>&copy; 2020 B. Eliza Shi</li>
+      <li>&copy; 2021 B. Eliza Shi</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
-      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+      <li>Theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
     </ul>
   </div>
 </footer>
@@ -203,20 +207,30 @@
 </div>
 
 </aside>
+
 <script src="/js/jquery-2.0.3.min.js"></script>
+
+
 <script src="/js/lazyload.min.js"></script>
+
+
 <script src="/js/snap.svg-min.js"></script>
+
+
 <script src="/js/busuanzi-2.3.pure.min.js"></script>
 
 
-  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
-  <script src="/js/search.js"></script>
+
 
 
 <script src="/js/ocean.js"></script>
+
 
 </body>
 </html>

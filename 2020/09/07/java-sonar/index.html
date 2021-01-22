@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   
@@ -13,13 +13,19 @@
   
     <link rel="shortcut icon" href="/favicon.ico">
   
-  <link rel="stylesheet" href="/css/style.css">
   
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/css/style.css">
+
   
-  <script src="/js/pace.min.js"></script>
-</head>
-</html>
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
 <body>
 <main class="content">
   <section class="outer">
@@ -61,59 +67,39 @@
         <p>This is a record for sonar fixing for backend based on Java.</p>
 <h3 id="CERT-issues"><a href="#CERT-issues" class="headerlink" title="CERT issues"></a>CERT issues</h3><h4 id="Extract-this-increment-or-decrement-operator-into-a-dedicated-statement"><a href="#Extract-this-increment-or-decrement-operator-into-a-dedicated-statement" class="headerlink" title="Extract this increment or decrement operator into a dedicated statement."></a>Extract this increment or decrement operator into a dedicated statement.</h4><p><strong>Rule: Increment (++) and decrement (–) operators should not be used in a method call or mixed with other operators in an expression</strong></p>
 <h5 id="1-original-code"><a href="#1-original-code" class="headerlink" title="1. original code:"></a>1. original code:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">u8a = ++u8b + u8c--;</span><br><span class="line">foo = bar++ / <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
-
  <center><a id="more"></a></center>
 
 <h5 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">++u8b;</span><br><span class="line">u8a = u8b + u8c;</span><br><span class="line">u8c--;</span><br><span class="line">foo = bar / <span class="number">4</span>;</span><br><span class="line">bar++;</span><br></pre></td></tr></table></figure>
-
 <h5 id="2-original-code"><a href="#2-original-code" class="headerlink" title="2. original code:"></a>2. original code:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (++searchCounter &gt; portRange) &#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h5 id="solution-1"><a href="#solution-1" class="headerlink" title="solution"></a>solution</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">++searchCounter;</span><br><span class="line"><span class="keyword">if</span> (searchCounter &gt; portRange) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h5 id="3-original-code"><a href="#3-original-code" class="headerlink" title="3. original code:"></a>3. original code:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> retry = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (retry++ &lt; RETRY_NUM &amp;&amp; ..) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h5 id="solution-2"><a href="#solution-2" class="headerlink" title="solution"></a>solution</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> retry = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (retry &lt; RETRY_NUM + <span class="number">1</span> &amp;&amp; ..) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  retry++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h5 id="4-original-code"><a href="#4-original-code" class="headerlink" title="4. original code:"></a>4. original code:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> ((++cnt &lt;= num) &amp;&amp; (...)) &#123;</span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h5 id="solution-3"><a href="#solution-3" class="headerlink" title="solution"></a>solution</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> cnt = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> ((cnt &lt;= num) &amp;&amp; (...)) &#123;</span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line">  cnt++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <hr>
 <h4 id="Specify-an-appropriate-locale-when-comparing-locale-dependent-data"><a href="#Specify-an-appropriate-locale-when-comparing-locale-dependent-data" class="headerlink" title="Specify an appropriate locale when comparing locale-dependent data."></a>Specify an appropriate locale when comparing locale-dependent data.</h4><h5 id="2-original-code-1"><a href="#2-original-code-1" class="headerlink" title="2. original code:"></a>2. original code:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String password = user.getPassword().toLowerCase();</span><br></pre></td></tr></table></figure>
-
 <h5 id="solution-4"><a href="#solution-4" class="headerlink" title="solution"></a>solution</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String password = user.getPassword().toLowerCase(Locale.getDefault());</span><br></pre></td></tr></table></figure>
-
 <hr>
 <h4 id="Classes-and-methods-that-rely-on-the-default-system-encoding-should-not-be-used"><a href="#Classes-and-methods-that-rely-on-the-default-system-encoding-should-not-be-used" class="headerlink" title="Classes and methods that rely on the default system encoding should not be used"></a>Classes and methods that rely on the default system encoding should not be used</h4><p><strong>Rule: 1. Remove this use of “toString”. 2. Remove this use of constructor “FileWriter(File,boolean)”. etc</strong></p>
 <h5 id="1-original-code-1"><a href="#1-original-code-1" class="headerlink" title="1. original code:"></a>1. original code:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"></span><br><span class="line">BufferedWriter csvFileBufferWriter = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> FileWriter(csvFile, <span class="keyword">true</span>))</span><br></pre></td></tr></table></figure>
-
 <h5 id="solution-5"><a href="#solution-5" class="headerlink" title="solution"></a>solution</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStreamWriter;</span><br><span class="line"><span class="keyword">import</span> java.nio.charset.Charset;</span><br><span class="line"></span><br><span class="line">BufferedWriter csvFileBufferWriter = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(csvFile, <span class="keyword">true</span>), Charset.defaultCharset()))</span><br></pre></td></tr></table></figure>
-
-<p>This solution came out with new sonar issue <a href="https://sonarqube.lmera.ericsson.se/coding_rules?open=fb-contrib%3AIOI_USE_OF_FILE_STREAM_CONSTRUCTORS&amp;rule_key=fb-contrib%3AIOI_USE_OF_FILE_STREAM_CONSTRUCTORS" target="_blank" rel="noopener">https://sonarqube.lmera.ericsson.se/coding_rules?open=fb-contrib%3AIOI_USE_OF_FILE_STREAM_CONSTRUCTORS&amp;rule_key=fb-contrib%3AIOI_USE_OF_FILE_STREAM_CONSTRUCTORS</a> <br>2nd modification:</p>
+<p>This solution came out with new sonar issue <a target="_blank" rel="noopener" href="https://sonarqube.lmera.ericsson.se/coding_rules?open=fb-contrib%3AIOI_USE_OF_FILE_STREAM_CONSTRUCTORS&amp;rule_key=fb-contrib%3AIOI_USE_OF_FILE_STREAM_CONSTRUCTORS">https://sonarqube.lmera.ericsson.se/coding_rules?open=fb-contrib%3AIOI_USE_OF_FILE_STREAM_CONSTRUCTORS&amp;rule_key=fb-contrib%3AIOI_USE_OF_FILE_STREAM_CONSTRUCTORS</a> <br>2nd modification:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.nio.file.Files;</span><br><span class="line"></span><br><span class="line">BufferedWriter csvFileBufferWriter = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> OutputStreamWriter(Files.newOutputStream(csvFile.toPath()), Charset.defaultCharset()))</span><br></pre></td></tr></table></figure>
-
 <p>another case:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(saiFileLocation);</span><br><span class="line">FileInputStream reader = <span class="keyword">new</span> FileInputStream(file);</span><br></pre></td></tr></table></figure>
-
 <p>change to</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">InputStream reader = Files.newInputStream(Paths.get(saiFileLocation));</span><br></pre></td></tr></table></figure>
-
 <h5 id="2-original-code-2"><a href="#2-original-code-2" class="headerlink" title="2. original code:"></a>2. original code:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (JAXBException e) &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> bos.toString();</span><br></pre></td></tr></table></figure>
-
 <h5 id="solution-6"><a href="#solution-6" class="headerlink" title="solution"></a>solution</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="keyword">return</span> bos.toString(Charset.defaultCharset().name());</span><br><span class="line">&#125; <span class="keyword">catch</span> (JAXBException | UnsupportedEncodingException e) &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h5 id="3-original-code-1"><a href="#3-original-code-1" class="headerlink" title="3. original code:"></a>3. original code:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.FileReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> (FileReader fileReader = <span class="keyword">new</span> FileReader(fileName)) &#123;</span><br><span class="line">  List&lt;..&gt; list = unmarshal2List(fileReader);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h5 id="solution-7"><a href="#solution-7" class="headerlink" title="solution"></a>solution</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"><span class="keyword">import</span> java.nio.charset.Charset;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> (FileInputStream fileReader = <span class="keyword">new</span> FileInputStream(fileName)) &#123;</span><br><span class="line">  List&lt;..&gt; list = unmarshal2List(<span class="keyword">new</span> InputStreamReader(fileReader, Charset.defaultCharset()));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/09/07/java-sonar/" data-id="ckhfv77hs001ldkhrfzxw9ct3"
+      <a data-url="https://visionary-s.github.io/2020/09/07/java-sonar/" data-id="ckk7xapr5001y48hrafne7cdm"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sonar/">sonar</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sonar/" rel="tag">sonar</a></li></ul>
 
     </footer>
 
@@ -163,9 +149,9 @@
 
     </div>
     <ul class="list-inline">
-      <li>&copy; 2020 B. Eliza Shi</li>
+      <li>&copy; 2021 B. Eliza Shi</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
-      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+      <li>Theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
     </ul>
   </div>
 </footer>
@@ -237,20 +223,30 @@
 </div>
 
 </aside>
+
 <script src="/js/jquery-2.0.3.min.js"></script>
+
+
 <script src="/js/lazyload.min.js"></script>
+
+
 <script src="/js/snap.svg-min.js"></script>
+
+
 <script src="/js/busuanzi-2.3.pure.min.js"></script>
 
 
-  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
-  <script src="/js/search.js"></script>
+
 
 
 <script src="/js/ocean.js"></script>
+
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   
@@ -13,13 +13,19 @@
   
     <link rel="shortcut icon" href="/favicon.ico">
   
-  <link rel="stylesheet" href="/css/style.css">
   
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/css/style.css">
+
   
-  <script src="/js/pace.min.js"></script>
-</head>
-</html>
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
 <body>
 <main class="content">
   <section class="outer">
@@ -60,58 +66,45 @@
       
         <p>Every time before start kubectl, remember export <code>admin.config</code> file first which contains server info for connection. The pwd should under path where the config file lies.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> KUBECONFIG=./admin.conf</span><br></pre></td></tr></table></figure>
-
 <p>then start nodes</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get node</span><br></pre></td></tr></table></figure>
-
 <p>or</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get node -n testing</span><br></pre></td></tr></table></figure>
-
 <center><a id="more"></a></center>
 
 <h3 id="useful-cmd"><a href="#useful-cmd" class="headerlink" title="useful cmd"></a>useful cmd</h3><ol>
-<li>通过bash获得pod中某个容器的TTY，相当于登录容器<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl <span class="built_in">exec</span> -it &lt;pod-name&gt; -c &lt;container-name&gt; -- bash</span><br></pre></td></tr></table></figure>
-
+<li><p>通过bash获得pod中某个容器的TTY，相当于登录容器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl <span class="built_in">exec</span> -it &lt;pod-name&gt; -c &lt;container-name&gt; -- bash</span><br></pre></td></tr></table></figure>
+<p>ref: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/klvchen/archive/2018/09/04/9585746.html">kubectl 常用命令总结</a></p>
 </li>
-</ol>
-<p>ref: <a href="https://www.cnblogs.com/klvchen/archive/2018/09/04/9585746.html" target="_blank" rel="noopener">kubectl 常用命令总结</a></p>
-<ol start="2">
-<li><p><code>--</code><br>shell命令前，要加– 号，不然shell命令中的参数，不能识别 <br><a href="https://www.wandouip.com/t5i281271/" target="_blank" rel="noopener">https://www.wandouip.com/t5i281271/</a></p>
+<li><p><code>--</code><br>shell命令前，要加– 号，不然shell命令中的参数，不能识别 <br><a target="_blank" rel="noopener" href="https://www.wandouip.com/t5i281271/">https://www.wandouip.com/t5i281271/</a></p>
 </li>
 <li><p>获取异常容器 <em>(for debug)</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  kubectl get pods -n kube-system | grep -v Running</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  kubectl get pods -n kube-system | grep -v Running</span><br></pre></td></tr></table></figure></li>
 <li><p>get pod description <em>(for debug)</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl describe pod &lt;pod-name&gt; -n &lt;namespaces-name&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl describe pod &lt;pod-name&gt; -n &lt;namespaces-name&gt;</span><br></pre></td></tr></table></figure></li>
 <li><p>查看异常pod的日志 <em>(for debug)</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl logs &lt;pod-name&gt; -n &lt;namespaces-name&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl logs &lt;pod-name&gt; -n &lt;namespaces-name&gt;</span><br></pre></td></tr></table></figure></li>
 <li><p>查看相关的config map存不存在 <em>(for debug)</em> <br>find the path to configmap file first</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls -l   <span class="comment"># if the result is "total 0", means the configmap is not exist</span></span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls -l   <span class="comment"># if the result is &quot;total 0&quot;, means the configmap is not exist</span></span><br></pre></td></tr></table></figure></li>
 <li><p>delete pod</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl delete pod &lt;pod-name&gt; -n &lt;namespaces-name&gt;</span><br></pre></td></tr></table></figure>
-
+<p><code>-n &lt;namespaces-name&gt;</code> can be omitted.</p>
 </li>
 </ol>
-<p><code>-n &lt;namespaces-name&gt;</code> can be omitted.</p>
 <p>delete pods in batches (e.g. delete all evicted pods)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get pods -A| grep Evicted | awk <span class="string">'&#123;print $2&#125;'</span> | xargs kubectl delete pod -n cec</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get pods -A| grep Evicted | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | xargs kubectl delete pod -n cec</span><br></pre></td></tr></table></figure>
 <ol start="8">
-<li>create namespace<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl create namespace &lt;name&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>create namespace<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl create namespace &lt;name&gt;</span><br></pre></td></tr></table></figure></li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/04/07/Kubernetes/" data-id="ckhfv77gv000wdkhrcg02id4y"
+      <a data-url="https://visionary-s.github.io/2020/04/07/Kubernetes/" data-id="ckk7xapqr000y48hr18yod2g1"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/" rel="tag">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li></ul>
 
     </footer>
 
@@ -161,9 +154,9 @@
 
     </div>
     <ul class="list-inline">
-      <li>&copy; 2020 B. Eliza Shi</li>
+      <li>&copy; 2021 B. Eliza Shi</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
-      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+      <li>Theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
     </ul>
   </div>
 </footer>
@@ -235,20 +228,30 @@
 </div>
 
 </aside>
+
 <script src="/js/jquery-2.0.3.min.js"></script>
+
+
 <script src="/js/lazyload.min.js"></script>
+
+
 <script src="/js/snap.svg-min.js"></script>
+
+
 <script src="/js/busuanzi-2.3.pure.min.js"></script>
 
 
-  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
-  <script src="/js/search.js"></script>
+
 
 
 <script src="/js/ocean.js"></script>
+
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   
@@ -13,13 +13,19 @@
   
     <link rel="shortcut icon" href="/favicon.ico">
   
-  <link rel="stylesheet" href="/css/style.css">
   
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/css/style.css">
+
   
-  <script src="/js/pace.min.js"></script>
-</head>
-</html>
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
 <body>
 <main class="content">
   <section class="outer">
@@ -58,33 +64,25 @@
       
 
       
-        <p>Using <a href="https://fex.baidu.com/webuploader/doc/index.html" target="_blank" rel="noopener">WebUploader</a> as 3pp to upload files to system.</p>
-<h3 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 仅包含了常用参数</span></span><br><span class="line"><span class="keyword">var</span> uploader = <span class="keyword">new</span> WebUploader.Uploader(&#123;</span><br><span class="line">    duplicate: <span class="literal">true</span>, <span class="comment">// 是否允许重复文件 default undefined</span></span><br><span class="line">    auto: <span class="literal">false</span>,  <span class="comment">// 选完文件后，是否自动上传</span></span><br><span class="line">    swf: <span class="string">'path_of_swf/Uploader.swf'</span>,  <span class="comment">// swf文件路径</span></span><br><span class="line">    server: <span class="string">"/upload.html"</span>, <span class="comment">// 文件接收服务端</span></span><br><span class="line">    pick: &#123; <span class="attr">id</span>: <span class="string">"#uploadFile"</span>, <span class="attr">innerHTML</span>: <span class="string">"localImg"</span> &#125;, <span class="comment">// 选择文件的按钮。可选</span></span><br><span class="line">    accept: &#123; <span class="comment">// sample, 只允许选择图片文件</span></span><br><span class="line">            title: <span class="string">'Images'</span>,</span><br><span class="line">            extensions: <span class="string">'gif,jpg,jpeg,bmp,png'</span>,</span><br><span class="line">            mimeTypes: <span class="string">'image/*'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    threads: <span class="number">1</span>, <span class="comment">// 线程数</span></span><br><span class="line">    fileSingleSizeLimit: <span class="number">2000</span>,  <span class="comment">// 单文件大小限制</span></span><br><span class="line">    fileNumLimit: <span class="number">10</span>,  <span class="comment">// 单次上传文件数量限制</span></span><br><span class="line">    fileSingleSizeLimit:  <span class="comment">// 验证单个文件大小是否超出限制, 超出则不允许加入队列</span></span><br><span class="line">    compress:<span class="literal">false</span>, <span class="comment">// 是否压缩上传</span></span><br><span class="line">    chunked: <span class="literal">true</span>, <span class="comment">// 是否要分片处理大文件上传, default false</span></span><br><span class="line">    chunkSize: <span class="number">5242880</span>, <span class="comment">// 如果要分片，分多大一片？ default 5242880 (5M)</span></span><br><span class="line">    chunkRetry: <span class="number">1</span>,  <span class="comment">// 如果某个分片由于网络问题出错，允许自动重传多少次？ default 2</span></span><br><span class="line">    threads: <span class="number">1</span>, <span class="comment">// 上传并发数。允许同时最大上传进程数 default 3</span></span><br><span class="line">    formData:&#123;&#125;, <span class="comment">// 文件上传请求的参数表，每次发送都会发送此对象中的参数</span></span><br><span class="line">    method: <span class="string">'GET'</span>,  <span class="comment">// POST or GET, default POST</span></span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-
+        <p>Using <a target="_blank" rel="noopener" href="https://fex.baidu.com/webuploader/doc/index.html">WebUploader</a> as 3pp to upload files to system.</p>
+<h3 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 仅包含了常用参数</span></span><br><span class="line"><span class="keyword">var</span> uploader = <span class="keyword">new</span> WebUploader.Uploader(&#123;</span><br><span class="line">    duplicate: <span class="literal">true</span>, <span class="comment">// 是否允许重复文件 default undefined</span></span><br><span class="line">    auto: <span class="literal">false</span>,  <span class="comment">// 选完文件后，是否自动上传</span></span><br><span class="line">    swf: <span class="string">&#x27;path_of_swf/Uploader.swf&#x27;</span>,  <span class="comment">// swf文件路径</span></span><br><span class="line">    server: <span class="string">&quot;/upload.html&quot;</span>, <span class="comment">// 文件接收服务端</span></span><br><span class="line">    pick: &#123; <span class="attr">id</span>: <span class="string">&quot;#uploadFile&quot;</span>, <span class="attr">innerHTML</span>: <span class="string">&quot;localImg&quot;</span> &#125;, <span class="comment">// 选择文件的按钮。可选</span></span><br><span class="line">    accept: &#123; <span class="comment">// sample, 只允许选择图片文件</span></span><br><span class="line">            title: <span class="string">&#x27;Images&#x27;</span>,</span><br><span class="line">            extensions: <span class="string">&#x27;gif,jpg,jpeg,bmp,png&#x27;</span>,</span><br><span class="line">            mimeTypes: <span class="string">&#x27;image/*&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    threads: <span class="number">1</span>, <span class="comment">// 线程数</span></span><br><span class="line">    fileSingleSizeLimit: <span class="number">2000</span>,  <span class="comment">// 单文件大小限制</span></span><br><span class="line">    fileNumLimit: <span class="number">10</span>,  <span class="comment">// 单次上传文件数量限制</span></span><br><span class="line">    fileSingleSizeLimit:  <span class="comment">// 验证单个文件大小是否超出限制, 超出则不允许加入队列</span></span><br><span class="line">    compress:<span class="literal">false</span>, <span class="comment">// 是否压缩上传</span></span><br><span class="line">    chunked: <span class="literal">true</span>, <span class="comment">// 是否要分片处理大文件上传, default false</span></span><br><span class="line">    chunkSize: <span class="number">5242880</span>, <span class="comment">// 如果要分片，分多大一片？ default 5242880 (5M)</span></span><br><span class="line">    chunkRetry: <span class="number">1</span>,  <span class="comment">// 如果某个分片由于网络问题出错，允许自动重传多少次？ default 2</span></span><br><span class="line">    threads: <span class="number">1</span>, <span class="comment">// 上传并发数。允许同时最大上传进程数 default 3</span></span><br><span class="line">    formData:&#123;&#125;, <span class="comment">// 文件上传请求的参数表，每次发送都会发送此对象中的参数</span></span><br><span class="line">    method: <span class="string">&#x27;GET&#x27;</span>,  <span class="comment">// POST or GET, default POST</span></span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
  <center><a id="more"></a></center>
 
 <h3 id="2-监听event"><a href="#2-监听event" class="headerlink" title="2. 监听event"></a>2. 监听event</h3><p>仅列举常用event</p>
 <ul>
-<li><p><strong>uploadAccept</strong><br>当某个文件上传到服务端响应后，会派送此事件来询问服务端响应是否有效。如果此事件handler返回值为false, 则此文件将派送server类型的uploadError事件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">uploader.on(<span class="string">'uploadAccept'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">file, response</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (response.error) &#123;</span><br><span class="line">      <span class="keyword">this</span>.uploader.trigger(<span class="string">'uploadError'</span>, file, response.UserMessage);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>uploadSuccess</strong><br>当文件上传成功时触发（单文件上传成功）</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uploader.on(<span class="string">'uploadSuccess'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">file</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>._saveSuccessHandler(file);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>uploadError</strong><br>当文件上传出错时触发</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">uploader.on(<span class="string">'uploadError'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">file, reason</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> xhr = &#123;&#125;, responseJSON = &#123;&#125;;</span><br><span class="line">      responseJSON.UserMessage = reason;</span><br><span class="line">      xhr.status = <span class="number">500</span>;</span><br><span class="line">      xhr.responseJSON = responseJSON;</span><br><span class="line">      <span class="keyword">if</span> (reason) &#123;</span><br><span class="line">          createErrorDialog(xhr, <span class="number">500</span>, <span class="string">"upload failed"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">this</span>.uploader.reset();  <span class="comment">// uploader重置</span></span><br><span class="line">      <span class="keyword">this</span>.submitBtn.removeAttribute(<span class="string">'disabled'</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-
-</li>
+<li><strong>uploadAccept</strong><br>当某个文件上传到服务端响应后，会派送此事件来询问服务端响应是否有效。如果此事件handler返回值为false, 则此文件将派送server类型的uploadError事件<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">uploader.on(<span class="string">&#x27;uploadAccept&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">file, response</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (response.error) &#123;</span><br><span class="line">      <span class="built_in">this</span>.uploader.trigger(<span class="string">&#x27;uploadError&#x27;</span>, file, response.UserMessage);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><strong>uploadSuccess</strong><br>当文件上传成功时触发（单文件上传成功）<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uploader.on(<span class="string">&#x27;uploadSuccess&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">file</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>._saveSuccessHandler(file);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><strong>uploadError</strong><br>当文件上传出错时触发<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">uploader.on(<span class="string">&#x27;uploadError&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">file, reason</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> xhr = &#123;&#125;, responseJSON = &#123;&#125;;</span><br><span class="line">      responseJSON.UserMessage = reason;</span><br><span class="line">      xhr.status = <span class="number">500</span>;</span><br><span class="line">      xhr.responseJSON = responseJSON;</span><br><span class="line">      <span class="keyword">if</span> (reason) &#123;</span><br><span class="line">          createErrorDialog(xhr, <span class="number">500</span>, <span class="string">&quot;upload failed&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">this</span>.uploader.reset();  <span class="comment">// uploader重置</span></span><br><span class="line">      <span class="built_in">this</span>.submitBtn.removeAttribute(<span class="string">&#x27;disabled&#x27;</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+For more details: <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9f669deebf82">https://www.jianshu.com/p/9f669deebf82</a></li>
 </ul>
-<p>For more details: <a href="https://www.jianshu.com/p/9f669deebf82" target="_blank" rel="noopener">https://www.jianshu.com/p/9f669deebf82</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/19/webUploader/" data-id="ckhfv77kr003fdkhrkzmymsli"
+      <a data-url="https://visionary-s.github.io/2019/08/19/webUploader/" data-id="ckk7xaprv003d48hr2nys65cp"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebUploader/">WebUploader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebUploader/" rel="tag">WebUploader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
 
     </footer>
 
@@ -104,9 +102,9 @@
       </a>
     
     
-      <a href="/2019/08/19/FileUploadAndDisplay/" class="article-nav-link">
+      <a href="/2019/08/15/promise/" class="article-nav-link">
         <strong class="article-nav-caption">Olde posts</strong>
-        <div class="article-nav-title">File Upload and Display</div>
+        <div class="article-nav-title">Promise</div>
       </a>
     
   </nav>
@@ -134,9 +132,9 @@
 
     </div>
     <ul class="list-inline">
-      <li>&copy; 2020 B. Eliza Shi</li>
+      <li>&copy; 2021 B. Eliza Shi</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
-      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+      <li>Theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
     </ul>
   </div>
 </footer>
@@ -208,20 +206,30 @@
 </div>
 
 </aside>
+
 <script src="/js/jquery-2.0.3.min.js"></script>
+
+
 <script src="/js/lazyload.min.js"></script>
+
+
 <script src="/js/snap.svg-min.js"></script>
+
+
 <script src="/js/busuanzi-2.3.pure.min.js"></script>
 
 
-  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
-  <script src="/js/search.js"></script>
+
 
 
 <script src="/js/ocean.js"></script>
+
 
 </body>
 </html>

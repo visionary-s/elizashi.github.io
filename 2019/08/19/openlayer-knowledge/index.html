@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   
@@ -13,13 +13,19 @@
   
     <link rel="shortcut icon" href="/favicon.ico">
   
-  <link rel="stylesheet" href="/css/style.css">
   
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/css/style.css">
+
   
-  <script src="/js/pace.min.js"></script>
-</head>
-</html>
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
 <body>
 <main class="content">
   <section class="outer">
@@ -65,52 +71,48 @@
 <li><strong>EPSG：3857</strong>（又名Pseudo-Mercator，球形墨卡托或Web墨卡托）是投影坐标系。这是Google Maps和几乎所有其他Web制图应用程序使用的坐标系。</li>
 </ul>
 <p>通常，数据存储在EPSG：4326中并显示在EPSG：3857中，自行转换。</p>
-<p><a href="http://liubf.com/2018/08/22/epsg-4326-vs-epsg-3857/" target="_blank" rel="noopener">ref link</a></p>
+<p><a target="_blank" rel="noopener" href="http://liubf.com/2018/08/22/epsg-4326-vs-epsg-3857/">ref link</a></p>
  <center><a id="more"></a></center>
 
 
 <hr>
 <h3 id="Function-to-draw-a-sector-accurately"><a href="#Function-to-draw-a-sector-accurately" class="headerlink" title="Function to draw a sector accurately"></a>Function to draw a sector accurately</h3><p>Cuz the untransformed sector displayed with great error in angle = 45° (start angle) so I have to turn to this Function as following, which convert longitude and latitude into Mercator projection first before the calculation.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetMarcoXyArcArray</span>(<span class="params">origin,radius,sides,r,angel</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> x = [];</span><br><span class="line">            x[<span class="number">0</span>] = [origin[<span class="number">0</span>],origin[<span class="number">1</span>]];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">1</span>; j &lt; sides; j++) &#123;</span><br><span class="line">                <span class="keyword">var</span> tx = origin[<span class="number">0</span>] + radius * <span class="built_in">Math</span>.cos(<span class="built_in">Math</span>.PI / <span class="number">180</span> * (<span class="number">90</span> - angel + (sides/<span class="number">2</span> - j) * r / (sides<span class="number">-2</span>)));</span><br><span class="line"></span><br><span class="line">                <span class="keyword">var</span> ty = origin[<span class="number">1</span>] + radius * <span class="built_in">Math</span>.sin(<span class="built_in">Math</span>.PI / <span class="number">180</span> * (<span class="number">90</span> - angel + (sides/<span class="number">2</span> - j) * r / (sides<span class="number">-2</span>)));</span><br><span class="line"></span><br><span class="line">                x[j]=[tx,ty];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//alert(x);</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ol.geom.Polygon([x]);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>Thanks to <a href="https://blog.csdn.net/tianshibufan521/article/details/81102042" target="_blank" rel="noopener">tianshibufan521’s post</a></p>
-<p>After modification: <center><br><img src="https://res.cloudinary.com/elizashi/image/upload/v1565247149/gitblog/posts/openlayer/rightSector_prseyd.png" style="width: 60%"></center></p>
-
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetMarcoXyArcArray</span>(<span class="params">origin,radius,sides,r,angel</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> x = [];</span><br><span class="line">            x[<span class="number">0</span>] = [origin[<span class="number">0</span>],origin[<span class="number">1</span>]];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">1</span>; j &lt; sides; j++) &#123;</span><br><span class="line">                <span class="keyword">var</span> tx = origin[<span class="number">0</span>] + radius * <span class="built_in">Math</span>.cos(<span class="built_in">Math</span>.PI / <span class="number">180</span> * (<span class="number">90</span> - angel + (sides/<span class="number">2</span> - j) * r / (sides-<span class="number">2</span>)));</span><br><span class="line"></span><br><span class="line">                <span class="keyword">var</span> ty = origin[<span class="number">1</span>] + radius * <span class="built_in">Math</span>.sin(<span class="built_in">Math</span>.PI / <span class="number">180</span> * (<span class="number">90</span> - angel + (sides/<span class="number">2</span> - j) * r / (sides-<span class="number">2</span>)));</span><br><span class="line"></span><br><span class="line">                x[j]=[tx,ty];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//alert(x);</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ol.geom.Polygon([x]);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>Thanks to <a target="_blank" rel="noopener" href="https://blog.csdn.net/tianshibufan521/article/details/81102042">tianshibufan521’s post</a></p>
+<p>After modification: <center><br><img src=https://res.cloudinary.com/elizashi/image/upload/v1565247149/gitblog/posts/openlayer/rightSector_prseyd.png style="width: 60%"/></p>
+</center>
 
 
 <h4 id="190813-update"><a href="#190813-update" class="headerlink" title="190813 update"></a>190813 update</h4><p>this method will lead to wrong presentation size at about 4/5 of expected radius due to the Mercator projection. I couldn’t figure out why for the second time I tried the origin calculation method as following, it turned out to appear normally with start angle of 45°.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; sides; ++i) &#123;</span><br><span class="line">  rotatedAngle = (i * radian / <span class="number">360</span> * <span class="number">2</span> * <span class="built_in">Math</span>.PI / sides) + (<span class="number">90</span> - angle - radian / <span class="number">2</span> )* <span class="built_in">Math</span>.PI / <span class="number">180</span> ; <span class="comment">// start from y = 0 (sector1 based on symmetry y axis, clockwise rotation)</span></span><br><span class="line">  coordinate = <span class="keyword">this</span>.getJWD(origin.Longitude, origin.Latitude, radius, rotatedAngle);  <span class="comment">// method getJWD() can be found ↓ link</span></span><br><span class="line">  points.push(coordinate);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// if not circle, add center point.</span></span><br><span class="line"><span class="comment">// this allows drawing circle via polygon api</span></span><br><span class="line"><span class="keyword">if</span> (radian !== <span class="string">"360"</span>) &#123;</span><br><span class="line">  points.push([origin.Longitude, origin.Latitude]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ring = <span class="keyword">new</span> ol.geom.LinearRing(points);</span><br><span class="line"><span class="keyword">var</span> pointsCoords = ring.getCoordinates();</span><br><span class="line">feature = <span class="keyword">new</span> ol.Feature(<span class="keyword">new</span> ol.geom.Polygon([pointsCoords]));</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; sides; ++i) &#123;</span><br><span class="line">  rotatedAngle = (i * radian / <span class="number">360</span> * <span class="number">2</span> * <span class="built_in">Math</span>.PI / sides) + (<span class="number">90</span> - angle - radian / <span class="number">2</span> )* <span class="built_in">Math</span>.PI / <span class="number">180</span> ; <span class="comment">// start from y = 0 (sector1 based on symmetry y axis, clockwise rotation)</span></span><br><span class="line">  coordinate = <span class="built_in">this</span>.getJWD(origin.Longitude, origin.Latitude, radius, rotatedAngle);  <span class="comment">// method getJWD() can be found ↓ link</span></span><br><span class="line">  points.push(coordinate);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// if not circle, add center point.</span></span><br><span class="line"><span class="comment">// this allows drawing circle via polygon api</span></span><br><span class="line"><span class="keyword">if</span> (radian !== <span class="string">&quot;360&quot;</span>) &#123;</span><br><span class="line">  points.push([origin.Longitude, origin.Latitude]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ring = <span class="keyword">new</span> ol.geom.LinearRing(points);</span><br><span class="line"><span class="keyword">var</span> pointsCoords = ring.getCoordinates();</span><br><span class="line">feature = <span class="keyword">new</span> ol.Feature(<span class="keyword">new</span> ol.geom.Polygon([pointsCoords]));</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h3 id="calculate-longitude-amp-latitude-via-coordinate"><a href="#calculate-longitude-amp-latitude-via-coordinate" class="headerlink" title="calculate longitude &amp; latitude via coordinate"></a>calculate longitude &amp; latitude via coordinate</h3><p>former dev using func getJWD to calculate the coordinates, but this func cause the display error with start degree of 45°, so I discarded it.<br>For more info about this func : <a href="https://www.cnblogs.com/zhoug2020/p/7634187.html" target="_blank" rel="noopener">link</a></p>
+<h3 id="calculate-longitude-amp-latitude-via-coordinate"><a href="#calculate-longitude-amp-latitude-via-coordinate" class="headerlink" title="calculate longitude &amp; latitude via coordinate"></a>calculate longitude &amp; latitude via coordinate</h3><p>former dev using func getJWD to calculate the coordinates, but this func cause the display error with start degree of 45°, so I discarded it.<br>For more info about this func : <a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhoug2020/p/7634187.html">link</a></p>
 <hr>
 <h3 id="Draw-a-circle"><a href="#Draw-a-circle" class="headerlink" title="Draw a circle"></a>Draw a circle</h3><p>Simply used <code>ol.geom.Circle</code> instead of <code>ol..geom.Polygon</code>, which will cause a start/end radius as follows:</p>
 <table>
 <thead>
 <tr>
-<th align="left"><center>Before</center></th>
-<th align="left"><center>After</center></th>
+<th align="left"><center>Before</th>
+<th align="left"><center>After</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><img src="https://res.cloudinary.com/elizashi/image/upload/v1565247159/gitblog/posts/openlayer/circleError_ycjh8e.png" style="width: 60%"></td>
-<td align="left"><img src="https://res.cloudinary.com/elizashi/image/upload/v1565247156/gitblog/posts/openlayer/updated_x1vkan.png" style="width: 60%"></td>
+<td align="left"><img src=https://res.cloudinary.com/elizashi/image/upload/v1565247159/gitblog/posts/openlayer/circleError_ycjh8e.png style="width: 60%"/></td>
+<td align="left"><img src=https://res.cloudinary.com/elizashi/image/upload/v1565247156/gitblog/posts/openlayer/updated_x1vkan.png style="width: 60%"/></td>
 </tr>
 </tbody></table>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> circle = <span class="keyword">new</span> ol.geom.Circle(</span><br><span class="line">    ol.proj.transform([longitude, latitude], <span class="string">'EPSG:4326'</span>, <span class="string">'EPSG:3857'</span>),</span><br><span class="line">    radius</span><br><span class="line">);</span><br><span class="line"><span class="keyword">var</span> circleFeature = <span class="keyword">new</span> ol.Feature(circle);</span><br></pre></td></tr></table></figure>
-
-<p><a href="http://www.acuriousanimal.com/thebookofopenlayers3/index.html" target="_blank" rel="noopener">OpenLayer Samples link</a>  ||  <a href="http://www.acuriousanimal.com/thebookofopenlayers3/chapter07_04_featureoverlay.html" target="_blank" rel="noopener">Circle</a></p>
-<h4 id="update"><a href="#update" class="headerlink" title="update:"></a>update:</h4><p>The pattern turned out to be simple circle pattern，which does not include geometry params，but our project need geometry params in GeoJSON format to decide which area is covered.<br>So I finally turn to <a href="https://openlayers.org/en/latest/apidoc/module-ol_geom_Polygon.html#.fromCircle" target="_blank" rel="noopener">ol/geom/Polygon.fromCircle</a> which transform plain circle into Polygon format. It returns Polygon geometry so that can be used in further calculation of coverage.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> circle = <span class="keyword">new</span> OpenLayers.geom.Circle(circleParams.center, circleParams.radius);</span><br><span class="line">feature = <span class="keyword">new</span> OpenLayers.Feature(<span class="keyword">new</span> OpenLayers.geom.Polygon.fromCircle(circle, <span class="number">500</span>));</span><br></pre></td></tr></table></figure>
-
-
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> circle = <span class="keyword">new</span> ol.geom.Circle(</span><br><span class="line">    ol.proj.transform([longitude, latitude], <span class="string">&#x27;EPSG:4326&#x27;</span>, <span class="string">&#x27;EPSG:3857&#x27;</span>),</span><br><span class="line">    radius</span><br><span class="line">);</span><br><span class="line"><span class="keyword">var</span> circleFeature = <span class="keyword">new</span> ol.Feature(circle);</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="http://www.acuriousanimal.com/thebookofopenlayers3/index.html">OpenLayer Samples link</a>  ||  <a target="_blank" rel="noopener" href="http://www.acuriousanimal.com/thebookofopenlayers3/chapter07_04_featureoverlay.html">Circle</a></p>
+<h4 id="update"><a href="#update" class="headerlink" title="update:"></a>update:</h4><p>The pattern turned out to be simple circle pattern，which does not include geometry params，but our project need geometry params in GeoJSON format to decide which area is covered.<br>So I finally turn to <a target="_blank" rel="noopener" href="https://openlayers.org/en/latest/apidoc/module-ol_geom_Polygon.html#.fromCircle">ol/geom/Polygon.fromCircle</a> which transform plain circle into Polygon format. It returns Polygon geometry so that can be used in further calculation of coverage.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> circle = <span class="keyword">new</span> OpenLayers.geom.Circle(circleParams.center, circleParams.radius);</span><br><span class="line">feature = <span class="keyword">new</span> OpenLayers.Feature(<span class="keyword">new</span> OpenLayers.geom.Polygon.fromCircle(circle, <span class="number">500</span>));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/19/openlayer-knowledge/" data-id="ckhfv77j1002jdkhrokipx13i"
+      <a data-url="https://visionary-s.github.io/2019/08/19/openlayer-knowledge/" data-id="ckk7xaprb002e48hr76d8c8ld"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openlayer/">openlayer</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openlayer/" rel="tag">openlayer</a></li></ul>
 
     </footer>
 
@@ -120,11 +122,11 @@
     
   <nav class="article-nav">
     
-      <a href="/2019/12/09/About Gson LinkedTreeMap/" class="article-nav-link">
+      <a href="/2019/08/19/FileUploadAndDisplay/" class="article-nav-link">
         <strong class="article-nav-caption">Newer posts</strong>
         <div class="article-nav-title">
           
-            Gson LinkedTreeMap
+            File Upload and Display
           
         </div>
       </a>
@@ -160,9 +162,9 @@
 
     </div>
     <ul class="list-inline">
-      <li>&copy; 2020 B. Eliza Shi</li>
+      <li>&copy; 2021 B. Eliza Shi</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
-      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+      <li>Theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
     </ul>
   </div>
 </footer>
@@ -234,20 +236,30 @@
 </div>
 
 </aside>
+
 <script src="/js/jquery-2.0.3.min.js"></script>
+
+
 <script src="/js/lazyload.min.js"></script>
+
+
 <script src="/js/snap.svg-min.js"></script>
+
+
 <script src="/js/busuanzi-2.3.pure.min.js"></script>
 
 
-  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
-  <script src="/js/search.js"></script>
+
 
 
 <script src="/js/ocean.js"></script>
+
 
 </body>
 </html>
