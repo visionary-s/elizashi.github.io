@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Git cmd for daily use</title>
-    <url>/2020/11/13/git-for-daily-use/</url>
+    <url>/2019/07/11/git-for-daily-use/</url>
     <content><![CDATA[<h4 id="Codes-commit-procedure-for-daily-work"><a href="#Codes-commit-procedure-for-daily-work" class="headerlink" title="Codes commit procedure for daily work:"></a>Codes commit procedure for daily work:</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git status          <span class="comment"># check current modifications</span></span><br></pre></td></tr></table></figure>
 <p>see detailed changes from current code:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git diff</span><br></pre></td></tr></table></figure>
@@ -87,8 +87,8 @@ For more info about using amend :<br><a href="https://www.atlassian.com/git/tuto
         <category>work</category>
       </categories>
       <tags>
-        <tag>git</tag>
         <tag>cmd</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -180,8 +180,10 @@ Above cmd means give permits to all files or folders under current path, also we
   </entry>
   <entry>
     <title>PyQt Learning &amp; Practice</title>
-    <url>/2020/11/13/pyqt/</url>
+    <url>/2020/10/12/pyqt/</url>
     <content><![CDATA[<h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip install PyQt5</span><br><span class="line">Collecting PyQt5</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/43/cf/f89c7e632014cb8725fc30b36292ca709a5b5598e4e99fff09cb677fc898/PyQt5-5.15.1-5.15.1-cp35.cp36.cp37.cp38.cp39-none-win32.whl (51.2MB)</span><br><span class="line">     |████████████████████████████████| 51.2MB 117kB/s</span><br><span class="line">Collecting PyQt5-sip&lt;13,&gt;=12.8 (from PyQt5)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/69/eb/bb296c8a96eadacd5e91df3f5d600d9e4727b90e8b010cb86e146f995ce4/PyQt5_sip-12.8.1-cp37-cp37m-win32.whl (50kB)</span><br><span class="line">     |████████████████████████████████| 51kB 233kB/s</span><br><span class="line">Installing collected packages: PyQt5-sip, PyQt5</span><br><span class="line">Successfully installed PyQt5-5.15.1 PyQt5-sip-12.8.1</span><br></pre></td></tr></table></figure>
+ <center><a id="more"></a></center>
+
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip install pyqt5-tools</span><br><span class="line">Collecting pyqt5-tools</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/68/5b/202a0dbe7774f26be5ade0fa42cbd4cc6fc4dc5b19c824dfccf6160f8566/pyqt5_tools-5.15.1.1.7.4-cp37-cp37m-win32.whl (48.1MB)</span><br><span class="line">     |█                               | 1.7MB 16kB/s eta 0:47:49ERROR: Exception:</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_vendor\urllib3\response.py&quot;</span>, line 397, <span class="keyword">in</span> _error_catcher</span><br><span class="line">    yield</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_vendor\urllib3\response.py&quot;</span>, line 479, <span class="keyword">in</span> <span class="built_in">read</span></span><br><span class="line">    data = self._fp.read(amt)</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_vendor\cachecontrol\filewrapper.py&quot;</span>, line 62, <span class="keyword">in</span> <span class="built_in">read</span></span><br><span class="line">    data = self.__fp.read(amt)</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\http\client.py&quot;</span>, line 457, <span class="keyword">in</span> <span class="built_in">read</span></span><br><span class="line">    n = self.readinto(b)</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\http\client.py&quot;</span>, line 501, <span class="keyword">in</span> readinto</span><br><span class="line">    n = self.fp.readinto(b)</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\socket.py&quot;</span>, line 589, <span class="keyword">in</span> readinto</span><br><span class="line">    <span class="built_in">return</span> self._sock.recv_into(b)</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\ssl.py&quot;</span>, line 1071, <span class="keyword">in</span> recv_into</span><br><span class="line">    <span class="built_in">return</span> self.read(nbytes, buffer)</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\ssl.py&quot;</span>, line 929, <span class="keyword">in</span> <span class="built_in">read</span></span><br><span class="line">    <span class="built_in">return</span> self._sslobj.read(len, buffer)</span><br><span class="line">socket.timeout: The <span class="built_in">read</span> operation timed out</span><br><span class="line"></span><br><span class="line">During handling of the above exception, another exception occurred:</span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\cli\base_command.py&quot;</span>, line 188, <span class="keyword">in</span> main</span><br><span class="line">    status = self.run(options, args)</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\commands\install.py&quot;</span>, line 345, <span class="keyword">in</span> run</span><br><span class="line">    resolver.resolve(requirement_set)</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\legacy_resolve.py&quot;</span>, line 196, <span class="keyword">in</span> resolve</span><br><span class="line">    self._resolve_one(requirement_set, req)</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\legacy_resolve.py&quot;</span>, line 359, <span class="keyword">in</span> _resolve_one</span><br><span class="line">    abstract_dist = self._get_abstract_dist_for(req_to_install)</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\legacy_resolve.py&quot;</span>, line 307, <span class="keyword">in</span> _get_abstract_dist_for</span><br><span class="line">    self.require_hashes</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\operations\prepare.py&quot;</span>, line 199, <span class="keyword">in</span> prepare_linked_requirement</span><br><span class="line">    progress_bar=self.progress_bar</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\download.py&quot;</span>, line 1064, <span class="keyword">in</span> unpack_url</span><br><span class="line">    progress_bar=progress_bar</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\download.py&quot;</span>, line 924, <span class="keyword">in</span> unpack_http_url</span><br><span class="line">    progress_bar)</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\download.py&quot;</span>, line 1152, <span class="keyword">in</span> _download_http_url</span><br><span class="line">    _download_url(resp, link, content_file, hashes, progress_bar)</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\download.py&quot;</span>, line 861, <span class="keyword">in</span> _download_url</span><br><span class="line">    hashes.check_against_chunks(downloaded_chunks)</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\utils\hashes.py&quot;</span>, line 75, <span class="keyword">in</span> check_against_chunks</span><br><span class="line">    <span class="keyword">for</span> chunk <span class="keyword">in</span> chunks:</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\download.py&quot;</span>, line 829, <span class="keyword">in</span> written_chunks</span><br><span class="line">    <span class="keyword">for</span> chunk <span class="keyword">in</span> chunks:</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\utils\ui.py&quot;</span>, line 156, <span class="keyword">in</span> iter</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> it:</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_internal\download.py&quot;</span>, line 818, <span class="keyword">in</span> resp_read</span><br><span class="line">    decode_content=False):</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_vendor\urllib3\response.py&quot;</span>, line 531, <span class="keyword">in</span> stream</span><br><span class="line">    data = self.read(amt=amt, decode_content=decode_content)</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_vendor\urllib3\response.py&quot;</span>, line 496, <span class="keyword">in</span> <span class="built_in">read</span></span><br><span class="line">    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\contextlib.py&quot;</span>, line 130, <span class="keyword">in</span> __exit__</span><br><span class="line">    self.gen.throw(<span class="built_in">type</span>, value, traceback)</span><br><span class="line">  File <span class="string">&quot;c:\users\eshibij\appdata\local\programs\python\python37-32\lib\site-packages\pip\_vendor\urllib3\response.py&quot;</span>, line 402, <span class="keyword">in</span> _error_catcher</span><br><span class="line">    raise ReadTimeoutError(self._pool, None, <span class="string">&#x27;Read timed out.&#x27;</span>)</span><br><span class="line">pip._vendor.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host=<span class="string">&#x27;files.pythonhosted.org&#x27;</span>, port=443): Read timed out.</span><br><span class="line">WARNING: You are using pip version 19.2.3, however version 20.2.4 is available.</span><br><span class="line">You should consider upgrading via the <span class="string">&#x27;python -m pip install --upgrade pip&#x27;</span> <span class="built_in">command</span>.</span><br></pre></td></tr></table></figure>
 <p>rerun the install cmd, then finished with:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip install pyqt5-tools</span><br><span class="line">Collecting pyqt5-tools</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/68/5b/202a0dbe7774f26be5ade0fa42cbd4cc6fc4dc5b19c824dfccf6160f8566/pyqt5_tools-5.15.1.1.7.4-cp37-cp37m-win32.whl (48.1MB)</span><br><span class="line">     |████████████████████████████████| 48.1MB 656kB/s</span><br><span class="line">Collecting python-dotenv (from pyqt5-tools)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/f2/16/28d434b28c5be29a6af8fd0e3a2bda3bd30500ef0cd17bc79f7a6793a8d4/python_dotenv-0.14.0-py2.py3-none-any.whl</span><br><span class="line">Collecting click (from pyqt5-tools)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/d2/3d/fa76db83bf75c4f8d338c2fd15c8d33fdd7ad23a9b5e57eb6c5de26b430e/click-7.1.2-py2.py3-none-any.whl (82kB)</span><br><span class="line">     |████████████████████████████████| 92kB 590kB/s</span><br><span class="line">Requirement already satisfied: pyqt5==5.15.1 <span class="keyword">in</span> c:\users\eshibij\appdata\<span class="built_in">local</span>\programs\python\python37-32\lib\site-packages (from pyqt5-tools) (5.15.1)</span><br><span class="line">Requirement already satisfied: PyQt5-sip&lt;13,&gt;=12.8 <span class="keyword">in</span> c:\users\eshibij\appdata\<span class="built_in">local</span>\programs\python\python37-32\lib\site-packages (from pyqt5==5.15.1-&gt;pyqt5-tools) (12.8.1)</span><br><span class="line">Installing collected packages: python-dotenv, click, pyqt5-tools</span><br><span class="line">Successfully installed click-7.1.2 pyqt5-tools-5.15.1.1.7.4 python-dotenv-0.14.0</span><br><span class="line">WARNING: You are using pip version 19.2.3, however version 20.2.4 is available.</span><br><span class="line">You should consider upgrading via the <span class="string">&#x27;python -m pip install --upgrade pip&#x27;</span> <span class="built_in">command</span>.</span><br></pre></td></tr></table></figure>
@@ -198,22 +200,6 @@ Above cmd means give permits to all files or folders under current path, also we
         <tag>python</tag>
         <tag>GUI</tag>
         <tag>PyQt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CDT Learning</title>
-    <url>/2020/11/13/CDT0/</url>
-    <content><![CDATA[<h2 id="Skeleton"><a href="#Skeleton" class="headerlink" title="Skeleton"></a>Skeleton</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">my-app/</span><br><span class="line">    .cdt                  <span class="comment"># installed lib and conf，do not modify</span></span><br><span class="line">    <span class="built_in">help</span>/                 <span class="comment"># help docs</span></span><br><span class="line">    locales/              <span class="comment"># translation files</span></span><br><span class="line">    resources/            <span class="comment"># imgs &amp; other resources that are not js files</span></span><br><span class="line">    src/                  <span class="comment"># src code. Contains only one folder (my-app)</span></span><br><span class="line">        my-app/           <span class="comment"># name = app name, fully lowercase</span></span><br><span class="line">    <span class="built_in">test</span>/                 </span><br><span class="line">        bit/              <span class="comment"># FT, API concerned only</span></span><br><span class="line">        unit/             <span class="comment"># UT</span></span><br><span class="line">    .editorconfig         <span class="comment"># coding styles，已删</span></span><br><span class="line">    .gitignore  </span><br><span class="line">    app.config.js         <span class="comment"># metadata for app</span></span><br><span class="line">    build.json            <span class="comment"># used by the build module</span></span><br><span class="line">    container.config.js   <span class="comment"># only for dev, never used in production, contains dev version of container</span></span><br></pre></td></tr></table></figure>
- <center><a id="more"></a></center>
-
-<h4 id="app-config-js"><a href="#app-config-js" class="headerlink" title="app.config.js"></a>app.config.js</h4><p>  app configuration file, example:<br>  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  define(&#123;</span><br><span class="line">    script: <span class="string">&#x27;active-alerts/ActiveAlerts&#x27;</span>, <span class="comment">// path to app, src下的脚本执行</span></span><br><span class="line">    title:  <span class="string">&#x27;Active Alerts&#x27;</span>,    <span class="comment">// app title, used in breadcrumb widget</span></span><br><span class="line">    <span class="comment">// opt</span></span><br><span class="line">    parent: <span class="string">&#x27;alert-management&#x27;</span>,</span><br><span class="line">    <span class="comment">// opt, when exe parent script will start the children</span></span><br><span class="line">    children: [              </span><br><span class="line">        &#123;<span class="attr">app</span>: <span class="string">&#x27;alerts-log&#x27;</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">app</span>: <span class="string">&#x27;alerts-settings&#x27;</span>&#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">// opt, expose app modules that can be loaded by other apps dynamically</span></span><br><span class="line">    <span class="built_in">exports</span>: &#123;     </span><br><span class="line">        <span class="string">&#x27;active-alerts/Module1&#x27;</span>: <span class="string">&#x27;active-alerts/modules/Module1&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;active-alerts/Module2&#x27;</span>: <span class="string">&#x27;active-alerts/modules/Module2&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// i18n.locales: list of supported language</span></span><br><span class="line">    <span class="string">&quot;i18n&quot;</span>: &#123;   <span class="comment">// 这里可以不加引号，也可以加，上面的参数同理</span></span><br><span class="line">                <span class="comment">// ES6可以不加，ES5要加</span></span><br><span class="line">        <span class="string">&quot;locales&quot;</span>: [<span class="string">&quot;en-us&quot;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><br>detailed folder structure: <a href="https://arm101-eiffel004.lmera.ericsson.se:8443/nexus/content/sites/tor/cdt/latest/proj_struct.html">internal link</a><br>other link: <a href="https://cloud.tencent.com/developer/section/1489898">breadcrumb widget</a></p>
-]]></content>
-      <categories>
-        <category>work</category>
-      </categories>
-      <tags>
-        <tag>CDT</tag>
-        <tag>dev-env</tag>
       </tags>
   </entry>
   <entry>
@@ -682,9 +668,9 @@ for case that <code>netstat</code> is not installed, use <code>ss -lp</code> ins
         <category>work</category>
       </categories>
       <tags>
+        <tag>linux</tag>
         <tag>Kubernetes</tag>
         <tag>K8s</tag>
-        <tag>linux</tag>
         <tag>postgres</tag>
       </tags>
   </entry>
@@ -1533,37 +1519,6 @@ For more details: <a href="https://www.jianshu.com/p/9f669deebf82">https://www.j
       </tags>
   </entry>
   <entry>
-    <title>Hard &amp; Soft Dependencies</title>
-    <url>/2019/07/25/Hard%20or%20Soft%20Dependencies/</url>
-    <content><![CDATA[<p>ref: <a href="https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency">https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency</a></p>
-<h2 id="Hard-Dependency"><a href="#Hard-Dependency" class="headerlink" title="Hard Dependency"></a>Hard Dependency</h2><p>a module <strong>cannot</strong> function without the other modules on which it depends</p>
-<ul>
-<li><p>The module contains code that directly uses logic from another module (<strong>instances, class constants, static methods, public class properties, interfaces and traits</strong>).</p>
-</li>
-<li><p>The module contains strings that include <strong>class names, methods names, class constants, class properties, interfaces, and traits</strong> from another module.</p>
-</li>
-<li><p>The module de-serializes an <strong>object declared in another module</strong>.</p>
-</li>
-<li><p>The module uses or modifies the <strong>database tables used by another module</strong>.</p>
-<center><a id="more"></a></center>
-
-</li>
-</ul>
-<h2 id="Soft-Dependency"><a href="#Soft-Dependency" class="headerlink" title="Soft Dependency"></a>Soft Dependency</h2><p>a module <strong>can</strong> function without the other modules on which it depends</p>
-<ul>
-<li>The module directly <strong>checks</strong> another module’s availability.</li>
-<li>The module <strong>extends</strong> another module’s configuration.</li>
-<li>The module extends another module’s layout.</li>
-</ul>
-]]></content>
-      <categories>
-        <category>basic</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo - Tools &amp; cmd used during deployment</title>
     <url>/2019/07/25/Hexo%20cmd/</url>
     <content><![CDATA[<p>Ref: <a href="https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/">https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/</a></p>
@@ -1628,6 +1583,37 @@ error occurs when generating, due to <a href="https://github.com/hexojs/hexo/iss
       </tags>
   </entry>
   <entry>
+    <title>Hard &amp; Soft Dependencies</title>
+    <url>/2019/07/25/Hard%20or%20Soft%20Dependencies/</url>
+    <content><![CDATA[<p>ref: <a href="https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency">https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency</a></p>
+<h2 id="Hard-Dependency"><a href="#Hard-Dependency" class="headerlink" title="Hard Dependency"></a>Hard Dependency</h2><p>a module <strong>cannot</strong> function without the other modules on which it depends</p>
+<ul>
+<li><p>The module contains code that directly uses logic from another module (<strong>instances, class constants, static methods, public class properties, interfaces and traits</strong>).</p>
+</li>
+<li><p>The module contains strings that include <strong>class names, methods names, class constants, class properties, interfaces, and traits</strong> from another module.</p>
+</li>
+<li><p>The module de-serializes an <strong>object declared in another module</strong>.</p>
+</li>
+<li><p>The module uses or modifies the <strong>database tables used by another module</strong>.</p>
+<center><a id="more"></a></center>
+
+</li>
+</ul>
+<h2 id="Soft-Dependency"><a href="#Soft-Dependency" class="headerlink" title="Soft Dependency"></a>Soft Dependency</h2><p>a module <strong>can</strong> function without the other modules on which it depends</p>
+<ul>
+<li>The module directly <strong>checks</strong> another module’s availability.</li>
+<li>The module <strong>extends</strong> another module’s configuration.</li>
+<li>The module extends another module’s layout.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>basic</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JS-Label</title>
     <url>/2019/07/25/JS-Label/</url>
     <content><![CDATA[<p>标签（label），相当于定位符，用于跳转到程序的任意位置。</p>
@@ -1678,24 +1664,6 @@ error occurs when generating, due to <a href="https://github.com/hexojs/hexo/iss
       </tags>
   </entry>
   <entry>
-    <title>CDT App Lifecycle</title>
-    <url>/2019/07/25/cdt-app-lifecycle/</url>
-    <content><![CDATA[<p>Apps that run in the container have their lifecycle managed.<br>The container checks for various functions implemented by the app. If those functions are implemented, the container will execute them accordingly. The following functions are supported by the container:</p>
-<h4 id="1-void-onStart"><a href="#1-void-onStart" class="headerlink" title="1. void onStart()"></a>1. void onStart()</h4><p>This method is called when the app is first instantiated in the current tab for the first time.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">onStart: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2-void-onPause"><a href="#2-void-onPause" class="headerlink" title="2. void onPause()"></a>2. void onPause()</h4><p>This method is called when the user has left your app to view a different app.<br> <center><a id="more"></a></center></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">onPause: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="3-void-onResume"><a href="#3-void-onResume" class="headerlink" title="3. void onResume()"></a>3. void onResume()</h4><p>This method is called when the user has navigated away from the app to a different app, and has navigated back.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">onResume: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>work</category>
-      </categories>
-      <tags>
-        <tag>CDT</tag>
-        <tag>dev-env</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Migrate local video header to cloud storage</title>
     <url>/2019/07/25/Migrate%20local%20video%20header%20to%20cloud%20storage/</url>
     <content><![CDATA[<p> Since the Ocean theme includes and initiates the videos and images about header via local folder <code>themes/ocean/source/images/ocean/</code>, the page loads slowly at mobile device. So I decided to transfer these large files to cloud side to promote loading speed.</p>
@@ -1741,6 +1709,24 @@ As I mentioned that I am not using many external src so I modify each file addre
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CDT App Lifecycle</title>
+    <url>/2019/07/25/cdt-app-lifecycle/</url>
+    <content><![CDATA[<p>Apps that run in the container have their lifecycle managed.<br>The container checks for various functions implemented by the app. If those functions are implemented, the container will execute them accordingly. The following functions are supported by the container:</p>
+<h4 id="1-void-onStart"><a href="#1-void-onStart" class="headerlink" title="1. void onStart()"></a>1. void onStart()</h4><p>This method is called when the app is first instantiated in the current tab for the first time.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">onStart: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-void-onPause"><a href="#2-void-onPause" class="headerlink" title="2. void onPause()"></a>2. void onPause()</h4><p>This method is called when the user has left your app to view a different app.<br> <center><a id="more"></a></center></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">onPause: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-void-onResume"><a href="#3-void-onResume" class="headerlink" title="3. void onResume()"></a>3. void onResume()</h4><p>This method is called when the user has navigated away from the app to a different app, and has navigated back.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">onResume: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
+      <tags>
+        <tag>CDT</tag>
+        <tag>dev-env</tag>
       </tags>
   </entry>
   <entry>
