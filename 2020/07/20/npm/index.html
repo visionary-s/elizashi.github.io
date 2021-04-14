@@ -117,11 +117,25 @@
 <li>uninstall node-Sass</li>
 <li>install node-sass version before v5.0.0: <code>npm install --save node-sass@4.14.1</code></li>
 </ol>
+<h3 id="upgrade-globally-installed-npm-packages"><a href="#upgrade-globally-installed-npm-packages" class="headerlink" title="upgrade globally installed npm packages"></a>upgrade globally installed npm packages</h3><p>check out-dated packages:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ npm outdated -g</span><br><span class="line">Package              Current   Wanted   Latest  Location</span><br><span class="line">@uisdk/cdt-build      2.5.10    2.6.1    2.6.1  global</span><br><span class="line">@uisdk/cdt-package     2.5.4    2.5.8    2.5.8  global</span><br><span class="line">@uisdk/cdt-serve      2.3.21   2.3.24   2.3.24  global</span><br><span class="line">@uisdk/cdt-skeleton    2.3.2    2.3.3    2.3.3  global</span><br><span class="line">@uisdk/cdt2            2.6.0    2.6.3    2.6.3  global</span><br><span class="line">cnpm                   6.1.0    6.1.1    6.1.1  global</span><br><span class="line">eslint                 6.0.1    6.8.0   7.18.0  global</span><br><span class="line">gatsby-cli            2.17.1   2.18.0   2.18.0  global</span><br><span class="line">hexo-cli               2.0.0    2.0.0    4.2.0  global</span><br><span class="line">jshint                2.10.2   2.12.0   2.12.0  global</span><br><span class="line">n                      6.7.0    6.8.0    7.0.0  global</span><br><span class="line">npm                   6.14.6  6.14.11  6.14.11  global</span><br></pre></td></tr></table></figure>
+<p>update all global packages:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm update -g</span><br></pre></td></tr></table></figure>
+<p>update specific global package:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm update -g &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="react-scripts-dependency-error"><a href="#react-scripts-dependency-error" class="headerlink" title="react-scripts dependency error"></a>react-scripts dependency error</h3><p>error message:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">react-scripts package provided by Create React App requires a dependency:</span><br><span class="line"><span class="string">&quot;babel-eslint&quot;</span>: <span class="string">&quot;^10.1.0&quot;</span></span><br></pre></td></tr></table></figure>
+<p>I tried to update babel-eslint globally but seems it was not out-dated, not sure why react use this new version.<br>solution:</p>
+<ol>
+<li>Add <code>.env</code> file under project with the following statement:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SKIP_PREFLIGHT_CHECK=<span class="literal">true</span></span><br></pre></td></tr></table></figure></li>
+<li>Save <code>.env</code> and delete <code>package-lock.json</code></li>
+<li><code>npm install</code> -&gt; <code>npm start</code></li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/20/npm/" data-id="ckk81jiah002m8ohr9tv34sei"
+      <a data-url="https://visionary-s.github.io/2020/07/20/npm/" data-id="ckngzpu7k002slchr50bk9mxl"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/" rel="tag">node.js</a></li></ul>

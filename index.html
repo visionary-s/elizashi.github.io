@@ -114,7 +114,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/11/git-for-daily-use/" data-id="ckk81jia4001s8ohrag16blk7"
+      <a data-url="https://visionary-s.github.io/2019/07/11/git-for-daily-use/" data-id="ckngzpu720021lchrgj58he61"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
@@ -183,10 +183,249 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/14/linux-cmd/" data-id="ckk81jiab00288ohr1dov8vsw"
+      <a data-url="https://visionary-s.github.io/2019/07/14/linux-cmd/" data-id="ckngzpu770029lchr3dcn9eab"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-frontend-interview" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2021/03/29/frontend-interview/">Frontend Interview</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2021/03/29/frontend-interview/" class="article-date">
+  <time datetime="2021-03-28T16:00:00.000Z" itemprop="datePublished">2021-03-29</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>This article is created for recording problems encountered in my interview.</p>
+<h3 id="什么是IIFE（立即调用函数表达式）"><a href="#什么是IIFE（立即调用函数表达式）" class="headerlink" title="什么是IIFE（立即调用函数表达式）"></a>什么是IIFE（立即调用函数表达式）</h3><p>它是立即调用函数表达式（Immediately-Invoked Function Expression），简称 IIFE。函数被创建后立即被执行：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">IIFE</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log( <span class="string">&quot;Hello!&quot;</span> );</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="comment">// &quot;Hello!&quot;</span></span><br></pre></td></tr></table></figure>
+<p>在避免污染全局命名空间时经常使用这种模式，因为 IIFE（与任何其他正常函数一样）内部的所有变量在其作用域之外都是不可见的。  </p>
+<p>ref: <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d4d2eb4be216">https://www.jianshu.com/p/d4d2eb4be216</a></p>
+<h3 id="闭包是什么？举个例子"><a href="#闭包是什么？举个例子" class="headerlink" title="闭包是什么？举个例子"></a>闭包是什么？举个例子</h3><p>闭包是在另一个函数（称为父函数）中定义的函数，并且可以访问在父函数作用域中声明和定义的变量。<br>闭包可以访问三个作用域中的变量:<br>1) 在自己作用域中声明的变量<br>2) 在父函数中声明的变量<br>3) 在全局作用域中声明的变量<br>闭包就是函数的局部变量集合，只是<strong>这些局部变量在函数返回后会继续存在</strong>。闭包就是就是函数的“堆栈”在<strong>函数返回后并不释放</strong>，我们也可以理解为这些函数堆栈并不在栈上分配而是在堆上分配。<strong>当在一个函数内定义另外一个函数就会产生闭包</strong>。</p>
+<blockquote>
+<p>为什么要用闭包？</p>
+<ul>
+<li>匿名自执行函数：我们知道所有的变量，如果不加上var关键字，则默认的会添加到全局对象的属性上去，这样的临时变量加入全局对象有很多坏处，比如：别的函数可能误用这些变量；造成全局对象过于庞大，影响访问速度(因为变量的取值是需要从原型链上遍历的)。除了每次使用变量都是用var关键字外，我们在实际情况下经常遇到这样一种情况，即有的函数只需要执行一次，其内部变量无需维护，可以用闭包。</li>
+<li>结果缓存：我们开发中会碰到很多情况，设想我们有一个处理过程很耗时的函数对象，每次调用都会花费很长时间，那么我们就需要将计算出来的值存储起来，当调用这个函数的时候，首先在缓存中查找，如果找不到，则进行计算，然后更新缓存并返回值，如果找到了，直接返回查找到的值即可。闭包正是可以做到这一点，因为它不会释放外部的引用，从而函数内部的值可以得以保留。</li>
+</ul>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> globalVar = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line"><span class="comment">// 自调用函数</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">outerFunction</span> (<span class="params">outerArg</span>) </span>&#123; <span class="comment">// outerFunction 作用域开始</span></span><br><span class="line"> <span class="comment">// 在 outerFunction 函数作用域中声明的变量</span></span><br><span class="line"> <span class="keyword">var</span> outerFuncVar = <span class="string">&#x27;x&#x27;</span>;</span><br><span class="line"> <span class="comment">// 闭包自调用函数</span></span><br><span class="line"> (<span class="function"><span class="keyword">function</span> <span class="title">innerFunction</span> (<span class="params">innerArg</span>) </span>&#123; <span class="comment">// innerFunction 作用域开始</span></span><br><span class="line"> <span class="comment">// 在 innerFunction 函数作用域中声明的变量</span></span><br><span class="line"> <span class="keyword">var</span> innerFuncVar = <span class="string">&quot;y&quot;</span>;</span><br><span class="line"> <span class="built_in">console</span>.log(</span><br><span class="line"> <span class="string">&quot;outerArg = &quot;</span> + outerArg + <span class="string">&quot;</span></span><br><span class="line"><span class="string">&quot;</span> +</span><br><span class="line"> <span class="string">&quot;outerFuncVar = &quot;</span> + outerFuncVar + <span class="string">&quot;</span></span><br><span class="line"><span class="string">&quot;</span> +</span><br><span class="line"> <span class="string">&quot;innerArg = &quot;</span> + innerArg + <span class="string">&quot;</span></span><br><span class="line"><span class="string">&quot;</span> +</span><br><span class="line"> <span class="string">&quot;innerFuncVar = &quot;</span> + innerFuncVar + <span class="string">&quot;</span></span><br><span class="line"><span class="string">&quot;</span> +</span><br><span class="line"> <span class="string">&quot;globalVar = &quot;</span> + globalVar);</span><br><span class="line"> <span class="comment">// innerFunction 作用域结束</span></span><br><span class="line"> &#125;)(<span class="number">5</span>); <span class="comment">// 将 5 作为参数</span></span><br><span class="line"><span class="comment">// outerFunction 作用域结束</span></span><br><span class="line">&#125;)(<span class="number">7</span>); <span class="comment">// 将 7 作为参数</span></span><br></pre></td></tr></table></figure>
+<p>innerFunction 是在 outerFunction 中定义的闭包，可以访问在 outerFunction 作用域内声明和定义的所有变量。除此之外，闭包还可以访问在全局命名空间中声明的变量。<br>上述代码的输出将是:  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">outerArg = <span class="number">7</span></span><br><span class="line">outerFuncVar = x</span><br><span class="line">innerArg = <span class="number">5</span></span><br><span class="line">innerFuncVar = y</span><br><span class="line">globalVar = abc</span><br></pre></td></tr></table></figure>
+<p>ref: <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d4d2eb4be216">https://www.jianshu.com/p/d4d2eb4be216</a></p>
+<blockquote>
+<p>已知两个funcion A &amp; B，如何实现先调用一次A，往后全部调用B</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用闭包模拟私有方法</span></span><br><span class="line"><span class="comment">// 此方法可避免非核心的方法弄乱代码的公共接口部分</span></span><br><span class="line"><span class="keyword">let</span> t = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> time = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">const</span> A = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;A&quot;</span>, time);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">const</span> B = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;B&quot;</span>, time);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        time++;</span><br><span class="line">        <span class="keyword">if</span> (time === <span class="number">1</span>) &#123;</span><br><span class="line">            A();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            B();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;();          <span class="comment">// this is closure</span></span><br><span class="line"><span class="keyword">let</span> test = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">while</span>(test &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    t();</span><br><span class="line">    test--;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// output:</span></span><br><span class="line"><span class="comment">// A 1</span></span><br><span class="line"><span class="comment">// B 2</span></span><br><span class="line"><span class="comment">// B 3</span></span><br><span class="line"><span class="comment">// B 4</span></span><br></pre></td></tr></table></figure>
+<p>ref: <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures</a></p>
+<h3 id="mock-data"><a href="#mock-data" class="headerlink" title="mock data"></a>mock data</h3><p>适用于后端没有给出测试阶段的假接口和模拟数据情况<br>1) 直接在页面写死数据，后期等接口来了，再改成动态的; 哈哈哈这是最简单的，也是最笨的，所以小型的项目，不出5个页面的可以解决，或是每个页面的数据很少的可以解决，但是不推荐，后期太麻烦<br>2) 在js里直接声明变量，并给变量赋值，在逻辑脚本中使用，并渲染到dom<br>3) 将模拟数据编辑成json数据或者是零碎的js脚本中，通过请求，取回数据，并进行业务逻辑处理，渲染到dom<br>4) 最理想的方式:</p>
+<ul>
+<li>前后台在需求分解之后，一起定义好接口api，包含：请求url（项目前缀+具体的接口名称）、请求方式、请求参数、数据响应</li>
+<li>前端研发人员根据接口约定，模拟请求返回对应的数据，完成对应的交互</li>
+<li>后台人员根据接口约定，完成对应的api，并完成对应的自测</li>
+<li>待后台人员交付接口api后，前端人员直接修改接口项目前缀，切换到对应的环境，即可进入项目提测</li>
+</ul>
+<p>ref: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/77199413">https://zhuanlan.zhihu.com/p/77199413</a></p>
+<h3 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h3><ol>
+<li>indexOf循环去重</li>
+<li>ES6 Set去重；Array.from(new Set(array))</li>
+<li>Object 键值对去重；把数组的值存成 Object 的 key 值，比如 Object[value1] = true，在判断另一个值的时候，如果 Object[value2]存在的话，就说明该值是重复的。</li>
+</ol>
+<h3 id="JS实现跨域"><a href="#JS实现跨域" class="headerlink" title="JS实现跨域"></a>JS实现跨域</h3><ol>
+<li>JSONP：通过动态创建script，再请求一个带参网址实现跨域通信。document.domain + iframe跨域：两个页面都通过js强制设置document.domain为基础主域，就实现了同域。</li>
+<li>location.hash + iframe跨域：a欲与b跨域相互通信，通过中间页c来实现。 三个页面，不同域之间利用iframe的location.hash传值，相同域之间直接js访问来通信。</li>
+<li>window.name + iframe跨域：通过iframe的src属性由外域转向本地域，跨域数据即由iframe的window.name从外域传递到本地域。</li>
+<li>postMessage跨域：可以跨域操作的window属性之一。</li>
+<li>CORS：服务端设置Access-Control-Allow-Origin即可，前端无须设置，若要带cookie请求，前后端都需要设置。</li>
+<li>代理跨域：启一个代理服务器，实现数据的转发</li>
+</ol>
+<p>ref: <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000011145364">https://segmentfault.com/a/1190000011145364</a></p>
+<h3 id="通过nginx反向代理解决前端访问的跨域问题"><a href="#通过nginx反向代理解决前端访问的跨域问题" class="headerlink" title="通过nginx反向代理解决前端访问的跨域问题"></a>通过nginx反向代理解决前端访问的跨域问题</h3><p>ref: <a target="_blank" rel="noopener" href="https://www.ucloud.cn/yun/97273.html">https://www.ucloud.cn/yun/97273.html</a></p>
+<h3 id="js页面性能优化"><a href="#js页面性能优化" class="headerlink" title="js页面性能优化"></a>js页面性能优化</h3><ul>
+<li>减少HTTP请求</li>
+<li>使用内容发布网络（CDN）</li>
+<li>添加本地缓存</li>
+<li>压缩资源文件</li>
+<li>将CSS样式表放在顶部，把javascript放在底部（浏览器的运行机制决定）</li>
+<li>避免使用CSS表达式</li>
+<li>减少DNS查询</li>
+<li>使用外部javascript和CSS</li>
+<li>避免重定向</li>
+<li>图片lazyLoad</li>
+</ul>
+<h3 id="防抖节流"><a href="#防抖节流" class="headerlink" title="防抖节流"></a>防抖节流</h3><h3 id="CSS-flex"><a href="#CSS-flex" class="headerlink" title="CSS flex"></a>CSS flex</h3><p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html">http://www.ruanyifeng.com/blog/2015/07/flex-examples.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2021/03/29/frontend-interview/" data-id="ckngzpu6t001rlchra6m34ckz"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interview/" rel="tag">interview</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-angular" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2021/03/23/angular/">Angular</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2021/03/23/angular/" class="article-date">
+  <time datetime="2021-03-22T16:00:00.000Z" itemprop="datePublished">2021-03-23</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>This article is created for recording problems when I learning Angular.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2021/03/23/angular/" data-id="ckngzpu6l0017lchr0vfq41lh"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/framework/" rel="tag">framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/typescript/" rel="tag">typescript</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-react" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2021/01/29/react/">React Learning</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2021/01/29/react/" class="article-date">
+  <time datetime="2021-01-28T16:00:00.000Z" itemprop="datePublished">2021-01-29</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/basic/">basic</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>This is a recording of my study on React framework</p>
+<h4 id="super-props-super-no-super"><a href="#super-props-super-no-super" class="headerlink" title="super(props) | super() | no super"></a>super(props) | super() | no super</h4><ul>
+<li><strong>super()</strong>:<br>If constructor is used, there is a must to add <code>super()</code>, it is for initializing <code>this</code>, and can bind events to <code>this</code>.  </li>
+<li><strong>super(props)</strong>:<br>If you want to use <code>this.props</code> in a constructor, also need to add <code>super(props)</code>.<br>(No matter there is a constructor, <code>this.props</code> can work in render(), this is auto-implemented by React)  </li>
+<li><strong>no super</strong>:<br>If there is no constructor, super is not mandatory, cuz React will add a empty constructor as default.  </li>
+</ul>
+<center>
+        
+          <a class="article-more-link" href="/2021/01/29/react/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2021/01/29/react/" data-id="ckngzpu7z003clchr95mcfcfi"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
 
     </footer>
 
@@ -244,7 +483,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/10/12/pyqt/" data-id="ckk81jiar00348ohr9tyif8k1"
+      <a data-url="https://visionary-s.github.io/2020/10/12/pyqt/" data-id="ckngzpu7u0032lchrhoiqh14w"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GUI/" rel="tag">GUI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyQt/" rel="tag">PyQt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
@@ -307,7 +546,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/09/14/3gpp-protocol/" data-id="ckk81ji8l00018ohrbwgh0fss"
+      <a data-url="https://visionary-s.github.io/2020/09/14/3gpp-protocol/" data-id="ckngzpu5q0003lchrb3a70xev"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/packet-core/" rel="tag">packet core</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/protocol/" rel="tag">protocol</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/telecom/" rel="tag">telecom</a></li></ul>
@@ -370,7 +609,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/09/07/java-sonar/" data-id="ckk81jia2001q8ohrcxpcb1f9"
+      <a data-url="https://visionary-s.github.io/2020/09/07/java-sonar/" data-id="ckngzpu740024lchr5vei0y3e"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sonar/" rel="tag">sonar</a></li></ul>
@@ -429,7 +668,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/27/js-skip-html-label/" data-id="ckk81jia6001x8ohrcn9r7z1f"
+      <a data-url="https://visionary-s.github.io/2020/07/27/js-skip-html-label/" data-id="ckngzpu760026lchrfn7y9cds"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
@@ -492,208 +731,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/20/npm/" data-id="ckk81jiah002m8ohr9tv34sei"
+      <a data-url="https://visionary-s.github.io/2020/07/20/npm/" data-id="ckngzpu7k002slchr50bk9mxl"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/" rel="tag">node.js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-js-sonar" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/07/17/js-sonar/">Sonar Fix (node.js backend)</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/07/17/js-sonar/" class="article-date">
-  <time datetime="2020-07-16T16:00:00.000Z" itemprop="datePublished">2020-07-17</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>This is a record for sonar fixing for backend based on node.js.</p>
-<h3 id="Security-Hotspots"><a href="#Security-Hotspots" class="headerlink" title="Security Hotspots"></a>Security Hotspots</h3><p><em>Security Hotspots aren’t necessarily issues, but they need to be reviewed to make sure they aren’t vulnerabilities.</em></p>
-<h4 id="Make-sure-that-using-a-regular-expression-is-safe-here"><a href="#Make-sure-that-using-a-regular-expression-is-safe-here" class="headerlink" title="Make sure that using a regular expression is safe here"></a>Make sure that using a regular expression is safe here</h4><p><strong>Rule: Using regular expressions is security-sensitive</strong></p>
-<h5 id="1-original-code"><a href="#1-original-code" class="headerlink" title="1. original code:"></a>1. original code:</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> re = <span class="regexp">/^\d+(\.\d+)?$/</span>;</span><br></pre></td></tr></table></figure>
-<p>the rule recommend not using group<code>()</code> to reduce evaluate work load. 个人理解是，group内外都有\d+，可能有重复校验的问题</p>
- <center>
-        
-          <a class="article-more-link" href="/2020/07/17/js-sonar/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/17/js-sonar/" data-id="ckk81jia1001o8ohr5sqb4ubm"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sonar/" rel="tag">sonar</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-3pp-upgrade" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/07/16/3pp-upgrade/">3PP Upgrade</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/07/16/3pp-upgrade/" class="article-date">
-  <time datetime="2020-07-15T16:00:00.000Z" itemprop="datePublished">2020-07-16</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>This is a record for my work to product 3pp upgrade.</p>
-<h3 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h3><p>log on a host server to build docker image and test deployment:</p>
-<ul>
-<li>log on a jump server first</li>
-<li>ssh e-id@seroius01502</li>
-</ul>
-<p>use xxxx/xxx-compiler(cdt2 image) to build frontend <br>use xxx/xxx-base(node image) to build backend</p>
-<h3 id="Compiler-frontend-cdt2-debugging"><a href="#Compiler-frontend-cdt2-debugging" class="headerlink" title="Compiler (frontend, cdt2) debugging"></a>Compiler (frontend, cdt2) debugging</h3><p>Run upgraded cdt2+node images as a container first:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker run --rm -it -d --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,src=/home/eshibij/cec-3pp-upgrade,dst=/usr/share sekidocker.rnd.ki.sw.ericsson.se/bolte/bcam/bcam-compiler:cdt_2.6.1-node_14.5 cat</span><br><span class="line">e2849d6f818cb1ccacc1ce58c41d2695d0315b60b37f976c221397a997a856a2</span><br></pre></td></tr></table></figure>
-<p>[–rm](<a target="_blank" rel="noopener" href="https://blog.csdn.net/nzjdsds/article/details/8hexo">https://blog.csdn.net/nzjdsds/article/details/8hexo</a> 1981732): clean up <br><a target="_blank" rel="noopener" href="https://www.imooc.com/qadetail/327658">-it</a>: wait for container cmds to be executed <br>-d: run in background and return container id <br>–mount: <a target="_blank" rel="noopener" href="https://blog.csdn.net/longlong6682/article/details/104730138">https://blog.csdn.net/longlong6682/article/details/104730138</a> <br>cat: seems like catting the container id</p>
- <center>
-        
-          <a class="article-more-link" href="/2020/07/16/3pp-upgrade/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/16/3pp-upgrade/" data-id="ckk81ji8q00038ohr7e8o1e53"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/record/" rel="tag">record</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/work-flow/" rel="tag">work flow</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-request-nodejs" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/07/14/request-nodejs/">Request API</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/07/14/request-nodejs/" class="article-date">
-  <time datetime="2020-07-13T16:00:00.000Z" itemprop="datePublished">2020-07-14</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>Request used in send request to other domain.<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wuqingdeqing/article/details/99061026">https://blog.csdn.net/wuqingdeqing/article/details/99061026</a> <br><a target="_blank" rel="noopener" href="https://blog.csdn.net/miss1128726/article/details/49976855">https://blog.csdn.net/miss1128726/article/details/49976855</a> <br>a basic sample of request:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">  uri: <span class="string">&#x27;http://api.example.fr/example/1.xml&#x27;</span>,</span><br><span class="line">  auth: &#123;</span><br><span class="line">    user: <span class="string">&#x27;test&#x27;</span>,</span><br><span class="line">    pass: <span class="string">&#x27;test&#x27;</span>,</span><br><span class="line">    sendImmediately: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">request(options, <span class="function"><span class="keyword">function</span>(<span class="params">error, response, body</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!error &amp;&amp; response.statusCode == <span class="number">200</span>)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;body : &#x27;</span> + body)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;Code : &#x27;</span> + response.statusCode)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;error : &#x27;</span> + error)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;body : &#x27;</span> + body)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>This method has limitation for case that expecting to send datas to more than one server. Like, I want to send xml sais to multiple bdc servers, it turns out to only transfer datas to the last bdc. (using <code>request(options, responseHandler</code>)</p>
- <center>
-        
-          <a class="article-more-link" href="/2020/07/14/request-nodejs/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/14/request-nodejs/" data-id="ckk81jiaj002q8ohr1puocxk4"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/" rel="tag">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/" rel="tag">node.js</a></li></ul>
 
     </footer>
 

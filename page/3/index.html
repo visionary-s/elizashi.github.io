@@ -63,6 +63,208 @@
 
     
       
+        <article id="post-k8s-ipv6-dualstack-support" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/03/20/k8s-ipv6-dualstack-support/">Support ipv6/dualStack in K8s</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/03/20/k8s-ipv6-dualstack-support/" class="article-date">
+  <time datetime="2020-03-19T16:00:00.000Z" itemprop="datePublished">2020-03-20</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p><strong>记录惊天巨坑enable ipv6 and dual stack for our product，从k8s安装开始</strong></p>
+<p><em>0. 原来产品是本地安装测试的，仅支持ipv4安装很简便，但这次要求支持ipv6/dualStack，根据<a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/services-networking/dual-stack/">官网文档</a>，我们需要1.16版本以上的kubernetes，<code>kubectl version</code>查看本地版本:</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Client Version: version.Info&#123;Major:<span class="string">&quot;1&quot;</span>, Minor:<span class="string">&quot;14&quot;</span>, GitVersion:<span class="string">&quot;v1.14.8&quot;</span>, GitCommit:<span class="string">&quot;211047e9a1922595eaa3a1127ed365e9299a6c23&quot;</span>, GitTreeState:<span class="string">&quot;clean&quot;</span>, BuildDate:<span class="string">&quot;2019-10-15T12:11:03Z&quot;</span>, GoVersion:<span class="string">&quot;go1.12.10&quot;</span>, Compiler:<span class="string">&quot;gc&quot;</span>, Platform:<span class="string">&quot;windows/amd64&quot;</span>&#125;</span><br><span class="line">Server Version: version.Info&#123;Major:<span class="string">&quot;1&quot;</span>, Minor:<span class="string">&quot;14&quot;</span>, GitVersion:<span class="string">&quot;v1.14.8&quot;</span>, GitCommit:<span class="string">&quot;211047e9a1922595eaa3a1127ed365e9299a6c23&quot;</span>, GitTreeState:<span class="string">&quot;clean&quot;</span>, BuildDate:<span class="string">&quot;2019-10-15T12:02:12Z&quot;</span>, GoVersion:<span class="string">&quot;go1.12.10&quot;</span>, Compiler:<span class="string">&quot;gc&quot;</span>, Platform:<span class="string">&quot;linux/amd64&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+<p><em>1.14。。赶紧查docker desktop自带的kubernetes怎么更新，发现<a target="_blank" rel="noopener" href="https://monkeywie.github.io/2019/09/16/k8s-update-operate/">要写deploy</a>测试或者<a target="_blank" rel="noopener" href="https://www.cnblogs.com/lonelyxmas/p/10670477.html">重装k8s?</a> 感觉不适用。因为这是docker自带的不知道重装会不会有别的影响。决定直接装到我们组的remote server上，这样测试也可以一步到位。</em></p>
+<center>
+        
+          <a class="article-more-link" href="/2020/03/20/k8s-ipv6-dualstack-support/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/03/20/k8s-ipv6-dualstack-support/" data-id="ckngzpu9g0075lchrd2n1427e"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/k8s/" rel="tag">k8s</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-shell" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/02/11/shell/">shell grammar</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/02/11/shell/" class="article-date">
+  <time datetime="2020-02-10T16:00:00.000Z" itemprop="datePublished">2020-02-11</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="gt-amp-gt-gt"><a href="#gt-amp-gt-gt" class="headerlink" title="&gt; &amp; &gt;&gt;"></a>&gt; &amp; &gt;&gt;</h3><ol>
+<li><code>&gt;</code> 创建<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">&quot;hello shell&quot;</span> &gt; output.txt</span><br></pre></td></tr></table></figure></li>
+<li><code>&gt;&gt;</code> 追加<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">&quot;hello shell&quot;</span> &gt;&gt; output.txt</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>当output.txt不存在时，两者都会创建一个新的output.txt；<br>当output.txt存在时，前者会清空并重新写入，后者怎会在末尾追加</p>
+</blockquote>
+</li>
+</ol>
+<p>ref: <a target="_blank" rel="noopener" href="https://blog.csdn.net/nahanai/article/details/83861449">https://blog.csdn.net/nahanai/article/details/83861449</a></p>
+<center>
+        
+          <a class="article-more-link" href="/2020/02/11/shell/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/02/11/shell/" data-id="ckngzpu7w0035lchrg8wa6v7m"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/" rel="tag">shell</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-docker" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/01/20/docker/">docker CMD for daily use</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/01/20/docker/" class="article-date">
+  <time datetime="2020-01-19T16:00:00.000Z" itemprop="datePublished">2020-01-20</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="images"><a href="#images" class="headerlink" title="images"></a>images</h3><ol>
+<li>Display images on current server:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker images</span><br></pre></td></tr></table></figure></li>
+<li>rename image:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE</span><br><span class="line">oldName              latest              d583c3ac45fd        26 minutes ago      685.5 MB</span><br><span class="line">######## change to ########</span><br><span class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE</span><br><span class="line">newName            latest              d583c3ac45fd       26 minutes ago         685.5 MB</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker image tag oldName:latest newName:latest</span><br><span class="line">or</span><br><span class="line">$ docker image tag d583c3ac45fd newName:latest</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Notice: this operation is equal to “copy” + “rename”, thus there will be two repositories “oldName” and “newName” after change. If you want to remove “oldName”, use <code>docker rmi oldName</code>.</p>
+</blockquote>
+</li>
+</ol>
+<center>
+        
+          <a class="article-more-link" href="/2020/01/20/docker/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/01/20/docker/" data-id="ckngzpu6p001ilchrevjr3dcc"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
         <article id="post-create-react-app" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -112,7 +314,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/19/create-react-app/" data-id="ckk81ji9z001k8ohrb3mm9y67"
+      <a data-url="https://visionary-s.github.io/2020/01/19/create-react-app/" data-id="ckngzpu6m001alchr76b24xq2"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/framework/" rel="tag">framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
@@ -176,7 +378,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/19/sequelize/" data-id="ckk81jiaq00318ohr88fygq7i"
+      <a data-url="https://visionary-s.github.io/2020/01/19/sequelize/" data-id="ckngzpu82003ilchr0bp58qg1"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/" rel="tag">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/" rel="tag">database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/" rel="tag">node.js</a></li></ul>
@@ -239,7 +441,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/08/js-getter/" data-id="ckk81jia5001v8ohrbly5frl6"
+      <a data-url="https://visionary-s.github.io/2020/01/08/js-getter/" data-id="ckngzpu6y001ulchr2d9f7bwu"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
@@ -309,7 +511,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/07/mini-program/" data-id="ckk81jia800218ohr7p2t6xen"
+      <a data-url="https://visionary-s.github.io/2020/01/07/mini-program/" data-id="ckngzpu79002clchr88yw0cic"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mini-program/" rel="tag">mini-program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/resource/" rel="tag">resource</a></li></ul>
@@ -371,7 +573,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/12/23/NBIandSBI/" data-id="ckk81ji9q00158ohr36x23feu"
+      <a data-url="https://visionary-s.github.io/2019/12/23/NBIandSBI/" data-id="ckngzpu6i0011lchrgjqj7g81"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interface/" rel="tag">interface</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/" rel="tag">network</a></li></ul>
@@ -435,7 +637,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/12/18/send%20quantity%20of%20http%20requests%20via%20shell/" data-id="ckk81jiap002x8ohrgvzb95oc"
+      <a data-url="https://visionary-s.github.io/2019/12/18/send%20quantity%20of%20http%20requests%20via%20shell/" data-id="ckngzpu81003flchr6xuo16tv"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/" rel="tag">shell</a></li></ul>
@@ -501,201 +703,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/12/09/About%20Gson%20LinkedTreeMap/" data-id="ckk81ji8w00098ohr2xac51qg"
+      <a data-url="https://visionary-s.github.io/2019/12/09/About%20Gson%20LinkedTreeMap/" data-id="ckngzpu5y0009lchrhxrd4gjw"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FT/" rel="tag">FT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-FileUploadAndDisplay" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/08/19/FileUploadAndDisplay/">File Upload and Display</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/08/19/FileUploadAndDisplay/" class="article-date">
-  <time datetime="2019-08-18T16:00:00.000Z" itemprop="datePublished">2019-08-19</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/WuLex/article/details/84296934">input [type=file] 获取上传文件的内容</a></p>
-<p>Modify:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">_addFileContent: <span class="function"><span class="keyword">function</span> (<span class="params">fileTag</span>) </span>&#123;</span><br><span class="line">    fileTag.addEventHandler(<span class="string">&quot;click&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="string">&quot;#fileUpload&quot;</span>).change(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> file = <span class="built_in">document</span>.getElementById(<span class="string">&quot;fileUpload&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (file.files.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">var</span> trueFile = file.files[<span class="number">0</span>];</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="built_in">document</span>.getElementById(<span class="string">&quot;fileContent&quot;</span>).value);</span><br><span class="line">                <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();</span><br><span class="line"></span><br><span class="line">                reader.readAsText(trueFile, <span class="string">&#x27;UTF-8&#x27;</span>);</span><br><span class="line"></span><br><span class="line">                reader.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">if</span> (reader.error) &#123;</span><br><span class="line">                        <span class="built_in">console</span>.log(reader.error);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">var</span> urlData = <span class="built_in">this</span>.result;</span><br><span class="line">                        <span class="built_in">document</span>.getElementById(<span class="string">&quot;fileContent&quot;</span>).value = urlData;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&quot;Failed to upload file!&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);          </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Other ref:<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Events/change">Change event | MDN</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/19/FileUploadAndDisplay/" data-id="ckk81ji8x000a8ohre9k97xsw"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-openlayer-knowledge" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/08/19/openlayer-knowledge/">Some tips about OpenLayer</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/08/19/openlayer-knowledge/" class="article-date">
-  <time datetime="2019-08-18T16:00:00.000Z" itemprop="datePublished">2019-08-19</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>Using openlayer in work currently and need to write down some notes about it.</p>
-<h3 id="EPSG-4326-VS-EPSG-3857"><a href="#EPSG-4326-VS-EPSG-3857" class="headerlink" title="EPSG 4326 VS EPSG 3857"></a>EPSG 4326 VS EPSG 3857</h3><p>地理Coordiante系统由EPSG编号标识。最常用于网络地图应用的两个坐标系统是EPSG：4326和EPSG：3857。</p>
-<ul>
-<li><strong>EPSG：4326</strong>（又名WGS84，未投影）是一个地理的非项目坐标系。它是lat，longs GPS显示器，单位是十进制度。EPSG：4326无法在平面地图上以有意义的方式显示。</li>
-<li><strong>EPSG：3857</strong>（又名Pseudo-Mercator，球形墨卡托或Web墨卡托）是投影坐标系。这是Google Maps和几乎所有其他Web制图应用程序使用的坐标系。</li>
-</ul>
-<p>通常，数据存储在EPSG：4326中并显示在EPSG：3857中，自行转换。</p>
-<p><a target="_blank" rel="noopener" href="http://liubf.com/2018/08/22/epsg-4326-vs-epsg-3857/">ref link</a></p>
- <center>
-        
-          <a class="article-more-link" href="/2019/08/19/openlayer-knowledge/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/19/openlayer-knowledge/" data-id="ckk81jiad002b8ohr5vabakoh"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openlayer/" rel="tag">openlayer</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-webUploader" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/08/19/webUploader/">WebUploader</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/08/19/webUploader/" class="article-date">
-  <time datetime="2019-08-18T16:00:00.000Z" itemprop="datePublished">2019-08-19</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>Using <a target="_blank" rel="noopener" href="https://fex.baidu.com/webuploader/doc/index.html">WebUploader</a> as 3pp to upload files to system.</p>
-<h3 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 仅包含了常用参数</span></span><br><span class="line"><span class="keyword">var</span> uploader = <span class="keyword">new</span> WebUploader.Uploader(&#123;</span><br><span class="line">    duplicate: <span class="literal">true</span>, <span class="comment">// 是否允许重复文件 default undefined</span></span><br><span class="line">    auto: <span class="literal">false</span>,  <span class="comment">// 选完文件后，是否自动上传</span></span><br><span class="line">    swf: <span class="string">&#x27;path_of_swf/Uploader.swf&#x27;</span>,  <span class="comment">// swf文件路径</span></span><br><span class="line">    server: <span class="string">&quot;/upload.html&quot;</span>, <span class="comment">// 文件接收服务端</span></span><br><span class="line">    pick: &#123; <span class="attr">id</span>: <span class="string">&quot;#uploadFile&quot;</span>, <span class="attr">innerHTML</span>: <span class="string">&quot;localImg&quot;</span> &#125;, <span class="comment">// 选择文件的按钮。可选</span></span><br><span class="line">    accept: &#123; <span class="comment">// sample, 只允许选择图片文件</span></span><br><span class="line">            title: <span class="string">&#x27;Images&#x27;</span>,</span><br><span class="line">            extensions: <span class="string">&#x27;gif,jpg,jpeg,bmp,png&#x27;</span>,</span><br><span class="line">            mimeTypes: <span class="string">&#x27;image/*&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    threads: <span class="number">1</span>, <span class="comment">// 线程数</span></span><br><span class="line">    fileSingleSizeLimit: <span class="number">2000</span>,  <span class="comment">// 单文件大小限制</span></span><br><span class="line">    fileNumLimit: <span class="number">10</span>,  <span class="comment">// 单次上传文件数量限制</span></span><br><span class="line">    fileSingleSizeLimit:  <span class="comment">// 验证单个文件大小是否超出限制, 超出则不允许加入队列</span></span><br><span class="line">    compress:<span class="literal">false</span>, <span class="comment">// 是否压缩上传</span></span><br><span class="line">    chunked: <span class="literal">true</span>, <span class="comment">// 是否要分片处理大文件上传, default false</span></span><br><span class="line">    chunkSize: <span class="number">5242880</span>, <span class="comment">// 如果要分片，分多大一片？ default 5242880 (5M)</span></span><br><span class="line">    chunkRetry: <span class="number">1</span>,  <span class="comment">// 如果某个分片由于网络问题出错，允许自动重传多少次？ default 2</span></span><br><span class="line">    threads: <span class="number">1</span>, <span class="comment">// 上传并发数。允许同时最大上传进程数 default 3</span></span><br><span class="line">    formData:&#123;&#125;, <span class="comment">// 文件上传请求的参数表，每次发送都会发送此对象中的参数</span></span><br><span class="line">    method: <span class="string">&#x27;GET&#x27;</span>,  <span class="comment">// POST or GET, default POST</span></span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
- <center>
-        
-          <a class="article-more-link" href="/2019/08/19/webUploader/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/19/webUploader/" data-id="ckk81jias00388ohr0ohwconh"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebUploader/" rel="tag">WebUploader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
 
     </footer>
 

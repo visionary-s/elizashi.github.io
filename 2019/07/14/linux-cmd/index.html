@@ -139,11 +139,17 @@ Above cmd means give permits to all files or folders under current path, also we
 <blockquote>
 <p>tcsh is an improved version of csh (c-shell)</p>
 </blockquote>
+<h3 id="list-files-folders-by-timestamp-asc-desc"><a href="#list-files-folders-by-timestamp-asc-desc" class="headerlink" title="list files/folders by timestamp (asc/desc)"></a>list files/folders by timestamp (asc/desc)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ll -t       <span class="comment"># list files by time desc</span></span><br><span class="line">$ ll -t |tar  <span class="comment"># by asc</span></span><br></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls -lart    <span class="comment"># desc</span></span><br></pre></td></tr></table></figure>
+<h3 id="bash-cannot-create-temp-file-for-here-document-No-space-left-on-device"><a href="#bash-cannot-create-temp-file-for-here-document-No-space-left-on-device" class="headerlink" title="-bash: cannot create temp file for here-document: No space left on device"></a>-bash: cannot create temp file for here-document: No space left on device</h3><p>when using <code>tab</code> on linux and got the above error, you should check if the disk usage on current host is full.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ df -h</span><br><span class="line">$ du -sh /*   <span class="comment"># check which folder use the most memory</span></span><br></pre></td></tr></table></figure>
+<p>ref: <a target="_blank" rel="noopener" href="https://blog.csdn.net/muriyue6/article/details/84783107">https://blog.csdn.net/muriyue6/article/details/84783107</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/14/linux-cmd/" data-id="ckk81jiab00288ohr1dov8vsw"
+      <a data-url="https://visionary-s.github.io/2019/07/14/linux-cmd/" data-id="ckngzpu770029lchr3dcn9eab"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>

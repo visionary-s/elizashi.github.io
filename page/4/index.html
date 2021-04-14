@@ -63,6 +63,197 @@
 
     
       
+        <article id="post-FileUploadAndDisplay" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/08/19/FileUploadAndDisplay/">File Upload and Display</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/08/19/FileUploadAndDisplay/" class="article-date">
+  <time datetime="2019-08-18T16:00:00.000Z" itemprop="datePublished">2019-08-19</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/WuLex/article/details/84296934">input [type=file] 获取上传文件的内容</a></p>
+<p>Modify:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">_addFileContent: <span class="function"><span class="keyword">function</span> (<span class="params">fileTag</span>) </span>&#123;</span><br><span class="line">    fileTag.addEventHandler(<span class="string">&quot;click&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="string">&quot;#fileUpload&quot;</span>).change(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> file = <span class="built_in">document</span>.getElementById(<span class="string">&quot;fileUpload&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (file.files.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">var</span> trueFile = file.files[<span class="number">0</span>];</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="built_in">document</span>.getElementById(<span class="string">&quot;fileContent&quot;</span>).value);</span><br><span class="line">                <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();</span><br><span class="line"></span><br><span class="line">                reader.readAsText(trueFile, <span class="string">&#x27;UTF-8&#x27;</span>);</span><br><span class="line"></span><br><span class="line">                reader.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">if</span> (reader.error) &#123;</span><br><span class="line">                        <span class="built_in">console</span>.log(reader.error);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">var</span> urlData = <span class="built_in">this</span>.result;</span><br><span class="line">                        <span class="built_in">document</span>.getElementById(<span class="string">&quot;fileContent&quot;</span>).value = urlData;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&quot;Failed to upload file!&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);          </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Other ref:<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Events/change">Change event | MDN</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2019/08/19/FileUploadAndDisplay/" data-id="ckngzpu60000alchrbej502cn"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-openlayer-knowledge" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/08/19/openlayer-knowledge/">Some tips about OpenLayer</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/08/19/openlayer-knowledge/" class="article-date">
+  <time datetime="2019-08-18T16:00:00.000Z" itemprop="datePublished">2019-08-19</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>Using openlayer in work currently and need to write down some notes about it.</p>
+<h3 id="EPSG-4326-VS-EPSG-3857"><a href="#EPSG-4326-VS-EPSG-3857" class="headerlink" title="EPSG 4326 VS EPSG 3857"></a>EPSG 4326 VS EPSG 3857</h3><p>地理Coordiante系统由EPSG编号标识。最常用于网络地图应用的两个坐标系统是EPSG：4326和EPSG：3857。</p>
+<ul>
+<li><strong>EPSG：4326</strong>（又名WGS84，未投影）是一个地理的非项目坐标系。它是lat，longs GPS显示器，单位是十进制度。EPSG：4326无法在平面地图上以有意义的方式显示。</li>
+<li><strong>EPSG：3857</strong>（又名Pseudo-Mercator，球形墨卡托或Web墨卡托）是投影坐标系。这是Google Maps和几乎所有其他Web制图应用程序使用的坐标系。</li>
+</ul>
+<p>通常，数据存储在EPSG：4326中并显示在EPSG：3857中，自行转换。</p>
+<p><a target="_blank" rel="noopener" href="http://liubf.com/2018/08/22/epsg-4326-vs-epsg-3857/">ref link</a></p>
+ <center>
+        
+          <a class="article-more-link" href="/2019/08/19/openlayer-knowledge/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2019/08/19/openlayer-knowledge/" data-id="ckngzpu7h002plchrdza8ezk1"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openlayer/" rel="tag">openlayer</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-webUploader" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/08/19/webUploader/">WebUploader</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/08/19/webUploader/" class="article-date">
+  <time datetime="2019-08-18T16:00:00.000Z" itemprop="datePublished">2019-08-19</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>Using <a target="_blank" rel="noopener" href="https://fex.baidu.com/webuploader/doc/index.html">WebUploader</a> as 3pp to upload files to system.</p>
+<h3 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 仅包含了常用参数</span></span><br><span class="line"><span class="keyword">var</span> uploader = <span class="keyword">new</span> WebUploader.Uploader(&#123;</span><br><span class="line">    duplicate: <span class="literal">true</span>, <span class="comment">// 是否允许重复文件 default undefined</span></span><br><span class="line">    auto: <span class="literal">false</span>,  <span class="comment">// 选完文件后，是否自动上传</span></span><br><span class="line">    swf: <span class="string">&#x27;path_of_swf/Uploader.swf&#x27;</span>,  <span class="comment">// swf文件路径</span></span><br><span class="line">    server: <span class="string">&quot;/upload.html&quot;</span>, <span class="comment">// 文件接收服务端</span></span><br><span class="line">    pick: &#123; <span class="attr">id</span>: <span class="string">&quot;#uploadFile&quot;</span>, <span class="attr">innerHTML</span>: <span class="string">&quot;localImg&quot;</span> &#125;, <span class="comment">// 选择文件的按钮。可选</span></span><br><span class="line">    accept: &#123; <span class="comment">// sample, 只允许选择图片文件</span></span><br><span class="line">            title: <span class="string">&#x27;Images&#x27;</span>,</span><br><span class="line">            extensions: <span class="string">&#x27;gif,jpg,jpeg,bmp,png&#x27;</span>,</span><br><span class="line">            mimeTypes: <span class="string">&#x27;image/*&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    threads: <span class="number">1</span>, <span class="comment">// 线程数</span></span><br><span class="line">    fileSingleSizeLimit: <span class="number">2000</span>,  <span class="comment">// 单文件大小限制</span></span><br><span class="line">    fileNumLimit: <span class="number">10</span>,  <span class="comment">// 单次上传文件数量限制</span></span><br><span class="line">    fileSingleSizeLimit:  <span class="comment">// 验证单个文件大小是否超出限制, 超出则不允许加入队列</span></span><br><span class="line">    compress:<span class="literal">false</span>, <span class="comment">// 是否压缩上传</span></span><br><span class="line">    chunked: <span class="literal">true</span>, <span class="comment">// 是否要分片处理大文件上传, default false</span></span><br><span class="line">    chunkSize: <span class="number">5242880</span>, <span class="comment">// 如果要分片，分多大一片？ default 5242880 (5M)</span></span><br><span class="line">    chunkRetry: <span class="number">1</span>,  <span class="comment">// 如果某个分片由于网络问题出错，允许自动重传多少次？ default 2</span></span><br><span class="line">    threads: <span class="number">1</span>, <span class="comment">// 上传并发数。允许同时最大上传进程数 default 3</span></span><br><span class="line">    formData:&#123;&#125;, <span class="comment">// 文件上传请求的参数表，每次发送都会发送此对象中的参数</span></span><br><span class="line">    method: <span class="string">&#x27;GET&#x27;</span>,  <span class="comment">// POST or GET, default POST</span></span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+ <center>
+        
+          <a class="article-more-link" href="/2019/08/19/webUploader/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2019/08/19/webUploader/" data-id="ckngzpu96006plchr8pftggby"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebUploader/" rel="tag">WebUploader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
         <article id="post-promise" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -107,7 +298,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/15/promise/" data-id="ckk81jiai002o8ohre9601zmg"
+      <a data-url="https://visionary-s.github.io/2019/08/15/promise/" data-id="ckngzpu7o002vlchrh8vrgo0u"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
@@ -176,7 +367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/05/ES6-Template%20String/" data-id="ckk81ji8u00078ohr1nivglst"
+      <a data-url="https://visionary-s.github.io/2019/08/05/ES6-Template%20String/" data-id="ckngzpu65000elchr2vpkfyic"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
@@ -237,75 +428,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/CDT/" data-id="ckk81ji90000d8ohrfvyj29uf"
+      <a data-url="https://visionary-s.github.io/2019/07/25/CDT/" data-id="ckngzpu5w0007lchr0atb3a04"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDT/" rel="tag">CDT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev-env/" rel="tag">dev-env</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-Hexo cmd" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/07/25/Hexo%20cmd/">Hexo - Tools &amp; cmd used during deployment</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/07/25/Hexo%20cmd/" class="article-date">
-  <time datetime="2019-07-24T16:00:00.000Z" itemprop="datePublished">2019-07-25</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/interest/">interest</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>Ref: <a target="_blank" rel="noopener" href="https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/">https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/</a></p>
-<h3 id="npm-CN-image（taobao）"><a href="#npm-CN-image（taobao）" class="headerlink" title="npm CN image（taobao）"></a>npm CN image（taobao）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-<h3 id="Hexo-installation"><a href="#Hexo-installation" class="headerlink" title="Hexo installation"></a>Hexo installation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>check if successfully installed</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure>
- <center>
-        
-          <a class="article-more-link" href="/2019/07/25/Hexo%20cmd/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/Hexo%20cmd/" data-id="ckk81ji93000i8ohrej45hniy"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
 
     </footer>
 
@@ -367,7 +493,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/Hexo%20cmd&debug/" data-id="ckk81ji96000k8ohr5r2a2yae"
+      <a data-url="https://visionary-s.github.io/2019/07/25/Hexo%20cmd&debug/" data-id="ckngzpu63000dlchr2qic8k1l"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
@@ -437,10 +563,75 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/Hard%20or%20Soft%20Dependencies/" data-id="ckk81ji9e000o8ohr3pan2xn8"
+      <a data-url="https://visionary-s.github.io/2019/07/25/Hard%20or%20Soft%20Dependencies/" data-id="ckngzpu67000ilchr2vrod4tb"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-Hexo cmd" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/07/25/Hexo%20cmd/">Hexo - Tools &amp; cmd used during deployment</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/07/25/Hexo%20cmd/" class="article-date">
+  <time datetime="2019-07-24T16:00:00.000Z" itemprop="datePublished">2019-07-25</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>Ref: <a target="_blank" rel="noopener" href="https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/">https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/</a></p>
+<h3 id="npm-CN-image（taobao）"><a href="#npm-CN-image（taobao）" class="headerlink" title="npm CN image（taobao）"></a>npm CN image（taobao）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<h3 id="Hexo-installation"><a href="#Hexo-installation" class="headerlink" title="Hexo installation"></a>Hexo installation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>check if successfully installed</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure>
+ <center>
+        
+          <a class="article-more-link" href="/2019/07/25/Hexo%20cmd/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2019/07/25/Hexo%20cmd/" data-id="ckngzpu6c000olchr8ujka1dm"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
 
     </footer>
 
@@ -501,200 +692,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/JS-Label/" data-id="ckk81ji9g000r8ohr7uvuf4ra"
+      <a data-url="https://visionary-s.github.io/2019/07/25/JS-Label/" data-id="ckngzpu6e000rlchrer8yhzxw"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-JS对象引用" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/07/25/JS%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8/">JS对象引用</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/07/25/JS%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8/" class="article-date">
-  <time datetime="2019-07-24T16:00:00.000Z" itemprop="datePublished">2019-07-25</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>如果不同的变量名指向同一个对象，那么它们都是这个对象的引用，也就是说指向同一个内存地址。修改其中一个变量，会影响到其他所有变量。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> o2 = o1;</span><br><span class="line"></span><br><span class="line">o1.a = <span class="number">1</span>;</span><br><span class="line">o2.a <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line">o2.b = <span class="number">2</span>;</span><br><span class="line">o1.b <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
- <center>
-        
-          <a class="article-more-link" href="/2019/07/25/JS%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/JS%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8/" data-id="ckk81ji9j000w8ohrbw2ea9ug"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-Migrate local video header to cloud storage" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/07/25/Migrate%20local%20video%20header%20to%20cloud%20storage/">Migrate local video header to cloud storage</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/07/25/Migrate%20local%20video%20header%20to%20cloud%20storage/" class="article-date">
-  <time datetime="2019-07-24T16:00:00.000Z" itemprop="datePublished">2019-07-25</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/interest/">interest</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p> Since the Ocean theme includes and initiates the videos and images about header via local folder <code>themes/ocean/source/images/ocean/</code>, the page loads slowly at mobile device. So I decided to transfer these large files to cloud side to promote loading speed.</p>
-<ol>
-<li><p>Find the local image folder as referred above.</p>
-</li>
-<li><p>upload these files to <a target="_blank" rel="noopener" href="https://cloudinary.com/">cloudinary</a>, it provides plugin as a module to js file:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudinary.videoTag(<span class="string">&#x27;gitblog/ocean/ocean_j5rpnt&#x27;</span>).toHtml();</span><br></pre></td></tr></table></figure>
-<p>the src ref-way can be find at <strong>“edit”</strong> page by right clicking on cloudinary/file.<br>Here I did not use this short path cuz I am not in need of a large quantity of inserted files.</p>
-<center>
-        
-          <a class="article-more-link" href="/2019/07/25/Migrate%20local%20video%20header%20to%20cloud%20storage/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/Migrate%20local%20video%20header%20to%20cloud%20storage/" data-id="ckk81ji9o00128ohrekkd57uu"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-Post photos to Gallery" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/07/25/Post%20photos%20to%20Gallery/">Post photos to Gallery</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/07/25/Post%20photos%20to%20Gallery/" class="article-date">
-  <time datetime="2019-07-24T16:00:00.000Z" itemprop="datePublished">2019-07-25</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/interest/">interest</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h3 id="How-to-post-a-photo-to-blog-gallery"><a href="#How-to-post-a-photo-to-blog-gallery" class="headerlink" title="How to post a photo to blog gallery"></a>How to post a photo to blog gallery</h3><h4 id="1-Setup-the-gallery-page"><a href="#1-Setup-the-gallery-page" class="headerlink" title="1. Setup the gallery page:"></a>1. Setup the gallery page:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page gallery      // create <span class="string">&#x27;gallery&#x27;</span> page</span><br><span class="line"></span><br><span class="line">$ hexo new page about        // create <span class="string">&#x27;about&#x27;</span> page</span><br><span class="line">$ hexo new page tags         // <span class="string">&#x27;tags&#x27;</span> page</span><br><span class="line">$ hexo new page categories   // <span class="string">&#x27;categories&#x27;</span> page</span><br></pre></td></tr></table></figure>
-<h4 id="2-Find-the-index-md-and-modify-it"><a href="#2-Find-the-index-md-and-modify-it" class="headerlink" title="2. Find the index.md and modify it."></a>2. Find the index.md and modify it.</h4><p>After step 1, there will be folders named “gallery”, “about”… under /source/.<br> <center>
-        
-          <a class="article-more-link" href="/2019/07/25/Post%20photos%20to%20Gallery/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/Post%20photos%20to%20Gallery/" data-id="ckk81ji9r00178ohr10s4c917"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
 
     </footer>
 
