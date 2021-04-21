@@ -63,67 +63,6 @@
 
     
       
-        <article id="post-FileUploadAndDisplay" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/08/19/FileUploadAndDisplay/">File Upload and Display</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/08/19/FileUploadAndDisplay/" class="article-date">
-  <time datetime="2019-08-18T16:00:00.000Z" itemprop="datePublished">2019-08-19</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/WuLex/article/details/84296934">input [type=file] 获取上传文件的内容</a></p>
-<p>Modify:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">_addFileContent: <span class="function"><span class="keyword">function</span> (<span class="params">fileTag</span>) </span>&#123;</span><br><span class="line">    fileTag.addEventHandler(<span class="string">&quot;click&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="string">&quot;#fileUpload&quot;</span>).change(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> file = <span class="built_in">document</span>.getElementById(<span class="string">&quot;fileUpload&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (file.files.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">var</span> trueFile = file.files[<span class="number">0</span>];</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="built_in">document</span>.getElementById(<span class="string">&quot;fileContent&quot;</span>).value);</span><br><span class="line">                <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();</span><br><span class="line"></span><br><span class="line">                reader.readAsText(trueFile, <span class="string">&#x27;UTF-8&#x27;</span>);</span><br><span class="line"></span><br><span class="line">                reader.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">if</span> (reader.error) &#123;</span><br><span class="line">                        <span class="built_in">console</span>.log(reader.error);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">var</span> urlData = <span class="built_in">this</span>.result;</span><br><span class="line">                        <span class="built_in">document</span>.getElementById(<span class="string">&quot;fileContent&quot;</span>).value = urlData;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&quot;Failed to upload file!&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);          </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Other ref:<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Events/change">Change event | MDN</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/19/FileUploadAndDisplay/" data-id="ckngzpu60000alchrbej502cn"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
         <article id="post-openlayer-knowledge" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -174,7 +113,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/19/openlayer-knowledge/" data-id="ckngzpu7h002plchrdza8ezk1"
+      <a data-url="https://visionary-s.github.io/2019/08/19/openlayer-knowledge/" data-id="cknr1s4h8002p1whracr1dj4l"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openlayer/" rel="tag">openlayer</a></li></ul>
@@ -236,7 +175,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/19/webUploader/" data-id="ckngzpu96006plchr8pftggby"
+      <a data-url="https://visionary-s.github.io/2019/08/19/webUploader/" data-id="cknr1s4io006f1whr3xjzb2ro"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebUploader/" rel="tag">WebUploader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
@@ -298,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/15/promise/" data-id="ckngzpu7o002vlchrh8vrgo0u"
+      <a data-url="https://visionary-s.github.io/2019/08/15/promise/" data-id="cknr1s4hc002s1whrax827ewm"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
@@ -367,7 +306,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/08/05/ES6-Template%20String/" data-id="ckngzpu65000elchr2vpkfyic"
+      <a data-url="https://visionary-s.github.io/2019/08/05/ES6-Template%20String/" data-id="cknr1s4fx000a1whrfmzi391d"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
@@ -428,7 +367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/CDT/" data-id="ckngzpu5w0007lchr0atb3a04"
+      <a data-url="https://visionary-s.github.io/2019/07/25/CDT/" data-id="cknr1s4fu00071whr9pdw6pry"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDT/" rel="tag">CDT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev-env/" rel="tag">dev-env</a></li></ul>
@@ -493,7 +432,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/Hexo%20cmd&debug/" data-id="ckngzpu63000dlchr2qic8k1l"
+      <a data-url="https://visionary-s.github.io/2019/07/25/Hexo%20cmd&debug/" data-id="cknr1s4g0000d1whr9kp41qza"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
@@ -563,7 +502,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/Hard%20or%20Soft%20Dependencies/" data-id="ckngzpu67000ilchr2vrod4tb"
+      <a data-url="https://visionary-s.github.io/2019/07/25/Hard%20or%20Soft%20Dependencies/" data-id="cknr1s4g4000i1whr1fv38e57"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
@@ -628,7 +567,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/Hexo%20cmd/" data-id="ckngzpu6c000olchr8ujka1dm"
+      <a data-url="https://visionary-s.github.io/2019/07/25/Hexo%20cmd/" data-id="cknr1s4g7000k1whre1jmeqbv"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
@@ -692,10 +631,77 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/JS-Label/" data-id="ckngzpu6e000rlchrer8yhzxw"
+      <a data-url="https://visionary-s.github.io/2019/07/25/JS-Label/" data-id="cknr1s4g9000o1whrdhbi6g1y"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-Migrate local video header to cloud storage" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/07/25/Migrate%20local%20video%20header%20to%20cloud%20storage/">Migrate local video header to cloud storage</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/07/25/Migrate%20local%20video%20header%20to%20cloud%20storage/" class="article-date">
+  <time datetime="2019-07-24T16:00:00.000Z" itemprop="datePublished">2019-07-25</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p> Since the Ocean theme includes and initiates the videos and images about header via local folder <code>themes/ocean/source/images/ocean/</code>, the page loads slowly at mobile device. So I decided to transfer these large files to cloud side to promote loading speed.</p>
+<ol>
+<li><p>Find the local image folder as referred above.</p>
+</li>
+<li><p>upload these files to <a target="_blank" rel="noopener" href="https://cloudinary.com/">cloudinary</a>, it provides plugin as a module to js file:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudinary.videoTag(<span class="string">&#x27;gitblog/ocean/ocean_j5rpnt&#x27;</span>).toHtml();</span><br></pre></td></tr></table></figure>
+<p>the src ref-way can be find at <strong>“edit”</strong> page by right clicking on cloudinary/file.<br>Here I did not use this short path cuz I am not in need of a large quantity of inserted files.</p>
+<center>
+        
+          <a class="article-more-link" href="/2019/07/25/Migrate%20local%20video%20header%20to%20cloud%20storage/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2019/07/25/Migrate%20local%20video%20header%20to%20cloud%20storage/" data-id="cknr1s4ga000q1whr8uupfske"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
 
     </footer>
 
@@ -733,7 +739,7 @@
 
     </div>
     <ul class="list-inline">
-      <li>&copy; 2021 B. Eliza Shi</li>
+      <li>&copy; 2021 B. Orianna Shi</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
       <li>Theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
     </ul>
