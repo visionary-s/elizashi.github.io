@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    tags |
+    Python learning |
     
     Solito</title>
   
@@ -29,7 +29,7 @@
 <body>
 <main class="content">
   <section class="outer">
-  <article id="page-" class="article article-type-page" itemscope itemprop="blogPost" data-scroll-reveal>
+  <article id="post-py-basic0" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -37,7 +37,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      tags
+      Python learning
     </h1>
   
 
@@ -46,6 +46,17 @@
     
 
     
+      <div class="article-meta">
+        <a href="/2021/05/06/py-basic0/" class="article-date">
+  <time datetime="2021-05-05T16:00:00.000Z" itemprop="datePublished">2021-05-06</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
 
     <div class="article-entry" itemprop="articleBody">
       
@@ -53,22 +64,52 @@
       
 
       
-        
+        <h3 id="classmethod-amp-staticmethod"><a href="#classmethod-amp-staticmethod" class="headerlink" title="classmethod &amp; staticmethod"></a>classmethod &amp; staticmethod</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/baxianhua/p/10845620.html">https://www.cnblogs.com/baxianhua/p/10845620.html</a>  </p>
+<p>Python不支持多个的參数重载构造函数，用classmethod修饰符的方式，定义出来的函数就能够在类对象实例化之前调用这些函数，就相当于多个构造函数，解决多个构造函数的代码写在类外面的问题  </p>
+<p>类最基本的作用是实例化出一个对象，但是有的时候再实例化之前，就需要先和类做一定的交互(init方法里需要调用类里的方法，或init之前需要调用类方法)，这种交互可能会影响实际实例化的过程，所以必须放在调用构造函数之前。大概也可能是因为这个原因出现了classmethod  </p>
+<p>对于一个普通的类，我们要使用其中的函数的话，需要对类进行实例化，而一个类中，某个函数前面加上了staticmethod或者classmethod的话，那么这个函数就可以不通过实例化直接调用，可以通过类名进行调用的</p>
+<p>类方法的第一个参数(cls)指代的就是类本身。类方法会用这个类来创建并返回最终的实例。使用类方法的另一个好处就是在继承的时候，保证了子类使用可选构造函数构造出来的类是子类的实例而不是父类的实例</p>
+<p>staticmethod就是全局可调的静态方法</p>
+<h3 id="yield"><a href="#yield" class="headerlink" title="yield"></a>yield</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mieleizhi0522/article/details/82142856">https://blog.csdn.net/mieleizhi0522/article/details/82142856</a><br>yield = return &amp; generator</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/tags/index.html" data-id="ckoo58t9x0008n0hr3422bny3"
+      <a data-url="https://visionary-s.github.io/2021/05/06/py-basic0/" data-id="ckoo58tbl003rn0hrc7g2hnve"
          class="article-share-link">Share</a>
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
     </footer>
 
   </div>
 
   
     
+  <nav class="article-nav">
+    
+      <a href="/2021/05/06/py-problem/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            Python development &amp; problems
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2021/03/29/frontend-interview/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">Frontend Interview</div>
+      </a>
+    
+  </nav>
+
 
   
 
+  
+    
   
 
 </article>

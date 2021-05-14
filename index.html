@@ -114,7 +114,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/11/git-for-daily-use/" data-id="cknr1s4gz00221whrgwqs7j0n"
+      <a data-url="https://visionary-s.github.io/2019/07/11/git-for-daily-use/" data-id="ckoo58tb4002an0hrgsifh6ar"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
@@ -183,10 +183,207 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/14/linux-cmd/" data-id="cknr1s4h200291whrgypldr33"
+      <a data-url="https://visionary-s.github.io/2019/07/14/linux-cmd/" data-id="ckoo58tbd0032n0hrhj090ohi"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-py-basic" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2021/05/06/py-basic/">Python concepts</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2021/05/06/py-basic/" class="article-date">
+  <time datetime="2021-05-05T16:00:00.000Z" itemprop="datePublished">2021-05-06</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="classmethod-amp-staticmethod"><a href="#classmethod-amp-staticmethod" class="headerlink" title="classmethod &amp; staticmethod"></a>classmethod &amp; staticmethod</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/baxianhua/p/10845620.html">https://www.cnblogs.com/baxianhua/p/10845620.html</a>  </p>
+<p>Python不支持多个的參数重载构造函数，用classmethod修饰符的方式，定义出来的函数就能够在类对象实例化之前调用这些函数，就相当于多个构造函数，解决多个构造函数的代码写在类外面的问题  </p>
+<p>类最基本的作用是实例化出一个对象，但是有的时候再实例化之前，就需要先和类做一定的交互(init方法里需要调用类里的方法，或init之前需要调用类方法)，这种交互可能会影响实际实例化的过程，所以必须放在调用构造函数之前。大概也可能是因为这个原因出现了classmethod  </p>
+<p>对于一个普通的类，我们要使用其中的函数的话，需要对类进行实例化，而一个类中，某个函数前面加上了staticmethod或者classmethod的话，那么这个函数就可以不通过实例化直接调用，可以通过类名进行调用的</p>
+<p>类方法的第一个参数(cls)指代的就是类本身。类方法会用这个类来创建并返回最终的实例。使用类方法的另一个好处就是在继承的时候，保证了子类使用可选构造函数构造出来的类是子类的实例而不是父类的实例</p>
+<p>staticmethod就是全局可调的静态方法</p>
+<h3 id="yield"><a href="#yield" class="headerlink" title="yield"></a>yield</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mieleizhi0522/article/details/82142856">https://blog.csdn.net/mieleizhi0522/article/details/82142856</a><br>yield = return &amp; generator</p>
+<center>
+        
+          <a class="article-more-link" href="/2021/05/06/py-basic/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2021/05/06/py-basic/" data-id="ckoo58tbi003jn0hr2ztcht6a"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-py-problem" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2021/05/06/py-problem/">Python development &amp; problems</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2021/05/06/py-problem/" class="article-date">
+  <time datetime="2021-05-05T16:00:00.000Z" itemprop="datePublished">2021-05-06</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="venv-setup-activate-amp-exit"><a href="#venv-setup-activate-amp-exit" class="headerlink" title="venv setup, activate &amp; exit"></a>venv setup, activate &amp; exit</h3><ol>
+<li>setup:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python3 -m venv</span><br></pre></td></tr></table></figure></li>
+<li>activate:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ . venv/Scripts/activate        <span class="comment"># windows</span></span><br><span class="line">$ <span class="built_in">source</span> venv/bin/activate       <span class="comment"># linux &amp; Mac OS</span></span><br></pre></td></tr></table></figure></li>
+<li>exit:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ deactivate</span><br></pre></td></tr></table></figure>
+ref: <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30292745/article/details/101445788?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_v2~rank_aggregation-3-101445788.pc_agg_rank_aggregation&amp;utm_term=python+%E5%85%B3%E9%97%ADvenv&amp;spm=1000.2123.3001.4430">https://blog.csdn.net/weixin_30292745/article/details/101445788?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_v2~rank_aggregation-3-101445788.pc_agg_rank_aggregation&amp;utm_term=python+%E5%85%B3%E9%97%ADvenv&amp;spm=1000.2123.3001.4430</a></li>
+</ol>
+<center>
+        
+          <a class="article-more-link" href="/2021/05/06/py-problem/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2021/05/06/py-problem/" data-id="ckoo58tbj003mn0hr13jt5uv6"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-py-basic0" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2021/05/06/py-basic0/">Python learning</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2021/05/06/py-basic0/" class="article-date">
+  <time datetime="2021-05-05T16:00:00.000Z" itemprop="datePublished">2021-05-06</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="classmethod-amp-staticmethod"><a href="#classmethod-amp-staticmethod" class="headerlink" title="classmethod &amp; staticmethod"></a>classmethod &amp; staticmethod</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/baxianhua/p/10845620.html">https://www.cnblogs.com/baxianhua/p/10845620.html</a>  </p>
+<p>Python不支持多个的參数重载构造函数，用classmethod修饰符的方式，定义出来的函数就能够在类对象实例化之前调用这些函数，就相当于多个构造函数，解决多个构造函数的代码写在类外面的问题  </p>
+<p>类最基本的作用是实例化出一个对象，但是有的时候再实例化之前，就需要先和类做一定的交互(init方法里需要调用类里的方法，或init之前需要调用类方法)，这种交互可能会影响实际实例化的过程，所以必须放在调用构造函数之前。大概也可能是因为这个原因出现了classmethod  </p>
+<p>对于一个普通的类，我们要使用其中的函数的话，需要对类进行实例化，而一个类中，某个函数前面加上了staticmethod或者classmethod的话，那么这个函数就可以不通过实例化直接调用，可以通过类名进行调用的</p>
+<p>类方法的第一个参数(cls)指代的就是类本身。类方法会用这个类来创建并返回最终的实例。使用类方法的另一个好处就是在继承的时候，保证了子类使用可选构造函数构造出来的类是子类的实例而不是父类的实例</p>
+<p>staticmethod就是全局可调的静态方法</p>
+<h3 id="yield"><a href="#yield" class="headerlink" title="yield"></a>yield</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mieleizhi0522/article/details/82142856">https://blog.csdn.net/mieleizhi0522/article/details/82142856</a><br>yield = return &amp; generator</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2021/05/06/py-basic0/" data-id="ckoo58tbl003rn0hrc7g2hnve"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
 
     </footer>
 
@@ -248,7 +445,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2021/03/29/frontend-interview/" data-id="cknr1s4gv001p1whr8dxgfqwb"
+      <a data-url="https://visionary-s.github.io/2021/03/29/frontend-interview/" data-id="ckoo58tb7002kn0hrasqn6fsd"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interview/" rel="tag">interview</a></li></ul>
@@ -309,7 +506,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2021/03/23/angular/" data-id="cknr1s4gi00191whr623o927o"
+      <a data-url="https://visionary-s.github.io/2021/03/23/angular/" data-id="ckoo58taw001wn0hrgpcpe7hs"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/framework/" rel="tag">framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/typescript/" rel="tag">typescript</a></li></ul>
@@ -375,7 +572,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2021/01/29/react/" data-id="cknr1s4hh00351whreyg78tvq"
+      <a data-url="https://visionary-s.github.io/2021/01/29/react/" data-id="ckoo58tbo0041n0hr8ppfdzz2"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
@@ -436,7 +633,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/10/12/pyqt/" data-id="cknr1s4he002y1whr6b4i2ris"
+      <a data-url="https://visionary-s.github.io/2020/10/12/pyqt/" data-id="ckoo58tbo003yn0hr5idxgqo1"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GUI/" rel="tag">GUI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyQt/" rel="tag">PyQt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
@@ -499,197 +696,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/09/07/java-sonar/" data-id="cknr1s4gt001l1whrdrke9f2y"
+      <a data-url="https://visionary-s.github.io/2020/09/07/java-sonar/" data-id="ckoo58tb9002qn0hr2ddee0c2"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sonar/" rel="tag">sonar</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-js-skip-html-label" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/07/27/js-skip-html-label/">Skip html labels in JS</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/07/27/js-skip-html-label/" class="article-date">
-  <time datetime="2020-07-26T16:00:00.000Z" itemprop="datePublished">2020-07-27</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str = str.replace(<span class="regexp">/&lt;[^&lt;&gt;]+&gt;/g</span>, <span class="string">&#x27;&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<p>sample:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> error = <span class="string">&quot;&lt;html&gt;&lt;head&gt;&lt;title&gt;Error&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Unauthorized&lt;/body&gt;&lt;/html&gt;&quot;</span>;</span><br><span class="line">error = error.replace(<span class="regexp">/&lt;[^&lt;&gt;]+&gt;/g</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(error);</span><br><span class="line"><span class="comment">// print ErrorUnauthorized</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/27/js-skip-html-label/" data-id="cknr1s4gy001z1whr30v47c8r"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-npm" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/07/20/npm/">NPM tips</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/07/20/npm/" class="article-date">
-  <time datetime="2020-07-19T16:00:00.000Z" itemprop="datePublished">2020-07-20</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h3 id="npm-install"><a href="#npm-install" class="headerlink" title="npm install"></a>npm install</h3><p>different with <code>^</code>:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ npm install express@^4.16.1 --save --save-exact</span><br><span class="line">+ express@4.17.1</span><br><span class="line">removed 3 packages, updated 1 package and moved 1 package <span class="keyword">in</span> 124.659s</span><br><span class="line">$ npm install express@4.16.1 --save</span><br><span class="line">+ express@4.16.1</span><br><span class="line">added 4 packages from 4 contributors, removed 3 packages and updated 16 packages <span class="keyword">in</span> 20.374s</span><br></pre></td></tr></table></figure>
-<p>ref: <a target="_blank" rel="noopener" href="https://docs.npmjs.com/cli/install">https://docs.npmjs.com/cli/install</a></p>
-<center>
-        
-          <a class="article-more-link" href="/2020/07/20/npm/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/20/npm/" data-id="cknr1s4h6002j1whr8kpu78hl"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/" rel="tag">node.js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-js-sonar" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/07/17/js-sonar/">Sonar Fix (node.js backend)</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/07/17/js-sonar/" class="article-date">
-  <time datetime="2020-07-16T16:00:00.000Z" itemprop="datePublished">2020-07-17</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>This is a record for sonar fixing for backend based on node.js.</p>
-<h3 id="Security-Hotspots"><a href="#Security-Hotspots" class="headerlink" title="Security Hotspots"></a>Security Hotspots</h3><p><em>Security Hotspots aren’t necessarily issues, but they need to be reviewed to make sure they aren’t vulnerabilities.</em></p>
-<h4 id="Make-sure-that-using-a-regular-expression-is-safe-here"><a href="#Make-sure-that-using-a-regular-expression-is-safe-here" class="headerlink" title="Make sure that using a regular expression is safe here"></a>Make sure that using a regular expression is safe here</h4><p><strong>Rule: Using regular expressions is security-sensitive</strong></p>
-<h5 id="1-original-code"><a href="#1-original-code" class="headerlink" title="1. original code:"></a>1. original code:</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> re = <span class="regexp">/^\d+(\.\d+)?$/</span>;</span><br></pre></td></tr></table></figure>
-<p>the rule recommend not using group<code>()</code> to reduce evaluate work load. 个人理解是，group内外都有\d+，可能有重复校验的问题</p>
- <center>
-        
-          <a class="article-more-link" href="/2020/07/17/js-sonar/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/07/17/js-sonar/" data-id="cknr1s4h100261whr5p4ed03v"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sonar/" rel="tag">sonar</a></li></ul>
 
     </footer>
 

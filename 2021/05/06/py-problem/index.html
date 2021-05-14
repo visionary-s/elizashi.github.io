@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    Python development &amp; problems |
+    
+    Solito</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-py-problem" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python development &amp; problems
+    </h1>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2021/05/06/py-problem/" class="article-date">
+  <time datetime="2021-05-05T16:00:00.000Z" itemprop="datePublished">2021-05-06</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="venv-setup-activate-amp-exit"><a href="#venv-setup-activate-amp-exit" class="headerlink" title="venv setup, activate &amp; exit"></a>venv setup, activate &amp; exit</h3><ol>
+<li>setup:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python3 -m venv</span><br></pre></td></tr></table></figure></li>
+<li>activate:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ . venv/Scripts/activate        <span class="comment"># windows</span></span><br><span class="line">$ <span class="built_in">source</span> venv/bin/activate       <span class="comment"># linux &amp; Mac OS</span></span><br></pre></td></tr></table></figure></li>
+<li>exit:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ deactivate</span><br></pre></td></tr></table></figure>
+ref: <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30292745/article/details/101445788?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_v2~rank_aggregation-3-101445788.pc_agg_rank_aggregation&amp;utm_term=python+%E5%85%B3%E9%97%ADvenv&amp;spm=1000.2123.3001.4430">https://blog.csdn.net/weixin_30292745/article/details/101445788?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_v2~rank_aggregation-3-101445788.pc_agg_rank_aggregation&amp;utm_term=python+%E5%85%B3%E9%97%ADvenv&amp;spm=1000.2123.3001.4430</a></li>
+</ol>
+<center><a id="more"></a></center>
+
+<h3 id="setup-flask-development-env-inside-react-project"><a href="#setup-flask-development-env-inside-react-project" class="headerlink" title="setup flask development env inside react project"></a>setup flask development env inside react project</h3><p>take my project as an example:</p>
+<ol>
+<li>mkdir react-app/api/</li>
+<li>under <code>api/</code>, create file named <code>api.py</code></li>
+<li>(venv) pip install python-dotenv</li>
+<li>create <code>.env</code> file under /api</li>
+<li>write the following content into .env:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FLASK_APP=api.py</span><br><span class="line">FLASK_ENV=development</span><br></pre></td></tr></table></figure>
+start server:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ flask run</span><br></pre></td></tr></table></figure>
+ref: <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/54600434/how-to-set-flask-env-inside-config-file">https://stackoverflow.com/questions/54600434/how-to-set-flask-env-inside-config-file</a></li>
+</ol>
+<h3 id="UnicodeEncodeError"><a href="#UnicodeEncodeError" class="headerlink" title="UnicodeEncodeError"></a>UnicodeEncodeError</h3><ol>
+<li>‘charmap’ codec can’t encode characters in position 87-93: character maps to <undefined><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/27092833/unicodeencodeerror-charmap-codec-cant-encode-characters">https://stackoverflow.com/questions/27092833/unicodeencodeerror-charmap-codec-cant-encode-characters</a><br>tried multiple ways to print the raw context directly but failed, but it can be written into files with<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;books.txt&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(json.dumps(item, ensure_ascii=<span class="literal">False</span>) + <span class="string">&#x27;\n&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="UnicodeEncodeError-‘charmap’-codec-can’t-encode-character-‘-u0130’"><a href="#UnicodeEncodeError-‘charmap’-codec-can’t-encode-character-‘-u0130’" class="headerlink" title="UnicodeEncodeError: ‘charmap’ codec can’t encode character ‘\u0130’"></a>UnicodeEncodeError: ‘charmap’ codec can’t encode character ‘\u0130’</h3>‘\u0130’ is ‘I’ in Latin, charmap is the default encoding format used locally.<br>solution: <code>&lt;target-string&gt;.encode(&#39;utf-8&#39;)</code><br>Note, it cannot be fully handled with above encoding function, it actually turn out to be like <code>&quot;\u0130stanbul&quot;</code><br>currently I have no better solution but add one more function to translate the Latin letter to English …</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2021/05/06/py-problem/" data-id="ckoo58tbj003mn0hr13jt5uv6"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2021/05/06/py-basic/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            Python concepts
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2021/05/06/py-basic0/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">Python learning</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span> visitors</li>
+  
+</ul>
+
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2021 B. Orianna Shi</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/ming.svg" alt="Solito"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+    <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <!-- <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li> -->
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" href="https://github.com/visionary-s" title="GitHub">
+        <i class="fe fe-github"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+
+</aside>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/snap.svg-min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+<script src="/js/ocean.js"></script>
+
+
+</body>
+</html>
