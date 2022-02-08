@@ -63,7 +63,7 @@
 
     
       
-        <article id="post-Hard or Soft Dependencies" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+        <article id="post-CDT" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -71,7 +71,7 @@
         
   
     <h2 itemprop="name">
-      <a class="article-title" href="/2019/07/25/Hard%20or%20Soft%20Dependencies/">Hard &amp; Soft Dependencies</a>
+      <a class="article-title" href="/2019/07/25/CDT/">CDT Learning</a>
     </h2>
   
 
@@ -81,7 +81,68 @@
 
     
       <div class="article-meta">
-        <a href="/2019/07/25/Hard%20or%20Soft%20Dependencies/" class="article-date">
+        <a href="/2019/07/25/CDT/" class="article-date">
+  <time datetime="2019-07-24T16:00:00.000Z" itemprop="datePublished">2019-07-25</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h2 id="Skeleton"><a href="#Skeleton" class="headerlink" title="Skeleton"></a>Skeleton</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">my-app/</span><br><span class="line">    .cdt                  <span class="comment"># installed lib and conf，do not modify</span></span><br><span class="line">    <span class="built_in">help</span>/                 <span class="comment"># help docs</span></span><br><span class="line">    locales/              <span class="comment"># translation files</span></span><br><span class="line">    resources/            <span class="comment"># imgs &amp; other resources that are not js files</span></span><br><span class="line">    src/                  <span class="comment"># src code. Contains only one folder (my-app)</span></span><br><span class="line">        my-app/           <span class="comment"># name = app name, fully lowercase</span></span><br><span class="line">    <span class="built_in">test</span>/                 </span><br><span class="line">        bit/              <span class="comment"># FT, API concerned only</span></span><br><span class="line">        unit/             <span class="comment"># UT</span></span><br><span class="line">    .editorconfig         <span class="comment"># coding styles，已删</span></span><br><span class="line">    .gitignore  </span><br><span class="line">    app.config.js         <span class="comment"># metadata for app</span></span><br><span class="line">    build.json            <span class="comment"># used by the build module</span></span><br><span class="line">    container.config.js   <span class="comment"># only for dev, never used in production, contains dev version of container</span></span><br></pre></td></tr></table></figure>
+ <center>
+        
+          <a class="article-more-link" href="/2019/07/25/CDT/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2019/07/25/CDT/" data-id="ckzdosu260007h0hr3dzx2zlr"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDT/" rel="tag">CDT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev-env/" rel="tag">dev-env</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-require js - define模块定义" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/07/25/require%20js%20-%20define%E6%A8%A1%E5%9D%97%E5%AE%9A%E4%B9%89/">Require JS - define模块定义</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/07/25/require%20js%20-%20define%E6%A8%A1%E5%9D%97%E5%AE%9A%E4%B9%89/" class="article-date">
   <time datetime="2019-07-24T16:00:00.000Z" itemprop="datePublished">2019-07-25</time>
 </a>
         
@@ -98,218 +159,16 @@
       
 
       
-        <p>ref: <a target="_blank" rel="noopener" href="https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency">https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency</a></p>
-<h2 id="Hard-Dependency"><a href="#Hard-Dependency" class="headerlink" title="Hard Dependency"></a>Hard Dependency</h2><p>a module <strong>cannot</strong> function without the other modules on which it depends</p>
-<ul>
-<li><p>The module contains code that directly uses logic from another module (<strong>instances, class constants, static methods, public class properties, interfaces and traits</strong>).</p>
-</li>
-<li><p>The module contains strings that include <strong>class names, methods names, class constants, class properties, interfaces, and traits</strong> from another module.</p>
-</li>
-<li><p>The module de-serializes an <strong>object declared in another module</strong>.</p>
-</li>
-<li><p>The module uses or modifies the <strong>database tables used by another module</strong>.</p>
-<center>
+        <p><strong>CMD (Common Module Definition)</strong><br>在 CMD 规范中，一个模块就是一个文件。代码的书写格式如下：<br>              <center><em>define(factory);</em></center><br>define 是一个全局函数，用来定义模块。</p>
+<h3 id="1-factory为函数时，表示模块的构造方法："><a href="#1-factory为函数时，表示模块的构造方法：" class="headerlink" title="1. factory为函数时，表示模块的构造方法："></a>1. factory为函数时，表示模块的构造方法：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params"><span class="built_in">require</span>, <span class="built_in">exports</span>, <span class="built_in">module</span></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 模块代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>执行该构造方法，可以得到模块向外提供的接口。<br>factory 为对象、字符串时，表示模块的接口就是该对象、字符串<br> <center>
         
-          <a class="article-more-link" href="/2019/07/25/Hard%20or%20Soft%20Dependencies/">Read More...</a>
+          <a class="article-more-link" href="/2019/07/25/require%20js%20-%20define%E6%A8%A1%E5%9D%97%E5%AE%9A%E4%B9%89/">Read More...</a>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/Hard%20or%20Soft%20Dependencies/" data-id="ckzdoi8ja0009bshr9uz21tlr"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-Hexo cmd&amp;debug" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/07/25/Hexo%20cmd&debug/">Hexo - Tools &amp; cmd used during deployment</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/07/25/Hexo%20cmd&debug/" class="article-date">
-  <time datetime="2019-07-24T16:00:00.000Z" itemprop="datePublished">2019-07-25</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/interest/">interest</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>Ref: <a target="_blank" rel="noopener" href="https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/">https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/</a></p>
-<h3 id="npm-CN-image（taobao）"><a href="#npm-CN-image（taobao）" class="headerlink" title="npm CN image（taobao）"></a>npm CN image（taobao）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-<h3 id="Hexo-installation"><a href="#Hexo-installation" class="headerlink" title="Hexo installation"></a>Hexo installation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>check if successfully installed</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure>
- <center>
-        
-          <a class="article-more-link" href="/2019/07/25/Hexo%20cmd&debug/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/Hexo%20cmd&debug/" data-id="ckzdoi8jh000ebshr5pyi1a60"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-Hexo cmd" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/07/25/Hexo%20cmd/">Hexo - Tools &amp; cmd used during deployment</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/07/25/Hexo%20cmd/" class="article-date">
-  <time datetime="2019-07-24T16:00:00.000Z" itemprop="datePublished">2019-07-25</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/interest/">interest</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>Ref: <a target="_blank" rel="noopener" href="https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/">https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/</a></p>
-<h3 id="npm-CN-image（taobao）"><a href="#npm-CN-image（taobao）" class="headerlink" title="npm CN image（taobao）"></a>npm CN image（taobao）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-<h3 id="Hexo-installation"><a href="#Hexo-installation" class="headerlink" title="Hexo installation"></a>Hexo installation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>check if successfully installed</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure>
- <center>
-        
-          <a class="article-more-link" href="/2019/07/25/Hexo%20cmd/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/Hexo%20cmd/" data-id="ckzdoi8jm000kbshrg5yw6rza"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-JS-Label" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/07/25/JS-Label/">JS-Label</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/07/25/JS-Label/" class="article-date">
-  <time datetime="2019-07-24T16:00:00.000Z" itemprop="datePublished">2019-07-25</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>标签（label），相当于定位符，用于跳转到程序的任意位置。</p>
-<ol>
-<li><p>配合break</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">top:  <span class="comment">// Label</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++)&#123;</span><br><span class="line">      <span class="keyword">if</span> (i === <span class="number">1</span> &amp;&amp; j === <span class="number">1</span>) <span class="keyword">break</span> top; <span class="comment">// 注意，不加引号</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;i=&#x27;</span> + i + <span class="string">&#x27;, j=&#x27;</span> + j);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// i=0, j=0</span></span><br><span class="line"><span class="comment">// i=0, j=1</span></span><br><span class="line"><span class="comment">// i=0, j=2</span></span><br><span class="line"><span class="comment">// i=1, j=0</span></span><br></pre></td></tr></table></figure>
-<center>
-        
-          <a class="article-more-link" href="/2019/07/25/JS-Label/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/JS-Label/" data-id="ckzdoi8jo000obshr5lxg68wl"
+      <a data-url="https://visionary-s.github.io/2019/07/25/require%20js%20-%20define%E6%A8%A1%E5%9D%97%E5%AE%9A%E4%B9%89/" data-id="ckzdosu5y0061h0hrdop64pp0"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
@@ -376,7 +235,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/Migrate%20local%20video%20header%20to%20cloud%20storage/" data-id="ckzdoi8jt000vbshrgf376u24"
+      <a data-url="https://visionary-s.github.io/2019/07/25/Migrate%20local%20video%20header%20to%20cloud%20storage/" data-id="ckzdosu2p000vh0hr1c8id73t"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
@@ -394,7 +253,7 @@
 
 
       
-        <article id="post-JS对象引用" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+        <article id="post-Hexo cmd" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -402,7 +261,7 @@
         
   
     <h2 itemprop="name">
-      <a class="article-title" href="/2019/07/25/JS%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8/">JS对象引用</a>
+      <a class="article-title" href="/2019/07/25/Hexo%20cmd/">Hexo - Tools &amp; cmd used during deployment</a>
     </h2>
   
 
@@ -412,12 +271,12 @@
 
     
       <div class="article-meta">
-        <a href="/2019/07/25/JS%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8/" class="article-date">
+        <a href="/2019/07/25/Hexo%20cmd/" class="article-date">
   <time datetime="2019-07-24T16:00:00.000Z" itemprop="datePublished">2019-07-25</time>
 </a>
         
   <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
+    <a class="article-category-link" href="/categories/interest/">interest</a>
   </div>
 
       </div>
@@ -429,19 +288,22 @@
       
 
       
-        <p>如果不同的变量名指向同一个对象，那么它们都是这个对象的引用，也就是说指向同一个内存地址。修改其中一个变量，会影响到其他所有变量。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> o2 = o1;</span><br><span class="line"></span><br><span class="line">o1.a = <span class="number">1</span>;</span><br><span class="line">o2.a <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line">o2.b = <span class="number">2</span>;</span><br><span class="line">o1.b <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+        <p>Ref: <a target="_blank" rel="noopener" href="https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/">https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/</a></p>
+<h3 id="npm-CN-image（taobao）"><a href="#npm-CN-image（taobao）" class="headerlink" title="npm CN image（taobao）"></a>npm CN image（taobao）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<h3 id="Hexo-installation"><a href="#Hexo-installation" class="headerlink" title="Hexo installation"></a>Hexo installation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>check if successfully installed</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure>
  <center>
         
-          <a class="article-more-link" href="/2019/07/25/JS%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8/">Read More...</a>
+          <a class="article-more-link" href="/2019/07/25/Hexo%20cmd/">Read More...</a>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/JS%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8/" data-id="ckzdoi8ju000xbshr981y8t90"
+      <a data-url="https://visionary-s.github.io/2019/07/25/Hexo%20cmd/" data-id="ckzdosu2i000ih0hreu56e7oj"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
 
     </footer>
 
@@ -501,10 +363,80 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/cdt-app-lifecycle/" data-id="ckzdoi8jx0014bshr8dd01pyl"
+      <a data-url="https://visionary-s.github.io/2019/07/25/cdt-app-lifecycle/" data-id="ckzdosu2v0016h0hrgkqv85ge"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDT/" rel="tag">CDT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dev-env/" rel="tag">dev-env</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-Hard or Soft Dependencies" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/07/25/Hard%20or%20Soft%20Dependencies/">Hard &amp; Soft Dependencies</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/07/25/Hard%20or%20Soft%20Dependencies/" class="article-date">
+  <time datetime="2019-07-24T16:00:00.000Z" itemprop="datePublished">2019-07-25</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/basic/">basic</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>ref: <a target="_blank" rel="noopener" href="https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency">https://magento.stackexchange.com/questions/151250/whats-a-hard-dependency-and-whats-a-soft-dependency</a></p>
+<h2 id="Hard-Dependency"><a href="#Hard-Dependency" class="headerlink" title="Hard Dependency"></a>Hard Dependency</h2><p>a module <strong>cannot</strong> function without the other modules on which it depends</p>
+<ul>
+<li><p>The module contains code that directly uses logic from another module (<strong>instances, class constants, static methods, public class properties, interfaces and traits</strong>).</p>
+</li>
+<li><p>The module contains strings that include <strong>class names, methods names, class constants, class properties, interfaces, and traits</strong> from another module.</p>
+</li>
+<li><p>The module de-serializes an <strong>object declared in another module</strong>.</p>
+</li>
+<li><p>The module uses or modifies the <strong>database tables used by another module</strong>.</p>
+<center>
+        
+          <a class="article-more-link" href="/2019/07/25/Hard%20or%20Soft%20Dependencies/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2019/07/25/Hard%20or%20Soft%20Dependencies/" data-id="ckzdosu2d000dh0hrbyriaz6u"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
 
     </footer>
 
@@ -562,7 +494,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/Post%20photos%20to%20Gallery/" data-id="ckzdoi8jy0018bshrar201ews"
+      <a data-url="https://visionary-s.github.io/2019/07/25/Post%20photos%20to%20Gallery/" data-id="ckzdosu2s0010h0hrdf5b7387"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
@@ -580,7 +512,7 @@
 
 
       
-        <article id="post-require js - define模块定义" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+        <article id="post-Hexo cmd&amp;debug" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -588,7 +520,7 @@
         
   
     <h2 itemprop="name">
-      <a class="article-title" href="/2019/07/25/require%20js%20-%20define%E6%A8%A1%E5%9D%97%E5%AE%9A%E4%B9%89/">Require JS - define模块定义</a>
+      <a class="article-title" href="/2019/07/25/Hexo%20cmd&debug/">Hexo - Tools &amp; cmd used during deployment</a>
     </h2>
   
 
@@ -598,12 +530,12 @@
 
     
       <div class="article-meta">
-        <a href="/2019/07/25/require%20js%20-%20define%E6%A8%A1%E5%9D%97%E5%AE%9A%E4%B9%89/" class="article-date">
+        <a href="/2019/07/25/Hexo%20cmd&debug/" class="article-date">
   <time datetime="2019-07-24T16:00:00.000Z" itemprop="datePublished">2019-07-25</time>
 </a>
         
   <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
+    <a class="article-category-link" href="/categories/interest/">interest</a>
   </div>
 
       </div>
@@ -615,19 +547,22 @@
       
 
       
-        <p><strong>CMD (Common Module Definition)</strong><br>在 CMD 规范中，一个模块就是一个文件。代码的书写格式如下：<br>              <center><em>define(factory);</em></center><br>define 是一个全局函数，用来定义模块。</p>
-<h3 id="1-factory为函数时，表示模块的构造方法："><a href="#1-factory为函数时，表示模块的构造方法：" class="headerlink" title="1. factory为函数时，表示模块的构造方法："></a>1. factory为函数时，表示模块的构造方法：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params"><span class="built_in">require</span>, <span class="built_in">exports</span>, <span class="built_in">module</span></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 模块代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>执行该构造方法，可以得到模块向外提供的接口。<br>factory 为对象、字符串时，表示模块的接口就是该对象、字符串<br> <center>
+        <p>Ref: <a target="_blank" rel="noopener" href="https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/">https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/</a></p>
+<h3 id="npm-CN-image（taobao）"><a href="#npm-CN-image（taobao）" class="headerlink" title="npm CN image（taobao）"></a>npm CN image（taobao）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<h3 id="Hexo-installation"><a href="#Hexo-installation" class="headerlink" title="Hexo installation"></a>Hexo installation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>check if successfully installed</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure>
+ <center>
         
-          <a class="article-more-link" href="/2019/07/25/require%20js%20-%20define%E6%A8%A1%E5%9D%97%E5%AE%9A%E4%B9%89/">Read More...</a>
+          <a class="article-more-link" href="/2019/07/25/Hexo%20cmd&debug/">Read More...</a>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/25/require%20js%20-%20define%E6%A8%A1%E5%9D%97%E5%AE%9A%E4%B9%89/" data-id="ckzdoi8ld003fbshr6ohe14t1"
+      <a data-url="https://visionary-s.github.io/2019/07/25/Hexo%20cmd&debug/" data-id="ckzdosu2f000eh0hr2pkf2f0y"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
 
     </footer>
 
@@ -682,7 +617,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/17/Hexo%20Theme%20Modification/" data-id="ckzdoi8jk000ibshr6y8h2k9i"
+      <a data-url="https://visionary-s.github.io/2019/07/17/Hexo%20Theme%20Modification/" data-id="ckzdosu2k000kh0hra3inf7ew"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
