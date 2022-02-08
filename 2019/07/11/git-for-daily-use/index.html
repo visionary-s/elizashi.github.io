@@ -88,7 +88,7 @@ sometimes it failed due to late version of project, checkout and pull the latest
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git rebase -i master  </span><br><span class="line"><span class="comment"># rebase multi local submits and get sync with new branch on master and local, conflicts may occur</span></span><br></pre></td></tr></table></figure>
 if late-version conflicts occur, reset to last commit version, use <code>git rebase</code> to modify commit which is not pushed: <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1335804">link</a></li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span>                   <span class="comment"># check commit history</span></span><br><span class="line">$ git reset &lt;commit id&gt;     <span class="comment"># reset to certain commit version</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span>                   <span class="comment"># check commit history</span></span><br><span class="line">$ git <span class="built_in">log</span> &lt;file-path&gt;       <span class="comment"># check commit history for specific directory or file</span></span><br><span class="line">$ git <span class="built_in">log</span> --<span class="built_in">stat</span>            <span class="comment"># list detailed changes for every commit</span></span><br><span class="line"><span class="comment"># for detailed search by commit message:</span></span><br><span class="line">$ git <span class="built_in">log</span> --all --grep=<span class="string">&quot;&lt;msg-to-search&gt;&quot;</span></span><br><span class="line">$ git reset &lt;commit id&gt;     <span class="comment"># reset to certain commit version</span></span><br></pre></td></tr></table></figure>
 <p>If build failed, you should redo “add” and “commit” step after resetting.</p>
 <blockquote>
 <p>Tip: <code>git log</code> only show commit history of default remote branch (usually master). If remote has multiple branches in work, use <code>git log --all</code> to check full historical submits.</p>
@@ -103,9 +103,17 @@ if late-version conflicts occur, reset to last commit version, use <code>git reb
 <li>to modify changed (already pushed) submit without abandon:<br>add modified local files, then do<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit --amend --no-edit</span><br></pre></td></tr></table></figure>
 For more info about using amend :<br><a target="_blank" rel="noopener" href="https://www.atlassian.com/git/tutorials/rewriting-history">Rewriting history</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a8a2ac58f37d">git commit –amend用法(摘抄)</a></li>
 </ol>
-<p>If unfortunately failed to amend the commit, go back to last commited submit:</p>
+<p>If unfortunately failed to amend the commit, go back to last committed submit:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard &lt;commit-id&gt;</span><br></pre></td></tr></table></figure>
 <p>remember to pull down the latest version in this step, then resubmit the new changes.</p>
+<p>If we want to amend the <strong>merged</strong> commit:</p>
+<ol>
+<li>rebase and list the last N commit:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git rebase -i HEAD~N</span><br></pre></td></tr></table></figure>
+vim will come out and show like:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pick da7ba9213 Update .. <span class="built_in">test</span></span><br><span class="line">pick 3ed3643f3 Automatically updating VERSION_PREFIX to 1.3888.0</span><br><span class="line">pick 6a440cb82 Add ... <span class="built_in">test</span></span><br><span class="line">pick ffdb5f6b2 Automatically updating VERSION_PREFIX to 1.3889.0</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+modify the <code>pick</code> to <code>e</code> or <code>edit</code> before target commit and save:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">pick 12a0e887f Automatically updating VERSION_PREFIX to 1.3897.0</span><br><span class="line">e 4e60477ed Adjust .. tools</span><br><span class="line">pick 38290e07d Automatically updating VERSION_PREFIX to 1.3898.0</span><br><span class="line">...</span><br></pre></td></tr></table></figure></li>
+<li>make the changes<br>after changes satisfied, amend and finish the rebase:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git commit --amend</span><br><span class="line"><span class="comment"># chenges done</span></span><br><span class="line">$ git rebase --<span class="built_in">continue</span></span><br></pre></td></tr></table></figure></li>
+<li></li>
+</ol>
 <hr>
 <h1 id="-1"><a href="#-1" class="headerlink" title="."></a>.</h1><h4 id="branch-amp-merge"><a href="#branch-amp-merge" class="headerlink" title="branch &amp; merge:"></a>branch &amp; merge:</h4><p>Create a personal branch (excluded from master) locally:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git branch &lt;<span class="built_in">declare</span> a new branch name here&gt;   <span class="comment"># create</span></span><br><span class="line"><span class="comment"># e.g. git branch test-branch</span></span><br><span class="line">$ git branch                                    <span class="comment"># view all existing branches</span></span><br></pre></td></tr></table></figure>
@@ -143,11 +151,13 @@ For more info about using amend :<br><a target="_blank" rel="noopener" href="htt
 <h1 id="-8"><a href="#-8" class="headerlink" title="."></a>.</h1><p>Git search with format:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --pretty=format:<span class="string">&#x27;%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s&#x27;</span> --date=short</span><br></pre></td></tr></table></figure>
 <p>with defined author, add <code>--author=&quot;auth_name&quot;</code><br>for given tag, add <code>--tags=&quot;given_tag&quot;</code></p>
-
+<hr>
+<h1 id="-9"><a href="#-9" class="headerlink" title="."></a>.</h1><p>When rebase is interrupted by accident, the console branch will be like <code>MINGW64 ~/Desktop/api (main|REBASE 2/1)</code><br>This means you are stuck with the rebase procedure.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add .                 <span class="comment"># commit the resolved changes first</span></span><br><span class="line">$ git rebase --<span class="built_in">continue</span>     <span class="comment"># continue the unfinished rebase</span></span><br><span class="line">$ git rebase --abort        <span class="comment"># exit the rebase procedure</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/11/git-for-daily-use/" data-id="ckoo58tb4002an0hrgsifh6ar"
+      <a data-url="https://visionary-s.github.io/2019/07/11/git-for-daily-use/" data-id="ckzdoi8k7001sbshr46v78txt"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
@@ -195,7 +205,7 @@ For more info about using amend :<br><a target="_blank" rel="noopener" href="htt
 
     </div>
     <ul class="list-inline">
-      <li>&copy; 2021 B. Orianna Shi</li>
+      <li>&copy; 2022 B. Orianna Shi</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
       <li>Theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
     </ul>

@@ -114,7 +114,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/11/git-for-daily-use/" data-id="ckoo58tb4002an0hrgsifh6ar"
+      <a data-url="https://visionary-s.github.io/2019/07/11/git-for-daily-use/" data-id="ckzdoi8k7001sbshr46v78txt"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
@@ -183,10 +183,140 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/14/linux-cmd/" data-id="ckoo58tbd0032n0hrhj090ohi"
+      <a data-url="https://visionary-s.github.io/2019/07/14/linux-cmd/" data-id="ckzdoi8ke0027bshr1iem5y0l"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-golang" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2021/09/07/golang/">Golang getting started</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2021/09/07/golang/" class="article-date">
+  <time datetime="2021-09-06T16:00:00.000Z" itemprop="datePublished">2021-09-07</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="Failed-to-download-golang-toolkit"><a href="#Failed-to-download-golang-toolkit" class="headerlink" title="Failed to download golang toolkit"></a>Failed to download golang toolkit</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ go env -w GOPROXY=https://goproxy.cn</span><br><span class="line">$ go get -v golang.org/x/tools/gopls</span><br><span class="line">go: downloading golang.org/x/tools/gopls v0.7.1</span><br><span class="line">go: downloading golang.org/x/tools v0.1.5</span><br><span class="line">go: downloading golang.org/x/tools v0.1.6-0.20....</span><br></pre></td></tr></table></figure>
+
+<h3 id="cannot-initialize-1-variables-with-2"><a href="#cannot-initialize-1-variables-with-2" class="headerlink" title="cannot initialize 1 variables with 2"></a>cannot initialize 1 variables with 2</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">input, _ := strconv.ParseInt(scanner.Text(), <span class="number">10</span>, <span class="number">64</span>)</span><br></pre></td></tr></table></figure>
+<p>here the <code>strconv</code> will return a set of two values, one for result and one for error exception, so we add the <code>_</code> to catch the exception msg</p>
+<h3 id="difference-between-and"><a href="#difference-between-and" class="headerlink" title="difference between := and ="></a>difference between <code>:=</code> and <code>=</code></h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hxpjava1/article/details/79865133">https://blog.csdn.net/hxpjava1/article/details/79865133</a></p>
+<h3 id="check-and-update-go-mod-for-all-dependency"><a href="#check-and-update-go-mod-for-all-dependency" class="headerlink" title="check and update go.mod for all dependency"></a>check and update <code>go.mod</code> for all dependency</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ go mod tidy</span><br></pre></td></tr></table></figure>
+<p>this cmd will automatically download the missing dependency and update it to go.mod.</p>
+<h3 id="context"><a href="#context" class="headerlink" title="context"></a>context</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/110085652">https://zhuanlan.zhihu.com/p/110085652</a></p>
+<h3 id="buffered-channel"><a href="#buffered-channel" class="headerlink" title="buffered channel"></a>buffered channel</h3><p>Buffered channels allows to accept a limited number of values without a corresponding receiver for those values.<br>Buffered channel are blocked only when the buffer is full. Similarly receiving from a buffered channel are blocked only when the buffer will be empty</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">c1 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>, <span class="number">1</span>)  <span class="comment">// Buffered</span></span><br><span class="line">c2 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>) <span class="comment">// Non-buffered</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> res := &lt;-c1:</span><br><span class="line">    fmt.Println(res)</span><br><span class="line">  <span class="keyword">case</span> &lt;-time.After(<span class="number">1</span> * time.Second):</span><br><span class="line">    fmt.Println(<span class="string">&quot;timeout 1&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// res cannot receive any value from channel c1 as it is blocked due to the empty buffer</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">        time.Sleep(<span class="number">2</span> * time.Second)</span><br><span class="line">        c1 &lt;- <span class="string">&quot;result 1&quot;</span></span><br><span class="line">  &#125;()</span><br><span class="line">  <span class="comment">// after the above goroutine is done, channel c1 is blocked as the buffer is full</span></span><br><span class="line">  <span class="comment">// no more incoming message is acceptable until the buffer is released.</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2021/09/07/golang/" data-id="ckzdoi8k1001gbshrhf1jbqqa"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/" rel="tag">go</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-py-basic0" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2021/05/06/py-basic0/">Python learning</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2021/05/06/py-basic0/" class="article-date">
+  <time datetime="2021-05-05T16:00:00.000Z" itemprop="datePublished">2021-05-06</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="classmethod-amp-staticmethod"><a href="#classmethod-amp-staticmethod" class="headerlink" title="classmethod &amp; staticmethod"></a>classmethod &amp; staticmethod</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/baxianhua/p/10845620.html">https://www.cnblogs.com/baxianhua/p/10845620.html</a>  </p>
+<p>Python不支持多个的參数重载构造函数，用classmethod修饰符的方式，定义出来的函数就能够在类对象实例化之前调用这些函数，就相当于多个构造函数，解决多个构造函数的代码写在类外面的问题  </p>
+<p>类最基本的作用是实例化出一个对象，但是有的时候再实例化之前，就需要先和类做一定的交互(init方法里需要调用类里的方法，或init之前需要调用类方法)，这种交互可能会影响实际实例化的过程，所以必须放在调用构造函数之前。大概也可能是因为这个原因出现了classmethod  </p>
+<p>对于一个普通的类，我们要使用其中的函数的话，需要对类进行实例化，而一个类中，某个函数前面加上了staticmethod或者classmethod的话，那么这个函数就可以不通过实例化直接调用，可以通过类名进行调用的</p>
+<p>类方法的第一个参数(cls)指代的就是类本身。类方法会用这个类来创建并返回最终的实例。使用类方法的另一个好处就是在继承的时候，保证了子类使用可选构造函数构造出来的类是子类的实例而不是父类的实例</p>
+<p>staticmethod就是全局可调的静态方法</p>
+<h3 id="yield"><a href="#yield" class="headerlink" title="yield"></a>yield</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mieleizhi0522/article/details/82142856">https://blog.csdn.net/mieleizhi0522/article/details/82142856</a><br>yield = return &amp; generator</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2021/05/06/py-basic0/" data-id="ckzdoi8kz0031bshr52pfckil"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
 
     </footer>
 
@@ -250,7 +380,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2021/05/06/py-basic/" data-id="ckoo58tbi003jn0hr2ztcht6a"
+      <a data-url="https://visionary-s.github.io/2021/05/06/py-basic/" data-id="ckzdoi8l70037bshrff8pgbrj"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
@@ -316,71 +446,7 @@ ref: <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_302927
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2021/05/06/py-problem/" data-id="ckoo58tbj003mn0hr13jt5uv6"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-py-basic0" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2021/05/06/py-basic0/">Python learning</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2021/05/06/py-basic0/" class="article-date">
-  <time datetime="2021-05-05T16:00:00.000Z" itemprop="datePublished">2021-05-06</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/interest/">interest</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h3 id="classmethod-amp-staticmethod"><a href="#classmethod-amp-staticmethod" class="headerlink" title="classmethod &amp; staticmethod"></a>classmethod &amp; staticmethod</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/baxianhua/p/10845620.html">https://www.cnblogs.com/baxianhua/p/10845620.html</a>  </p>
-<p>Python不支持多个的參数重载构造函数，用classmethod修饰符的方式，定义出来的函数就能够在类对象实例化之前调用这些函数，就相当于多个构造函数，解决多个构造函数的代码写在类外面的问题  </p>
-<p>类最基本的作用是实例化出一个对象，但是有的时候再实例化之前，就需要先和类做一定的交互(init方法里需要调用类里的方法，或init之前需要调用类方法)，这种交互可能会影响实际实例化的过程，所以必须放在调用构造函数之前。大概也可能是因为这个原因出现了classmethod  </p>
-<p>对于一个普通的类，我们要使用其中的函数的话，需要对类进行实例化，而一个类中，某个函数前面加上了staticmethod或者classmethod的话，那么这个函数就可以不通过实例化直接调用，可以通过类名进行调用的</p>
-<p>类方法的第一个参数(cls)指代的就是类本身。类方法会用这个类来创建并返回最终的实例。使用类方法的另一个好处就是在继承的时候，保证了子类使用可选构造函数构造出来的类是子类的实例而不是父类的实例</p>
-<p>staticmethod就是全局可调的静态方法</p>
-<h3 id="yield"><a href="#yield" class="headerlink" title="yield"></a>yield</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mieleizhi0522/article/details/82142856">https://blog.csdn.net/mieleizhi0522/article/details/82142856</a><br>yield = return &amp; generator</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2021/05/06/py-basic0/" data-id="ckoo58tbl003rn0hrc7g2hnve"
+      <a data-url="https://visionary-s.github.io/2021/05/06/py-problem/" data-id="ckzdoi8le003ibshrdb0k1a85"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
@@ -445,7 +511,7 @@ ref: <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_302927
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2021/03/29/frontend-interview/" data-id="ckoo58tb7002kn0hrasqn6fsd"
+      <a data-url="https://visionary-s.github.io/2021/03/29/frontend-interview/" data-id="ckzdoi8k6001pbshrbaeghiyx"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interview/" rel="tag">interview</a></li></ul>
@@ -463,7 +529,7 @@ ref: <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_302927
 
 
       
-        <article id="post-angular" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+        <article id="post-java-basic" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -471,7 +537,7 @@ ref: <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_302927
         
   
     <h2 itemprop="name">
-      <a class="article-title" href="/2021/03/23/angular/">Angular</a>
+      <a class="article-title" href="/2021/03/23/java-basic/">Java notes</a>
     </h2>
   
 
@@ -481,7 +547,7 @@ ref: <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_302927
 
     
       <div class="article-meta">
-        <a href="/2021/03/23/angular/" class="article-date">
+        <a href="/2021/03/23/java-basic/" class="article-date">
   <time datetime="2021-03-22T16:00:00.000Z" itemprop="datePublished">2021-03-23</time>
 </a>
         
@@ -498,18 +564,80 @@ ref: <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_302927
       
 
       
-        <p>This article is created for recording problems when I learning Angular.</p>
+        <p>Notes when learning Java.<br>Collecting useful data structure conception and tips in Java developing.</p>
 <center>
         
-          <a class="article-more-link" href="/2021/03/23/angular/">Read More...</a>
+          <a class="article-more-link" href="/2021/03/23/java-basic/">Read More...</a>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2021/03/23/angular/" data-id="ckoo58taw001wn0hrgpcpe7hs"
+      <a data-url="https://visionary-s.github.io/2021/03/23/java-basic/" data-id="ckzdoi8k9001vbshrflsp8y14"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/framework/" rel="tag">framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/typescript/" rel="tag">typescript</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/" rel="tag">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/" rel="tag">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-os-concept" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2021/03/23/os-concept/">OS + Linux notes</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2021/03/23/os-concept/" class="article-date">
+  <time datetime="2021-03-22T16:00:00.000Z" itemprop="datePublished">2021-03-23</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>Notes for interview questions on OS, together with linux</p>
+<h2 id="Operating-system"><a href="#Operating-system" class="headerlink" title="Operating system"></a>Operating system</h2><p><a target="_blank" rel="noopener" href="https://github.com/CyC2018/CS-Notes/blob/master/notes/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20-%20%E6%A6%82%E8%BF%B0.md">https://github.com/CyC2018/CS-Notes/blob/master/notes/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20-%20%E6%A6%82%E8%BF%B0.md</a></p>
+<center>
+        
+          <a class="article-more-link" href="/2021/03/23/os-concept/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2021/03/23/os-concept/" data-id="ckzdoi8ks002vbshrbijhcisp"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/" rel="tag">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/os/" rel="tag">os</a></li></ul>
 
     </footer>
 
@@ -572,134 +700,10 @@ ref: <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_302927
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2021/01/29/react/" data-id="ckoo58tbo0041n0hr8ppfdzz2"
+      <a data-url="https://visionary-s.github.io/2021/01/29/react/" data-id="ckzdoi8lk003pbshr8n9xcz38"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-pyqt" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/10/12/pyqt/">PyQt Learning &amp; Practice</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/10/12/pyqt/" class="article-date">
-  <time datetime="2020-10-11T16:00:00.000Z" itemprop="datePublished">2020-10-12</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/interest/">interest</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ pip install PyQt5</span><br><span class="line">Collecting PyQt5</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/43/cf/f89c7e632014cb8725fc30b36292ca709a5b5598e4e99fff09cb677fc898/PyQt5-5.15.1-5.15.1-cp35.cp36.cp37.cp38.cp39-none-win32.whl (51.2MB)</span><br><span class="line">     |████████████████████████████████| 51.2MB 117kB/s</span><br><span class="line">Collecting PyQt5-sip&lt;13,&gt;=12.8 (from PyQt5)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/69/eb/bb296c8a96eadacd5e91df3f5d600d9e4727b90e8b010cb86e146f995ce4/PyQt5_sip-12.8.1-cp37-cp37m-win32.whl (50kB)</span><br><span class="line">     |████████████████████████████████| 51kB 233kB/s</span><br><span class="line">Installing collected packages: PyQt5-sip, PyQt5</span><br><span class="line">Successfully installed PyQt5-5.15.1 PyQt5-sip-12.8.1</span><br></pre></td></tr></table></figure>
- <center>
-        
-          <a class="article-more-link" href="/2020/10/12/pyqt/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/10/12/pyqt/" data-id="ckoo58tbo003yn0hr5idxgqo1"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GUI/" rel="tag">GUI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyQt/" rel="tag">PyQt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-java-sonar" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/09/07/java-sonar/">Sonar Fix (Java backend)</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/09/07/java-sonar/" class="article-date">
-  <time datetime="2020-09-06T16:00:00.000Z" itemprop="datePublished">2020-09-07</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>This is a record for sonar fixing for backend based on Java.</p>
-<h3 id="CERT-issues"><a href="#CERT-issues" class="headerlink" title="CERT issues"></a>CERT issues</h3><h4 id="Extract-this-increment-or-decrement-operator-into-a-dedicated-statement"><a href="#Extract-this-increment-or-decrement-operator-into-a-dedicated-statement" class="headerlink" title="Extract this increment or decrement operator into a dedicated statement."></a>Extract this increment or decrement operator into a dedicated statement.</h4><p><strong>Rule: Increment (++) and decrement (–) operators should not be used in a method call or mixed with other operators in an expression</strong></p>
-<h5 id="1-original-code"><a href="#1-original-code" class="headerlink" title="1. original code:"></a>1. original code:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">u8a = ++u8b + u8c--;</span><br><span class="line">foo = bar++ / <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
- <center>
-        
-          <a class="article-more-link" href="/2020/09/07/java-sonar/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/09/07/java-sonar/" data-id="ckoo58tb9002qn0hr2ddee0c2"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sonar/" rel="tag">sonar</a></li></ul>
 
     </footer>
 
@@ -737,7 +741,7 @@ ref: <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_302927
 
     </div>
     <ul class="list-inline">
-      <li>&copy; 2021 B. Orianna Shi</li>
+      <li>&copy; 2022 B. Orianna Shi</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
       <li>Theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
     </ul>
