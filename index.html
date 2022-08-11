@@ -63,75 +63,6 @@
 
     
       
-        <article id="post-linux-cmd" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/07/14/linux-cmd/">Linux CMD for daily use</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/07/14/linux-cmd/" class="article-date">
-  <time datetime="2019-07-13T16:00:00.000Z" itemprop="datePublished">2019-07-14</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h3 id="check-log"><a href="#check-log" class="headerlink" title="check log"></a>check log</h3><ol>
-<li><p>Display whole log file content:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log</span><br></pre></td></tr></table></figure></li>
-<li><p>Search key word in log file, and return lines containing keyword:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log |grep <span class="string">&quot;keyword&quot;</span></span><br><span class="line">or</span><br><span class="line">$ grep -i <span class="string">&quot;keyword&quot;</span> target.log</span><br></pre></td></tr></table></figure>
-<p>these two method return same result</p>
-</li>
-<li><p>Check the most recent log (the tail lines of log file):</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log |tail -n 200   <span class="comment"># check the last 200 lines of log file</span></span><br><span class="line">or</span><br><span class="line">$ tail -200f target.log   <span class="comment"># show last 200 lines and continue printing new logs</span></span><br></pre></td></tr></table></figure>
-<center>
-        
-          <a class="article-more-link" href="/2019/07/14/linux-cmd/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/14/linux-cmd/" data-id="ckzdosu3q0029h0hr71xj0k4a"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
         <article id="post-git-for-daily-use" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -183,10 +114,142 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2019/07/11/git-for-daily-use/" data-id="ckzdosu3e001rh0hr2kty14vv"
+      <a data-url="https://visionary-s.github.io/2019/07/11/git-for-daily-use/" data-id="cl6ogsxug001opwhrefkb01sv"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-linux-cmd" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/07/14/linux-cmd/">Linux CMD for daily use</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/07/14/linux-cmd/" class="article-date">
+  <time datetime="2019-07-13T16:00:00.000Z" itemprop="datePublished">2019-07-14</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="check-log"><a href="#check-log" class="headerlink" title="check log"></a>check log</h3><ol>
+<li><p>Display whole log file content:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log</span><br></pre></td></tr></table></figure></li>
+<li><p>Search key word in log file, and return lines containing keyword:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log |grep <span class="string">&quot;keyword&quot;</span></span><br><span class="line">or</span><br><span class="line">$ grep -i <span class="string">&quot;keyword&quot;</span> target.log</span><br></pre></td></tr></table></figure>
+<p>these two method return same result</p>
+</li>
+<li><p>Check the most recent log (the tail lines of log file):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat target.log |tail -n 200   <span class="comment"># check the last 200 lines of log file</span></span><br><span class="line">or</span><br><span class="line">$ tail -200f target.log   <span class="comment"># show last 200 lines and continue printing new logs</span></span><br></pre></td></tr></table></figure>
+<center>
+        
+          <a class="article-more-link" href="/2019/07/14/linux-cmd/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2019/07/14/linux-cmd/" data-id="cl6ogsxuq002apwhrbk4k1xk4"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-mysql" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2022/03/01/mysql/">MySQL issues</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2022/03/01/mysql/" class="article-date">
+  <time datetime="2022-02-28T16:00:00.000Z" itemprop="datePublished">2022-03-01</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="install-on-win10"><a href="#install-on-win10" class="headerlink" title="install on win10"></a>install on win10</h3><p>refer  <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9b79ddf382b4">https://www.jianshu.com/p/9b79ddf382b4</a></p>
+<h3 id="config-my-ini"><a href="#config-my-ini" class="headerlink" title="config my.ini"></a>config <code>my.ini</code></h3><p>refer <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/1c3a4a555b78">https://www.jianshu.com/p/1c3a4a555b78</a></p>
+<h3 id="cannot-start-mysql-service"><a href="#cannot-start-mysql-service" class="headerlink" title="cannot start mysql service"></a>cannot start mysql service</h3><p>see <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/36319265/the-mysql-service-could-not-be-started">https://stackoverflow.com/questions/36319265/the-mysql-service-could-not-be-started</a><br>check if <code>my.ini</code> was not encoded with utf-8</p>
+<center>
+        
+          <a class="article-more-link" href="/2022/03/01/mysql/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2022/03/01/mysql/" data-id="cl6ogsxux002kpwhrex89h6en"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/" rel="tag">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/" rel="tag">database</a></li></ul>
 
     </footer>
 
@@ -209,7 +272,7 @@
         
   
     <h2 itemprop="name">
-      <a class="article-title" href="/2021/09/07/golang/">Golang getting started</a>
+      <a class="article-title" href="/2021/09/07/golang/">Golang/Gin getting started</a>
     </h2>
   
 
@@ -247,76 +310,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2021/09/07/golang/" data-id="ckzdosu3b001oh0hr6n0z40rr"
+      <a data-url="https://visionary-s.github.io/2021/09/07/golang/" data-id="cl6ogsxui001rpwhr88xs0ka8"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/" rel="tag">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/" rel="tag">go</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-py-problem" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2021/05/06/py-problem/">Python development &amp; problems</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2021/05/06/py-problem/" class="article-date">
-  <time datetime="2021-05-05T16:00:00.000Z" itemprop="datePublished">2021-05-06</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/interest/">interest</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h3 id="venv-setup-activate-amp-exit"><a href="#venv-setup-activate-amp-exit" class="headerlink" title="venv setup, activate &amp; exit"></a>venv setup, activate &amp; exit</h3><ol>
-<li>setup:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python3 -m venv</span><br></pre></td></tr></table></figure></li>
-<li>activate:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ . venv/Scripts/activate        <span class="comment"># windows</span></span><br><span class="line">$ <span class="built_in">source</span> venv/bin/activate       <span class="comment"># linux &amp; Mac OS</span></span><br></pre></td></tr></table></figure></li>
-<li>exit:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ deactivate</span><br></pre></td></tr></table></figure>
-ref: <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30292745/article/details/101445788?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_v2~rank_aggregation-3-101445788.pc_agg_rank_aggregation&amp;utm_term=python+%E5%85%B3%E9%97%ADvenv&amp;spm=1000.2123.3001.4430">https://blog.csdn.net/weixin_30292745/article/details/101445788?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_v2~rank_aggregation-3-101445788.pc_agg_rank_aggregation&amp;utm_term=python+%E5%85%B3%E9%97%ADvenv&amp;spm=1000.2123.3001.4430</a></li>
-</ol>
-<center>
-        
-          <a class="article-more-link" href="/2021/05/06/py-problem/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2021/05/06/py-problem/" data-id="ckzdosu5t005th0hr36es95dh"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/" rel="tag">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gin/" rel="tag">gin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/" rel="tag">go</a></li></ul>
 
     </footer>
 
@@ -380,10 +377,76 @@ ref: <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_302927
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2021/05/06/py-basic/" data-id="ckzdosu4d0032h0hrhtmn7pks"
+      <a data-url="https://visionary-s.github.io/2021/05/06/py-basic/" data-id="cl6ogsxvo0035pwhr989wgx9e"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/" rel="tag">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-py-problem" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2021/05/06/py-problem/">Python development &amp; problems</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2021/05/06/py-problem/" class="article-date">
+  <time datetime="2021-05-05T16:00:00.000Z" itemprop="datePublished">2021-05-06</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="venv-setup-activate-amp-exit"><a href="#venv-setup-activate-amp-exit" class="headerlink" title="venv setup, activate &amp; exit"></a>venv setup, activate &amp; exit</h3><ol>
+<li>setup:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python3 -m venv</span><br></pre></td></tr></table></figure></li>
+<li>activate:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ . venv/Scripts/activate        <span class="comment"># windows</span></span><br><span class="line">$ <span class="built_in">source</span> venv/bin/activate       <span class="comment"># linux &amp; Mac OS</span></span><br></pre></td></tr></table></figure></li>
+<li>exit:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ deactivate</span><br></pre></td></tr></table></figure>
+ref: <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30292745/article/details/101445788?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_v2~rank_aggregation-3-101445788.pc_agg_rank_aggregation&amp;utm_term=python+%E5%85%B3%E9%97%ADvenv&amp;spm=1000.2123.3001.4430">https://blog.csdn.net/weixin_30292745/article/details/101445788?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_v2~rank_aggregation-3-101445788.pc_agg_rank_aggregation&amp;utm_term=python+%E5%85%B3%E9%97%ADvenv&amp;spm=1000.2123.3001.4430</a></li>
+</ol>
+<center>
+        
+          <a class="article-more-link" href="/2021/05/06/py-problem/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2021/05/06/py-problem/" data-id="cl6ogsxvq0038pwhrcsx4gixj"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
 
     </footer>
 
@@ -445,10 +508,71 @@ ref: <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_302927
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2021/03/29/frontend-interview/" data-id="ckzdosu37001lh0hrh7bo0p82"
+      <a data-url="https://visionary-s.github.io/2021/03/29/frontend-interview/" data-id="cl6ogsxuf001lpwhr8n1xdjap"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interview/" rel="tag">interview</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-java-basic" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2021/03/23/java-basic/">Java notes</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2021/03/23/java-basic/" class="article-date">
+  <time datetime="2021-03-22T16:00:00.000Z" itemprop="datePublished">2021-03-23</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>Notes when learning Java.<br>Collecting useful data structure conception and tips in Java developing.</p>
+<center>
+        
+          <a class="article-more-link" href="/2021/03/23/java-basic/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2021/03/23/java-basic/" data-id="cl6ogsxul001ypwhr0ssy1uzg"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/" rel="tag">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/" rel="tag">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li></ul>
 
     </footer>
 
@@ -507,71 +631,10 @@ ref: <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_302927
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2021/03/23/os-concept/" data-id="ckzdosu45002qh0hr2l3xh52d"
+      <a data-url="https://visionary-s.github.io/2021/03/23/os-concept/" data-id="cl6ogsxvc002tpwhr5aopa7m0"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/" rel="tag">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/os/" rel="tag">os</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-java-basic" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2021/03/23/java-basic/">Java notes</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2021/03/23/java-basic/" class="article-date">
-  <time datetime="2021-03-22T16:00:00.000Z" itemprop="datePublished">2021-03-23</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/interest/">interest</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>Notes when learning Java.<br>Collecting useful data structure conception and tips in Java developing.</p>
-<center>
-        
-          <a class="article-more-link" href="/2021/03/23/java-basic/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2021/03/23/java-basic/" data-id="ckzdosu3j0020h0hrf0ycce9g"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/" rel="tag">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/" rel="tag">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li></ul>
 
     </footer>
 
@@ -634,71 +697,10 @@ ref: <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_302927
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2021/01/29/react/" data-id="ckzdosu5w005yh0hrcuojfac4"
+      <a data-url="https://visionary-s.github.io/2021/01/29/react/" data-id="cl6ogsxvv003fpwhra9xg7izx"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-pyqt" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/10/12/pyqt/">PyQt Learning &amp; Practice</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/10/12/pyqt/" class="article-date">
-  <time datetime="2020-10-11T16:00:00.000Z" itemprop="datePublished">2020-10-12</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/interest/">interest</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ pip install PyQt5</span><br><span class="line">Collecting PyQt5</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/43/cf/f89c7e632014cb8725fc30b36292ca709a5b5598e4e99fff09cb677fc898/PyQt5-5.15.1-5.15.1-cp35.cp36.cp37.cp38.cp39-none-win32.whl (51.2MB)</span><br><span class="line">     |████████████████████████████████| 51.2MB 117kB/s</span><br><span class="line">Collecting PyQt5-sip&lt;13,&gt;=12.8 (from PyQt5)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/69/eb/bb296c8a96eadacd5e91df3f5d600d9e4727b90e8b010cb86e146f995ce4/PyQt5_sip-12.8.1-cp37-cp37m-win32.whl (50kB)</span><br><span class="line">     |████████████████████████████████| 51kB 233kB/s</span><br><span class="line">Installing collected packages: PyQt5-sip, PyQt5</span><br><span class="line">Successfully installed PyQt5-5.15.1 PyQt5-sip-12.8.1</span><br></pre></td></tr></table></figure>
- <center>
-        
-          <a class="article-more-link" href="/2020/10/12/pyqt/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/10/12/pyqt/" data-id="ckzdosu5u005uh0hrb9kld42f"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GUI/" rel="tag">GUI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyQt/" rel="tag">PyQt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
 
     </footer>
 

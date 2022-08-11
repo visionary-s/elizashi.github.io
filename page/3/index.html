@@ -63,6 +63,73 @@
 
     
       
+        <article id="post-windows-error" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/05/13/windows-error/">windows errors in daily use</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/05/13/windows-error/" class="article-date">
+  <time datetime="2020-05-12T16:00:00.000Z" itemprop="datePublished">2020-05-13</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/work/">work</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="Error1"><a href="#Error1" class="headerlink" title="Error1"></a>Error1</h3><ul>
+<li><p>Steps to reproduce the error:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cp winpty.exe /usr/bin</span><br><span class="line">cp: cannot create regular file <span class="string">&#x27;/usr/bin/winpty.exe&#x27;</span>: Permission denied</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cp winpty.exe /usr/bin</span><br><span class="line">bash: sudo: <span class="built_in">command</span> not found</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ whoami</span><br><span class="line">eshibij</span><br></pre></td></tr></table></figure>
+<p>As above I have already been a root user (no need to run with <code>sudo</code>), so the only answer for this error is that the destination directory <code>/usr/bin</code> does not exists. Check:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\eshibij\Downloads\winpty-0.4.3-cygwin-2.8.0-x64\bin&gt; <span class="built_in">cd</span> /usr/bin</span><br><span class="line"><span class="built_in">cd</span> : Cannot find path <span class="string">&#x27;C:\usr\bin&#x27;</span> because it does not exist.</span><br></pre></td></tr></table></figure>
+<center>
+        
+          <a class="article-more-link" href="/2020/05/13/windows-error/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/05/13/windows-error/" data-id="cl6ogsxyc007gpwhrcnmy3hqi"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bash/" rel="tag">bash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/powershell/" rel="tag">powershell</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
         <article id="post-postgres-error-linux" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -114,7 +181,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/05/09/postgres-error-linux/" data-id="ckzdosu49002wh0hrei4ye3yb"
+      <a data-url="https://visionary-s.github.io/2020/05/09/postgres-error-linux/" data-id="cl6ogsxvf002wpwhr6rca80rk"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/" rel="tag">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgres/" rel="tag">postgres</a></li></ul>
@@ -223,7 +290,7 @@ PVC still not work, check its status:<figure class="highlight plain"><table><tr>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/04/08/k8s-errors/" data-id="ckzdosu68006gh0hrhuqq8m9o"
+      <a data-url="https://visionary-s.github.io/2020/04/08/k8s-errors/" data-id="cl6ogsxyd007hpwhr2fadegjq"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/" rel="tag">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li></ul>
@@ -289,7 +356,7 @@ PVC still not work, check its status:<figure class="highlight plain"><table><tr>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/04/07/Kubernetes/" data-id="ckzdosu2z0019h0hrhvxb3gxh"
+      <a data-url="https://visionary-s.github.io/2020/04/07/Kubernetes/" data-id="cl6ogsxu3000vpwhrf7w0bm3w"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K8s/" rel="tag">K8s</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li></ul>
@@ -353,7 +420,7 @@ PVC still not work, check its status:<figure class="highlight plain"><table><tr>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/03/20/k8s-ipv6-dualstack-support/" data-id="ckzdosu6k007ch0hr6dp5h2hz"
+      <a data-url="https://visionary-s.github.io/2020/03/20/k8s-ipv6-dualstack-support/" data-id="cl6ogsxz0007rpwhrb26h9tjo"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/k8s/" rel="tag">k8s</a></li></ul>
@@ -422,7 +489,7 @@ PVC still not work, check its status:<figure class="highlight plain"><table><tr>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/02/11/shell/" data-id="ckzdosu64006ah0hr39ob8ulv"
+      <a data-url="https://visionary-s.github.io/2020/02/11/shell/" data-id="cl6ogsxwd003tpwhr0mma06x7"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/" rel="tag">shell</a></li></ul>
@@ -491,74 +558,10 @@ PVC still not work, check its status:<figure class="highlight plain"><table><tr>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/20/docker/" data-id="ckzdosu35001hh0hre6v27n72"
+      <a data-url="https://visionary-s.github.io/2020/01/20/docker/" data-id="cl6ogsxuc001hpwhrf56vcerx"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-sequelize" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/19/sequelize/">Sequelize</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/19/sequelize/" class="article-date">
-  <time datetime="2020-01-18T16:00:00.000Z" itemprop="datePublished">2020-01-19</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/basic/">basic</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>Sequelize 是一个基于 promise 的 Node.js ORM, 目前支持 Postgres, MySQL, SQLite 和 Microsoft SQL Server, 主要用来进行数据库和nodejs后端数据映射。<br>Docs: <a target="_blank" rel="noopener" href="https://demopark.github.io/sequelize-docs-Zh-CN/">Sequelize Docs 中文版</a>(不全)  |  <a target="_blank" rel="noopener" href="https://sequelize.org/master/">Official api docs</a></p>
-<p>Here I only mark certain api I use most frequently.</p>
-<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><h3 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h3><p>use <code>define</code> to map data model to table in db.<br><a name = "dataModel"></a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">sequelize, DataTypes</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> Cell = sequelize.define(<span class="string">&quot;Cell&quot;</span>,</span><br><span class="line">        &#123;</span><br><span class="line">            id: &#123;</span><br><span class="line">                type: DataTypes.INTEGER,</span><br><span class="line">                primaryKey: <span class="literal">true</span>,</span><br><span class="line">                autoIncrement: <span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            type: &#123;</span><br><span class="line">                type: DataTypes.INTEGER,</span><br><span class="line">                defaultValue:<span class="number">1</span></span><br><span class="line">            &#125;,</span><br><span class="line">            name: &#123;</span><br><span class="line">                type: DataTypes.STRING(<span class="number">255</span>),</span><br><span class="line">                unique: <span class="string">&#x27;compositeIndex&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            ...</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            timestamps: <span class="literal">false</span></span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">    Cell.getCells = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...function...</span><br><span class="line"></span><br><span class="line">    ...function...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<center>
-        
-          <a class="article-more-link" href="/2020/01/19/sequelize/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/19/sequelize/" data-id="ckzdosu630068h0hrgp9rbn12"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/" rel="tag">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/" rel="tag">database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/" rel="tag">node.js</a></li></ul>
 
     </footer>
 
@@ -622,10 +625,74 @@ PVC still not work, check its status:<figure class="highlight plain"><table><tr>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/19/create-react-app/" data-id="ckzdosu2t0013h0hrda8ahnjr"
+      <a data-url="https://visionary-s.github.io/2020/01/19/create-react-app/" data-id="cl6ogsxu90019pwhr60gcejmh"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/framework/" rel="tag">framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        <article id="post-sequelize" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/01/19/sequelize/">Sequelize</a>
+    </h2>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/01/19/sequelize/" class="article-date">
+  <time datetime="2020-01-18T16:00:00.000Z" itemprop="datePublished">2020-01-19</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/basic/">basic</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>Sequelize 是一个基于 promise 的 Node.js ORM, 目前支持 Postgres, MySQL, SQLite 和 Microsoft SQL Server, 主要用来进行数据库和nodejs后端数据映射。<br>Docs: <a target="_blank" rel="noopener" href="https://demopark.github.io/sequelize-docs-Zh-CN/">Sequelize Docs 中文版</a>(不全)  |  <a target="_blank" rel="noopener" href="https://sequelize.org/master/">Official api docs</a></p>
+<p>Here I only mark certain api I use most frequently.</p>
+<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><h3 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h3><p>use <code>define</code> to map data model to table in db.<br><a name = "dataModel"></a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">sequelize, DataTypes</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> Cell = sequelize.define(<span class="string">&quot;Cell&quot;</span>,</span><br><span class="line">        &#123;</span><br><span class="line">            id: &#123;</span><br><span class="line">                type: DataTypes.INTEGER,</span><br><span class="line">                primaryKey: <span class="literal">true</span>,</span><br><span class="line">                autoIncrement: <span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            type: &#123;</span><br><span class="line">                type: DataTypes.INTEGER,</span><br><span class="line">                defaultValue:<span class="number">1</span></span><br><span class="line">            &#125;,</span><br><span class="line">            name: &#123;</span><br><span class="line">                type: DataTypes.STRING(<span class="number">255</span>),</span><br><span class="line">                unique: <span class="string">&#x27;compositeIndex&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            ...</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            timestamps: <span class="literal">false</span></span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">    Cell.getCells = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...function...</span><br><span class="line"></span><br><span class="line">    ...function...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<center>
+        
+          <a class="article-more-link" href="/2020/01/19/sequelize/">Read More...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2020/01/19/sequelize/" data-id="cl6ogsxwb003qpwhrat0wfq5k"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/" rel="tag">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/" rel="tag">database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/" rel="tag">node.js</a></li></ul>
 
     </footer>
 
@@ -685,80 +752,10 @@ PVC still not work, check its status:<figure class="highlight plain"><table><tr>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/08/js-getter/" data-id="ckzdosu3i001yh0hr0ut54q0i"
+      <a data-url="https://visionary-s.github.io/2020/01/08/js-getter/" data-id="cl6ogsxum0020pwhr9uxqd9n5"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-mini-program" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2020/01/07/mini-program/">Mini-program project demo for starter</a>
-    </h2>
-  
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2020/01/07/mini-program/" class="article-date">
-  <time datetime="2020-01-06T16:00:00.000Z" itemprop="datePublished">2020-01-07</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/interest/">interest</a>
-  </div>
-
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h3 id="demo-program"><a href="#demo-program" class="headerlink" title="demo program"></a>demo program</h3><ol>
-<li><p>我要圣诞帽<br><a target="_blank" rel="noopener" href="https://github.com/jasscia/ChristmasHat">https://github.com/jasscia/ChristmasHat</a> <br>图片编辑，存图</p>
-</li>
-<li><p>掌故<br><a target="_blank" rel="noopener" href="https://github.com/Gesangs/PhoneStory">https://github.com/Gesangs/PhoneStory</a> <br>新闻推送</p>
-</li>
-<li><p>简约睡眠Music<br><a target="_blank" rel="noopener" href="https://github.com/shajinyang/BeautyAudio">https://github.com/shajinyang/BeautyAudio</a> <br>音乐播放器</p>
-</li>
-<li><p>运势小程序<br><a target="_blank" rel="noopener" href="https://github.com/panyefan/wxfortune">https://github.com/panyefan/wxfortune</a> <br>测运势，存图</p>
-</li>
-<li><p>跑马灯，左侧菜单，抽屉层，加载动画<br><a target="_blank" rel="noopener" href="https://github.com/youzouzou/wxapp">https://github.com/youzouzou/wxapp</a> <br>小程序组件合集</p>
-<center>
-        
-          <a class="article-more-link" href="/2020/01/07/mini-program/">Read More...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2020/01/07/mini-program/" data-id="ckzdosu3w002gh0hrfyuch1yu"
-         class="article-share-link">Share</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mini-program/" rel="tag">mini-program</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/resource/" rel="tag">resource</a></li></ul>
 
     </footer>
 

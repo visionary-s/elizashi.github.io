@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    Golang getting started |
+    Golang/Gin getting started |
     
     Solito</title>
   
@@ -37,7 +37,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Golang getting started
+      Golang/Gin getting started
     </h1>
   
 
@@ -76,14 +76,34 @@
 <p>this cmd will automatically download the missing dependency and update it to go.mod.</p>
 <h3 id="context"><a href="#context" class="headerlink" title="context"></a>context</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/110085652">https://zhuanlan.zhihu.com/p/110085652</a></p>
 <h3 id="buffered-channel"><a href="#buffered-channel" class="headerlink" title="buffered channel"></a>buffered channel</h3><p>Buffered channels allows to accept a limited number of values without a corresponding receiver for those values.<br>Buffered channel are blocked only when the buffer is full. Similarly receiving from a buffered channel are blocked only when the buffer will be empty</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">c1 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>, <span class="number">1</span>)  <span class="comment">// Buffered</span></span><br><span class="line">c2 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>) <span class="comment">// Non-buffered</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> res := &lt;-c1:</span><br><span class="line">    fmt.Println(res)</span><br><span class="line">  <span class="keyword">case</span> &lt;-time.After(<span class="number">1</span> * time.Second):</span><br><span class="line">    fmt.Println(<span class="string">&quot;timeout 1&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// res cannot receive any value from channel c1 as it is blocked due to the empty buffer</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">        time.Sleep(<span class="number">2</span> * time.Second)</span><br><span class="line">        c1 &lt;- <span class="string">&quot;result 1&quot;</span></span><br><span class="line">  &#125;()</span><br><span class="line">  <span class="comment">// after the above goroutine is done, channel c1 is blocked as the buffer is full</span></span><br><span class="line">  <span class="comment">// no more incoming message is acceptable until the buffer is released.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">c1 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>, <span class="number">1</span>)  <span class="comment">// Buffered</span></span><br><span class="line">c2 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>) <span class="comment">// Non-buffered</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> res := &lt;-c1:</span><br><span class="line">    fmt.Println(res)</span><br><span class="line">  <span class="keyword">case</span> &lt;-time.After(<span class="number">1</span> * time.Second):</span><br><span class="line">    fmt.Println(<span class="string">&quot;timeout 1&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// res cannot receive any value from channel c1 as it is blocked due to the empty buffer</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">        time.Sleep(<span class="number">2</span> * time.Second)</span><br><span class="line">        c1 &lt;- <span class="string">&quot;result 1&quot;</span></span><br><span class="line">  &#125;()</span><br><span class="line">  <span class="comment">// after the above goroutine is done, channel c1 is blocked as the buffer is full</span></span><br><span class="line">  <span class="comment">// no more incoming message is acceptable until the buffer is released.</span></span><br><span class="line">  <span class="comment">// This is a common pattern to prevent goroutine leaks in case the channel is never read.</span></span><br></pre></td></tr></table></figure>
+<h3 id="net-rpc-usage"><a href="#net-rpc-usage" class="headerlink" title="net/rpc usage"></a>net/rpc usage</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/raoxiaoya/article/details/109473904">https://blog.csdn.net/raoxiaoya/article/details/109473904</a></p>
+<h3 id="mongo-db"><a href="#mongo-db" class="headerlink" title="mongo db"></a>mongo db</h3><ol>
+<li>collection: <a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/core/databases-and-collections/">https://docs.mongodb.com/manual/core/databases-and-collections/</a><br>Collections are analogous to tables in relational databases</li>
+</ol>
+<h3 id="package-xxx-middleware-is-not-in-GOROOT-C-Program-Files-Go-src-xxx-middleware"><a href="#package-xxx-middleware-is-not-in-GOROOT-C-Program-Files-Go-src-xxx-middleware" class="headerlink" title="package xxx/middleware is not in GOROOT (C:\Program Files\Go\src\xxx\middleware)"></a>package xxx/middleware is not in GOROOT (C:\Program Files\Go\src\xxx\middleware)</h3><p>not sure about how to fix it, but I just no longer saw same error happen in new project any more …</p>
+<h3 id="introduce-package-under-same-project"><a href="#introduce-package-under-same-project" class="headerlink" title="introduce package under same project"></a>introduce package under same project</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">project-1</span><br><span class="line">  - /server</span><br><span class="line">    - server.go</span><br><span class="line">        - func NewServer</span><br><span class="line">  - main.go</span><br></pre></td></tr></table></figure>
+<p>Here I want to introduce func <code>NewServer</code> into <code>main.go</code>  </p>
+<ol>
+<li>define module for project-1<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ go mod init project-1   <span class="comment"># under pwd /project-1</span></span><br></pre></td></tr></table></figure></li>
+<li>name package name in <code>server.go</code> and make sure the func name is start with upper class letter<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> server</span><br><span class="line">...</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewServer</span><span class="params">()</span></span> &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000041390281">https://segmentfault.com/q/1010000041390281</a><br>If your func is not started with upper class letter, go kit for vscode cannot detect the func and will show error like:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func not exported by package</span><br></pre></td></tr></table></figure>
+Auto saving will remove your import package as it is considered not used.</li>
+<li>import to <code>main.go</code><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>(</span><br><span class="line">  <span class="string">&quot;project-1/server&quot;</span></span><br><span class="line">)</span><br><span class="line">...</span><br><span class="line">s := server.NewServer()</span><br></pre></td></tr></table></figure>
+btw, if you are introducing struct or func inside the same package, there’s no need to import, go ahead and use it directly.</li>
+</ol>
+<h3 id="gin-Context-vs-http-Request-amp-http-ResponseWriter"><a href="#gin-Context-vs-http-Request-amp-http-ResponseWriter" class="headerlink" title="gin.Context vs http.Request &amp; http.ResponseWriter"></a><code>gin.Context</code> vs <code>http.Request</code> &amp; <code>http.ResponseWriter</code></h3><p><code>gin.Context</code> is encapsulated as the combination of <code>http.Request</code> &amp; <code>http.ResponseWriter</code><br><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903830669262855">https://juejin.cn/post/6844903830669262855</a></p>
+<h3 id="rsa-encryt"><a href="#rsa-encryt" class="headerlink" title="rsa encryt"></a>rsa encryt</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/384595092">https://zhuanlan.zhihu.com/p/384595092</a></p>
+<h3 id="gin-H"><a href="#gin-H" class="headerlink" title="gin.H"></a>gin.H</h3><p>= <code>map[string]interface&#123;&#125;</code><br>  <a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000017476060/a-1020000017486404">https://segmentfault.com/q/1010000017476060/a-1020000017486404</a></p>
+<h3 id="add-delete-for-go-Array"><a href="#add-delete-for-go-Array" class="headerlink" title="add, delete for go Array"></a>add, delete for go Array</h3><p>Mainly use <code>Slice</code>, see <a target="_blank" rel="noopener" href="https://blog.csdn.net/youngwhz1/article/details/83026263">https://blog.csdn.net/youngwhz1/article/details/83026263</a></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://visionary-s.github.io/2021/09/07/golang/" data-id="ckzdosu3b001oh0hr6n0z40rr"
+      <a data-url="https://visionary-s.github.io/2021/09/07/golang/" data-id="cl6ogsxui001rpwhr88xs0ka8"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/" rel="tag">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/" rel="tag">go</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/" rel="tag">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gin/" rel="tag">gin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/" rel="tag">go</a></li></ul>
 
     </footer>
 
@@ -93,10 +113,19 @@
     
   <nav class="article-nav">
     
+      <a href="/2022/03/01/mysql/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            MySQL issues
+          
+        </div>
+      </a>
     
-      <a href="/2021/05/06/py-problem/" class="article-nav-link">
+    
+      <a href="/2021/05/06/py-basic/" class="article-nav-link">
         <strong class="article-nav-caption">Olde posts</strong>
-        <div class="article-nav-title">Python development &amp; problems</div>
+        <div class="article-nav-title">Python concepts</div>
       </a>
     
   </nav>

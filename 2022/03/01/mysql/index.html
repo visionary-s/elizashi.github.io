@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    MySQL issues |
+    
+    Solito</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-mysql" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MySQL issues
+    </h1>
+  
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2022/03/01/mysql/" class="article-date">
+  <time datetime="2022-02-28T16:00:00.000Z" itemprop="datePublished">2022-03-01</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/interest/">interest</a>
+  </div>
+
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <h3 id="install-on-win10"><a href="#install-on-win10" class="headerlink" title="install on win10"></a>install on win10</h3><p>refer  <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9b79ddf382b4">https://www.jianshu.com/p/9b79ddf382b4</a></p>
+<h3 id="config-my-ini"><a href="#config-my-ini" class="headerlink" title="config my.ini"></a>config <code>my.ini</code></h3><p>refer <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/1c3a4a555b78">https://www.jianshu.com/p/1c3a4a555b78</a></p>
+<h3 id="cannot-start-mysql-service"><a href="#cannot-start-mysql-service" class="headerlink" title="cannot start mysql service"></a>cannot start mysql service</h3><p>see <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/36319265/the-mysql-service-could-not-be-started">https://stackoverflow.com/questions/36319265/the-mysql-service-could-not-be-started</a><br>check if <code>my.ini</code> was not encoded with utf-8</p>
+<center><a id="more"></a></center>
+
+
+<h3 id="Failed-to-connect-with-host-localhost"><a href="#Failed-to-connect-with-host-localhost" class="headerlink" title="Failed to connect with host localhost"></a>Failed to connect with host <code>localhost</code></h3><p>see <a target="_blank" rel="noopener" href="https://www.bilishare.com/question/mysql/2021/04/12/mysql-error.html">https://www.bilishare.com/question/mysql/2021/04/12/mysql-error.html</a><br>also see <a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/resetting-permissions.html">https://dev.mysql.com/doc/refman/8.0/en/resetting-permissions.html</a>  </p>
+<p>Finally failed with <code>[Server] 1396  Operation ALTER USER failed for &#39;root&#39;@&#39;localhost&#39;</code>, try to reinstall mysql …</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\...\Downloads\mysql-8.0.27-winx64\bin&gt;mysqld -remove mysql</span><br><span class="line">Service successfully removed.</span><br><span class="line"></span><br><span class="line">C:\Users\...\Downloads\mysql-8.0.27-winx64\bin&gt;mysqld --initialize --user=mysql --console</span><br><span class="line">2022-03-01T09:53:39.820016Z 0 [System] [MY-013169] [Server] C:\Users\eshibij\Downloads\mysql-8.0.27-winx64\bin\mysqld.exe (mysqld 8.0.27) initializing of server <span class="keyword">in</span> progress as process 26856</span><br><span class="line">2022-03-01T09:53:39.823462Z 0 [ERROR] [MY-010457] [Server] --initialize specified but the data directory has files <span class="keyword">in</span> it. Aborting.</span><br><span class="line">2022-03-01T09:53:39.823476Z 0 [ERROR] [MY-013236] [Server] The designated data directory C:\Users\eshibij\Downloads\mysql-8.0.27-winx64\data\ is unusable. You can remove all files that the server added to it.</span><br><span class="line">2022-03-01T09:53:39.848518Z 0 [ERROR] [MY-010119] [Server] Aborting</span><br><span class="line">2022-03-01T09:53:39.852182Z 0 [System] [MY-010910] [Server] C:\Users\eshibij\Downloads\mysql-8.0.27-winx64\bin\mysqld.exe: Shutdown complete (mysqld 8.0.27)  MySQL Community Server - GPL.</span><br><span class="line"><span class="comment"># here initialize user failed due to the last existing `/data` folder, remind to delete it before you redo the init</span></span><br><span class="line"></span><br><span class="line">C:\Users\...\Downloads\mysql-8.0.27-winx64\bin&gt;mysqld --initialize --user=mysql --console</span><br><span class="line">2022-03-01T09:54:04.045122Z 0 [System] [MY-013169] [Server] C:\Users\eshibij\Downloads\mysql-8.0.27-winx64\bin\mysqld.exe (mysqld 8.0.27) initializing of server <span class="keyword">in</span> progress as process 11404</span><br><span class="line">2022-03-01T09:54:04.106350Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.</span><br><span class="line">2022-03-01T09:54:06.283703Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.</span><br><span class="line">2022-03-01T09:54:08.851696Z 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1 is enabled <span class="keyword">for</span> channel mysql_main</span><br><span class="line">2022-03-01T09:54:08.856307Z 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1.1 is enabled <span class="keyword">for</span> channel mysql_main</span><br><span class="line">2022-03-01T09:54:09.029924Z 6 [Note] [MY-010454] [Server] A temporary password is generated <span class="keyword">for</span> root@localhost: D(ag!*brW6w5</span><br><span class="line"></span><br><span class="line">C:\Users\...\Downloads\mysql-8.0.27-winx64\bin&gt;mysqld -install</span><br><span class="line">Service successfully installed.</span><br><span class="line"></span><br><span class="line">C:\Users\...\Downloads\mysql-8.0.27-winx64\bin&gt;net start mysql</span><br><span class="line">The MySQL service is starting.</span><br><span class="line">The MySQL service was started successfully.</span><br><span class="line"></span><br><span class="line">C:\Users\...\Downloads\mysql-8.0.27-winx64\bin&gt;mysql -u root -p</span><br><span class="line">Enter password: ************</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 8</span><br><span class="line">Server version: 8.0.27</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2021, Oracle and/or its affiliates.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> or <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">&#x27;\c&#x27;</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt; use mysql</span><br><span class="line">No connection. Trying to reconnect...</span><br><span class="line">Enter password: ************</span><br><span class="line">Connection id:    9</span><br><span class="line">Current database: *** NONE ***</span><br><span class="line"></span><br><span class="line">ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.</span><br><span class="line"><span class="comment"># need to change the default password first</span></span><br><span class="line"></span><br><span class="line">mysql&gt; ALTER USER root@localhost IDENTIFIED BY <span class="string">&#x27;root&#x27;</span>;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; use mysql</span><br><span class="line">Database changed</span><br><span class="line"></span><br><span class="line">mysql&gt; select host,user from user;</span><br><span class="line">+-----------+------------------+</span><br><span class="line">| host      | user             |</span><br><span class="line">+-----------+------------------+</span><br><span class="line">| localhost | mysql.infoschema |</span><br><span class="line">| localhost | mysql.session    |</span><br><span class="line">| localhost | mysql.sys        |</span><br><span class="line">| localhost | root             |</span><br><span class="line">+-----------+------------------+</span><br><span class="line">4 rows <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; CREATE USER <span class="string">&#x27;backup&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">Query OK, 0 rows affected (0.02 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select host,user from user;</span><br><span class="line">+-----------+------------------+</span><br><span class="line">| host      | user             |</span><br><span class="line">+-----------+------------------+</span><br><span class="line">| localhost | backup           |</span><br><span class="line">| localhost | mysql.infoschema |</span><br><span class="line">| localhost | mysql.session    |</span><br><span class="line">| localhost | mysql.sys        |</span><br><span class="line">| localhost | root             |</span><br><span class="line">+-----------+------------------+</span><br><span class="line">5 rows <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; grant all privileges on *.* to <span class="string">&#x27;backup&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> with grant option;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; grant all privileges on *.* to <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> with grant option;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select host,user,password_require_current,Insert_priv from user;</span><br><span class="line">+-----------+------------------+--------------------------+-------------+</span><br><span class="line">| host      | user             | password_require_current | Insert_priv |</span><br><span class="line">+-----------+------------------+--------------------------+-------------+</span><br><span class="line">| localhost | backup           | NULL                     | Y           |</span><br><span class="line">| localhost | mysql.infoschema | NULL                     | N           |</span><br><span class="line">| localhost | mysql.session    | NULL                     | N           |</span><br><span class="line">| localhost | mysql.sys        | NULL                     | N           |</span><br><span class="line">| localhost | root             | NULL                     | Y           |</span><br><span class="line">+-----------+------------------+--------------------------+-------------+</span><br><span class="line">5 rows <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://visionary-s.github.io/2022/03/01/mysql/" data-id="cl6ogsxux002kpwhrex89h6en"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/" rel="tag">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/" rel="tag">database</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2021/09/07/golang/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">Golang/Gin getting started</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span> visitors</li>
+  
+</ul>
+
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2022 B. Orianna Shi</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/ming.svg" alt="Solito"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+    <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <!-- <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li> -->
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" href="https://github.com/visionary-s" title="GitHub">
+        <i class="fe fe-github"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+
+</aside>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/snap.svg-min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+<script src="/js/ocean.js"></script>
+
+
+</body>
+</html>
